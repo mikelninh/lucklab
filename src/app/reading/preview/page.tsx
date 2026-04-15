@@ -7,49 +7,51 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { TycheSigil } from "@/components/TycheSigil";
 
-type Reading = {
+type FreeTeaser = {
+  greeting: string;
+  archetypeGlimpse: string;
+  traditionTease: { name: string; hook: string };
+  unlockPrompt: string;
+};
+
+type ReadingData = {
   archetype: { id: string; name: string; greek: string; tagline: string };
-  scores: Record<string, number>;
-  growthEdge: string;
-  resonantTraditions: string[];
-  tyche: {
-    greeting: string;
-    archetypeInsight: string;
-    traditionMatch: { primary: string; why: string };
-    growthEdge: string;
-    teaser: string;
-  };
+  tyche: FreeTeaser;
+  answers: { questionId: number; optionId: string }[];
+  personal: { name: string; birthdate: string; currentQuestion: string };
 };
 
 export default function ReadingPreviewPage() {
   const router = useRouter();
-  const [reading, setReading] = useState<Reading | null>(null);
-  const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const [reading, setReading] = useState<ReadingData | null>(null);
+  const [loadingTier, setLoadingTier] = useState<"primer" | "full" | null>(null);
 
   useEffect(() => {
     const raw = sessionStorage.getItem("kairos:reading");
     if (!raw) {
-      router.push("/diagnostic");
+      router.push("/reading");
       return;
     }
     try {
       setReading(JSON.parse(raw));
     } catch {
-      router.push("/diagnostic");
+      router.push("/reading");
     }
   }, [router]);
 
-  async function startCheckout() {
+  async function unlock(tier: "primer" | "full") {
     if (!reading) return;
-    setCheckoutLoading(true);
+    setLoadingTier(tier);
     try {
-      const raw = sessionStorage.getItem("kairos:reading");
-      if (!raw) throw new Error("Reading not found");
-      const parsed = JSON.parse(raw);
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ answers: parsed.answers, archetypeId: reading.archetype.id }),
+        body: JSON.stringify({
+          answers: reading.answers,
+          personal: reading.personal,
+          archetypeId: reading.archetype.id,
+          tier,
+        }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Checkout failed");
@@ -57,7 +59,7 @@ export default function ReadingPreviewPage() {
     } catch (err) {
       console.error(err);
       alert(err instanceof Error ? err.message : "Checkout failed");
-      setCheckoutLoading(false);
+      setLoadingTier(null);
     }
   }
 
@@ -72,14 +74,8 @@ export default function ReadingPreviewPage() {
     );
   }
 
-  const scoreOrder: [string, string][] = [
-    ["attention", "Attention"],
-    ["openness", "Openness"],
-    ["action", "Aligned action"],
-    ["surrender", "Surrender"],
-    ["connection", "Connection"],
-    ["meaning", "Meaning-making"],
-  ];
+  const { archetype, tyche, personal } = reading;
+  const firstName = personal.name.trim().split(/\s+/)[0];
 
   return (
     <>
@@ -89,142 +85,143 @@ export default function ReadingPreviewPage() {
         {/* HEADER */}
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">
-            <TycheSigil size={80} />
+            <TycheSigil size={88} />
           </div>
           <div className="eyebrow eyebrow-tyche mb-4">
-            tyche&rsquo;s reading &middot; free preview
+            your reading &middot; free glimpse
           </div>
           <p className="font-mono text-[11px] text-[var(--text-subtle)] tracking-wider">
-            {reading.archetype.greek}
+            {archetype.greek}
           </p>
           <h1 className="font-display text-[56px] md:text-[80px] leading-[0.95] tracking-[-0.02em] font-light mt-3">
-            <em className="not-italic text-gold-gradient">{reading.archetype.name}</em>
+            <em className="not-italic text-gold-gradient">{archetype.name}</em>
           </h1>
           <p className="text-[17px] md:text-[19px] text-[var(--text-muted)] mt-6 max-w-lg mx-auto">
-            {reading.archetype.tagline}
+            {archetype.tagline}
           </p>
         </div>
 
         {/* GREETING */}
-        <div className="mb-16">
-          <p className="font-display text-[22px] md:text-[26px] leading-[1.5] text-[var(--text)] text-balance">
-            {reading.tyche.greeting}
+        <div className="mb-12">
+          <p className="font-display text-[22px] md:text-[28px] leading-[1.4] text-[var(--text)] text-balance">
+            {tyche.greeting}
           </p>
         </div>
 
-        {/* SCORES */}
-        <div className="mb-16 card">
-          <div className="eyebrow mb-5">your kairotic profile</div>
-          <div className="space-y-4">
-            {scoreOrder.map(([id, label]) => {
-              const value = reading.scores[id] ?? 0;
-              return (
-                <div key={id}>
-                  <div className="flex justify-between items-baseline mb-1.5">
-                    <span className="text-[14px] text-[var(--text)]">{label}</span>
-                    <span className="font-mono text-[12px] text-[var(--gold)]">{value}/100</span>
-                  </div>
-                  <div className="h-[4px] bg-[var(--border)] rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-[var(--gold-dim)] to-[var(--gold-bright)] transition-all"
-                      style={{ width: `${value}%` }}
-                    />
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+        {/* ARCHETYPE GLIMPSE */}
+        <div className="mb-12">
+          <div className="eyebrow mb-4">what tyche sees</div>
+          <p className="text-[16px] md:text-[17px] text-[var(--text)] leading-[1.8] text-pretty">
+            {tyche.archetypeGlimpse}
+          </p>
         </div>
 
-        {/* ARCHETYPE INSIGHT */}
-        <div className="mb-16">
-          <div className="eyebrow mb-4">why you are the {reading.archetype.name.toLowerCase()}</div>
-          <div className="space-y-4 text-[16px] text-[var(--text)] leading-[1.75]">
-            {reading.tyche.archetypeInsight.split("\n\n").map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
-        </div>
-
-        {/* TRADITION MATCH */}
-        <div className="mb-16 card card-gold">
-          <div className="eyebrow mb-3">resonant tradition</div>
-          <h3 className="font-display text-[32px] font-normal mb-3 text-[var(--gold-bright)]">
-            {reading.tyche.traditionMatch.primary}
+        {/* TRADITION TEASE */}
+        <div className="mb-12 card card-gold">
+          <div className="eyebrow mb-3">your resonant tradition</div>
+          <h3 className="font-display text-[28px] font-normal mb-3 text-[var(--gold-bright)]">
+            {tyche.traditionTease.name}
           </h3>
           <p className="text-[15px] text-[var(--text-muted)] leading-relaxed">
-            {reading.tyche.traditionMatch.why}
+            {tyche.traditionTease.hook}
           </p>
         </div>
 
-        {/* GROWTH EDGE */}
-        <div className="mb-16">
-          <div className="eyebrow mb-3">growth edge &middot; {reading.growthEdge.toLowerCase()}</div>
-          <p className="text-[16px] text-[var(--text)] leading-[1.75]">
-            {reading.tyche.growthEdge}
-          </p>
-        </div>
+        {/* THE LOCKED CONTENT VISUAL */}
+        <LockedPreview firstName={firstName} />
 
-        {/* UPSELL */}
-        <div className="card card-tyche relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-48 h-48 bg-[var(--tyche)] opacity-10 blur-3xl rounded-full pointer-events-none" />
-          <div className="relative">
-            <div className="eyebrow eyebrow-tyche mb-4">the full reading</div>
-            <h2 className="font-display text-[32px] md:text-[42px] leading-[1.1] font-light mb-4 text-balance">
-              Tyche has more to say.
+        {/* UNLOCK — two CTAs */}
+        <section className="mt-4">
+          <div className="text-center mb-8">
+            <div className="eyebrow eyebrow-tyche mb-3">unlock your reading</div>
+            <h2 className="font-display text-[32px] md:text-[44px] leading-[1.08] font-light text-balance">
+              Your map is <em className="not-italic text-[var(--tyche)]">ready</em>, {firstName}.<br />
+              Choose the door.
             </h2>
-            <p className="text-[15px] text-[var(--text-muted)] mb-6 leading-relaxed">
-              {reading.tyche.teaser}
-            </p>
-
-            <ul className="space-y-2.5 text-[13px] text-[var(--text-muted)] mb-8">
-              <li className="flex items-start gap-2">
-                <span className="text-[var(--tyche)]">+</span>
-                <span>A full 20-page reading, written for your specific pattern</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[var(--tyche)]">+</span>
-                <span>Architecture analysis across all six mechanisms</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[var(--tyche)]">+</span>
-                <span>Three tradition-specific practices matched to your profile</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[var(--tyche)]">+</span>
-                <span>A personalised 30-day protocol &mdash; one week per mechanism</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[var(--tyche)]">+</span>
-                <span>Your daily ritual and the failure modes to watch for</span>
-              </li>
-            </ul>
-
-            <div className="flex items-baseline gap-3 mb-6">
-              <span className="font-display text-[48px] text-[var(--text)]">€29</span>
-              <span className="font-mono text-[13px] text-[var(--text-subtle)] line-through">€49</span>
-              <span className="font-mono text-[11px] text-[var(--tyche)] tracking-wider ml-2">
-                · launch pricing
-              </span>
-            </div>
-
-            <button
-              onClick={startCheckout}
-              disabled={checkoutLoading}
-              className="btn btn-primary w-full md:w-auto justify-center"
-            >
-              {checkoutLoading ? "Preparing checkout…" : "Consult Tyche · €29"}
-              {!checkoutLoading && (
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                  <path d="M3 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              )}
-            </button>
-            <p className="font-mono text-[11px] text-[var(--text-subtle)] mt-4 tracking-wider">
-              SECURE CHECKOUT · DELIVERED IN UNDER 60 SECONDS · PDF + WEB
-            </p>
           </div>
-        </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {/* Primer — €9 */}
+            <button
+              onClick={() => unlock("primer")}
+              disabled={loadingTier !== null}
+              className="card card-gold text-left flex flex-col hover:scale-[1.01] transition-transform disabled:opacity-60 disabled:hover:scale-100"
+            >
+              <div className="flex items-baseline justify-between mb-3">
+                <span className="kbd text-[11px]">tier 1 · primer</span>
+                <span className="font-mono text-[10px] text-[var(--gold)] tracking-wider">
+                  INSTANT
+                </span>
+              </div>
+              <h3 className="font-display text-[26px] font-normal text-[var(--text)] mb-1">
+                Archetype Primer
+              </h3>
+              <p className="text-[13px] text-[var(--text-subtle)] mb-4">
+                The full six-lever profile + tradition deep-dive + a 7-day practice.
+              </p>
+              <ul className="space-y-2 text-[13px] text-[var(--text-muted)] mb-6 flex-1">
+                <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span>Your six-lever scores (all 100 points)</li>
+                <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span>A deep read of your dominant & quietest levers</li>
+                <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span>Tradition essay &mdash; with a real primary-source quote</li>
+                <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span>A seven-day practice you start today</li>
+                <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span>Delivered instantly &middot; yours forever</li>
+              </ul>
+              <div className="flex items-baseline gap-3 mb-4">
+                <span className="font-display text-[44px] text-[var(--text)]">€9</span>
+                <span className="font-mono text-[11px] text-[var(--gold)] tracking-wider">
+                  LOW-RISK UNLOCK
+                </span>
+              </div>
+              <span className="btn btn-ghost justify-center w-full">
+                {loadingTier === "primer" ? "Redirecting…" : "Unlock for €9 →"}
+              </span>
+            </button>
+
+            {/* Full Reading — €29 featured */}
+            <button
+              onClick={() => unlock("full")}
+              disabled={loadingTier !== null}
+              className="card card-tyche text-left flex flex-col relative overflow-hidden hover:scale-[1.01] transition-transform disabled:opacity-60 disabled:hover:scale-100"
+            >
+              <div className="absolute top-0 right-0 w-48 h-48 bg-[var(--tyche)] opacity-10 blur-3xl rounded-full pointer-events-none" />
+              <div className="relative flex flex-col flex-1">
+                <div className="flex items-baseline justify-between mb-3">
+                  <span className="kbd kbd-tyche text-[11px]">tier 2 · full reading</span>
+                  <span className="font-mono text-[10px] text-[var(--tyche)] tracking-wider">
+                    MOST CHOSEN
+                  </span>
+                </div>
+                <h3 className="font-display text-[26px] font-normal text-[var(--text)] mb-1">
+                  Tyche&rsquo;s Full Reading
+                </h3>
+                <p className="text-[13px] text-[var(--text-subtle)] mb-4">
+                  Your complete personalised map. Addressed to {firstName}, with your birth-season, a 30-day arc.
+                </p>
+                <ul className="space-y-2 text-[13px] text-[var(--text-muted)] mb-6 flex-1">
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>Everything in the Primer</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>A 220-word personal opening letter from Tyche</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>THREE tradition deep-dives with authentic practices</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>A 30-day protocol, week-by-week &mdash; yours to keep</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>Your personalised daily ritual</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>Failure modes specific to your archetype</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>Responds to your actual question: <em>&ldquo;{personal.currentQuestion.slice(0, 80)}{personal.currentQuestion.length > 80 ? "…" : ""}&rdquo;</em></li>
+                </ul>
+                <div className="flex items-baseline gap-3 mb-4">
+                  <span className="font-display text-[44px] text-[var(--text)]">€29</span>
+                  <span className="font-mono text-[11px] text-[var(--text-subtle)] line-through">€49</span>
+                  <span className="font-mono text-[11px] text-[var(--tyche)] tracking-wider">LAUNCH</span>
+                </div>
+                <span className="btn btn-primary justify-center w-full">
+                  {loadingTier === "full" ? "Redirecting…" : "Unlock for €29 →"}
+                </span>
+              </div>
+            </button>
+          </div>
+
+          <p className="text-center mt-8 text-[12px] text-[var(--text-subtle)] font-mono tracking-wider">
+            STRIPE SECURE · INSTANT DELIVERY · {tyche.unlockPrompt}
+          </p>
+        </section>
 
         <p className="text-center mt-12 text-[13px] text-[var(--text-subtle)] font-mono tracking-wider">
           <Link href="/" className="hover:text-[var(--gold)]">← back to kairos lab</Link>
@@ -233,5 +230,47 @@ export default function ReadingPreviewPage() {
 
       <Footer />
     </>
+  );
+}
+
+function LockedPreview({ firstName }: { firstName: string }) {
+  return (
+    <div className="relative my-12">
+      <div className="card opacity-60 pointer-events-none select-none">
+        <div className="eyebrow mb-4">your kairotic profile &middot; locked</div>
+        <div className="space-y-3">
+          {["Attention", "Openness", "Aligned action", "Surrender", "Connection", "Meaning-making"].map((name, i) => (
+            <div key={name}>
+              <div className="flex justify-between items-baseline mb-1.5">
+                <span className="text-[13px] text-[var(--text-muted)]">{name}</span>
+                <span className="font-mono text-[11px] text-[var(--text-subtle)]">?? / 100</span>
+              </div>
+              <div className="h-[3px] bg-[var(--border)] rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-[var(--gold-dim)] to-[var(--gold-bright)] transition-all"
+                  style={{ width: `${40 + ((i * 13) % 50)}%`, filter: "blur(4px)" }}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-8 space-y-3">
+          <div className="h-3 bg-[var(--border)] rounded w-full" style={{ filter: "blur(3px)" }} />
+          <div className="h-3 bg-[var(--border)] rounded w-[85%]" style={{ filter: "blur(3px)" }} />
+          <div className="h-3 bg-[var(--border)] rounded w-[92%]" style={{ filter: "blur(3px)" }} />
+          <div className="h-3 bg-[var(--border)] rounded w-[70%]" style={{ filter: "blur(3px)" }} />
+        </div>
+      </div>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="bg-[var(--bg)] border border-[var(--gold-dim)] rounded-full px-5 py-2 flex items-center gap-2 shadow-lg">
+          <svg width="12" height="14" viewBox="0 0 12 14" fill="none" aria-hidden="true">
+            <path d="M2 6V4a4 4 0 118 0v2M2 6h8v6H2V6z" stroke="var(--gold)" strokeWidth="1.2" />
+          </svg>
+          <span className="font-mono text-[11px] text-[var(--gold)] tracking-wider">
+            LOCKED · {firstName.toUpperCase()}&rsquo;S FULL READING WAITS BELOW
+          </span>
+        </div>
+      </div>
+    </div>
   );
 }

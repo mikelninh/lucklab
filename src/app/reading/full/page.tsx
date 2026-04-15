@@ -11,6 +11,7 @@ import {
   archetypeFor,
   growthEdge,
   QUESTIONS,
+  type PersonalContext,
 } from "@/lib/diagnostic";
 import { TRADITIONS, MECHANISMS } from "@/lib/traditions";
 import { buildFullReadingPrompt } from "@/lib/tyche-prompt";
@@ -27,14 +28,23 @@ type FullReading = {
     tradition: string;
     concept: string;
     whyYou: string;
+    sourceQuote?: string;
     corePractice: string;
   }[];
   thirtyDayProtocol: {
     premise: string;
-    weeks: { week: number; theme: string; focus: string; practices: string[] }[];
+    weeks: {
+      week: number;
+      theme: string;
+      focus: string;
+      intent?: string;
+      practices: string[];
+    }[];
   };
   dailyRitual: string;
+  synchronicityLog?: string;
   warnings: string;
+  closingBenediction?: string;
 };
 
 export default async function FullReadingPage({
@@ -44,7 +54,7 @@ export default async function FullReadingPage({
 }) {
   const sp = await searchParams;
   const sessionId = sp.session_id;
-  if (!sessionId) redirect("/diagnostic");
+  if (!sessionId) redirect("/reading");
 
   const stripeKey = process.env.STRIPE_SECRET_KEY;
   if (!stripeKey) {
@@ -54,8 +64,8 @@ export default async function FullReadingPage({
         <div className="max-w-2xl mx-auto px-6 py-20">
           <h1 className="font-display text-3xl mb-4">Payments not configured</h1>
           <p className="text-[var(--text-muted)]">
-            STRIPE_SECRET_KEY is not set on the server. Set it in <code className="kbd">.env.local</code> and
-            restart the dev server.
+            STRIPE_SECRET_KEY is not set on the server. Set it in{" "}
+            <code className="kbd">.env.local</code> and restart the dev server.
           </p>
         </div>
         <Footer />
@@ -73,9 +83,9 @@ export default async function FullReadingPage({
         <div className="max-w-2xl mx-auto px-6 py-20 text-center">
           <h1 className="font-display text-3xl mb-4">Payment not confirmed</h1>
           <p className="text-[var(--text-muted)] mb-6">
-            Stripe has not yet confirmed this payment. Refresh in a moment, or start again.
+            Stripe has not yet confirmed this payment. Refresh in a moment or start again.
           </p>
-          <Link href="/diagnostic" className="btn btn-ghost">Back to the Diagnostic</Link>
+          <Link href="/reading" className="btn btn-ghost">Back to the Reading</Link>
         </div>
         <Footer />
       </>
@@ -84,6 +94,14 @@ export default async function FullReadingPage({
 
   const answersRaw = (session.metadata?.answers as string) || "";
   const answers = decodeAnswers(answersRaw);
+  const personalRaw = session.metadata?.personal;
+  let personal: PersonalContext | undefined;
+  try {
+    if (personalRaw) personal = JSON.parse(personalRaw) as PersonalContext;
+  } catch {
+    personal = undefined;
+  }
+
   if (answers.length < 8) {
     return (
       <>
@@ -91,8 +109,11 @@ export default async function FullReadingPage({
         <div className="max-w-2xl mx-auto px-6 py-20 text-center">
           <h1 className="font-display text-3xl mb-4">Session not found</h1>
           <p className="text-[var(--text-muted)]">
-            We could not retrieve the diagnostic that was paid for. Please email{" "}
-            <a href="mailto:hallo@kairos.lab" className="text-[var(--gold)]">hallo@kairos.lab</a>.
+            We could not retrieve the inputs that were paid for. Please email{" "}
+            <a href="mailto:hallo@kairos.lab" className="text-[var(--gold)]">
+              hallo@kairos.lab
+            </a>
+            .
           </p>
         </div>
         <Footer />
@@ -114,7 +135,9 @@ export default async function FullReadingPage({
     archetypeTagline: archetype.tagline,
     archetypeDescription: archetype.description,
     scoreSummary: MECHANISMS.map((m) => `- ${m.name}: ${norm[m.id]}/100`).join("\n"),
-    dominantTwo: archetype.dominant.map((d) => MECHANISMS.find((m) => m.id === d)?.name || d),
+    dominantTwo: archetype.dominant.map(
+      (d) => MECHANISMS.find((m) => m.id === d)?.name || d,
+    ),
     growthEdge: edgeMechanism.name,
     resonantTraditions,
     answersNarrative: answers
@@ -125,7 +148,10 @@ export default async function FullReadingPage({
       })
       .filter(Boolean)
       .join("; "),
+    personal,
   });
+
+  const firstName = personal?.name.trim().split(/\s+/)[0];
 
   return (
     <>
@@ -135,6 +161,11 @@ export default async function FullReadingPage({
         <div className="text-center mb-20">
           <TycheSigil size={96} className="mx-auto mb-8" />
           <div className="eyebrow eyebrow-tyche mb-4">tyche&rsquo;s reading</div>
+          {firstName && (
+            <p className="font-mono text-[11px] text-[var(--gold)] tracking-wider mb-1">
+              PREPARED FOR {firstName.toUpperCase()}
+            </p>
+          )}
           <p className="font-mono text-[11px] text-[var(--text-subtle)] tracking-wider">
             {archetype.greek}
           </p>
@@ -142,7 +173,9 @@ export default async function FullReadingPage({
             <em className="not-italic text-gold-gradient">{reading.title}</em>
           </h1>
           <p className="font-mono text-[11px] text-[var(--text-subtle)] mt-8 tracking-wider">
-            PREPARED FOR YOU · {new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }).toUpperCase()}
+            {new Date()
+              .toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
+              .toUpperCase()}
           </p>
         </div>
 
@@ -179,7 +212,8 @@ export default async function FullReadingPage({
         <section className="mb-20">
           <div className="eyebrow mb-4">ii &middot; tradition map</div>
           <h2 className="font-display text-[36px] md:text-[42px] font-light leading-tight mb-8 text-balance">
-            Three traditions speak <em className="text-[var(--gold)] not-italic">directly</em> to your pattern.
+            Three traditions speak{" "}
+            <em className="text-[var(--gold)] not-italic">directly</em> to your pattern.
           </h2>
           <div className="space-y-8">
             {reading.traditionMap.map((t, i) => (
@@ -193,9 +227,14 @@ export default async function FullReadingPage({
                 <div className="mb-4">
                   <span className="kbd kbd-tyche">{t.concept}</span>
                 </div>
-                <p className="text-[15px] text-[var(--text-muted)] leading-relaxed mb-5">
+                <p className="text-[15px] text-[var(--text-muted)] leading-relaxed mb-4">
                   {t.whyYou}
                 </p>
+                {t.sourceQuote && (
+                  <blockquote className="border-l-2 border-[var(--gold-dim)] pl-5 my-5 italic font-display text-[16px] text-[var(--text)] leading-relaxed">
+                    {t.sourceQuote}
+                  </blockquote>
+                )}
                 <div className="pt-4 border-t border-[var(--border)]">
                   <div className="eyebrow mb-2 text-[10px]">core practice</div>
                   <p className="text-[15px] text-[var(--text)] leading-relaxed">
@@ -227,7 +266,12 @@ export default async function FullReadingPage({
                     {w.focus}
                   </span>
                 </div>
-                <h3 className="font-display text-[22px] font-normal mb-4">{w.theme}</h3>
+                <h3 className="font-display text-[22px] font-normal mb-2">{w.theme}</h3>
+                {w.intent && (
+                  <p className="text-[13px] text-[var(--gold-dim)] italic mb-4">
+                    {w.intent}
+                  </p>
+                )}
                 <ul className="space-y-2 text-[14px] text-[var(--text-muted)]">
                   {w.practices.map((p, i) => (
                     <li key={i} className="flex items-start gap-3">
@@ -253,9 +297,21 @@ export default async function FullReadingPage({
           </div>
         </section>
 
+        {/* synchronicity log */}
+        {reading.synchronicityLog && (
+          <section className="mb-20">
+            <div className="eyebrow mb-4">v &middot; the synchronicity log</div>
+            <p className="text-[15px] text-[var(--text-muted)] leading-[1.85]">
+              {reading.synchronicityLog}
+            </p>
+          </section>
+        )}
+
         {/* warnings */}
         <section className="mb-20">
-          <div className="eyebrow mb-4">v &middot; failure modes</div>
+          <div className="eyebrow mb-4">
+            {reading.synchronicityLog ? "vi" : "v"} &middot; failure modes
+          </div>
           <p className="text-[15px] text-[var(--text-muted)] leading-[1.85]">
             {reading.warnings}
           </p>
@@ -264,9 +320,15 @@ export default async function FullReadingPage({
         {/* closing */}
         <div className="text-center mt-24 pt-16 border-t border-[var(--border)]">
           <TycheSigil size={56} className="mx-auto mb-6 opacity-60" glow={false} />
-          <p className="font-display text-[20px] text-[var(--text-muted)] italic">
-            In your own time.
-          </p>
+          {reading.closingBenediction ? (
+            <p className="font-display text-[20px] text-[var(--text-muted)] italic text-balance max-w-md mx-auto">
+              {reading.closingBenediction}
+            </p>
+          ) : (
+            <p className="font-display text-[20px] text-[var(--text-muted)] italic">
+              In your own time{firstName ? `, ${firstName}` : ""}.
+            </p>
+          )}
           <p className="font-mono text-[11px] text-[var(--gold)] mt-6 tracking-wider">
             — TYCHE
           </p>
@@ -274,7 +336,8 @@ export default async function FullReadingPage({
 
         <div className="mt-16 text-center">
           <p className="text-[13px] text-[var(--text-muted)] mb-5">
-            Want Tyche with you daily? Join the beta list for <span className="text-[var(--tyche)]">Tyche Pro</span>.
+            Want Tyche with you daily? Join the beta list for{" "}
+            <span className="text-[var(--tyche)]">Tyche Pro</span>.
           </p>
           <Link href="/#pricing" className="btn btn-tyche">
             Learn about Tyche Pro
@@ -295,6 +358,7 @@ async function generateFullReading(context: {
   growthEdge: string;
   resonantTraditions: string[];
   answersNarrative: string;
+  personal?: PersonalContext;
 }): Promise<FullReading> {
   const apiKey = process.env.OPENAI_API_KEY;
 
@@ -314,10 +378,10 @@ async function generateFullReading(context: {
     }
   }
 
-  // Graceful placeholder (dev-only)
+  const name = context.personal?.name ?? "friend";
   return {
-    title: `The ${context.archetypeName}: A Reading`,
-    openingLetter: `You arrive here as the ${context.archetypeName}. Your dominant levers are ${context.dominantTwo.join(" and ")}; your growth edge is ${context.growthEdge}. This reading is placeholder content because OPENAI_API_KEY is not set — in production, Tyche writes this personally to your pattern.`,
+    title: `The ${context.archetypeName}: A Reading for ${name}`,
+    openingLetter: `${name}, you arrive here as the ${context.archetypeName}. Your dominant levers are ${context.dominantTwo.join(" and ")}; your growth edge is ${context.growthEdge}. This reading is placeholder content — in production, Tyche writes this personally, once OPENAI_API_KEY is configured.`,
     architectureAnalysis: context.scoreSummary,
     traditionMap: context.resonantTraditions.slice(0, 3).map((t) => ({
       tradition: t,
@@ -328,13 +392,13 @@ async function generateFullReading(context: {
     thirtyDayProtocol: {
       premise: "Four weeks, one mechanism per week, recalibrating at mid-point.",
       weeks: [
-        { week: 1, theme: "Orient", focus: context.dominantTwo[0] ?? "attention", practices: ["…", "…", "…"] },
-        { week: 2, theme: "Deepen", focus: context.dominantTwo[1] ?? "openness", practices: ["…", "…", "…"] },
-        { week: 3, theme: "Stretch", focus: context.growthEdge, practices: ["…", "…", "…"] },
-        { week: 4, theme: "Integrate", focus: "all six", practices: ["…", "…", "…"] },
+        { week: 1, theme: "Orient", focus: context.dominantTwo[0] ?? "attention", practices: ["…"] },
+        { week: 2, theme: "Deepen", focus: context.dominantTwo[1] ?? "openness", practices: ["…"] },
+        { week: 3, theme: "Stretch", focus: context.growthEdge, practices: ["…"] },
+        { week: 4, theme: "Integrate", focus: "all six", practices: ["…"] },
       ],
     },
-    dailyRitual: "Five minutes each morning — a placeholder until OPENAI_API_KEY is configured.",
+    dailyRitual: "Placeholder — configure OPENAI_API_KEY for the real daily ritual.",
     warnings: "Placeholder.",
   };
 }

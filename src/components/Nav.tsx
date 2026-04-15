@@ -22,10 +22,10 @@ export function Nav() {
             Tyche
           </Link>
           <Link
-            href="/diagnostic"
-            className="btn btn-ghost text-[13px] !py-2 !px-4"
+            href="/reading"
+            className="btn btn-primary text-[13px] !py-2 !px-4"
           >
-            Take the Diagnostic
+            Begin Your Reading
           </Link>
         </div>
       </div>

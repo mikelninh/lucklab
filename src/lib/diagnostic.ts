@@ -284,6 +284,70 @@ export const QUESTIONS: Question[] = [
 
 export type Answer = { questionId: number; optionId: string };
 
+// ======================= Personal context =======================
+// Collected before the quiz — makes the Reading genuinely unique.
+
+export type PersonalContext = {
+  name: string;           // "Mikel"
+  birthdate: string;      // ISO date "1994-03-14"
+  currentQuestion: string; // what they are asking of Tyche, free text (≤280 chars)
+};
+
+export function validatePersonalContext(c: Partial<PersonalContext>): c is PersonalContext {
+  return (
+    typeof c.name === "string" && c.name.trim().length >= 1 && c.name.trim().length <= 60 &&
+    typeof c.birthdate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(c.birthdate) &&
+    typeof c.currentQuestion === "string" && c.currentQuestion.trim().length >= 3 && c.currentQuestion.trim().length <= 280
+  );
+}
+
+// Derive mythic metadata from birthdate — the Greek/classical angle that makes
+// the Reading feel bespoke without pretending to be astrology.
+export function birthContext(birthdateISO: string): {
+  season: string;
+  seasonEpithet: string;
+  greekMonth: string;
+  elementalAffinity: string;
+} {
+  const d = new Date(birthdateISO);
+  const m = d.getMonth() + 1; // 1-12
+  const day = d.getDate();
+
+  // Northern-hemisphere seasons (the tradition the vocabulary comes from)
+  let season = "spring";
+  let seasonEpithet = "the renewing season";
+  if ((m === 12 && day >= 21) || m === 1 || m === 2 || (m === 3 && day < 20)) {
+    season = "winter";
+    seasonEpithet = "the deepening season";
+  } else if ((m === 3 && day >= 20) || m === 4 || m === 5 || (m === 6 && day < 21)) {
+    season = "spring";
+    seasonEpithet = "the renewing season";
+  } else if ((m === 6 && day >= 21) || m === 7 || m === 8 || (m === 9 && day < 23)) {
+    season = "summer";
+    seasonEpithet = "the fullness season";
+  } else {
+    season = "autumn";
+    seasonEpithet = "the harvest season";
+  }
+
+  // Greek (Attic) calendar approximate mapping, month ~ classical month name
+  const greekMonths = [
+    "Gamelion", "Anthesterion", "Elaphebolion", "Mounichion",
+    "Thargelion", "Skirophorion", "Hekatombaion", "Metageitnion",
+    "Boedromion", "Pyanepsion", "Maimakterion", "Poseideon",
+  ];
+  const greekMonth = greekMonths[m - 1];
+
+  // Four classical elements — rough traditional season-element mapping
+  const elementalAffinity =
+    season === "spring" ? "air — beginnings, breath, weaving"
+    : season === "summer" ? "fire — expression, clarity, action"
+    : season === "autumn" ? "earth — consolidation, harvest, grounding"
+    : "water — depth, inward seeing, release";
+
+  return { season, seasonEpithet, greekMonth, elementalAffinity };
+}
+
 export function emptyScores(): Scores {
   return { attention: 0, openness: 0, action: 0, surrender: 0, connection: 0, meaning: 0 };
 }

@@ -35,8 +35,8 @@ export default function Home() {
           </p>
 
           <div className="flex flex-wrap gap-3 mt-10">
-            <Link href="/diagnostic" className="btn btn-primary">
-              Take the Diagnostic
+            <Link href="/reading" className="btn btn-primary">
+              Begin Your Reading
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                 <path d="M3 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -47,7 +47,7 @@ export default function Home() {
           </div>
 
           <p className="font-mono text-[11px] text-[var(--text-subtle)] mt-6 tracking-wider">
-            // 10 inputs · 3 minutes · free · no account required
+            // 3 minutes · free · your archetype, instantly · no account
           </p>
         </div>
       </section>
@@ -145,7 +145,7 @@ export default function Home() {
           <p className="text-[14px] text-[var(--text-muted)] mt-5 leading-relaxed">
             Lucky people are not born. They exhibit measurable, trainable behaviours.
             We call these behaviours the <span className="text-[var(--gold)]">kairotic profile</span>.
-            The Diagnostic maps yours.
+            Your Reading maps yours.
           </p>
         </div>
       </section>
@@ -159,7 +159,7 @@ export default function Home() {
           Luck, decomposed into <em className="not-italic text-[var(--gold)]">six trainable mechanisms</em>.
         </h2>
         <p className="text-[15px] text-[var(--text-muted)] max-w-2xl mb-14 leading-relaxed">
-          These are the axes the Diagnostic measures. Your profile shows which are
+          These are the axes your Reading measures. Your profile shows which are
           developed, which are latent, and which traditions resonate with you most.
         </p>
 
@@ -231,7 +231,7 @@ export default function Home() {
             </div>
 
             <div className="mt-10 flex flex-wrap gap-3">
-              <Link href="/diagnostic" className="btn btn-tyche">
+              <Link href="/reading" className="btn btn-tyche">
                 Consult Tyche
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                   <path d="M3 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -288,88 +288,131 @@ export default function Home() {
 
       {/* ============================== PRICING ============================== */}
       <section id="pricing" className="max-w-6xl mx-auto px-6 py-24">
-        <div className="eyebrow mb-4">05 / consult tyche</div>
+        <div className="eyebrow mb-4">05 / four doors</div>
         <h2 className="font-display text-[36px] md:text-[46px] leading-[1.08] tracking-[-0.015em] font-light mb-4 text-balance max-w-3xl">
-          From diagnostic to <em className="not-italic text-[var(--gold)]">daily practice</em>.
+          From a glimpse to a <em className="not-italic text-[var(--gold)]">daily practice</em>.
         </h2>
         <p className="text-[15px] text-[var(--text-muted)] max-w-2xl mb-14 leading-relaxed">
-          Start free. Deepen with a one-off reading. Subscribe to Tyche Pro for a
-          daily practice, a journal, and weekly pattern reports.
+          Four tiers, each answering a different question. Start free. Step in when
+          you&rsquo;re ready &mdash; not before.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-5">
-          {/* Free */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* Tier 0 — Free Glimpse */}
           <div className="card flex flex-col">
             <span className="kbd text-[11px] self-start mb-4">free</span>
-            <h3 className="font-display text-[24px] font-normal mb-1">The Diagnostic</h3>
-            <p className="text-[13px] text-[var(--text-subtle)] mb-6">
-              Map your kairotic profile.
+            <h3 className="font-display text-[22px] font-normal mb-1">Your Archetype</h3>
+            <p className="text-[12px] text-[var(--text-subtle)] mb-5">
+              <em>Who am I?</em>
             </p>
-            <div className="mb-6">
-              <span className="font-display text-[42px] text-[var(--text)]">€0</span>
+            <div className="mb-5">
+              <span className="font-display text-[36px] text-[var(--text)]">€0</span>
             </div>
-            <ul className="flex-1 space-y-2.5 text-[13px] text-[var(--text-muted)] mb-6">
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>10-input diagnostic</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>Your kairotic archetype</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>Top 3 tradition matches</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>Free Convergence Index PDF</span></li>
+            <ul className="flex-1 space-y-2 text-[12px] text-[var(--text-muted)] mb-5">
+              <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span><span>13-input Reading</span></li>
+              <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span><span>Your archetype + Greek name</span></li>
+              <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span><span>One resonant tradition (tease)</span></li>
             </ul>
-            <Link href="/diagnostic" className="btn btn-ghost justify-center">
-              Start free
+            <Link href="/reading" className="btn btn-ghost justify-center">
+              Begin free →
             </Link>
           </div>
 
-          {/* Tyche's Reading — featured */}
+          {/* Tier 1 — Primer (tripwire) */}
+          <div className="card card-gold flex flex-col relative overflow-hidden">
+            <span className="kbd text-[11px] self-start mb-4">low-risk unlock</span>
+            <h3 className="font-display text-[22px] font-normal mb-1">Archetype Primer</h3>
+            <p className="text-[12px] text-[var(--text-subtle)] mb-5">
+              <em>Show me more.</em>
+            </p>
+            <div className="mb-5">
+              <span className="font-display text-[36px] text-[var(--text)]">€9</span>
+            </div>
+            <ul className="flex-1 space-y-2 text-[12px] text-[var(--text-muted)] mb-5">
+              <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span><span>Full six-lever scores</span></li>
+              <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span><span>Dominant + quiet lever deep-read</span></li>
+              <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span><span>Tradition essay with real source</span></li>
+              <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span><span>7-day practice</span></li>
+              <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span><span>Instant &middot; yours forever</span></li>
+            </ul>
+            <Link href="/reading" className="btn btn-ghost justify-center">
+              Unlock for €9 →
+            </Link>
+          </div>
+
+          {/* Tier 2 — Full Reading (featured) */}
           <div className="card card-tyche flex flex-col relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--tyche)] opacity-10 blur-2xl rounded-full pointer-events-none" />
-            <span className="kbd kbd-tyche text-[11px] self-start mb-4">one-off · unique per user</span>
-            <h3 className="font-display text-[24px] font-normal mb-1">Tyche&rsquo;s Reading</h3>
-            <p className="text-[13px] text-[var(--text-subtle)] mb-6">
-              A full personalised luck map.
-            </p>
-            <div className="mb-6">
-              <span className="font-display text-[42px] text-[var(--text)]">€29</span>
-              <span className="font-mono text-[12px] text-[var(--text-subtle)] ml-2 line-through">€49</span>
+            <div className="absolute top-3 right-3 font-mono text-[10px] text-[var(--tyche)] tracking-wider">
+              MOST CHOSEN
             </div>
-            <ul className="flex-1 space-y-2.5 text-[13px] text-[var(--text-muted)] mb-6">
-              <li className="flex items-start gap-2"><span className="text-[var(--tyche)] mt-0.5">+</span><span>20-page personalised report (PDF)</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--tyche)] mt-0.5">+</span><span>Your kairotic architecture analysis</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--tyche)] mt-0.5">+</span><span>Tradition-matched 30-day protocol</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--tyche)] mt-0.5">+</span><span>Luck-event tracking template</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--tyche)] mt-0.5">+</span><span>One-of-a-kind &mdash; no two Readings alike</span></li>
+            <span className="kbd kbd-tyche text-[11px] self-start mb-4">the map</span>
+            <h3 className="font-display text-[22px] font-normal mb-1">Tyche&rsquo;s Reading</h3>
+            <p className="text-[12px] text-[var(--text-subtle)] mb-5">
+              <em>What&rsquo;s my plan?</em>
+            </p>
+            <div className="mb-5">
+              <span className="font-display text-[36px] text-[var(--text)]">€29</span>
+              <span className="font-mono text-[11px] text-[var(--text-subtle)] ml-2 line-through">€49</span>
+            </div>
+            <ul className="flex-1 space-y-2 text-[12px] text-[var(--text-muted)] mb-5">
+              <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span><span>Everything in Primer</span></li>
+              <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span><span>Addressed to you by name</span></li>
+              <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span><span>Responds to your actual question</span></li>
+              <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span><span>3 tradition deep-dives</span></li>
+              <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span><span>30-day protocol, week-by-week</span></li>
+              <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span><span>Your daily ritual</span></li>
             </ul>
-            <Link href="/diagnostic" className="btn btn-primary justify-center">
-              Consult Tyche
+            <Link href="/reading" className="btn btn-primary justify-center">
+              Unlock for €29 →
             </Link>
           </div>
 
-          {/* Tyche Pro */}
+          {/* Tier 3 — Tyche Pro */}
           <div className="card flex flex-col">
-            <span className="kbd text-[11px] self-start mb-4">subscription · compounds</span>
-            <h3 className="font-display text-[24px] font-normal mb-1">Tyche Pro</h3>
-            <p className="text-[13px] text-[var(--text-subtle)] mb-6">
-              Daily practice, journal, patterns.
+            <span className="kbd text-[11px] self-start mb-4">the practice</span>
+            <h3 className="font-display text-[22px] font-normal mb-1">Tyche Pro</h3>
+            <p className="text-[12px] text-[var(--text-subtle)] mb-5">
+              <em>Am I living it?</em>
             </p>
-            <div className="mb-6">
-              <span className="font-display text-[42px] text-[var(--text)]">€19</span>
-              <span className="font-mono text-[12px] text-[var(--text-muted)] ml-1">/mo</span>
-              <div className="font-mono text-[11px] text-[var(--text-subtle)] mt-1">or €149 / year</div>
+            <div className="mb-5">
+              <span className="font-display text-[36px] text-[var(--text)]">€19</span>
+              <span className="font-mono text-[11px] text-[var(--text-muted)] ml-1">/mo</span>
+              <div className="font-mono text-[10px] text-[var(--text-subtle)] mt-1">or €149 / year</div>
             </div>
-            <ul className="flex-1 space-y-2.5 text-[13px] text-[var(--text-muted)] mb-6">
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>Everything in Reading</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>Unlimited Synchronicity Journal</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>Weekly AI pattern reports</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>Ask Tyche &mdash; unlimited queries</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>Monthly recalibrated protocol</span></li>
+            <ul className="flex-1 space-y-2 text-[12px] text-[var(--text-muted)] mb-5">
+              <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span><span>Synchronicity Journal</span></li>
+              <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span><span>Weekly AI pattern reports</span></li>
+              <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span><span>Ask Tyche &mdash; unlimited</span></li>
+              <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span><span>Monthly recalibrated Reading</span></li>
             </ul>
             <button
               type="button"
               disabled
-              className="btn btn-ghost justify-center opacity-60 cursor-not-allowed"
+              className="btn btn-ghost justify-center opacity-60 cursor-not-allowed text-[12px]"
             >
               Coming soon &middot; beta list
             </button>
           </div>
+        </div>
+
+        {/* clarity rail */}
+        <div className="mt-14 grid md:grid-cols-4 gap-4 text-center">
+          {[
+            { tier: "Free", q: "Who am I?" },
+            { tier: "€9 Primer", q: "Show me more." },
+            { tier: "€29 Reading", q: "What's my plan?" },
+            { tier: "€19/mo Pro", q: "Am I living it?" },
+          ].map((x) => (
+            <div key={x.tier} className="border-t border-[var(--border)] pt-3">
+              <div className="font-mono text-[10px] text-[var(--gold)] tracking-wider mb-1">
+                {x.tier.toUpperCase()}
+              </div>
+              <div className="font-display italic text-[14px] text-[var(--text-muted)]">
+                &ldquo;{x.q}&rdquo;
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -383,8 +426,11 @@ export default function Home() {
           &mdash; Louis Pasteur, 1854
         </p>
         <div className="mt-10">
-          <Link href="/diagnostic" className="btn btn-primary">
-            Prepare your mind &middot; 3 minutes
+          <Link href="/reading" className="btn btn-primary">
+            Begin Your Reading &middot; 3 minutes, free
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M3 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </Link>
         </div>
       </section>
