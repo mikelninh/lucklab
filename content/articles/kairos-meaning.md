@@ -4,9 +4,9 @@ slug: "kairos-meaning"
 description: "Ancient Greek had two words for time. Chronos was clock time, the one that just passes. Kairos was the opportune moment, the one that rewards noticing. Here is why the distinction matters — and why we named our lab after it."
 targetKeyword: "kairos meaning"
 publishDate: "2026-05-20"
-wordCount: 2340
+wordCount: 2680
 author: "Kairos Lab"
-readingTime: "11 min"
+readingTime: "12 min"
 internalLinks:
   - "/research/luck-convergence-index"
   - "/about"
