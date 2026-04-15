@@ -1,26 +1,234 @@
 @import "tailwindcss";
 
+/* =========================================================
+   Kairos Lab — Brand Tokens
+   Palette: deep midnight + antique gold + scholar purple
+   Feel: Greek classical meets modern research journal
+   ========================================================= */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Base */
+  --bg: #0a0a0d;
+  --bg-elev: #111116;
+  --surface: #16161d;
+  --surface-2: #1c1c25;
+  --border: #25252f;
+  --border-bright: #35353f;
+
+  /* Text */
+  --text: #ededee;
+  --text-muted: #9a9aa6;
+  --text-subtle: #5a5a66;
+  --text-faint: #3a3a44;
+
+  /* Brand */
+  --gold: #c9a961;           /* antique gold — primary accent */
+  --gold-bright: #e6c87a;    /* hover / highlight */
+  --gold-dim: #8a7442;       /* low-emphasis gold */
+
+  --tyche: #a78bfa;          /* Tyche's signature — soft purple */
+  --tyche-bright: #c4b0ff;
+  --tyche-dim: #6b5ab0;
+
+  --success: #3fb950;
+  --warn: #d29922;
+  --danger: #f85149;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-bright: var(--border-bright);
+  --color-muted: var(--text-muted);
+  --color-subtle: var(--text-subtle);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-dim: var(--gold-dim);
+  --color-tyche: var(--tyche);
+  --color-tyche-bright: var(--tyche-bright);
+  --color-tyche-dim: var(--tyche-dim);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-fraunces);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans), -apple-system, system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+::selection { background: rgba(201, 169, 97, 0.3); color: var(--text); }
+
+/* Utility classes */
+.font-display { font-family: var(--font-display), "Fraunces", Georgia, serif; font-feature-settings: "ss01"; }
+.font-mono { font-family: var(--font-mono), "SF Mono", Menlo, monospace; }
+
+.text-balance { text-wrap: balance; }
+.text-pretty { text-wrap: pretty; }
+
+/* Gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 60%, var(--gold-dim) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Subtle noise for premium texture */
+.noise {
+  position: relative;
+}
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* Hairline divider */
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-bright) 20%, var(--border-bright) 80%, transparent);
+}
+
+/* Gold hairline */
+.hairline-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim) 50%, transparent);
+}
+
+/* Button base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-decoration: none;
+  border: 1px solid transparent;
+  line-height: 1;
+}
+.btn-primary {
+  background: var(--gold);
+  color: #1a1406;
+  border-color: var(--gold);
+}
+.btn-primary:hover {
+  background: var(--gold-bright);
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 32px rgba(201, 169, 97, 0.25);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border-bright);
+}
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold-bright);
+}
+.btn-tyche {
+  background: rgba(167, 139, 250, 0.12);
+  color: var(--tyche-bright);
+  border-color: rgba(167, 139, 250, 0.3);
+}
+.btn-tyche:hover {
+  background: rgba(167, 139, 250, 0.2);
+  border-color: var(--tyche);
+}
+
+/* Eyebrow label */
+.eyebrow {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.eyebrow-tyche { color: var(--tyche); }
+.eyebrow-muted { color: var(--text-muted); }
+
+/* Card */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 28px;
+  transition: border-color 0.2s ease;
+}
+.card:hover { border-color: var(--border-bright); }
+.card-tyche {
+  border-color: rgba(167, 139, 250, 0.2);
+  background: linear-gradient(180deg, rgba(167, 139, 250, 0.04), transparent 70%), var(--surface);
+}
+.card-tyche:hover { border-color: rgba(167, 139, 250, 0.4); }
+.card-gold {
+  border-color: rgba(201, 169, 97, 0.3);
+  background: linear-gradient(180deg, rgba(201, 169, 97, 0.04), transparent 70%), var(--surface);
+}
+
+/* Slow ambient pulse */
+@keyframes ambient-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+.pulse-slow { animation: ambient-pulse 4s ease-in-out infinite; }
+
+/* Starfield background for hero */
+.starfield {
+  background-image:
+    radial-gradient(1px 1px at 15% 22%, rgba(255,255,255,0.4), transparent 50%),
+    radial-gradient(1px 1px at 68% 48%, rgba(201,169,97,0.5), transparent 50%),
+    radial-gradient(1px 1px at 42% 78%, rgba(167,139,250,0.4), transparent 50%),
+    radial-gradient(1.5px 1.5px at 88% 18%, rgba(255,255,255,0.3), transparent 50%),
+    radial-gradient(1px 1px at 8% 84%, rgba(201,169,97,0.3), transparent 50%),
+    radial-gradient(1px 1px at 76% 92%, rgba(167,139,250,0.4), transparent 50%),
+    radial-gradient(1px 1px at 32% 12%, rgba(255,255,255,0.3), transparent 50%),
+    radial-gradient(1.5px 1.5px at 55% 62%, rgba(255,255,255,0.25), transparent 50%);
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 1px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Code tag reset for inline mono */
+.kbd {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.85em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: rgba(201, 169, 97, 0.08);
+  color: var(--gold);
+  border: 1px solid rgba(201, 169, 97, 0.15);
+}
+.kbd-tyche {
+  background: rgba(167, 139, 250, 0.08);
+  color: var(--tyche);
+  border-color: rgba(167, 139, 250, 0.15);
 }
