@@ -18,6 +18,7 @@ export function Footer() {
             <div className="eyebrow eyebrow-muted mb-4">Explore</div>
             <ul className="space-y-2.5 text-[13px]">
               <li><Link href="/reading" className="text-[var(--text)] hover:text-[var(--gold)] transition">Begin Your Reading</Link></li>
+              <li><Link href="/reviews" className="text-[var(--text)] hover:text-[var(--gold)] transition">Readers</Link></li>
               <li><Link href="/tyche" className="text-[var(--text)] hover:text-[var(--gold)] transition">Consult Tyche</Link></li>
               <li><Link href="/research" className="text-[var(--text)] hover:text-[var(--gold)] transition">Research</Link></li>
               <li><Link href="/#pricing" className="text-[var(--text)] hover:text-[var(--gold)] transition">Tyche&rsquo;s Reading</Link></li>

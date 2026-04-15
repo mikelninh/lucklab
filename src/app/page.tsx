@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { TycheSigil } from "@/components/TycheSigil";
 import { TRADITIONS, MECHANISMS } from "@/lib/traditions";
 import { EmailCapture } from "@/components/EmailCapture";
+import { ReviewsRail } from "@/components/Reviews";
 
 export default function Home() {
   return (
@@ -406,6 +407,9 @@ export default function Home() {
           NO SUBSCRIPTION · BUY ONCE · YOURS FOREVER · CANCEL-NOTHING
         </p>
       </section>
+
+      {/* ============================== REVIEWS ============================== */}
+      <ReviewsRail />
 
       {/* ============================== CLOSING ============================== */}
       <section className="max-w-3xl mx-auto px-6 py-24 text-center">

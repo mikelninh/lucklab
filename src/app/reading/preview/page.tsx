@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { TycheSigil } from "@/components/TycheSigil";
+// Reviews on preview page would require an /api/reviews endpoint since this is a
+// client component (uses sessionStorage). For now the landing-page rail covers it.
 
 type FreeTeaser = {
   greeting: string;

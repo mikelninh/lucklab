@@ -88,6 +88,24 @@ Launch day = Tuesday. (Product Hunt peaks Tue/Wed; Monday is a bad day for socia
 - Write week-1 retrospective → personal email to warm list + 1 public post.
 - Plan the next 7 weeks.
 
+### The "first 10 reviews" mini-playbook
+
+Reviews are the single biggest unlock for cold conversion. The site ships with a `/reviews` page and a landing-page rail that **shows an empty state until 3 featured reviews exist** — the empty state itself is honest social proof ("Kairos Lab is new — you may be the first quote"). But you need real ones, fast.
+
+**Week 1, the warm-list ask:**
+
+1. After your warm-list email goes out (Monday), 10–20 friends will take the Reading. **DM each one within 48 hours** with this:
+
+   > Hey [name] — saw you took the Reading. Curious: did Tyche get it right? If you have one sentence on what landed (or didn't), I'd love to publish it on the site, first name only. Honest words help future readers more than polished ones.
+
+2. **For each reply you receive**, paste it into a new file at `content/reviews/YYYY-MM-DD-firstname.md` (copy `_template.md`). Set `featured: true` for the strongest 3-5.
+
+3. The landing page rail switches from empty state to live reviews automatically once 3 are featured. No deploy needed beyond the commit.
+
+**The cron handles the rest.** From day 8 onward, every paying customer gets the review-request email automatically (`/api/cron/review-request` runs daily). You read replies, paste the good ones, commit. ~5 minutes per week ongoing.
+
+**Rule:** never edit a quote. Never write one. If a reply is gold but has typos, ask: "*may I include this with light copy-edits?*" and wait for the green light.
+
 ### Metrics to track
 - Visitors (Plausible)
 - Readings started / completed

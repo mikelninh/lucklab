@@ -165,6 +165,33 @@ export function lastTouchEmail(name?: string): Shell {
 }
 
 // ============================================================
+// Review request · 7 days post-purchase
+// Honest, short, no incentive (no "5% off your next purchase!").
+// We are asking for one sentence of truth.
+// ============================================================
+export function reviewRequestEmail(
+  name: string | undefined,
+  archetype: string | undefined,
+): Shell {
+  const greeting = name ? `${name},` : "Friend,";
+  const arch = archetype ? `the ${archetype}` : "your archetype";
+  return {
+    subject: "Did Tyche get it right?",
+    html: wrap(
+      `${h1("One question.")}
+      ${p(`${greeting}`)}
+      ${p(`A week ago, Tyche read for you. She named you ${arch} and gave you a protocol calibrated to your pattern.`)}
+      ${p(`<strong style="color:#c9a961;">She would like to know what landed and what didn&rsquo;t.</strong>`)}
+      ${p(`Reply to this email with one sentence (or one paragraph) about what you noticed. With your permission, we may publish it on the readers page &mdash; first name only unless you say otherwise.`)}
+      ${p(`Polished prose is not required. Honest words help future readers more than perfect ones.`)}
+      ${pMuted(`No incentive. No discount. Just truth, if you have a moment for it.`)}
+      ${signature()}`,
+      "Did Tyche get it right? One sentence is enough."
+    ),
+  };
+}
+
+// ============================================================
 // Abandoned checkout · recovery with discount code
 // ============================================================
 export function abandonedCheckoutEmail(
