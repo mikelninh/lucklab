@@ -73,6 +73,8 @@ export async function POST(req: NextRequest) {
     mode: "payment",
     payment_method_types: ["card"],
     customer_email: undefined, // Stripe will collect it
+    allow_promotion_codes: true, // enables abandoned-cart recovery codes
+    expires_at: Math.floor(Date.now() / 1000) + 30 * 60, // 30 min — triggers expired webhook sooner
     line_items: [
       {
         price_data: {

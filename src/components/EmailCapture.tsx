@@ -15,7 +15,7 @@ export function EmailCapture() {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source: "convergence-index" }),
+        body: JSON.stringify({ email, source: "convergence-index-landing" }),
       });
       if (!res.ok) throw new Error((await res.json()).error || "Subscribe failed");
       setState("sent");
