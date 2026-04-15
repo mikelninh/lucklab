@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
+import { rateLimit, LIMITS } from "@/lib/rate-limit";
 import {
   welcomeEmail,
   nudgeReadingEmail,
@@ -20,6 +21,9 @@ const schema = z.object({
 const FROM = process.env.EMAIL_FROM || "Tyche · Kairos Lab <tyche@kairos.lab>";
 
 export async function POST(req: NextRequest) {
+  const rl = rateLimit(req, LIMITS.subscribe);
+  if (!rl.ok) return rl.response;
+
   const parsed = schema.safeParse(await req.json().catch(() => ({})));
   if (!parsed.success) {
     return NextResponse.json({ error: "Invalid email." }, { status: 400 });

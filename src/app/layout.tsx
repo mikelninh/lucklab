@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
+import { ORGANIZATION, WEBSITE, jsonLdScript } from "@/lib/jsonld";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,6 +61,26 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} h-full antialiased`}
     >
+      <head>
+        {/* Structured data — Organization + WebSite */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLdScript(ORGANIZATION) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLdScript(WEBSITE) }}
+        />
+        {/* Plausible — privacy-first analytics. Only loads when env var is set. */}
+        {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
+          <Script
+            src="https://plausible.io/js/script.outbound-links.tagged-events.js"
+            data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
+            strategy="afterInteractive"
+            defer
+          />
+        )}
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

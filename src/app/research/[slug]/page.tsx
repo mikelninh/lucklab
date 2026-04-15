@@ -11,6 +11,7 @@ import {
   isPublished,
   estimateReadingTime,
 } from "@/lib/articles";
+import { articleLD, jsonLdScript } from "@/lib/jsonld";
 import type { Metadata } from "next";
 
 export const revalidate = 3600;
@@ -80,9 +81,20 @@ export default async function ArticlePage({
 
   const readingTime = article.readingTime || estimateReadingTime(article.content);
   const publishedDate = new Date(article.publishDate + "T00:00:00Z");
+  const ld = articleLD({
+    title: article.title,
+    description: article.description,
+    slug: article.slug,
+    publishDate: article.publishDate,
+    wordCount: article.wordCount,
+  });
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(ld) }}
+      />
       <Nav />
 
       <article className="max-w-[680px] mx-auto px-6 py-16 md:py-24">

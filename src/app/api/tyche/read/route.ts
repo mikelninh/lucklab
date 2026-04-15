@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
+import { rateLimit, LIMITS } from "@/lib/rate-limit";
 import {
   QUESTIONS,
   computeScores,
@@ -17,6 +18,9 @@ export const runtime = "nodejs";
 export const maxDuration = 30;
 
 export async function POST(req: NextRequest) {
+  const rl = rateLimit(req, LIMITS.tyche);
+  if (!rl.ok) return rl.response;
+
   try {
     const body = await req.json();
     const answers = body.answers as Answer[];

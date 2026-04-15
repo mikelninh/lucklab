@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { z } from "zod";
 import { encodeAnswers } from "@/lib/answer-codec";
+import { rateLimit, LIMITS } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 
@@ -41,6 +42,9 @@ const schema = z.object({
 });
 
 export async function POST(req: NextRequest) {
+  const rl = rateLimit(req, LIMITS.checkout);
+  if (!rl.ok) return rl.response;
+
   const parsed = schema.safeParse(await req.json().catch(() => ({})));
   if (!parsed.success) {
     return NextResponse.json({ error: "Invalid payload." }, { status: 400 });
