@@ -293,13 +293,24 @@ export type PersonalContext = {
   currentQuestion: string; // what they are asking of Tyche, free text (≤280 chars)
 };
 
+// Name is the only required field. Birthdate and currentQuestion are optional —
+// when present they enrich the Reading, when absent Tyche simply addresses the
+// reader by name without mythic context or specific thread.
 export function validatePersonalContext(c: Partial<PersonalContext>): c is PersonalContext {
   return (
-    typeof c.name === "string" && c.name.trim().length >= 1 && c.name.trim().length <= 60 &&
-    typeof c.birthdate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(c.birthdate) &&
-    typeof c.currentQuestion === "string" && c.currentQuestion.trim().length >= 3 && c.currentQuestion.trim().length <= 280
+    typeof c.name === "string" && c.name.trim().length >= 1 && c.name.trim().length <= 60
   );
 }
+
+// Preset questions people can pick if they can't articulate their own
+export const PRESET_QUESTIONS = [
+  "I am standing at a threshold and cannot tell whether to commit or keep searching.",
+  "I feel stuck in a pattern I cannot name — what is actually happening?",
+  "I am about to make a decision that will shape the next year. How should I read this moment?",
+  "I want to be luckier. I do not know where to start.",
+  "Something keeps almost happening, and I cannot tell if I should keep trying or let it go.",
+  "I am waiting for clarity. What am I missing?",
+] as const;
 
 // Derive mythic metadata from birthdate — the Greek/classical angle that makes
 // the Reading feel bespoke without pretending to be astrology.

@@ -29,8 +29,13 @@ const schema = z.object({
   archetypeId: z.string(),
   personal: z.object({
     name: z.string().min(1).max(60),
-    birthdate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
-    currentQuestion: z.string().min(3).max(280),
+    // Birthdate and currentQuestion are optional — empty string or valid input
+    birthdate: z
+      .string()
+      .regex(/^(\d{4}-\d{2}-\d{2})?$/)
+      .optional()
+      .default(""),
+    currentQuestion: z.string().max(280).optional().default(""),
   }),
   tier: z.enum(["primer", "full"]),
 });

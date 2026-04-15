@@ -10,16 +10,16 @@ export function Nav() {
         </Link>
         <div className="flex items-center gap-8">
           <Link
-            href="/research"
+            href="/about"
+            className="hidden sm:inline text-[13px] text-[var(--text-muted)] hover:text-[var(--text)] transition"
+          >
+            About
+          </Link>
+          <Link
+            href="/#convergence"
             className="hidden sm:inline text-[13px] text-[var(--text-muted)] hover:text-[var(--text)] transition"
           >
             Research
-          </Link>
-          <Link
-            href="/tyche"
-            className="hidden sm:inline text-[13px] text-[var(--text-muted)] hover:text-[var(--text)] transition"
-          >
-            Tyche
           </Link>
           <Link
             href="/reading"

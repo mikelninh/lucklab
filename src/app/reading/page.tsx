@@ -8,21 +8,24 @@ import { Footer } from "@/components/Footer";
 import { TycheSigil } from "@/components/TycheSigil";
 import {
   QUESTIONS,
+  PRESET_QUESTIONS,
   validatePersonalContext,
   type Answer,
   type PersonalContext,
 } from "@/lib/diagnostic";
 
-// Step machine:
-//  0 = intro
-//  1 = name
-//  2 = birthdate
-//  3 = current question
-//  4..13 = the 10 Reading inputs (QUESTIONS[0..9])
-//  14 = consult (submission)
+/**
+ * Flow (redesigned — low-friction):
+ *   0  = intro
+ *   1..10 = the 10 Reading inputs
+ *   11 = name (required — Tyche needs to address you)
+ *   12 = OPTIONAL personal context (birthdate + question) — can skip
+ *   13 = consult (submission)
+ */
 const TOTAL_Q = QUESTIONS.length;
-const LAST_Q_STEP = 3 + TOTAL_Q; // 13
-const SUBMIT_STEP = LAST_Q_STEP + 1; // 14
+const NAME_STEP = TOTAL_Q + 1; // 11
+const CONTEXT_STEP = TOTAL_Q + 2; // 12
+const SUBMIT_STEP = TOTAL_Q + 3; // 13
 
 export default function ReadingPage() {
   const router = useRouter();
@@ -35,9 +38,10 @@ export default function ReadingPage() {
   });
   const [submitting, setSubmitting] = useState(false);
 
-  const progressDenominator = 3 + TOTAL_Q; // 13 meaningful inputs total
-  const progress =
-    step === 0 ? 0 : Math.min(100, (Math.min(step, LAST_Q_STEP) / progressDenominator) * 100);
+  // progress bar: 10 inputs + name = 11 meaningful steps (context is optional, doesn't count)
+  const progressDenominator = TOTAL_Q + 1;
+  const progressCounter = step === 0 ? 0 : Math.min(step, NAME_STEP);
+  const progress = (progressCounter / progressDenominator) * 100;
 
   function next() { setStep((s) => Math.min(s + 1, SUBMIT_STEP)); }
   function back() { setStep((s) => Math.max(0, s - 1)); }
@@ -53,21 +57,27 @@ export default function ReadingPage() {
 
   async function consult() {
     if (!validatePersonalContext(personal)) {
-      alert("Please fill in all three personal inputs before consulting Tyche.");
+      alert("Tyche needs at least your name before she can read.");
       return;
     }
     setSubmitting(true);
     try {
+      // Clean up optional fields — if empty strings, omit
+      const cleanPersonal: PersonalContext = {
+        name: personal.name!.trim(),
+        birthdate: personal.birthdate?.trim() || "",
+        currentQuestion: personal.currentQuestion?.trim() || "",
+      };
       const res = await fetch("/api/tyche/read", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ answers, personal, tier: "free" }),
+        body: JSON.stringify({ answers, personal: cleanPersonal, tier: "free" }),
       });
       if (!res.ok) throw new Error("Tyche is resting");
       const data = await res.json();
       sessionStorage.setItem(
         "kairos:reading",
-        JSON.stringify({ answers, personal, ...data }),
+        JSON.stringify({ answers, personal: cleanPersonal, ...data }),
       );
       router.push("/reading/preview");
     } catch {
@@ -76,8 +86,7 @@ export default function ReadingPage() {
     }
   }
 
-  // Which question (if any) is on screen right now?
-  const questionIdx = step >= 4 && step <= LAST_Q_STEP ? step - 4 : -1;
+  const questionIdx = step >= 1 && step <= TOTAL_Q ? step - 1 : -1;
   const currentQ = questionIdx >= 0 ? QUESTIONS[questionIdx] : null;
   const currentAnswer = currentQ
     ? answers.find((a) => a.questionId === currentQ.id)?.optionId
@@ -93,7 +102,7 @@ export default function ReadingPage() {
           <div className="flex justify-between items-center mb-3">
             <div className="eyebrow">the kairos reading</div>
             <div className="font-mono text-[11px] text-[var(--text-subtle)] tracking-wider">
-              {step === 0 ? "ready" : `${Math.min(step, LAST_Q_STEP)} / ${progressDenominator}`}
+              {step === 0 ? "ready" : `${progressCounter} / ${progressDenominator}`}
             </div>
           </div>
           <div className="h-[2px] bg-[var(--border)] rounded-full overflow-hidden">
@@ -104,7 +113,7 @@ export default function ReadingPage() {
           </div>
         </div>
 
-        {/* ===== STEP 0 — INTRO ===== */}
+        {/* ===== INTRO ===== */}
         {step === 0 && (
           <div>
             <TycheSigil size={72} className="mb-8" />
@@ -112,14 +121,13 @@ export default function ReadingPage() {
               Tyche is <em className="not-italic text-[var(--gold)]">ready</em> to read for you.
             </h1>
             <p className="text-[16px] text-[var(--text-muted)] mt-6 leading-relaxed max-w-lg">
-              Three short answers about you. Ten calibrated inputs on how you meet
-              the world. Tyche will map your kairotic profile across six trainable
-              mechanisms and return your archetype, tradition match, and the doorway
-              into your Reading.
+              Ten calibrated inputs on how you meet the world. Tyche will map your
+              kairotic profile across six trainable mechanisms and return your
+              archetype, tradition match, and the doorway into your Reading.
             </p>
             <p className="text-[14px] text-[var(--text-subtle)] mt-4 leading-relaxed max-w-lg">
-              Three minutes. No account. No right answers &mdash; answer from what is,
-              not from what you wish.
+              Three minutes. No account required. No right answers &mdash; choose
+              what is actually true, not what sounds best.
             </p>
             <div className="mt-10">
               <button onClick={next} className="btn btn-primary">
@@ -132,110 +140,11 @@ export default function ReadingPage() {
           </div>
         )}
 
-        {/* ===== STEP 1 — NAME ===== */}
-        {step === 1 && (
-          <div>
-            <div className="eyebrow eyebrow-muted mb-3 text-[10px]">
-              first &middot; of three
-            </div>
-            <h2 className="font-display text-[30px] md:text-[40px] leading-[1.1] font-normal mb-3 text-balance">
-              What shall Tyche call you?
-            </h2>
-            <p className="text-[13px] text-[var(--text-subtle)] italic mb-8">
-              Your first name is enough. She will use it throughout your Reading.
-            </p>
-            <input
-              type="text"
-              autoFocus
-              value={personal.name ?? ""}
-              onChange={(e) => setPersonal((p) => ({ ...p, name: e.target.value }))}
-              onKeyDown={(e) => e.key === "Enter" && personal.name && personal.name.trim().length >= 1 && next()}
-              placeholder="e.g. Mikel"
-              className="w-full max-w-md px-4 py-3 bg-[var(--surface)] border border-[var(--border-bright)] rounded focus:border-[var(--gold)] outline-none text-[17px] font-display"
-              maxLength={60}
-            />
-            <StepNav
-              back={back}
-              nextDisabled={!personal.name || personal.name.trim().length < 1}
-              onNext={next}
-            />
-          </div>
-        )}
-
-        {/* ===== STEP 2 — BIRTHDATE ===== */}
-        {step === 2 && (
-          <div>
-            <div className="eyebrow eyebrow-muted mb-3 text-[10px]">
-              second &middot; of three
-            </div>
-            <h2 className="font-display text-[30px] md:text-[40px] leading-[1.1] font-normal mb-3 text-balance">
-              When were you born, {personal.name || "friend"}?
-            </h2>
-            <p className="text-[13px] text-[var(--text-subtle)] italic mb-8 max-w-md">
-              Not for horoscope &mdash; for context. Tyche references the season of
-              your birth as metaphor when it earns its place. Your data stays yours.
-            </p>
-            <input
-              type="date"
-              autoFocus
-              value={personal.birthdate ?? ""}
-              onChange={(e) => setPersonal((p) => ({ ...p, birthdate: e.target.value }))}
-              min="1900-01-01"
-              max={new Date().toISOString().slice(0, 10)}
-              className="px-4 py-3 bg-[var(--surface)] border border-[var(--border-bright)] rounded focus:border-[var(--gold)] outline-none text-[17px] font-display"
-            />
-            <StepNav
-              back={back}
-              nextDisabled={!personal.birthdate || !/^\d{4}-\d{2}-\d{2}$/.test(personal.birthdate)}
-              onNext={next}
-            />
-          </div>
-        )}
-
-        {/* ===== STEP 3 — CURRENT QUESTION ===== */}
-        {step === 3 && (
-          <div>
-            <div className="eyebrow eyebrow-muted mb-3 text-[10px]">
-              third &middot; of three
-            </div>
-            <h2 className="font-display text-[30px] md:text-[40px] leading-[1.1] font-normal mb-3 text-balance">
-              What are you asking of Tyche, {personal.name || "friend"}?
-            </h2>
-            <p className="text-[13px] text-[var(--text-subtle)] italic mb-8 max-w-lg leading-relaxed">
-              A phase you are in. A choice in front of you. A longing. A
-              stuck-place. One or two sentences. This becomes the living thread of
-              your Reading.
-            </p>
-            <textarea
-              autoFocus
-              value={personal.currentQuestion ?? ""}
-              onChange={(e) =>
-                setPersonal((p) => ({ ...p, currentQuestion: e.target.value }))
-              }
-              placeholder="e.g. I am standing at a threshold and cannot tell whether to commit or keep searching."
-              rows={4}
-              maxLength={280}
-              className="w-full max-w-xl px-4 py-3 bg-[var(--surface)] border border-[var(--border-bright)] rounded focus:border-[var(--gold)] outline-none text-[15px] leading-relaxed resize-none"
-            />
-            <div className="font-mono text-[10px] text-[var(--text-subtle)] mt-2 tracking-wider">
-              {(personal.currentQuestion ?? "").length} / 280
-            </div>
-            <StepNav
-              back={back}
-              nextDisabled={
-                !personal.currentQuestion || personal.currentQuestion.trim().length < 3
-              }
-              onNext={next}
-              nextLabel="Enter the Reading →"
-            />
-          </div>
-        )}
-
-        {/* ===== STEPS 4..13 — THE 10 INPUTS ===== */}
+        {/* ===== THE 10 INPUTS ===== */}
         {currentQ && (
           <div>
             <div className="eyebrow eyebrow-muted mb-3 text-[10px]">
-              input {questionIdx + 1} &middot; {currentQ.axis}
+              input {questionIdx + 1} of {TOTAL_Q} &middot; {currentQ.axis}
             </div>
             <h2 className="font-display text-[26px] md:text-[32px] leading-[1.2] font-normal text-balance mb-3">
               {currentQ.prompt}
@@ -260,9 +169,7 @@ export default function ReadingPage() {
                   >
                     <span
                       className={`kbd flex-shrink-0 mt-0.5 ${
-                        selected
-                          ? "!bg-[rgba(201,169,97,0.2)] !text-[var(--gold-bright)] !border-[var(--gold)]"
-                          : ""
+                        selected ? "!bg-[rgba(201,169,97,0.2)] !text-[var(--gold-bright)] !border-[var(--gold)]" : ""
                       }`}
                     >
                       {o.kbd}
@@ -276,7 +183,7 @@ export default function ReadingPage() {
             </div>
             <StepNav
               back={back}
-              onNext={() => setStep((s) => Math.min(s + 1, SUBMIT_STEP))}
+              onNext={next}
               nextDisabled={!currentAnswer}
               nextLabel="next →"
               compact
@@ -284,19 +191,146 @@ export default function ReadingPage() {
           </div>
         )}
 
-        {/* ===== STEP 14 — CONSULT TYCHE ===== */}
+        {/* ===== NAME (REQUIRED) ===== */}
+        {step === NAME_STEP && (
+          <div>
+            <div className="eyebrow eyebrow-tyche mb-3 text-[10px]">
+              ten inputs received
+            </div>
+            <h2 className="font-display text-[30px] md:text-[42px] leading-[1.1] font-normal mb-3 text-balance">
+              What shall Tyche call you?
+            </h2>
+            <p className="text-[14px] text-[var(--text-subtle)] italic mb-8 max-w-md">
+              Your first name, so she can address the Reading to someone specific.
+              That&rsquo;s all she needs.
+            </p>
+            <input
+              type="text"
+              autoFocus
+              value={personal.name ?? ""}
+              onChange={(e) => setPersonal((p) => ({ ...p, name: e.target.value }))}
+              onKeyDown={(e) =>
+                e.key === "Enter" && personal.name && personal.name.trim().length >= 1 && next()
+              }
+              placeholder="e.g. Mikel"
+              className="w-full max-w-md px-4 py-3 bg-[var(--surface)] border border-[var(--border-bright)] rounded focus:border-[var(--gold)] outline-none text-[17px] font-display"
+              maxLength={60}
+            />
+            <StepNav
+              back={back}
+              onNext={next}
+              nextDisabled={!personal.name || personal.name.trim().length < 1}
+              nextLabel="Continue →"
+            />
+          </div>
+        )}
+
+        {/* ===== OPTIONAL CONTEXT (SKIP AVAILABLE) ===== */}
+        {step === CONTEXT_STEP && (
+          <div>
+            <div className="eyebrow eyebrow-muted mb-3 text-[10px]">
+              optional &middot; for a deeper Reading
+            </div>
+            <h2 className="font-display text-[28px] md:text-[36px] leading-[1.12] font-normal mb-3 text-balance">
+              {personal.name}, anything else Tyche should know?
+            </h2>
+            <p className="text-[13px] text-[var(--text-subtle)] italic mb-8 max-w-lg leading-relaxed">
+              Both fields are optional &mdash; skip and Tyche reads from your ten
+              inputs alone. But birthdate gives her poetic context (season, Greek
+              calendar month) and a current question becomes the living thread of
+              your Reading.
+            </p>
+
+            {/* birthdate */}
+            <div className="mb-8">
+              <label className="font-mono text-[11px] text-[var(--text-muted)] tracking-wider uppercase block mb-2">
+                birthdate — optional
+              </label>
+              <input
+                type="date"
+                value={personal.birthdate ?? ""}
+                onChange={(e) => setPersonal((p) => ({ ...p, birthdate: e.target.value }))}
+                min="1900-01-01"
+                max={new Date().toISOString().slice(0, 10)}
+                className="px-4 py-3 bg-[var(--surface)] border border-[var(--border-bright)] rounded focus:border-[var(--gold)] outline-none text-[15px] font-display"
+              />
+            </div>
+
+            {/* current question with preset chips */}
+            <div className="mb-4">
+              <label className="font-mono text-[11px] text-[var(--text-muted)] tracking-wider uppercase block mb-2">
+                current question — optional
+              </label>
+              <div className="flex flex-wrap gap-2 mb-3">
+                {PRESET_QUESTIONS.map((q) => (
+                  <button
+                    key={q}
+                    type="button"
+                    onClick={() => setPersonal((p) => ({ ...p, currentQuestion: q }))}
+                    className={`text-[12px] px-3 py-1.5 rounded-full border transition-colors ${
+                      personal.currentQuestion === q
+                        ? "border-[var(--gold)] bg-[rgba(201,169,97,0.1)] text-[var(--gold-bright)]"
+                        : "border-[var(--border)] bg-[var(--surface)] text-[var(--text-muted)] hover:border-[var(--gold-dim)]"
+                    }`}
+                  >
+                    {q.length > 42 ? q.slice(0, 42) + "…" : q}
+                  </button>
+                ))}
+              </div>
+              <textarea
+                value={personal.currentQuestion ?? ""}
+                onChange={(e) =>
+                  setPersonal((p) => ({ ...p, currentQuestion: e.target.value }))
+                }
+                placeholder="Or write your own — a phase, a choice, a longing, a stuck-place."
+                rows={3}
+                maxLength={280}
+                className="w-full max-w-xl px-4 py-3 bg-[var(--surface)] border border-[var(--border-bright)] rounded focus:border-[var(--gold)] outline-none text-[14px] leading-relaxed resize-none"
+              />
+              <div className="font-mono text-[10px] text-[var(--text-subtle)] mt-1.5 tracking-wider">
+                {(personal.currentQuestion ?? "").length} / 280
+              </div>
+            </div>
+
+            <div className="flex justify-between items-center mt-12">
+              <button
+                onClick={back}
+                className="text-[13px] text-[var(--text-muted)] hover:text-[var(--text)] font-mono tracking-wider"
+              >
+                ← back
+              </button>
+              <div className="flex gap-3 items-center">
+                <button
+                  onClick={() => {
+                    // skip — clear optional fields
+                    setPersonal((p) => ({ ...p, birthdate: "", currentQuestion: "" }));
+                    setStep(SUBMIT_STEP);
+                  }}
+                  className="text-[13px] text-[var(--text-muted)] hover:text-[var(--gold)] font-mono tracking-wider"
+                >
+                  skip this →
+                </button>
+                <button onClick={next} className="btn btn-primary">
+                  Continue →
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ===== CONSULT ===== */}
         {step === SUBMIT_STEP && (
           <div className="text-center py-6">
             {!submitting ? (
               <div>
                 <TycheSigil size={96} className="mx-auto mb-8" />
-                <div className="eyebrow eyebrow-tyche mb-4">all inputs received</div>
+                <div className="eyebrow eyebrow-tyche mb-4">tyche is ready</div>
                 <h2 className="font-display text-[36px] md:text-[48px] leading-[1.1] font-light text-balance mb-4">
-                  Tyche is <em className="not-italic text-[var(--tyche)]">ready</em>, {personal.name || "friend"}.
+                  She sees you, <em className="not-italic text-[var(--tyche)]">{personal.name || "friend"}</em>.
                 </h2>
                 <p className="text-[15px] text-[var(--text-muted)] max-w-lg mx-auto leading-relaxed mb-8">
-                  She will read your pattern, match the traditions, and return your
-                  archetype &mdash; the first taste of your Reading.
+                  She will read your pattern through twelve traditions, match your
+                  archetype, and return your first glimpse &mdash; free.
                 </p>
                 <button onClick={consult} className="btn btn-primary">
                   Consult Tyche Now

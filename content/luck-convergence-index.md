@@ -148,9 +148,9 @@ The argument, one more time, so it is clear: luck is not random. Luck is a dispo
 > "Do not seek for things to happen the way you want them to; rather, wish that what happens happen the way it happens: then you will be happy."[^13]
 > *— Epictetus, Enchiridion 8*
 
-And from Marcus:
-> "Everything that happens happens as it should, and if you observe carefully, you will find this to be so."[^14]
-> *— Meditations 4.10*
+And from Marcus, in Hays's translation:
+> "Whatever happens to you has been waiting to happen since the beginning of time. The twining strands of fate wove both of them together: your own existence and the things that happen to you."[^14]
+> *— Meditations 10.5*
 
 **Practice.** The evening review (*Meditations* book 1 is Marcus's lifelong example): at day's end, rehearse the day's events, locate the judgements one made, revise the ones that produced disturbance, and commend the ones that produced equanimity. The *premeditatio malorum* — the morning rehearsal of what could go wrong — is its counterpart: one immunises oneself in advance against being thrown.
 
@@ -188,9 +188,7 @@ And from Marcus:
 
 **Mechanism.** Approach, in Sufi thought, is everything. The seeker's state (*ḥāl*) determines what can be received. An open, attentive, humble, generous state catches *barakah*; a closed, demanding, distracted state lets it pass. This maps, with very little translation, onto social-psychological findings on reciprocity, trust signalling, and what we might call the *approach quality* of social encounters. The person who shows up generous and unforced receives more than the person who shows up transactional and tight.
 
-**Primary-source quote.**
-> "The saint is like the pool of Kawthar: whoever comes thirsty, drinks. The one who comes with a bucket takes a bucket; the one who comes with a thimble, a thimble; and the one who comes with cupped hands, what the hands can hold."[^16]
-> *— Attributed in the Sufi hagiographic tradition; cf. Rūmī, Mathnawī, Book I*
+**Traditional image.** In Sufi teaching, divine abundance is often likened to an overflowing source — the Qur'ānic *Kawthar* (Q. 108:1), the pool of abundance promised to the Prophet. What any seeker receives is not limited by the source but by the size and openness of the vessel they bring to it. One comes with a bucket and carries away a bucket; one comes with cupped hands and carries away what the hands can hold.[^16]
 
 **Practice.** The classical practice is *ṣuḥba* — "keeping company" — the slow, undemanded companionship of those further along the path. Its distilled modern form: spend unhurried time with people who are more generous, more competent, or more serene than you are, and do not ask them for anything. Bring tea. The *barakah*, if there is any, transmits in the absence of asking.
 
@@ -232,9 +230,7 @@ And from Marcus:
 > "The superior person knows what is going to come; the inferior person knows what has already come. Knowing the seeds — that is divine indeed."[^21]
 > *— Xici Zhuan (Great Commentary), I.5*
 
-And, describing the sage:
-> "He does not go forth to meet things, nor does he turn away from them when they come."[^22]
-> *— Xici Zhuan, summarising the I Ching's posture*
+The sage, on this account, neither runs out to meet events nor flinches away when they arrive; the posture is one of composed availability to the moment as it actually unfolds.[^22]
 
 **Practice.** A modest contemporary practice: before a consequential decision, sit with the question for longer than feels comfortable, write out the three possible shapes of the moment (rising, falling, turning), and ask which shape the evidence actually supports. Only then decide. The *Yijing* itself can be consulted, but is not required; the discipline is the noticing.
 
@@ -252,9 +248,7 @@ And, describing the sage:
 
 **Mechanism.** Fortune in Yorùbá cosmology is the alignment between a person and their own *Orí* — the destiny they themselves chose. Divination (Ifá) is the technology for recovering that alignment when it has been lost. *Àṣẹ* flows more readily to those in alignment. The mechanism is therefore **vocational**: discover what you actually are, become it, and the world arranges itself around the becoming.
 
-**Primary-source quote.**
-> "*Orí*, pray for me. The *Orí* of a person is their saviour. The day *Orí* turns towards you, even the impossible becomes possible."[^25]
-> *— Ifá verse, traditional; cf. Abimbola, Ifá: An Exposition of Ifá Literary Corpus*
+**Traditional invocation.** A recurring refrain in Ifá prayer addresses *Orí* directly as the personal advocate that blesses its own before any external spirit — "*Orí pèlé, Atèté níran, Atété gbe ni kòòsà*" ("Head, I greet you, you who swiftly remember your own, you who bless a person before any Spirit"). The underlying teaching is that no *Òrìṣà* blesses a person without the consent of that person's own head.[^25]
 
 **Practice.** The traditional practice is Ifá divination, performed by a trained *babalawo*. The distilled insight, usable without the ritual apparatus: at intervals — quarterly is reasonable — ask yourself what your *Orí* seems to be pointing you toward, as distinct from what your circumstances or fears are pushing you toward. Write the answer. Revisit it. The *Orí* tends to say consistent things across years; the circumstances and fears change.
 
@@ -596,11 +590,11 @@ A selected bibliography, grouped by tradition. Editions given are the ones we ha
 
 [^13]: Epictetus, *Enchiridion* §8. Trans. Robin Hard, *Discourses, Fragments, Handbook.* Oxford World's Classics, 2014, p. 289.
 
-[^14]: Marcus Aurelius, *Meditations* 4.10. Trans. Gregory Hays, Modern Library, 2002, p. 43.
+[^14]: Marcus Aurelius, *Meditations* 10.5. Trans. Gregory Hays, Modern Library, 2002.
 
 [^15]: *Assutavā Sutta*, Saṃyutta Nikāya 12.61. Trans. Bhikkhu Bodhi, *The Connected Discourses of the Buddha*, Wisdom, 2000, p. 595. The formulation "when this is, that is…" appears widely across the Nikāyas as the standard formula of *paṭicca-samuppāda*.
 
-[^16]: A widely circulated teaching in the Sufi oral tradition, associated with several shaykhs and paralleled in Rūmī's imagery of the *Mathnawī* Book I (see Nicholson's translation, 1925–1940). We have been unable to locate a single authoritative textual source; treat as traditional rather than as a verbatim quotation from a named author.
+[^16]: The vessel-and-source image is a commonplace of Sufi pedagogy, paralleled in the water and jar imagery that recurs across Rūmī's *Mathnawī* (see Nicholson's translation, 1925–1940) and in classical treatments of *barakah* in al-Ghazālī's *Iḥyāʾ ʿulūm al-dīn*. We render it here as a composite of the tradition rather than as a verbatim quotation from a single named source.
 
 [^17]: Christakis, N. A. and J. H. Fowler. "The Spread of Obesity in a Large Social Network over 32 Years." *New England Journal of Medicine* 357 (2007): 370–379; and *Connected*, Little, Brown, 2009, esp. chapters 3–5.
 
@@ -612,13 +606,13 @@ A selected bibliography, grouped by tradition. Editions given are the ones we ha
 
 [^21]: *Xici Zhuan* (繫辭傳, "Great Commentary" or "Great Treatise"), I.5. Trans. based on Wilhelm/Baynes, *I Ching*, 1950, pp. 294–295, with reference to Shaughnessy, *I Ching*, Ballantine, 1996.
 
-[^22]: *Xici Zhuan*, paraphrase drawn from Wilhelm/Baynes' commentary on the sage's posture. See *I Ching*, Princeton, 1967 ed., pp. 312–315.
+[^22]: Paraphrase of the sage's posture as presented in the *Xici Zhuan* (Great Commentary) and developed in Wilhelm/Baynes' interpretive apparatus. See *The I Ching or Book of Changes*, trans. Richard Wilhelm, rendered into English by Cary F. Baynes, Bollingen/Princeton, 3rd ed. 1967, Part II (Wings V–VI). We give this as a summary rather than a verbatim quotation.
 
 [^23]: Jung's foreword to the Wilhelm/Baynes *I Ching*, 1950, pp. xxi–xxxix. Jung writes: "The Chinese mind, as I see it at work in the *I Ching*, seems to be exclusively preoccupied with the chance aspect of events. What we call coincidence seems to be the chief concern of this peculiar mind."
 
 [^24]: Abimbola, W. *Ifá: An Exposition of Ifá Literary Corpus.* Oxford University Press Nigeria, 1976, especially chapters on *Orí* and *Àṣẹ*.
 
-[^25]: Traditional Ifá verse on *Orí*. See Abimbola, *Ifá*, 1976; and Bascom, *Ifa Divination*, Indiana University Press, 1969. We have rendered the verse in an English form consistent with Abimbola's translations; the precise wording will vary across transcribed *ese*.
+[^25]: Traditional Yorùbá *Orí* invocation; variants of this formula (*Orí pèlé, Atèté níran…*) are widely recorded in the ethnographic and liturgical literature. See Wande Abimbola, *Ifá: An Exposition of Ifá Literary Corpus*, Oxford University Press, 1976; and William Bascom, *Ifa Divination: Communication between Gods and Men in West Africa*, Indiana University Press, 1969. Transcriptions of the refrain vary across lineages and *ese*.
 
 [^26]: On eudaimonic well-being, see Ryff, C. D. "Happiness Is Everything, or Is It? Explorations on the Meaning of Psychological Well-Being." *Journal of Personality and Social Psychology* 57, no. 6 (1989): 1069–1081; and Ryff, C. D. and B. H. Singer. "Know Thyself and Become What You Are." *Journal of Happiness Studies* 9 (2008): 13–39.
 

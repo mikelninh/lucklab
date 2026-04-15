@@ -204,7 +204,11 @@ export default function ReadingPreviewPage() {
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>A 30-day protocol, week-by-week &mdash; yours to keep</li>
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>Your personalised daily ritual</li>
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>Failure modes specific to your archetype</li>
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>Responds to your actual question: <em>&ldquo;{personal.currentQuestion.slice(0, 80)}{personal.currentQuestion.length > 80 ? "…" : ""}&rdquo;</em></li>
+                  {personal.currentQuestion && personal.currentQuestion.trim().length > 0 ? (
+                    <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>Responds to your actual question: <em>&ldquo;{personal.currentQuestion.slice(0, 80)}{personal.currentQuestion.length > 80 ? "…" : ""}&rdquo;</em></li>
+                  ) : (
+                    <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>A 90-day Return reading + lifetime Synchronicity Journal</li>
+                  )}
                 </ul>
                 <div className="flex items-baseline gap-3 mb-4">
                   <span className="font-display text-[44px] text-[var(--text)]">€29</span>

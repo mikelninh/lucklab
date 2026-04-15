@@ -56,13 +56,38 @@ type ReadingContext = {
 
 function personalSection(p?: PersonalContext): string {
   if (!p) return "Personal context: not provided — use universal address.";
-  const bc = birthContext(p.birthdate);
-  return `Personal context:
-- Name: ${p.name}
-- Birthdate: ${p.birthdate} (${bc.season}, ${bc.seasonEpithet}; Greek month: ${bc.greekMonth}; elemental affinity: ${bc.elementalAffinity})
-- Their current question / what they are asking of Tyche: "${p.currentQuestion}"
+  const parts: string[] = [`Personal context:`, `- Name: ${p.name}`];
+  const hasBirthdate = p.birthdate && /^\d{4}-\d{2}-\d{2}$/.test(p.birthdate);
+  const hasQuestion = p.currentQuestion && p.currentQuestion.trim().length >= 3;
 
-When writing, address them by name at least once. You may reference their season of birth (${bc.season}) as metaphor for their archetype when it fits — e.g. "born in ${bc.seasonEpithet}…". Treat their current question as the living thread of the reading — the reading should land as an answer to it.`;
+  if (hasBirthdate) {
+    const bc = birthContext(p.birthdate);
+    parts.push(
+      `- Birthdate: ${p.birthdate} (${bc.season}, ${bc.seasonEpithet}; Greek month: ${bc.greekMonth}; elemental affinity: ${bc.elementalAffinity})`,
+    );
+  } else {
+    parts.push("- Birthdate: not provided");
+  }
+  if (hasQuestion) {
+    parts.push(`- Their current question / what they are asking of Tyche: "${p.currentQuestion}"`);
+  } else {
+    parts.push("- Current question: not provided — speak to their archetype in general, no living-thread needed");
+  }
+
+  parts.push("");
+  parts.push(`When writing, address them by name (${p.name}) at least once.`);
+  if (hasBirthdate) {
+    const bc = birthContext(p.birthdate);
+    parts.push(
+      `You may reference their season of birth (${bc.season}) as metaphor for their archetype when it earns its place — e.g. "born in ${bc.seasonEpithet}…". Never cast horoscopes.`,
+    );
+  }
+  if (hasQuestion) {
+    parts.push(
+      `Treat their current question as the living thread of the Reading — the Reading should land as an answer to it.`,
+    );
+  }
+  return parts.join("\n");
 }
 
 // ============================================================
