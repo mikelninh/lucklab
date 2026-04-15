@@ -56,7 +56,7 @@ The *Zhuangzi*'s point, and the whole Daoist point, is that most human effort fa
 
 What does this have to do with luck?
 
-In 2003, the psychologist Richard Wiseman published the results of a decade-long study at the University of Hertfordshire, in which he had compared the behaviour of self-described "lucky" and "unlucky" people across a battery of experiments.[^7] The most famous of these is the newspaper-counting study. Subjects were asked to count the photographs in a two-page newspaper Wiseman had prepared. On page two, in large type, was a printed message: *"Stop counting. There are 43 photographs in this newspaper."* A few pages on, a second message offered a £100 prize to anyone who had mentioned seeing it.
+In 2003, the psychologist Richard Wiseman published the results of a decade-long study at the University of Hertfordshire, in which he had compared the behaviour of self-described "lucky" and "unlucky" people across a battery of experiments.[^7] The most famous of these is the newspaper-counting study. Subjects were asked to count the photographs in a two-page newspaper Wiseman had prepared. On page two, in large type, was a printed message: *"Stop counting. There are 43 photographs in this newspaper."* A few pages on, a second message offered a £250 prize to anyone who had mentioned seeing it.
 
 The lucky people, on average, noticed both messages. The unlucky people, on average, did not.
 

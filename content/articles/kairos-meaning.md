@@ -100,7 +100,7 @@ When you are ready, [Begin Your Reading](/reading) — it is free.
 
 [^3]: *Greek Anthology* (Anthologia Palatina) 16.275, after the epigram of Posidippus of Pella on the statue of Kairos by Lysippos. Translation ours, consistent with W. R. Paton's Loeb edition, *The Greek Anthology*, vol. 5, Cambridge, MA: Harvard University Press, 1918.
 
-[^4]: Aristotle, *Nicomachean Ethics* II.6, 1106b21–23. The canonical formulation of the doctrine of the mean includes the requirement to act *hote dei* — "when one must." See the translation by Terence Irwin, 2nd ed., Indianapolis: Hackett, 1999, p. 24.
+[^4]: Aristotle, *Nicomachean Ethics* II.6, 1106b21–23. The canonical formulation of the doctrine of the mean includes the temporal clause *hote dei* ("when one ought") alongside the other conditions of virtuous action — toward the right people, about the right things, for the right reason, in the right way. The word *kairos* is ours; the idea that virtuous action is temporally fitted is Aristotle's. See the translation by Terence Irwin, 2nd ed., Indianapolis: Hackett, 1999, p. 24.
 
 [^5]: On Isocrates and *kairos* in the rhetorical tradition, see Kinneavy, J. L. "*Kairos*: A Neglected Concept in Classical Rhetoric." In J. D. Moss (ed.) *Rhetoric and Praxis*, Washington: Catholic University of America Press, 1986, pp. 79–105; and Sipiora, P. and J. S. Baumlin (eds.) *Rhetoric and Kairos: Essays in History, Theory, and Praxis*, Albany: SUNY Press, 2002.
 

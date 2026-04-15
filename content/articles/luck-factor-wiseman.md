@@ -135,7 +135,7 @@ When you are ready, [Begin Your Reading](/reading) — it is free. Three minutes
 
 [^2]: Wiseman, R. *The Luck Factor: The Scientific Study of the Lucky Mind.* London: Century, 2003. The research programme is summarised in chapters 1 and 6; the four principles are introduced on p. 2 and developed throughout. See also Wiseman, R. "The Luck Factor." *Skeptical Inquirer* 27, no. 3 (2003): 26–30, a shorter version for a sceptical readership.
 
-[^3]: Wiseman, *The Luck Factor*, pp. 43–55. The coffee-shop protocol is described as a composite in Wiseman's own account; we are summarising rather than quoting.
+[^3]: Wiseman, *The Luck Factor*, pp. 43–55. The "coffee-shop" scene as we present it here is a composite of several experimental and anecdotal elements Wiseman describes (the note on a chair, the approachable stranger, the £5 note on the pavement); we are summarising rather than quoting, and the specific framing as a single protocol is ours.
 
 [^4]: Granovetter, M. "The Strength of Weak Ties." *American Journal of Sociology* 78, no. 6 (1973): 1360–1380. Granovetter, M. "The Strength of Weak Ties: A Network Theory Revisited." *Sociological Theory* 1 (1983): 201–233 is the author's own review of the first decade of follow-up work.
 

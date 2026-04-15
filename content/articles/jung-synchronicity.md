@@ -63,7 +63,7 @@ This is not a claim that quantum mechanics validates synchronicity. It does not.
 
 Half a century after the scarab, in a windowless laboratory at the University of Hertfordshire, the British psychologist Richard Wiseman was running a decade-long study on luck. He had advertised in the national press for people who considered themselves exceptionally lucky or exceptionally unlucky. Roughly four hundred replied. He subjected them to interviews, personality inventories, lab experiments, and longitudinal follow-up, and he published the results in 2003.[^8]
 
-One experiment stands out. Wiseman asked his subjects to count the photographs in a two-page newspaper he had prepared. The newspaper contained, on page two, a large-type message reading *"Stop counting. There are 43 photographs in this newspaper."* A few pages on, a second message offered a £100 prize to anyone who mentioned seeing it. The self-described lucky people, on average, noticed both. The unlucky people, on average, did not. The unlucky people were counting harder. They had narrowed their attention to the task and missed the information that would have solved it.
+One experiment stands out. Wiseman asked his subjects to count the photographs in a two-page newspaper he had prepared. The newspaper contained, on page two, a large-type message reading *"Stop counting. There are 43 photographs in this newspaper."* A few pages on, a second message offered a £250 prize to anyone who mentioned seeing it. The self-described lucky people, on average, noticed both. The unlucky people, on average, did not. The unlucky people were counting harder. They had narrowed their attention to the task and missed the information that would have solved it.
 
 Wiseman concluded that self-described lucky people differ from unlucky ones along four behavioural dimensions: they maintain a broader attentional aperture, they trust intuition, they expect good outcomes, and they reframe misfortune in constructive terms. These are trainable behaviours. In a follow-up intervention, unlucky subjects taught to practise them reported measurable improvements in life satisfaction and fortune within a month.
 
@@ -105,7 +105,7 @@ When you are ready, [Begin Your Reading](/reading) — it is free.
 
 [^2]: Jung engages Rhine's parapsychology experiments at length in *Synchronicity*, 1973, pp. 30–55, and the statistical problem of meaningful coincidence on pp. 55–91. The treatment is dated in several respects — Rhine's methodology has since been substantially discredited — but Jung's awareness of the problem of base rates is clear.
 
-[^3]: Jung, C. G. *Letters*, vol. 2, ed. Gerhard Adler, trans. R. F. C. Hull. Princeton University Press, 1975. See the correspondence with Michael Fordham (letters of 1954–55) on the danger of "synchronistic inflation" in patients undergoing analytical treatment.
+[^3]: On the danger of over-reading ordinary events as synchronistic — a form of what Jungians call "inflation" — see Jung's general discussion of inflation in *Two Essays on Analytical Psychology*, *Collected Works* vol. 7 (2nd ed., Princeton University Press, 1966), esp. §§227–230, and the correspondence on patient dynamics in Jung, C. G. *Letters*, vol. 2, 1951–1961, ed. Gerhard Adler, trans. R. F. C. Hull (Princeton University Press, 1975).
 
 [^4]: Jung, *Synchronicity*, 1973, p. 25.
 
