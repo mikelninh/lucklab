@@ -66,7 +66,8 @@ export function welcomeEmail(name?: string): Shell {
       `${h1(greeting)}
       ${p(`You asked for the Index. Here it is — forty pages of careful synthesis across twelve traditions and two decades of empirical research on luck. No woo. No shortcuts. Read it slowly.`)}
       ${p(`The Index will take you about ninety minutes to read if you read it properly. If you are short on time, skim the Convergence Table in section 4 and read the seven-day protocol at the end.`)}
-      ${button(`${APP_URL}/convergence-index.pdf`, "Download the Index", "gold")}
+      ${button(`${APP_URL}/convergence-index`, "Read the Index", "gold")}
+      ${pMuted(`You can save it as a PDF from the page — the print layout is prepared for it.`)}
       ${hr()}
       ${pMuted(`After the Index, if you want a reading specific to <em>your</em> pattern, the Reading is free and takes three minutes.`)}
       ${button(`${APP_URL}/reading`, "Begin Your Reading", "ghost")}

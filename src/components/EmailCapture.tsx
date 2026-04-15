@@ -39,15 +39,20 @@ export function EmailCapture() {
       {state === "sent" ? (
         <div className="border border-[var(--gold-dim)] bg-[rgba(201,169,97,0.06)] rounded p-5">
           <p className="text-[14px] text-[var(--gold-bright)] font-mono">
-            ✓ SENT
+            ✓ SENT · CHECK YOUR INBOX
           </p>
           <p className="text-[13px] text-[var(--text-muted)] mt-2 leading-relaxed">
-            Check your inbox for the Convergence Index. Your next step: take the
-            Diagnostic.
+            Tyche has sent the Index. While you wait, read it here and take
+            the Reading.
           </p>
-          <a href="/diagnostic" className="btn btn-primary mt-4 text-[12px] !py-2 !px-4">
-            Take the Diagnostic →
-          </a>
+          <div className="flex gap-2 mt-4">
+            <a href="/convergence-index" className="btn btn-ghost text-[12px] !py-2 !px-4">
+              Read the Index →
+            </a>
+            <a href="/reading" className="btn btn-primary text-[12px] !py-2 !px-4">
+              Begin Reading →
+            </a>
+          </div>
         </div>
       ) : (
         <form onSubmit={onSubmit} className="flex flex-col gap-3">
