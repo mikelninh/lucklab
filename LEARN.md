@@ -360,34 +360,88 @@ Let's trace what happens when a user buys. This is the "how does this actually w
 
 ---
 
-## Part 7 — How I'd grow this next
+## Part 7 — How the project grew after the first MVP
 
-In order of what I'd add and *why*:
+When this doc was first written, only the minimum shipped: landing, quiz, free AI preview, €29 paid Reading. Everything else was labelled "next session". Here is what was actually added — and what still remains.
 
-1. **Supabase for persistence** — so users can revisit their reading, and so you can analyse which archetypes convert best. Cost: half a day. Value: huge.
-2. **Email delivery of the full reading** — so buyers have it forever, not just at the URL. Cost: 1 hour. Value: refunds-prevented.
-3. **Proper PDF of the Convergence Index** — replace the placeholder. Either write in Notion and export, or use React-PDF. Cost: half a day of writing, 1 hour of plumbing. Value: lead magnet credibility.
-4. **A/B test the €29 vs €39 price point** — the single highest-leverage optimisation in any product. Cost: an afternoon. Value: can double revenue per visitor.
-5. **Tyche Pro subscription** — the whole recurring-revenue thesis. Synchronicity journal + weekly AI report. Cost: ~1 week. Value: turns the business from one-shot to compounding.
-6. **Content / SEO** — write 12 articles, one per tradition, each a long-form post that ranks for "what is X / how to practise X". Cost: slow but compounding. Value: free traffic forever.
+### ✅ Shipped since the first MVP
 
-**Notice the ordering:** I put infrastructure (Supabase) first not because it's fun but because it unlocks everything else. Then I fix the biggest hole in the current product (email). Only then do I add features.
+Each of these was a separate session of work. Most had "teach a new pattern" value, which is why they got their own sections below.
 
-**The skill to develop:** resist the urge to build the *fun* feature before the *load-bearing* one.
+- **Quiz renamed and reordered.** `/diagnostic` → `/reading`. Personal inputs (name + optional birthdate + optional life question) moved *after* the 10 quiz inputs to reduce drop-off.
+- **Tier split into three.** Free (archetype teaser) → €9 Primer (tripwire) → €29 Full Reading (with 90-day Return + lifetime Journal + Gift Reading bundled — cleverer than a monthly sub).
+- **Three prompt templates.** One for each tier — short teaser (leaves hungry), mid-depth Primer (keepsake), long-form Full (the map). Same data pipeline, three different asks.
+- **Content as a product.** Convergence Index (12,400-word lead magnet) + 7 weekly-unlocking research essays (~29,000 words) — all markdown-first with publish-date gating.
+- **About page, Privacy, Terms.** Legal and brand pages, GDPR-compliant.
+- **Email drip funnel** using Resend's `scheduledAt` (no cron needed for the drip itself).
+- **Abandoned-checkout recovery** via Stripe webhook + dynamic promo code generation.
+- **Rate limiting** on every expensive API route (protects OpenAI bill from abuse).
+- **SEO technical**: sitemap, robots.txt, JSON-LD structured data, dynamic OG images, proper meta.
+- **Analytics scaffold**: Plausible integration behind env var, typed event helpers.
+- **4 Vercel Cron routes**: weekly-social (drafts for you to approve), weekly-digest (auto-broadcast), seasonal (solstices + New Year), monthly-stats (Stripe revenue email).
+- **404 + error boundary**: on-brand, with reset.
+- **Print stylesheet**: the Reading and Convergence Index are printable to PDF with a proper cream-on-white layout.
+- **Supabase schema**: written and ready (`/supabase/schema.sql`) — not enabled yet.
+- **Deployed**: live on Vercel, production.
+
+### 🔜 What's left
+
+In priority order:
+
+1. **Custom domain** — buy `kairos.lab` (or similar), add in Vercel. ~30 min.
+2. **Supabase enable** — so users can revisit their Reading, journal state persists, the 90-day Return becomes real. The biggest remaining product feature.
+3. **Server-side PDF of the Reading** — currently print-to-PDF works everywhere; server-side (Puppeteer) lets us attach PDFs to email. See `docs/PDF-SERVER.md`.
+4. **Convergence Index as typeset PDF** — Typst template. Currently readable web + print-to-PDF; typeset version is a brand-grade artefact.
+5. **Affiliate program** — 20% on referred purchases, paid via Stripe promotion codes.
+6. **Tyche Circle** (€99/year membership) — only if buyers signal demand.
+
+### The lesson behind the order
+
+Each session's additions followed a rhythm you can copy: **fix the biggest current hole → add the next-highest-ROI feature → only then explore**. The MVP had the hole "no real uniqueness per user"; the Sprint 2 added personalisation. That had the hole "no traffic plan"; the Sprint 3 added SEO content + social scaffolding. That had the hole "no measurement"; the Sprint 4 added analytics + crons.
+
+**The heuristic**: every session should close one hole, not open three.
 
 ---
 
-## Part 8 — The honest stuff
+## Part 8 — The honest stuff (updated)
 
-Things I'd push back on, if I were reviewing this code:
+Things I'd still push back on in review:
 
-- **No tests.** Zero. For an MVP where you're the only developer this is fine, but the moment a second person joins, you want at least `lib/diagnostic.ts` tested (scoring is pure, trivial to test).
-- **The full reading regenerates on every visit.** Wasteful; should cache. Fix with Supabase.
-- **No rate limiting on the API routes.** Someone could spam `/api/tyche/read` and burn your OpenAI credits. Add `@upstash/ratelimit` or similar before going live with real traffic.
-- **No analytics.** You can't improve what you can't measure. Plug in Plausible or PostHog before launching.
-- **Placeholder PDF.** Ship the real one before charging people.
+- **No tests.** Still zero. `lib/diagnostic.ts` is the single file where tests would pay for themselves — scoring must stay consistent or people get different archetypes on re-runs.
+- **Readings regenerate on every visit.** Still true. A refresh of `/reading/full?session_id=X` re-invokes gpt-4o. Costs ~€0.10 per refresh. Fixes itself when Supabase lands — cache the reading JSON keyed by session id.
+- **Rate limiter is in-memory.** Fine for Vercel's single-instance serverless for now. Abuse from distributed IPs would slip through. Upgrade: `@upstash/ratelimit` once you have real traffic.
+- **No observability.** We log to stderr; Vercel keeps them for a few hours. Add Sentry (or Axiom/Logtail) before launch to catch the 1% of requests that silently fail.
+- **Convergence Index is still a "big markdown + print"**. A professionally-typeset Typst/LaTeX PDF with running heads, drop caps, a proper cover — *that* is what makes it feel like a $99 book given away for free, which is what it should feel like.
+- **No abandoned-checkout email for free-tier drop-offs.** If someone starts the quiz and bounces at question 4, we have no way to email them (we don't have their email yet). That's fine — the funnel upstream (email → Convergence Index → Reading) handles that population. Just worth naming.
+- **Cron-drafted social posts are not auto-posted.** By design — reputational risk. But it means the weekly rhythm depends on *you* to approve each draft. Don't underestimate that friction.
 
-None of these are blockers for first-euro. They *are* blockers for first-€1k.
+**Not blockers** for first €1,000/mo. **Are** blockers for scaling past ~€20K/mo.
+
+---
+
+## Part 8b — Shipping cadence, in hours
+
+For your intuition: here is roughly how the time broke down across the build.
+
+| Block | Rough hours |
+|---|---|
+| Branding + naming back-and-forth | 1 |
+| MVP: landing, quiz, free + paid Readings, Stripe flow | 2 |
+| Personalisation refactor + tier split (€9 Primer) | 1 |
+| Content: 12,400-word Convergence Index | via agent (~8 min wall) |
+| Content: 7 SEO articles (~29,000 words total) | via agents (~15 min wall) |
+| Blog infrastructure: loader, index, slug route, prose CSS | 1 |
+| Email funnel + abandoned-cart webhook | 0.75 |
+| SEO tech: sitemap, robots, JSON-LD, OG images | 0.75 |
+| Rate limit + legal pages + 404 + error | 0.75 |
+| Analytics scaffold | 0.25 |
+| Automation crons (4 routes) | 0.5 |
+| Pre-launch polish + deploy | 0.5 |
+| Docs: LEARN.md + MARKETING.md | 1.5 |
+
+Everything-else total: roughly **10 focused hours** + parallel agent time.
+
+The surprise isn't that it was fast. The surprise is how much of the effort was *deciding*, not typing. Naming, pricing structure, positioning, what to cut. The code cadence stays high because the decisions are made before the typing starts. That's the habit worth keeping.
 
 ---
 
@@ -407,11 +461,21 @@ If you can use these terms correctly, you can talk to any web dev:
 | **Design token** | A named value (colour, spacing) used throughout | `--gold`, `--tyche` in globals.css |
 | **Design system** | Reusable components + tokens | `components/*.tsx` + globals.css |
 | **Environment variable** | Secret or config not in code | `OPENAI_API_KEY`, configured in `.env.local` or Vercel |
-| **Webhook** | An external service POSTs to us | We're not using one yet; Stripe redirect covers MVP |
+| **Webhook** | An external service POSTs to us | `/api/stripe/webhook` for abandoned-cart recovery |
 | **Metadata (Stripe)** | Arbitrary data attached to a session | We stash the answers here, our "database" |
 | **Graceful degradation** | App still works when a service fails | Fallback reading when no OpenAI key |
 | **Schema validation** | Runtime checking of data shape | `z.object(...)` in API routes |
 | **Hosted vs self-hosted** | Buy it vs build it | Stripe Checkout = hosted. A custom credit card form = self-hosted. |
+| **Rate limiting** | Caps how often one caller can hit an API | `lib/rate-limit.ts` — 5/min on Tyche |
+| **Cron job** | Code that runs on a schedule, no user request | Vercel Cron → `/api/cron/weekly-digest` |
+| **JSON-LD** | Structured data embedded for search engines | `/lib/jsonld.ts` — Article/Product/FAQ schemas |
+| **OG image** | Image shown when a URL is shared socially | `opengraph-image.tsx` — dynamic, edge-rendered |
+| **ISR** | Incremental Static Regeneration — static but re-builds on a schedule | `revalidate = 3600` on `/research/*` for weekly unlocks |
+| **Sitemap** | Machine-readable list of site URLs for crawlers | `app/sitemap.ts` — Next.js generates `/sitemap.xml` |
+| **Scheduled send** | Email deliverable set for future time | `resend.emails.send({ scheduledAt })` — drives our drip |
+| **Frontmatter** | YAML metadata at the top of a markdown file | Each article's `title`, `slug`, `publishDate`, etc. |
+| **Tripwire** | Low-price first purchase designed to break the wallet barrier | The €9 Primer |
+| **Funnel** | Sequence of steps from visitor to buyer | Landing → Reading → Preview → Checkout → Reading |
 
 ---
 
@@ -430,6 +494,227 @@ Do these in order. Each takes 1-4 hours. Each teaches one fundamental.
 5. **Add Zod validation to `/api/tyche/read`.** Currently it trusts input. *Teaches: why boundary validation is non-negotiable.*
 
 6. **Persist completed readings to Supabase.** This is a *real* project — half a day. *Teaches: real database work, auth, the jump from MVP to product.*
+
+7. **Add an 8th blog article** under a new slug in `content/articles/`, with a `publishDate` two weeks from today. Notice the weekly-unlock UI automatically hides it until that date. *Teaches: content as data, not code.*
+
+8. **Change the rate-limit window** on `/api/tyche/read` from 5/min to 3/min. Watch the 429 response fire when you hammer it. *Teaches: defensive API design.*
+
+9. **Trigger a cron locally**: `curl -H "Authorization: Bearer $CRON_SECRET" http://localhost:3000/api/cron/weekly-social`. Check what it drafts. *Teaches: how cron routes are just authenticated GET endpoints.*
+
+10. **Share a URL from your site on X/iMessage** (the deployed one). Watch the Open Graph card render. Now change `src/app/opengraph-image.tsx` — change the background colour, redeploy, re-share. *Teaches: the gap between "what you wrote" and "what the world sees".*
+
+---
+
+## Part 11 — Content as a product (markdown + publish-date gating)
+
+The Convergence Index and the 7 blog articles are **not code**. They are markdown files in `/content/` with YAML frontmatter. The site reads them, filters by publish date, and renders them through `react-markdown`.
+
+### Why it matters
+
+Most devs reach for a CMS (Contentful, Sanity, Notion as a CMS) the moment content enters the picture. That's a mistake for early-stage products. A CMS adds: an account, a schema, an editing UI, a backup story, a bill. A markdown folder in the repo adds: nothing.
+
+### The pattern
+
+```ts
+// lib/articles.ts
+import matter from "gray-matter";
+
+export function loadArticleBySlug(slug: string) {
+  const raw = fs.readFileSync(path.join(ARTICLES_DIR, `${slug}.md`), "utf8");
+  const { data, content } = matter(raw);
+  return { ...data, content };
+}
+
+export function isPublished(a, now = new Date()) {
+  return new Date(a.publishDate + "T00:00:00Z").getTime() <= now.getTime();
+}
+```
+
+One YAML field (`publishDate: "2026-05-20"`) in each file gates when it goes live. Combined with Next.js's `revalidate = 3600` (hourly regeneration) on the article route, the "weekly unlock" feature is two fields and zero admin UI.
+
+### When to graduate
+
+Move to a CMS the first time one of these is true:
+- A non-developer needs to publish.
+- You want in-place editing with preview.
+- You want scheduled drafts not just scheduled publishing.
+- Images need managed resizing.
+
+Until then: markdown + git is not just enough, it's *better*. Every publication is a commit with a diff.
+
+### What transfers to your next project
+
+Any product with a "content area" — docs, research, tutorials, case studies, recipes — can use this pattern:
+
+```
+content/
+├── articles/
+│   ├── slug-one.md            # frontmatter: publishDate, title, description
+│   └── slug-two.md
+└── [other content types]/
+```
+
+Plus three files: `lib/articles.ts` (loader), `app/[type]/page.tsx` (index), `app/[type]/[slug]/page.tsx` (detail). ~200 lines total, fully typed.
+
+---
+
+## Part 12 — Automation that doesn't page you
+
+Kairos runs four scheduled jobs (weekly-social, weekly-digest, seasonal, monthly-stats) plus a webhook (Stripe abandoned-cart) plus a provider-scheduled email drip. Each uses a different mechanism for a different reason. Understanding *which tool for which job* is the thinking worth internalising.
+
+### The four tools — when to reach for each
+
+| Tool | When | Example in Kairos |
+|---|---|---|
+| **Scheduled send via provider** (e.g. Resend `scheduledAt`) | Predictable time-based delivery, one-off | Welcome drip: T+0, T+1h, T+24h, T+3d, T+7d. Scheduled at subscribe time. |
+| **Webhook** | Event-driven, triggered by another system | Stripe tells us about abandoned checkouts → we send recovery email |
+| **Cron** | Recurring task, independent of any user action | Every Friday 10:00 UTC: email the week's new essay to all subscribers |
+| **On-demand generation** | User triggers, compute at request | `/reading/full` generates the Reading when the user arrives with a valid session |
+
+### Why not just cron everything?
+
+A cron job that polls "any new subscribers in the last hour? send them the welcome" is *possible* but wasteful — it runs even when nothing happened. Scheduled sends run *only when needed*, at the exact right time, with no polling.
+
+A webhook that fires on purchase is better than a cron that polls Stripe every minute — Stripe already knows the event happened, just tell us.
+
+The heuristic: **prefer event-driven over time-driven. Use time-driven when the event has no originator** (e.g. "it is Wednesday and we want to post to X").
+
+### The cron auth pattern
+
+Vercel Cron sends `Authorization: Bearer ${CRON_SECRET}`. Every cron route verifies:
+
+```ts
+const deny = verifyCron(req);
+if (deny) return deny;
+```
+
+**Why this matters:** cron endpoints are just URLs. Without auth, anyone who discovers `https://yoursite.com/api/cron/send-all-emails` could trigger it. Your cron secrets are as sensitive as your database password.
+
+### The manual-approval guard rail
+
+Our weekly-social cron *drafts* X threads and LinkedIn posts — it does not auto-post. This is deliberate. The upside of auto-posting (save 10 min/week) is dwarfed by the downside (one bad post, public apology). Drafts-to-webhook is the sweet spot: automated assembly, human judgement on send.
+
+**Rule**: automate the assembly, keep the human in the send. This applies anywhere reputation is at stake.
+
+---
+
+## Part 13 — SEO is engineering (not marketing)
+
+The single biggest misconception among builders: SEO is a marketing activity you do after the product is built. Wrong. SEO is *technical infrastructure* that must be there at launch, or Google takes months longer to trust you.
+
+### The five pieces every site needs at launch
+
+Kairos has all five. Each is 50 lines of code.
+
+**1. `sitemap.xml`** — tells search engines every URL you want indexed, how often it changes, and how important it is.
+
+```ts
+// app/sitemap.ts
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    { url: `${BASE}/`,       changeFrequency: "weekly",  priority: 1.0 },
+    { url: `${BASE}/reading`,changeFrequency: "monthly", priority: 0.9 },
+    // + one entry per published article
+  ];
+}
+```
+
+Next.js serves this at `/sitemap.xml` automatically. Submit the URL in Google Search Console and Bing Webmaster.
+
+**2. `robots.txt`** — tells crawlers what they may and may not look at. Be deliberate: do not allow crawling of personalised paid content (`/reading/full`, `/reading/primer`) — they are unique per buyer, and indexing them is both useless (no two are alike) and leaks content.
+
+```ts
+// app/robots.ts
+export default function robots() {
+  return {
+    rules: [{ userAgent: "*", allow: "/", disallow: ["/reading/full", "/reading/primer"] }],
+    sitemap: `${BASE}/sitemap.xml`,
+  };
+}
+```
+
+**3. JSON-LD structured data** — embeds Schema.org metadata so Google understands *what kind of thing* each page is. Articles get rich snippets, products get price/availability displayed in results.
+
+```ts
+// lib/jsonld.ts
+export function articleLD(args) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: args.title,
+    datePublished: args.publishDate,
+    author: { "@type": "Organization", name: "Kairos Lab" },
+    // …
+  };
+}
+```
+
+Inject as `<script type="application/ld+json">` in the page. The effort is tiny; the SERP real estate is the difference between a click and a scroll-past.
+
+**4. OG (Open Graph) images** — what shows up when someone pastes your URL into Twitter, iMessage, Discord, Slack. Next.js 15 lets you generate them dynamically at the edge:
+
+```tsx
+// app/opengraph-image.tsx
+export default async function OG() {
+  return new ImageResponse(<div>…gold-on-black card…</div>, { width: 1200, height: 630 });
+}
+```
+
+One file, rendered per request, never needs updating. Per-article images can pull in title/description via route params.
+
+**5. `<meta>` tags** — `description`, `og:title`, `og:description`, `twitter:card`. Next.js's `export const metadata` handles all of them in one object per page.
+
+### The mindset shift
+
+You don't "do SEO." You *build* a site that is machine-readable by default. If you bolt it on at the end, you'll miss half of it. If you build it in, it's part of the infrastructure and you stop thinking about it.
+
+**The principle:** every public page should know what it is (schema), what it looks like when shared (OG image), and when it was updated (sitemap). No exceptions.
+
+---
+
+## Part 14 — Prompt engineering as product design
+
+The three Tyche prompts (`buildFreeTeaserPrompt`, `buildPrimerPrompt`, `buildFullReadingPrompt` in `lib/tyche-prompt.ts`) share a character description and diverge in scope. They illustrate a pattern worth stealing: **treat the prompt as the product's tone of voice, parameterised by depth**.
+
+### The shared top
+
+Every Tyche prompt starts with the same `TYCHE_CHARACTER` block — her voice, her rules, what she will and won't do. Changing this one string changes how every Reading sounds, everywhere. That's the same discipline as design tokens: one source of truth for a cross-cutting concern.
+
+### The diverging middle
+
+Each tier asks for a different JSON shape:
+
+- **Free teaser** asks for 4 fields totalling ~120 words. It is *designed to leave the reader wanting more*. If you ask gpt-4o-mini for full scores + archetype analysis + protocol, it will give them to you, and your €9 tier has nothing to sell. Constraint produces commerce.
+- **€9 Primer** asks for 8 fields, ~600 words. One tradition deep-dive, not three. One practice, not thirty days. Honest, keepsake-worthy, but visibly less than the Full Reading promises.
+- **€29 Full Reading** asks for 14 fields, ~2,000 words. Three tradition deep-dives, a 30-day protocol, a daily ritual, warnings.
+
+**Notice:** the free tier is not a *shrunken* Full Reading. It is a *shaped* one. Different fields, different emphasis. Shape beats length for creating desire.
+
+### The optional-context branch
+
+Personal context (name, birthdate, current life question) is optional. The prompt handles this with a `personalSection` helper that emits different instructions depending on what was provided:
+
+```ts
+if (hasBirthdate) {
+  parts.push(`You may reference their season of birth as metaphor…`);
+}
+if (hasQuestion) {
+  parts.push(`Treat their current question as the living thread…`);
+}
+```
+
+**The principle**: when user inputs are optional, the prompt branches accordingly. Don't try to make gpt-4o "just figure out" what to do with a missing field. Be explicit about what's present and what's not.
+
+### What transfers to your next LLM feature
+
+Whenever you use an LLM in product:
+
+1. **Write the character once.** Changing voice should be one edit, not ten.
+2. **Define the output schema.** `response_format: { type: "json_object" }` + a detailed JSON spec in the prompt. You are calling a function, not chatting.
+3. **Shape tiers, don't shrink them.** If free and paid look the same but shorter, paid conversion will be poor.
+4. **Branch on optional inputs.** State what was given and what wasn't; give different instructions for each.
+5. **Always write a deterministic fallback.** If OpenAI is down or the key is missing, your app should still work. Kairos returns a deterministic teaser keyed to the archetype.
+6. **Match model to tier.** `gpt-4o-mini` is ~10× cheaper and fast enough for free/Primer tiers. `gpt-4o` shines on the €29 long-form Reading.
 
 ---
 
