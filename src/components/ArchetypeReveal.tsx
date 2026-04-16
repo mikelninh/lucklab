@@ -53,8 +53,7 @@ export function ArchetypeReveal({ name, archetype, greek, tagline, scores }: Rev
     return () => { clearTimeout(t); clearTimeout(t2); };
   }, []);
 
-  const scoreValues = SCORE_ORDER.map((k) => scores[k] ?? 0);
-  const shareCardUrl = `/api/share-card?name=${encodeURIComponent(name)}&archetype=${encodeURIComponent(archetype)}&greek=${encodeURIComponent(greek)}&tagline=${encodeURIComponent(tagline)}&scores=${scoreValues.join(",")}&style=${selectedStyle}`;
+  const shareCardUrl = `/api/share-card?name=${encodeURIComponent(name)}&archetype=${encodeURIComponent(archetype)}&greek=${encodeURIComponent(greek)}&tagline=${encodeURIComponent(tagline)}&style=${selectedStyle}`;
 
   async function downloadCard() {
     setDownloading(true);
