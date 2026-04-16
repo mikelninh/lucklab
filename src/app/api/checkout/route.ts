@@ -61,10 +61,13 @@ export async function POST(req: NextRequest) {
   const { tier, answers, personal, archetypeId } = parsed.data;
   const tierConfig = TIERS[tier as Tier];
   const stripe = new Stripe(stripeKey);
-  const baseUrl =
-    process.env.NEXT_PUBLIC_APP_URL ||
-    req.headers.get("origin") ||
-    "http://localhost:3000";
+  const rawBase =
+    process.env.NEXT_PUBLIC_APP_URL?.trim() ||
+    req.headers.get("origin")?.trim() ||
+    req.nextUrl.origin;
+  // Ensure no trailing slash
+  const baseUrl = rawBase.replace(/\/+$/, "");
+  console.log("[checkout] baseUrl:", baseUrl);
 
   const encodedAnswers = encodeAnswers(answers);
   // Compact personal context for metadata (500-char limit per key)
