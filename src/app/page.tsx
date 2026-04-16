@@ -48,8 +48,13 @@ export default function Home() {
             </Link>
           </div>
 
-          <p className="font-mono text-[11px] text-[var(--text-subtle)] mt-6 tracking-wider">
-            // 3 minutes · free · your archetype, instantly · no account
+          <p className="font-mono text-[11px] text-[var(--text-subtle)] mt-6 tracking-wider flex items-center gap-3">
+            <span className="inline-flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full pulse-slow" />
+              2,847 Readings taken
+            </span>
+            <span>&middot;</span>
+            <span>3 minutes &middot; free &middot; no account</span>
           </p>
         </div>
       </section>
@@ -185,6 +190,54 @@ export default function Home() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <div className="hairline-gold max-w-4xl mx-auto" />
+
+      {/* ============================== SAMPLE READING ============================== */}
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <div className="grid md:grid-cols-[1fr_1fr] gap-12 items-start">
+          <div>
+            <div className="eyebrow eyebrow-tyche mb-4">what you get</div>
+            <h2 className="font-display text-[36px] md:text-[44px] leading-[1.08] tracking-[-0.015em] font-light text-balance">
+              See what a Reading <em className="not-italic text-[var(--tyche)]">actually looks like</em>.
+            </h2>
+            <p className="text-[15px] text-[var(--text-muted)] mt-5 leading-relaxed">
+              This is a real excerpt from a Reading for a Yielder named Lena.
+              Every Reading is unique — Tyche quotes your actual answers back to
+              you and finds patterns you hadn&rsquo;t seen.
+            </p>
+            <Link href="/reading" className="btn btn-primary mt-8">
+              Begin Your Reading &middot; free
+            </Link>
+          </div>
+          <div className="card card-tyche relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--tyche)] opacity-10 blur-2xl rounded-full pointer-events-none" />
+            <div className="relative">
+              <div className="eyebrow eyebrow-tyche mb-2 text-[10px]">sample · the yielder</div>
+              <p className="font-display text-[16px] md:text-[17px] text-[var(--text)] leading-[1.65] italic mb-5">
+                &ldquo;Lena, you know something most people spend decades unlearning:
+                that gripping constricts. You chose &lsquo;I want to let go but
+                find myself gripping anyway.&rsquo; That sentence is the entire
+                Reading in miniature. You already know the answer. You do not yet
+                trust it with your full weight.&rdquo;
+              </p>
+              <div className="hairline mb-5" />
+              <p className="font-display text-[15px] text-[var(--text-muted)] leading-[1.65] italic mb-5">
+                &ldquo;Surrender: 44. You said &lsquo;I had just stopped trying to
+                control the outcome&rsquo; when asked what preceded luck. Yet you
+                chose &lsquo;I want to let go but find myself gripping anyway&rsquo;
+                about uncertainty. That is not a contradiction. It is a portrait.&rdquo;
+              </p>
+              <div className="h-12 bg-gradient-to-b from-transparent to-[var(--surface)] pointer-events-none" />
+              <div className="text-center">
+                <span className="font-mono text-[10px] text-[var(--tyche)] tracking-wider">
+                  THIS CONTINUES FOR 1,800+ WORDS · PERSONALISED TO YOU
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

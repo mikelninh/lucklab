@@ -15,6 +15,7 @@ import {
 } from "@/lib/diagnostic";
 import { TRADITIONS, MECHANISMS } from "@/lib/traditions";
 import { buildPrimerPrompt } from "@/lib/tyche-prompt";
+import { UpgradeToFull } from "@/components/UpgradeToFull";
 import OpenAI from "openai";
 
 export const dynamic = "force-dynamic";
@@ -272,20 +273,12 @@ export default async function PrimerPage({
           </p>
         </div>
 
-        {/* upgrade path */}
-        <div className="mt-16 card card-tyche text-center">
-          <div className="eyebrow eyebrow-tyche mb-3">go deeper</div>
-          <h3 className="font-display text-[28px] md:text-[32px] font-light mb-4 text-balance">
-            Ready for the Full Reading?
-          </h3>
-          <p className="text-[14px] text-[var(--text-muted)] mb-6 max-w-md mx-auto leading-relaxed">
-            The Primer shows you where you stand. The Full Reading gives you a
-            30-day map, three tradition-specific practices, and a daily ritual written to you.
-          </p>
-          <Link href="/reading" className="btn btn-primary">
-            Upgrade to the Full Reading · €20 extra
-          </Link>
-        </div>
+        {/* upgrade path — one-click, no re-quiz */}
+        <UpgradeToFull
+          answers={answersRaw}
+          personal={personalRaw || ""}
+          archetypeId={archetype.id}
+        />
       </article>
       <Footer />
     </>

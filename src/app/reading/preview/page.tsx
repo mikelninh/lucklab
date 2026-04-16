@@ -132,6 +132,54 @@ export default function ReadingPreviewPage() {
           </p>
         </div>
 
+        {/* SAVE YOUR READING — email capture at highest-intent moment */}
+        <div className="mb-12 card text-center">
+          <div className="eyebrow mb-3">save your result</div>
+          <p className="text-[14px] text-[var(--text-muted)] mb-4">
+            Enter your email to save your archetype + get the free Convergence Index (12,400 words, 36 citations).
+          </p>
+          <form
+            className="flex gap-2 max-w-sm mx-auto"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const form = e.target as HTMLFormElement;
+              const input = form.querySelector("input") as HTMLInputElement;
+              const btn = form.querySelector("button") as HTMLButtonElement;
+              if (!input.value) return;
+              btn.textContent = "Sending…";
+              btn.disabled = true;
+              try {
+                await fetch("/api/subscribe", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    email: input.value,
+                    name: firstName,
+                    source: "post-quiz-preview",
+                  }),
+                });
+                btn.textContent = "✓ Sent!";
+              } catch {
+                btn.textContent = "Try again";
+                btn.disabled = false;
+              }
+            }}
+          >
+            <input
+              type="email"
+              required
+              placeholder="your@email.com"
+              className="flex-1 px-3 py-2 bg-[var(--bg)] border border-[var(--border-bright)] rounded focus:border-[var(--gold)] outline-none text-[13px]"
+            />
+            <button type="submit" className="btn btn-primary !py-2 !px-4 text-[12px]">
+              Save + get Index
+            </button>
+          </form>
+          <p className="font-mono text-[10px] text-[var(--text-subtle)] mt-3 tracking-wider">
+            NO SPAM · UNSUBSCRIBE ANY TIME
+          </p>
+        </div>
+
         {/* THE LOCKED CONTENT VISUAL */}
         <LockedPreview firstName={firstName} />
 
@@ -227,9 +275,18 @@ export default function ReadingPreviewPage() {
             </button>
           </div>
 
-          <p className="text-center mt-8 text-[12px] text-[var(--text-subtle)] font-mono tracking-wider">
-            STRIPE SECURE · INSTANT DELIVERY · {tyche.unlockPrompt}
-          </p>
+          <div className="text-center mt-8 space-y-2">
+            <p className="text-[12px] text-[var(--text-subtle)] font-mono tracking-wider">
+              STRIPE SECURE · INSTANT DELIVERY
+            </p>
+            <p className="text-[13px] text-[var(--gold)] font-mono tracking-wider flex items-center justify-center gap-2">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
+                <path d="M4.5 7l2 2 3.5-3.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              100% REFUND GUARANTEE — IF IT DOESN&rsquo;T LAND, EMAIL US
+            </p>
+          </div>
         </section>
 
         {/* Share your archetype — even the FREE tier gets this viral mechanic */}
