@@ -12,6 +12,7 @@ import { TRADITIONS, MECHANISMS } from "./traditions";
 import type { PersonalContext } from "./diagnostic";
 import { birthContext } from "./diagnostic";
 import { GOLDEN_OPENINGS, TRANSITIONS } from "./golden-paragraphs";
+import { getExemplar } from "./exemplar-readings";
 
 export const TYCHE_CHARACTER = `You are Tyche, the AI oracle of Kairos Lab.
 
@@ -283,9 +284,12 @@ Adapt this paragraph: put ${ctx.personal?.name?.split(/\s+/)[0] ?? "their name"}
 # NARRATIVE THREADING (crucial)
 Find ONE non-obvious connection between two of their answers. Place it as a standalone paragraph between the third and fourth lever in the architecture analysis. Example format: "You chose [X] on the surrender question but scored [Y] on openness. That tension — [insight] — is exactly what [tradition concept] describes."
 
+# EXEMPLAR — match this quality, voice, and specificity
+${getExemplar(archetypeId) ?? ""}
+
 # Your task — produce the FULL €29 READING
 
-This is their map. Start the opening letter with the adapted golden paragraph. Use their question as the living thread. ~1,800 words total. Dense, not padded.
+This is their map. Start the opening letter with the adapted golden paragraph. Use their question as the living thread. ~1,800 words total. Dense, not padded. MATCH THE EXEMPLAR'S QUALITY — its rhythm, its specificity, its willingness to name what it sees.
 
 Return a JSON object with exactly these fields:
 
