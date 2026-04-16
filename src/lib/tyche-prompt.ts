@@ -277,46 +277,46 @@ ${getExemplar(archetypeId) ?? ""}
 
 # Your task — produce the FULL €29 READING
 
-This is their map. Start the opening letter with the adapted golden paragraph. Use their question as the living thread. ~1,500 words total. Dense, not padded. Every sentence must earn its place. MATCH THE EXEMPLAR'S QUALITY.
+This is their map. Use their question as the living thread. ~1,200 words total. Dense, every sentence earns its place. MATCH THE EXEMPLAR'S QUALITY AND SPECIFICITY.
 
 Return a JSON object with exactly these fields:
 
 {
   "title": "A reading title, 6-10 words, incorporating '${archetypeShort}'${ctx.personal ? ` and optionally '${ctx.personal.name.split(/\\s+/)[0]}'` : ""}. Do NOT include 'The The' — the archetype already has 'The' in it if needed.",
 
-  "openingLetter": "A 250-word personal address. First line must include their name. Within the first paragraph, name their current question in your own words (don't just parrot it). Cite one tradition's concept and one Wiseman finding. End with an invitation to read slowly. Write as a letter, not an essay — you are speaking to one person.",
+  "openingLetter": "~180 words. First line: their name. Quote one of their answers in the first paragraph. Name their question. End: 'What follows is a map.' Match the exemplar's opening.",
 
-  "architectureAnalysis": "~450 words. Six paragraphs — attention, openness, action, surrender, connection, meaning. For EACH: state the score, then QUOTE THE SPECIFIC ANSWER THEY CHOSE for the question most relevant to this lever, then interpret what that choice reveals. End each paragraph with one sentence that lands like a small surprise. Never start two paragraphs the same way.",
+  "architectureAnalysis": "~300 words. Six SHORT paragraphs. For each: score, quote their answer, one insight. Find one contradiction between two answers as a standalone paragraph. Match the exemplar's architecture style.",
 
   "traditionMap": [
     {
       "tradition": "Name of tradition 1",
       "concept": "Original-language concept",
-      "whyYou": "~70 words. Why this tradition speaks to THIS person — reference their specific answers and current question. Not generic.",
-      "sourceQuote": "A real primary-source quote (max 30 words) with citation (book + chapter/section). Use ONLY quotes you are confident are real. Prefer: Tao Te Ching ch. 48 (Lau), Meditations 10.5 (Hays), Epictetus Enchiridion 8, Bhagavad Gita 2.47, or verified quotes from the traditions list above.",
-      "corePractice": "~100 words. A practice so specific that it could only be written for someone with THIS score profile and THIS current question. Include: when to do it (time of day), for how long, what physical action, and what to notice."
+      "whyYou": "~40 words. Why this tradition speaks to THIS person. Reference one answer.",
+      "sourceQuote": "A real quote (max 25 words) with citation. Prefer: Tao Te Ching ch. 48, Meditations 10.5, Enchiridion 8, Gita 2.47.",
+      "corePractice": "~60 words. Match the exemplar's practice: time, posture, duration, what to notice."
     },
     { /* 2nd tradition — same shape, different focus */ },
     { /* 3rd tradition — same shape, different focus */ }
   ],
 
   "thirtyDayProtocol": {
-    "premise": "~70 words. Why this specific 4-week arc makes sense for THIS archetype with THESE scores. Name the logic of the ordering.",
+    "premise": "~40 words. The logic of the 4-week arc for this archetype.",
     "weeks": [
-      { "week": 1, "theme": "A theme name (not generic)", "focus": "mechanism name", "intent": "One sentence stating the week's purpose for THIS person", "practices": ["Day 1–2: practice with physical specificity", "Day 3–5: practice that builds on days 1-2", "Day 6–7: integration practice with a journal prompt"] },
-      { "week": 2, "theme": "…", "focus": "…", "intent": "…", "practices": ["…", "…", "…"] },
-      { "week": 3, "theme": "…", "focus": "…", "intent": "…", "practices": ["…", "…", "…"] },
-      { "week": 4, "theme": "…", "focus": "…", "intent": "…", "practices": ["…", "…", "…"] }
+      { "week": 1, "theme": "Theme", "focus": "mechanism", "practices": ["Day 1–3: specific", "Day 4–7: builds on it"] },
+      { "week": 2, "theme": "…", "focus": "…", "practices": ["…", "…"] },
+      { "week": 3, "theme": "…", "focus": "…", "practices": ["…", "…"] },
+      { "week": 4, "theme": "…", "focus": "…", "practices": ["…", "…"] }
     ]
   },
 
-  "dailyRitual": "~130 words. A single daily ritual with exact timing (e.g. 'the first seven minutes after waking, before you check your phone'). Step-by-step. Name the tradition it draws on. End with what to look for — the signal that it is working.",
+  "dailyRitual": "~80 words. Exact timing, physical posture, what to notice. Match the exemplar's practice specificity.",
 
-  "synchronicityLog": "~90 words. Three-column log (event / prior inner state / interpretation). But make it specific to this archetype — what should THEY look for? What pattern will emerge for a ${archetypeShort}?",
+  "synchronicityLog": "~50 words. Three columns, what THIS archetype should look for.",
 
-  "warnings": "~100 words. The specific failure modes of ${ctx.archetypeName}. Not 'be mindful of these tendencies' — name the actual thing that will go wrong, and one concrete corrective. Be honest, not gentle.",
+  "warnings": "~60 words. The specific failure mode. Name it, give one corrective.",
 
-  "closingBenediction": "Two sentences. Address by name. Refer to their current question. End with a statement, not a wish — Tyche does not hope. She sees."
+  "closingBenediction": "Two sentences. By name. Match the exemplar's closing: state, don't wish."
 }
 
 Output ONLY the JSON. British English. No preamble. No filler. No bullet points in prose fields.`;
