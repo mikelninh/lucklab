@@ -16,6 +16,9 @@ import {
 import { TRADITIONS, MECHANISMS } from "@/lib/traditions";
 import { buildFullReadingPrompt } from "@/lib/tyche-prompt";
 import { buildEditorPrompt } from "@/lib/tyche-editor";
+import { DownloadPdfButton } from "@/components/DownloadPdfButton";
+import { ShareCard } from "@/components/ShareCard";
+import { EmailReading } from "@/components/EmailReading";
 import OpenAI from "openai";
 import Anthropic from "@anthropic-ai/sdk";
 
@@ -339,14 +342,30 @@ export default async function FullReadingPage({
           </p>
         </div>
 
-        <div className="mt-16 text-center">
-          <p className="text-[13px] text-[var(--text-muted)] mb-5">
-            Want Tyche with you daily? Join the beta list for{" "}
-            <span className="text-[var(--tyche)]">Tyche Pro</span>.
-          </p>
-          <Link href="/#pricing" className="btn btn-tyche">
-            Learn about Tyche Pro
-          </Link>
+        {/* ===== KEEP YOUR READING ===== */}
+        <div className="mt-16 space-y-5">
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="flex justify-center">
+              <DownloadPdfButton label="Download as PDF" />
+            </div>
+            <EmailReading sessionId={sessionId || ""} />
+            <ShareCard
+              name={firstName || "friend"}
+              archetype={archetype.name}
+              greek={archetype.greek}
+              tagline={archetype.tagline}
+              variant="compact"
+            />
+          </div>
+
+          {/* Full share card */}
+          <ShareCard
+            name={firstName || "friend"}
+            archetype={archetype.name}
+            greek={archetype.greek}
+            tagline={archetype.tagline}
+            variant="full"
+          />
         </div>
       </article>
       <Footer />

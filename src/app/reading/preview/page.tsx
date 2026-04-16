@@ -232,7 +232,32 @@ export default function ReadingPreviewPage() {
           </p>
         </section>
 
-        <p className="text-center mt-12 text-[13px] text-[var(--text-subtle)] font-mono tracking-wider">
+        {/* Share your archetype — even the FREE tier gets this viral mechanic */}
+        <div className="mt-12 mb-8 card card-gold text-center">
+          <div className="eyebrow mb-3">share your result</div>
+          <p className="font-display text-[20px] text-[var(--text)] mb-2">
+            {firstName}, you are <em className="not-italic text-[var(--gold)]">{archetype.name}</em>.
+          </p>
+          <p className="text-[13px] text-[var(--text-muted)] italic mb-5">{archetype.tagline}</p>
+          <button
+            onClick={() => {
+              const text = `I just took the Kairos Reading. Tyche called me ${archetype.name} — "${archetype.tagline}". What archetype are you?\n\n${window.location.origin}/reading`;
+              if (navigator.share) {
+                navigator.share({ title: `I am ${archetype.name}`, text, url: `${window.location.origin}/reading` }).catch(() => {});
+              } else {
+                navigator.clipboard?.writeText(text);
+              }
+            }}
+            className="btn btn-primary"
+          >
+            Challenge a friend — what are they?
+          </button>
+          <p className="font-mono text-[10px] text-[var(--text-subtle)] mt-4 tracking-wider">
+            6 ARCHETYPES · WHICH ONE ARE YOUR FRIENDS?
+          </p>
+        </div>
+
+        <p className="text-center text-[13px] text-[var(--text-subtle)] font-mono tracking-wider">
           <Link href="/" className="hover:text-[var(--gold)]">← back to kairos lab</Link>
         </p>
       </article>
