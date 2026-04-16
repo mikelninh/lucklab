@@ -222,9 +222,17 @@ See `/about` for the positioning statement — *honest mysticism, built carefull
 
 - **`LEARN.md`** — pedagogical walkthrough of every pattern used in the codebase
 - **`MARKETING.md`** — full go-to-market plan (launch week → year 1) with templates
+- **`LAUNCH.md`** — 14-day launch script with copy-pasteable templates
+- **`SPRINT-10K.md`** — reverse-engineered $10K month-1 revenue plan
+- **`PLAYBOOK.md`** — reusable blueprint for any AI-powered digital product
 - **`docs/PDF-SERVER.md`** — server-side PDF rendering sketch
 - **`supabase/schema.sql`** — persistence schema for the next phase
 
+## Tags
+
+`luck` `synchronicity` `AI` `oracle` `personality-quiz` `wisdom-traditions` `Jung` `Taoism` `Stoicism` `Wiseman` `digital-product` `SaaS` `Next.js` `Claude` `OpenAI` `Stripe` `Vercel` `Tailwind` `SEO` `email-funnel` `conversion-optimization`
+
 ---
 
-© 2026 Kairos Lab. MIT-licensed code. Content rights reserved.
+© 2026 Kairos Lab. Built by Mikel Ninh, Berlin.
+Code: MIT license. Content: all rights reserved.

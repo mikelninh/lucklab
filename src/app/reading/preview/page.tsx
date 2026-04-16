@@ -132,11 +132,41 @@ export default function ReadingPreviewPage() {
           </p>
         </div>
 
+        {/* WHAT YOU'RE NOT SEEING YET — desire builder */}
+        <div className="mb-12">
+          <div className="eyebrow eyebrow-muted mb-4 text-center">what tyche has not yet told you</div>
+          <div className="grid md:grid-cols-2 gap-3">
+            {[
+              "Your six-lever scores — where you are strong, where you are silent",
+              "The contradiction between two of your answers that defines your pattern",
+              "A 30-day protocol calibrated week-by-week to your specific profile",
+              "The one practice that would shift the most — written so you could start tomorrow",
+              "Three tradition-specific teachings with verified primary-source quotes",
+              "Your daily ritual — seven minutes, before your phone, drawn from your resonant tradition",
+            ].map((item, i) => (
+              <div key={i} className="flex items-start gap-3 p-3 rounded border border-[var(--border)] bg-[var(--surface)]">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="flex-shrink-0 mt-0.5" aria-hidden="true">
+                  <path d="M2 6V4a5 5 0 1110 0v2M2 6h10v6H2V6z" stroke="var(--gold-dim)" strokeWidth="1" />
+                </svg>
+                <span className="text-[13px] text-[var(--text-muted)] leading-relaxed">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* SAVE YOUR READING — email capture at highest-intent moment */}
-        <div className="mb-12 card text-center">
-          <div className="eyebrow mb-3">save your result</div>
-          <p className="text-[14px] text-[var(--text-muted)] mb-4">
-            Enter your email to save your archetype + get the free Convergence Index (12,400 words, 36 citations).
+        <div className="mb-12 card card-gold text-center">
+          <div className="eyebrow mb-3">yours free · 40-page research paper</div>
+          <h3 className="font-display text-[20px] text-[var(--text)] mb-3">
+            The Luck Convergence Index
+          </h3>
+          <p className="text-[14px] text-[var(--text-muted)] mb-2 leading-relaxed max-w-md mx-auto">
+            The full research behind your archetype — 12 traditions cross-referenced,
+            36 citations, a 7-day starter protocol. The kind of document people
+            print and keep on their desk.
+          </p>
+          <p className="font-mono text-[11px] text-[var(--gold)] tracking-wider mb-4">
+            40 PAGES · FREE · INSTANT DELIVERY
           </p>
           <form
             className="flex gap-2 max-w-sm mx-auto"
