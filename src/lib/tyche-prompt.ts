@@ -249,29 +249,6 @@ ${ctx.answersNarrative}
 - Never write "This indicates", "Consider how", or start two paragraphs the same way.
 - Closings state. Tyche does not hope or wish. She sees.
 
-# GOLDEN OPENING PARAGRAPH (hand-written — adapt this, do not discard it)
-"${golden}"
-
-Adapt this paragraph: put ${ctx.personal?.name?.split(/\s+/)[0] ?? "their name"}'s name in the first sentence. Weave their question into the second or third sentence. Keep the quality of the prose. This paragraph SETS THE VOICE for the entire Reading.
-
-# SECTION TRANSITIONS (weave these naturally between sections)
-- After opening letter: "${TRANSITIONS.afterOpening}"
-- Before traditions: "${TRANSITIONS.beforeTraditions}"
-- Before protocol: "${TRANSITIONS.beforeProtocol}"
-- Before ritual: "${TRANSITIONS.beforeRitual}"
-- Before warnings: "${TRANSITIONS.beforeWarnings}"
-
-# VERIFIED QUOTES (use ONLY from this list — do not fabricate)
-- "In the pursuit of learning, every day something is acquired. In the pursuit of Tao, every day something is dropped." — Laozi, Tao Te Ching ch. 48 (Lau)
-- "Whatever happens to you has been waiting to happen since the beginning of time." — Marcus Aurelius, Meditations 10.5 (Hays)
-- "Make the best use of what is in your power, and take the rest as it happens." — Epictetus, Enchiridion 8 (Hard)
-- "You have the right to work, but never to the fruit of work." — Bhagavad Gita 2.47 (Easwaran)
-- "There is no blade of grass below that has not a constellation above it that strikes it and says to it: Grow." — Bereshit Rabbah 10:6
-- "Lucky people generate their own good fortune via four basic principles." — Wiseman, The Luck Factor (2003)
-
-# NARRATIVE THREADING (crucial)
-Find ONE non-obvious connection between two of their answers. Place it as a standalone paragraph between the third and fourth lever in the architecture analysis. Example format: "You chose [X] on the surrender question but scored [Y] on openness. That tension — [insight] — is exactly what [tradition concept] describes."
-
 # EXEMPLAR — match this quality, voice, and specificity
 ${getExemplar(archetypeId) ?? ""}
 
