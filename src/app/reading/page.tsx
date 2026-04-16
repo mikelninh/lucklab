@@ -68,21 +68,34 @@ export default function ReadingPage() {
         birthdate: personal.birthdate?.trim() || "",
         currentQuestion: personal.currentQuestion?.trim() || "",
       };
+      const payload = { answers, personal: cleanPersonal, tier: "free" };
       const res = await fetch("/api/tyche/read", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ answers, personal: cleanPersonal, tier: "free" }),
+        body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error("Tyche is resting");
-      const data = await res.json();
+      const text = await res.text();
+      if (!res.ok) {
+        console.error("[kairos] API error:", res.status, text);
+        throw new Error(text || `HTTP ${res.status}`);
+      }
+      let data: Record<string, unknown>;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        console.error("[kairos] Invalid JSON:", text.slice(0, 200));
+        throw new Error("Tyche returned something unexpected.");
+      }
       sessionStorage.setItem(
         "kairos:reading",
         JSON.stringify({ answers, personal: cleanPersonal, ...data }),
       );
       router.push("/reading/preview");
-    } catch {
+    } catch (err) {
       setSubmitting(false);
-      alert("Tyche is resting. Try again in a moment.");
+      const msg = err instanceof Error ? err.message : "Unknown error";
+      console.error("[kairos] consult failed:", msg);
+      alert(`Tyche stumbled: ${msg.slice(0, 120)}`);
     }
   }
 

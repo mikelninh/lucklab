@@ -28,9 +28,10 @@ export function Footer() {
             <div className="eyebrow eyebrow-muted mb-4">Lab</div>
             <ul className="space-y-2.5 text-[13px]">
               <li><Link href="/about" className="text-[var(--text)] hover:text-[var(--gold)] transition">About</Link></li>
+              <li><Link href="/contact" className="text-[var(--text)] hover:text-[var(--gold)] transition">Contact</Link></li>
+              <li><Link href="/impressum" className="text-[var(--text)] hover:text-[var(--gold)] transition">Impressum</Link></li>
               <li><Link href="/privacy" className="text-[var(--text)] hover:text-[var(--gold)] transition">Privacy</Link></li>
               <li><Link href="/terms" className="text-[var(--text)] hover:text-[var(--gold)] transition">Terms</Link></li>
-              <li><a href="mailto:hallo@kairos.lab" className="text-[var(--text)] hover:text-[var(--gold)] transition">Contact</a></li>
             </ul>
           </div>
         </div>

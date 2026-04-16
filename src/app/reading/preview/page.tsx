@@ -55,12 +55,15 @@ export default function ReadingPreviewPage() {
           tier,
         }),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Checkout failed");
+      const text = await res.text();
+      let data: { url?: string; error?: string };
+      try { data = JSON.parse(text); } catch { throw new Error(text || `HTTP ${res.status}`); }
+      if (!res.ok) throw new Error(data.error || `Checkout failed (${res.status})`);
       if (data.url) window.location.href = data.url;
     } catch (err) {
-      console.error(err);
-      alert(err instanceof Error ? err.message : "Checkout failed");
+      const msg = err instanceof Error ? err.message : "Checkout failed";
+      console.error("[kairos:checkout]", msg);
+      alert(msg.slice(0, 150));
       setLoadingTier(null);
     }
   }
