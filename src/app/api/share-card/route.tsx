@@ -1,161 +1,74 @@
 import { ImageResponse } from "next/og";
 import { NextRequest } from "next/server";
 
-/**
- * Personalized share card — generates a 1080x1920 PNG (Stories/Reels format).
- *
- * Usage: /api/share-card?name=Collin&archetype=The+Yielder&greek=ὁ+ἐνδιδούς&tagline=You+win+by+releasing+the+grip&scores=18,0,36,44,14,9
- *
- * The user downloads this and posts it on Instagram Stories, WhatsApp Status,
- * TikTok, wherever. Every card has "kairos.lab/reading" at the bottom = free distribution.
- */
-
 export const runtime = "edge";
 
-const MECHANISM_NAMES = ["Attention", "Openness", "Action", "Surrender", "Connection", "Meaning"];
+const LABELS = ["ATTENTION", "OPENNESS", "ACTION", "SURRENDER", "CONNECTION", "MEANING"];
 
-const STYLES = {
-  midnight: {
-    bg: "linear-gradient(180deg, #0a0a0d 0%, #12121a 40%, #16161d 100%)",
-    text: "#ededee",
-    accent: "#c9a961",
-    accentBright: "#e6c87a",
-    muted: "#9a9aa6",
-    subtle: "#5a5a66",
-    barBg: "#25252f",
-    barFrom: "#8a7442",
-  },
-  light: {
-    bg: "linear-gradient(180deg, #faf8f3 0%, #f5f0e6 40%, #ede6d6 100%)",
-    text: "#1a1406",
-    accent: "#8a7442",
-    accentBright: "#6b5a30",
-    muted: "#6b6560",
-    subtle: "#a09890",
-    barBg: "#e0d5c0",
-    barFrom: "#c9a961",
-  },
-  minimal: {
-    bg: "#000000",
-    text: "#ffffff",
-    accent: "#ffffff",
-    accentBright: "#ffffff",
-    muted: "#888888",
-    subtle: "#555555",
-    barBg: "#222222",
-    barFrom: "#666666",
-  },
-  aurora: {
-    bg: "linear-gradient(135deg, #0c0a1a 0%, #1a0e2e 30%, #0e1a2e 60%, #0a1a1a 100%)",
-    text: "#e8e0f0",
-    accent: "#a78bfa",
-    accentBright: "#c4b0ff",
-    muted: "#9a8ab6",
-    subtle: "#6b5a8a",
-    barBg: "#2a2040",
-    barFrom: "#6b5ab0",
-  },
-} as const;
-
-type StyleKey = keyof typeof STYLES;
+const PALETTES: Record<string, { bg: string; text: string; accent: string; muted: string; barBg: string; barFill: string }> = {
+  midnight: { bg: "#0a0a0d", text: "#ededee", accent: "#e6c87a", muted: "#9a9aa6", barBg: "#25252f", barFill: "#c9a961" },
+  light:    { bg: "#faf8f3", text: "#1a1406", accent: "#8a7442", muted: "#6b6560", barBg: "#e0d5c0", barFill: "#c9a961" },
+  minimal:  { bg: "#000000", text: "#ffffff", accent: "#ffffff", muted: "#888888", barBg: "#222222", barFill: "#888888" },
+  aurora:   { bg: "#0c0a1a", text: "#e8e0f0", accent: "#c4b0ff", muted: "#9a8ab6", barBg: "#2a2040", barFill: "#a78bfa" },
+};
 
 export async function GET(req: NextRequest) {
   const p = req.nextUrl.searchParams;
-  const name = p.get("name") || "Friend";
-  const archetype = p.get("archetype") || "The Seer";
+  const name = (p.get("name") || "Friend").split(" ")[0];
+  const archetype = (p.get("archetype") || "The Seer").replace(/^The\s+/i, "");
   const greek = p.get("greek") || "";
   const tagline = p.get("tagline") || "";
-  const scoresRaw = p.get("scores") || "50,50,50,50,50,50";
-  const scores = scoresRaw.split(",").map(Number);
-  const styleKey = (p.get("style") as StyleKey) || "midnight";
-  const s = STYLES[styleKey] || STYLES.midnight;
+  const scores = (p.get("scores") || "50,50,50,50,50,50").split(",").map(Number);
+  const c = PALETTES[p.get("style") || "midnight"] || PALETTES.midnight;
 
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          padding: "80px 60px",
-          background: s.bg,
-          color: s.text,
-          fontFamily: "serif",
-        }}
-      >
-        {/* Top — branding */}
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <div style={{ width: 10, height: 10, borderRadius: 999, background: s.accent }} />
-          <div style={{ fontSize: 16, letterSpacing: 6, textTransform: "uppercase", color: s.accent, fontFamily: "monospace" }}>
-            KAIROS LAB
-          </div>
-        </div>
+  try {
+    return new ImageResponse(
+      (
+        <div style={{ display: "flex", flexDirection: "column", width: "100%", height: "100%", backgroundColor: c.bg, padding: "80px 60px", justifyContent: "space-between", fontFamily: "serif" }}>
 
-        {/* Middle — the reveal */}
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16, flex: 1, justifyContent: "center" }}>
-          <div style={{ fontSize: 20, color: s.muted, fontFamily: "monospace", letterSpacing: 3 }}>
-            TYCHE READ FOR
-          </div>
-          <div style={{ fontSize: 42, color: s.text, fontWeight: 300, letterSpacing: 2 }}>
-            {name.split(/\s+/)[0].toUpperCase()}
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <div style={{ width: "10px", height: "10px", borderRadius: "50%", backgroundColor: c.accent }} />
+            <span style={{ fontSize: "16px", letterSpacing: "6px", color: c.accent, fontFamily: "monospace" }}>KAIROS LAB</span>
           </div>
 
-          <div style={{ width: 120, height: 1, background: `linear-gradient(90deg, transparent, ${s.accent}, transparent)`, margin: "16px 0" }} />
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
+            <span style={{ fontSize: "18px", color: c.muted, fontFamily: "monospace", letterSpacing: "4px" }}>TYCHE READ FOR</span>
+            <span style={{ fontSize: "40px", color: c.text, fontWeight: 300, letterSpacing: "3px" }}>{name.toUpperCase()}</span>
 
-          <div style={{ fontSize: 72, fontWeight: 300, letterSpacing: -1, color: s.accentBright, textAlign: "center", lineHeight: 1.05 }}>
-            {archetype.replace(/^The\s+/i, "")}
-          </div>
+            <div style={{ width: "100px", height: "1px", backgroundColor: c.accent, margin: "16px 0" }} />
 
-          {greek && (
-            <div style={{ fontSize: 22, color: s.subtle, fontFamily: "monospace", letterSpacing: 2 }}>
-              {greek}
-            </div>
-          )}
+            <span style={{ fontSize: "68px", fontWeight: 300, color: c.accent, textAlign: "center", lineHeight: 1.05 }}>{archetype}</span>
 
-          {tagline && (
-            <div style={{ fontSize: 24, color: s.muted, fontStyle: "italic", textAlign: "center", maxWidth: 800, marginTop: 8, lineHeight: 1.4 }}>
-              {`"${tagline}"`}
-            </div>
-          )}
+            {greek ? <span style={{ fontSize: "20px", color: c.muted, fontFamily: "monospace", letterSpacing: "2px" }}>{greek}</span> : null}
 
-          <div style={{ display: "flex", flexDirection: "column", gap: 10, width: "100%", maxWidth: 700, marginTop: 40 }}>
-            {MECHANISM_NAMES.map((mName, i) => {
-              const score = scores[i] ?? 50;
-              return (
-                <div key={mName} style={{ display: "flex", alignItems: "center", gap: 16 }}>
-                  <div style={{ width: 120, fontSize: 14, color: s.muted, fontFamily: "monospace", textAlign: "right", letterSpacing: 1 }}>
-                    {mName.toUpperCase()}
+            {tagline ? <span style={{ fontSize: "22px", color: c.muted, fontStyle: "italic", textAlign: "center", maxWidth: "800px", marginTop: "8px" }}>{'"' + tagline + '"'}</span> : null}
+
+            <div style={{ display: "flex", flexDirection: "column", gap: "10px", width: "100%", maxWidth: "650px", marginTop: "40px" }}>
+              {LABELS.map((label, i) => (
+                <div key={label} style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+                  <span style={{ width: "120px", fontSize: "13px", color: c.muted, fontFamily: "monospace", textAlign: "right" }}>{label}</span>
+                  <div style={{ display: "flex", flex: 1, height: "6px", backgroundColor: c.barBg, borderRadius: "3px", overflow: "hidden" }}>
+                    <div style={{ width: `${scores[i] || 0}%`, height: "100%", backgroundColor: c.barFill, borderRadius: "3px" }} />
                   </div>
-                  <div style={{ flex: 1, height: 6, background: s.barBg, borderRadius: 3, overflow: "hidden", display: "flex" }}>
-                    <div style={{
-                      width: `${score}%`,
-                      height: "100%",
-                      background: `linear-gradient(90deg, ${s.barFrom}, ${s.accentBright})`,
-                      borderRadius: 3,
-                    }} />
-                  </div>
-                  <div style={{ width: 40, fontSize: 14, color: s.accent, fontFamily: "monospace", letterSpacing: 1 }}>
-                    {score}
-                  </div>
+                  <span style={{ width: "36px", fontSize: "13px", color: c.accent, fontFamily: "monospace" }}>{scores[i] || 0}</span>
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Bottom — CTA */}
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-          <div style={{ fontSize: 22, color: s.text, letterSpacing: 1 }}>
-            Which archetype are you?
-          </div>
-          <div style={{ fontSize: 16, fontFamily: "monospace", color: s.accent, letterSpacing: 4 }}>
-            KAIROS.LAB/READING · FREE · 3 MIN
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
+            <span style={{ fontSize: "20px", color: c.text }}>Which archetype are you?</span>
+            <span style={{ fontSize: "14px", fontFamily: "monospace", color: c.accent, letterSpacing: "4px" }}>KAIROS.LAB/READING</span>
           </div>
         </div>
-      </div>
-    ),
-    { width: 1080, height: 1920 },
-  );
+      ),
+      { width: 1080, height: 1920 },
+    );
+  } catch (err) {
+    console.error("[share-card]", err);
+    return new Response(JSON.stringify({ error: String(err) }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 }

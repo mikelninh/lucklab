@@ -58,18 +58,24 @@ export function ArchetypeReveal({ name, archetype, greek, tagline, scores }: Rev
 
   async function downloadCard() {
     setDownloading(true);
-    track("cta_click", { action: "download_share_card" });
+    track("cta_click", { action: "download_share_card", props: { style: selectedStyle } });
     try {
       const res = await fetch(shareCardUrl);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const blob = await res.blob();
+      if (blob.size < 100) throw new Error("Empty image");
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `kairos-${archetypeShort.toLowerCase()}-${firstName.toLowerCase()}.png`;
+      a.download = `kairos-${archetypeShort.toLowerCase()}-${firstName.toLowerCase()}-${selectedStyle}.png`;
+      document.body.appendChild(a);
       a.click();
+      document.body.removeChild(a);
       URL.revokeObjectURL(url);
     } catch (err) {
-      console.error(err);
+      console.error("[download]", err);
+      // Fallback: open in new tab so they can long-press/right-click save
+      window.open(shareCardUrl, "_blank");
     }
     setDownloading(false);
   }
