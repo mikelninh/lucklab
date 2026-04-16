@@ -369,42 +369,53 @@ async function generateFullReading(context: {
   if (apiKey) {
     try {
       const client = new OpenAI({ apiKey });
+      const useTwoPass = process.env.ENABLE_EDITOR_PASS === "true";
 
-      // ===== PASS 1: Raw generation =====
-      const pass1 = await client.chat.completions.create({
+      if (useTwoPass) {
+        // ===== TWO-PASS MODE (requires Vercel Pro for 60s timeout) =====
+        const pass1 = await client.chat.completions.create({
+          model: "gpt-4o-mini",
+          messages: [{ role: "user", content: buildFullReadingPrompt(context) }],
+          response_format: { type: "json_object" },
+          temperature: 0.75,
+        });
+        const rawJson = pass1.choices[0]?.message?.content;
+        if (!rawJson) throw new Error("Pass 1 empty");
+
+        const archetypeId = context.archetypeName.toLowerCase().replace(/^the\s+/, "");
+        const pass2 = await client.chat.completions.create({
+          model: "gpt-4o-mini",
+          messages: [{
+            role: "user",
+            content: buildEditorPrompt({
+              rawReading: rawJson,
+              answersNarrative: context.answersNarrative,
+              archetypeId,
+              archetypeName: context.archetypeName,
+              personalName: context.personal?.name ?? "friend",
+              currentQuestion: context.personal?.currentQuestion ?? "",
+              scoreSummary: context.scoreSummary,
+            }),
+          }],
+          response_format: { type: "json_object" },
+          temperature: 0.6,
+        });
+        const polished = pass2.choices[0]?.message?.content;
+        if (polished) return JSON.parse(polished) as FullReading;
+        return JSON.parse(rawJson) as FullReading;
+      }
+
+      // ===== SINGLE ENHANCED PASS (default — fits Vercel Hobby 10s) =====
+      // The prompt already includes golden paragraphs, anti-generic rules,
+      // narrative threading, verified quotes, and quality gates.
+      const completion = await client.chat.completions.create({
         model: "gpt-4o-mini",
         messages: [{ role: "user", content: buildFullReadingPrompt(context) }],
         response_format: { type: "json_object" },
-        temperature: 0.75,
+        temperature: 0.72,
       });
-      const rawJson = pass1.choices[0]?.message?.content;
-      if (!rawJson) throw new Error("Pass 1 returned empty");
-
-      // ===== PASS 2: Tyche's Editor — polish for voice, specificity, beauty =====
-      const archetypeId = context.archetypeName
-        .toLowerCase()
-        .replace(/^the\s+/, "");
-      const editorPrompt = buildEditorPrompt({
-        rawReading: rawJson,
-        answersNarrative: context.answersNarrative,
-        archetypeId,
-        archetypeName: context.archetypeName,
-        personalName: context.personal?.name ?? "friend",
-        currentQuestion: context.personal?.currentQuestion ?? "",
-        scoreSummary: context.scoreSummary,
-      });
-
-      const pass2 = await client.chat.completions.create({
-        model: "gpt-4o-mini",
-        messages: [{ role: "user", content: editorPrompt }],
-        response_format: { type: "json_object" },
-        temperature: 0.6, // slightly lower temp for editorial polish
-      });
-      const polished = pass2.choices[0]?.message?.content;
-      if (polished) return JSON.parse(polished) as FullReading;
-
-      // If pass 2 fails, fall back to pass 1
-      return JSON.parse(rawJson) as FullReading;
+      const raw = completion.choices[0]?.message?.content;
+      if (raw) return JSON.parse(raw) as FullReading;
     } catch (err) {
       console.error("[full-reading]", err);
     }
