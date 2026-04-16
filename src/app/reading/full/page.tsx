@@ -17,6 +17,7 @@ import { TRADITIONS, MECHANISMS } from "@/lib/traditions";
 import { buildFullReadingPrompt } from "@/lib/tyche-prompt";
 import { buildEditorPrompt } from "@/lib/tyche-editor";
 import OpenAI from "openai";
+import Anthropic from "@anthropic-ai/sdk";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -364,18 +365,43 @@ async function generateFullReading(context: {
   answersNarrative: string;
   personal?: PersonalContext;
 }): Promise<FullReading> {
-  const apiKey = process.env.OPENAI_API_KEY;
+  const prompt = buildFullReadingPrompt(context);
+  const anthropicKey = process.env.ANTHROPIC_API_KEY;
+  const openaiKey = process.env.OPENAI_API_KEY;
+  const useTwoPass = process.env.ENABLE_EDITOR_PASS === "true";
 
-  if (apiKey) {
+  // ===== OPTION 1: Claude API (best quality, recommended) =====
+  if (anthropicKey) {
     try {
-      const client = new OpenAI({ apiKey });
-      const useTwoPass = process.env.ENABLE_EDITOR_PASS === "true";
+      const claude = new Anthropic({ apiKey: anthropicKey });
+      const msg = await claude.messages.create({
+        model: process.env.CLAUDE_MODEL || "claude-sonnet-4-5-20241022",
+        max_tokens: 4096,
+        messages: [{
+          role: "user",
+          content: prompt + "\n\nIMPORTANT: Return ONLY a JSON object. No markdown, no preamble, no ```json fences. Pure JSON.",
+        }],
+      });
+      const text = msg.content[0].type === "text" ? msg.content[0].text : "";
+      // Strip any markdown fences the model might add
+      const clean = text.replace(/^```json\s*/i, "").replace(/\s*```$/i, "").trim();
+      if (clean) return JSON.parse(clean) as FullReading;
+    } catch (err) {
+      console.error("[full-reading:claude]", err);
+      // Fall through to OpenAI
+    }
+  }
+
+  // ===== OPTION 2: OpenAI (fallback, or primary if no Anthropic key) =====
+  if (openaiKey) {
+    try {
+      const client = new OpenAI({ apiKey: openaiKey });
 
       if (useTwoPass) {
-        // ===== TWO-PASS MODE (requires Vercel Pro for 60s timeout) =====
+        // Two-pass mode (requires Vercel Pro for 60s timeout)
         const pass1 = await client.chat.completions.create({
-          model: "gpt-4o-mini",
-          messages: [{ role: "user", content: buildFullReadingPrompt(context) }],
+          model: process.env.OPENAI_MODEL || "gpt-4o-mini",
+          messages: [{ role: "user", content: prompt }],
           response_format: { type: "json_object" },
           temperature: 0.75,
         });
@@ -384,7 +410,7 @@ async function generateFullReading(context: {
 
         const archetypeId = context.archetypeName.toLowerCase().replace(/^the\s+/, "");
         const pass2 = await client.chat.completions.create({
-          model: "gpt-4o-mini",
+          model: process.env.OPENAI_MODEL || "gpt-4o-mini",
           messages: [{
             role: "user",
             content: buildEditorPrompt({
@@ -405,19 +431,17 @@ async function generateFullReading(context: {
         return JSON.parse(rawJson) as FullReading;
       }
 
-      // ===== SINGLE ENHANCED PASS (default — fits Vercel Hobby 10s) =====
-      // The prompt already includes golden paragraphs, anti-generic rules,
-      // narrative threading, verified quotes, and quality gates.
+      // Single pass (default)
       const completion = await client.chat.completions.create({
-        model: "gpt-4o-mini",
-        messages: [{ role: "user", content: buildFullReadingPrompt(context) }],
+        model: process.env.OPENAI_MODEL || "gpt-4o-mini",
+        messages: [{ role: "user", content: prompt }],
         response_format: { type: "json_object" },
         temperature: 0.72,
       });
       const raw = completion.choices[0]?.message?.content;
       if (raw) return JSON.parse(raw) as FullReading;
     } catch (err) {
-      console.error("[full-reading]", err);
+      console.error("[full-reading:openai]", err);
     }
   }
 
