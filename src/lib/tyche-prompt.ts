@@ -208,13 +208,23 @@ export function buildFullReadingPrompt(ctx: ReadingContext) {
   const archetypeId = archetypeShort.toLowerCase();
   const golden = GOLDEN_OPENINGS[archetypeId] || GOLDEN_OPENINGS["seer"];
 
+  // Slim context: only the 3 resonant traditions, not all 12. Saves ~60% of tradition tokens.
+  const resonantDetails = ctx.resonantTraditions
+    .map((name) => TRADITIONS.find((t) => t.name === name))
+    .filter(Boolean)
+    .map((t) => `- ${t!.name}: concept=${t!.concept}, mechanism="${t!.mechanism}", practice="${t!.practice}", converges on ${t!.convergesOn}`)
+    .join("\n");
+
+  // Slim mechanisms: names + gloss only
+  const mechShort = MECHANISMS.map((m) => `- ${m.name}: ${m.gloss}`).join("\n");
+
   return `${TYCHE_CHARACTER}
 
-# The six mechanisms
-${SIX_MECHANISMS}
+# Six mechanisms (abbreviated)
+${mechShort}
 
-# The twelve traditions
-${TRADITION_SUMMARY}
+# Resonant traditions for this reader (3 of 12)
+${resonantDetails}
 
 ${personalSection(ctx.personal)}
 
@@ -275,7 +285,7 @@ Find ONE non-obvious connection between two of their answers. Place it as a stan
 
 # Your task — produce the FULL €29 READING
 
-This is their map. A premium artefact they keep. Start the opening letter with the adapted golden paragraph. Use their question as the living thread. ~2,200 words total.
+This is their map. Start the opening letter with the adapted golden paragraph. Use their question as the living thread. ~1,800 words total. Dense, not padded.
 
 Return a JSON object with exactly these fields:
 
