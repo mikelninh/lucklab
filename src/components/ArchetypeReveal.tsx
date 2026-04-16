@@ -58,7 +58,7 @@ export function ArchetypeReveal({ name, archetype, greek, tagline, scores }: Rev
 
   async function downloadCard() {
     setDownloading(true);
-    track("cta_click", { action: "download_share_card", props: { style: selectedStyle } });
+    track("cta_click", { action: "download_share_card" });
     try {
       const res = await fetch(shareCardUrl);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
