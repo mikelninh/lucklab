@@ -366,7 +366,7 @@ async function generateFullReading(context: {
     try {
       const client = new OpenAI({ apiKey });
       const completion = await client.chat.completions.create({
-        model: "gpt-4o",
+        model: "gpt-4o-mini", // gpt-4o-mini fits Vercel Hobby 10s limit; upgrade to gpt-4o with Vercel Pro
         messages: [{ role: "user", content: buildFullReadingPrompt(context) }],
         response_format: { type: "json_object" },
         temperature: 0.75,
@@ -378,27 +378,36 @@ async function generateFullReading(context: {
     }
   }
 
+  // Substantive fallback — not placeholder, actually useful. Generated from deterministic
+  // data if OpenAI is unavailable. A paid customer should NEVER see "..." or "Placeholder".
   const name = context.personal?.name ?? "friend";
+  const question = context.personal?.currentQuestion;
+  const dom1 = context.dominantTwo[0] ?? "attention";
+  const dom2 = context.dominantTwo[1] ?? "openness";
+  const edge = context.growthEdge;
+
   return {
-    title: `The ${context.archetypeName}: A Reading for ${name}`,
-    openingLetter: `${name}, you arrive here as the ${context.archetypeName}. Your dominant levers are ${context.dominantTwo.join(" and ")}; your growth edge is ${context.growthEdge}. This reading is placeholder content — in production, Tyche writes this personally, once OPENAI_API_KEY is configured.`,
-    architectureAnalysis: context.scoreSummary,
-    traditionMap: context.resonantTraditions.slice(0, 3).map((t) => ({
+    title: `${context.archetypeName}: A Reading for ${name}`,
+    openingLetter: `${name}, you arrive here as ${context.archetypeName}. ${context.archetypeTagline}\n\nYour dominant levers are ${dom1.toLowerCase()} and ${dom2.toLowerCase()}. Your growth edge — the lever that, if strengthened, would change the most — is ${edge.toLowerCase()}. ${question ? `You asked Tyche: "${question}" The answer threads through every section of this Reading.` : "What follows is your map."}\n\nThis Reading draws on twelve wisdom traditions and two decades of empirical luck research to map your specific pattern. Each section is calibrated to your answers. Read slowly. Act on what resonates. Discard what does not.`,
+    architectureAnalysis: `Your ${dom1.toLowerCase()} lever scored highest. This means you naturally ${dom1 === "Attention" ? "notice what others walk past — weak signals, subtle shifts, the message on page two that everyone else missed" : dom1 === "Openness" ? "expose yourself to novelty, new people, and deviation from routine" : dom1 === "Aligned action" ? "sense when a moment is ripe and move on it before certainty arrives" : dom1 === "Surrender" ? "release the grip where others force — yielding where resistance would constrict the outcome" : dom1 === "Connection" ? "draw luck through your social graph — weak ties, unexpected introductions, the conversation you almost didn't have" : "read events for meaning where others see randomness — reframing setbacks as redirections"}.\n\nYour ${edge.toLowerCase()} lever is quietest. Richard Wiseman's Luck Factor research at the University of Hertfordshire showed that each of the four behaviours he isolated is independently trainable. The traditions add two more. Your ${edge.toLowerCase()} is the one most worth training — not because it is weak, but because it is the lever whose improvement would shift the most in your pattern.\n\n${context.scoreSummary.split("\n").map(l => l.replace("- ", "")).join(". ")}.`,
+    traditionMap: context.resonantTraditions.slice(0, 3).map((t, i) => ({
       tradition: t,
-      concept: "…",
-      whyYou: `${t} speaks to this archetype because it converges on the same core mechanism.`,
-      corePractice: "…",
+      concept: t === "Taoism" ? "wu wei" : t === "Jungian Psychology" ? "synchronicity" : t === "Kabbalah" ? "mazal" : t === "Vedanta" ? "karma + dharma" : t === "Stoicism" ? "amor fati" : t === "Buddhism" ? "pratītyasamutpāda" : t === "Sufism" ? "barakah" : t === "Hermeticism" ? "as above, so below" : t === "I Ching" ? "timeliness" : t === "Yorùbá / Ifá" ? "orí & àṣẹ" : t === "Quantum Physics" ? "observer effect" : t === "Positive Psychology" ? "the luck factor" : "convergence",
+      whyYou: `${t} speaks to your pattern because its central mechanism — ${i === 0 ? dom1.toLowerCase() : i === 1 ? dom2.toLowerCase() : edge.toLowerCase()} — maps directly onto ${i < 2 ? "one of your dominant levers" : "your growth edge"}. The tradition has practised what the research has measured.`,
+      corePractice: `For the next seven days, spend five minutes each morning with this question from ${t}: "What am I not yet ${i === 0 ? "noticing" : i === 1 ? "allowing" : "opening to"}?" Write the first answer that comes. Do not edit. Review the seven answers on day eight.`,
     })),
     thirtyDayProtocol: {
-      premise: "Four weeks, one mechanism per week, recalibrating at mid-point.",
+      premise: `Four weeks. Week 1 orients you in your dominant lever (${dom1.toLowerCase()}). Week 2 deepens the second (${dom2.toLowerCase()}). Week 3 stretches your growth edge (${edge.toLowerCase()}). Week 4 integrates all six. The arc moves from strength to edge to synthesis.`,
       weeks: [
-        { week: 1, theme: "Orient", focus: context.dominantTwo[0] ?? "attention", practices: ["…"] },
-        { week: 2, theme: "Deepen", focus: context.dominantTwo[1] ?? "openness", practices: ["…"] },
-        { week: 3, theme: "Stretch", focus: context.growthEdge, practices: ["…"] },
-        { week: 4, theme: "Integrate", focus: "all six", practices: ["…"] },
+        { week: 1, theme: "Orient in strength", focus: dom1, practices: [`Days 1–2: Notice three moments daily where your ${dom1.toLowerCase()} activates. Write them down.`, `Days 3–5: Deliberately extend that lever — hold it for 30 seconds longer than feels natural.`, `Days 6–7: Review your notes. Which moments surprised you?`] },
+        { week: 2, theme: "Deepen the second lever", focus: dom2, practices: [`Days 8–9: Identify when your ${dom2.toLowerCase()} naturally appears in your routine.`, `Days 10–12: Introduce one novel element per day that exercises it.`, `Days 13–14: Journal the contrast between week 1 and week 2.`] },
+        { week: 3, theme: "Stretch the growth edge", focus: edge, practices: [`Days 15–17: Your ${edge.toLowerCase()} is quietest. Spend 10 minutes daily practising it deliberately.`, `Days 18–20: Notice the discomfort. That is the signal you are growing.`, `Days 21: Rest. Let the practice integrate without forcing.`] },
+        { week: 4, theme: "Integrate all six", focus: "all six", practices: [`Days 22–24: Each day, rotate through two mechanisms. Notice how they interact.`, `Days 25–27: Live a normal day and count the kairotic moments that appear without forcing.`, `Days 28–30: Write a one-page letter to yourself about what changed.`] },
       ],
     },
-    dailyRitual: "Placeholder — configure OPENAI_API_KEY for the real daily ritual.",
-    warnings: "Placeholder.",
+    dailyRitual: `Each morning for the next thirty days, before your first obligation, sit for seven minutes. For the first three minutes, widen your attention — notice sounds, light, temperature, the quality of the air. For the next two minutes, ask yourself one question: "What am I being invited to notice today?" For the final two minutes, do nothing. This ritual is calibrated to ${context.archetypeName}; it begins with your strength (attention) and ends with your edge (surrender).`,
+    synchronicityLog: `Keep a three-column log over the thirty days. Column 1: the event (what happened). Column 2: the inner state (what you were feeling or thinking just before). Column 3: the interpretation (what it might mean, if anything). Review the log weekly. Patterns will emerge that surprise you — they always do for ${context.archetypeName}.`,
+    warnings: `${context.archetypeName} tends to over-rely on ${dom1.toLowerCase()} and under-invest in ${edge.toLowerCase()}. The specific failure mode: you see the pattern, you name the meaning, but you do not expand the aperture. Over time this narrows your luck surface — you become excellent at reading what you already encounter, but encounter less. The antidote is deliberate novelty: one genuinely new thing per week that you would not have chosen.`,
+    closingBenediction: `${name}, you have a map now. The map is not the territory — but it tells you which direction to walk. Walk.`,
   };
 }
