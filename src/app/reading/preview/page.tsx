@@ -270,37 +270,33 @@ export default function ReadingPreviewPage() {
               <div className="absolute top-0 right-0 w-48 h-48 bg-[var(--tyche)] opacity-10 blur-3xl rounded-full pointer-events-none" />
               <div className="relative flex flex-col flex-1">
                 <div className="flex items-baseline justify-between mb-3">
-                  <span className="kbd kbd-tyche text-[11px]">tier 2 · full reading</span>
+                  <span className="kbd kbd-tyche text-[11px]">7 items · one price</span>
                   <span className="font-mono text-[10px] text-[var(--tyche)] tracking-wider">
                     MOST CHOSEN
                   </span>
                 </div>
                 <h3 className="font-display text-[26px] font-normal text-[var(--text)] mb-1">
-                  Tyche&rsquo;s Full Reading
+                  Tyche&rsquo;s Complete Reading
                 </h3>
                 <p className="text-[13px] text-[var(--text-subtle)] mb-4">
-                  Your complete personalised map. Addressed to {firstName}, with your birth-season, a 30-day arc.
+                  7 items worth €115. Yours for €29.
                 </p>
                 <ul className="space-y-2 text-[13px] text-[var(--text-muted)] mb-6 flex-1">
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>Everything in the Primer</li>
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>A 220-word personal opening letter from Tyche</li>
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>THREE tradition deep-dives with authentic practices</li>
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>A 30-day protocol, week-by-week &mdash; yours to keep</li>
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>Your personalised daily ritual</li>
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>Failure modes specific to your archetype</li>
-                  {personal.currentQuestion && personal.currentQuestion.trim().length > 0 ? (
-                    <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>Responds to your actual question: <em>&ldquo;{personal.currentQuestion.slice(0, 80)}{personal.currentQuestion.length > 80 ? "…" : ""}&rdquo;</em></li>
-                  ) : (
-                    <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>A 90-day Return reading + lifetime Synchronicity Journal</li>
-                  )}
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">1.</span><strong className="text-[var(--text)] font-medium">Personalised Reading</strong> — by name, to your question</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">2.</span><strong className="text-[var(--text)] font-medium">30-day protocol</strong> — week-by-week for your archetype</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">3.</span><strong className="text-[var(--text)] font-medium">3 tradition deep-dives</strong> — with source quotes + practices</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">4.</span><strong className="text-[var(--text)] font-medium">Convergence Index</strong> — 40-page research paper</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">5.</span><strong className="text-[var(--tyche-bright)] font-medium">90-day Return</strong> — free recalibration</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">6.</span><strong className="text-[var(--tyche-bright)] font-medium">Archetype Reveal Card</strong> — 4 styles, shareable</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">7.</span><strong className="text-[var(--tyche-bright)] font-medium">Gift Reading</strong> — for someone you love</li>
                 </ul>
                 <div className="flex items-baseline gap-3 mb-4">
                   <span className="font-display text-[44px] text-[var(--text)]">€29</span>
-                  <span className="font-mono text-[11px] text-[var(--text-subtle)] line-through">€49</span>
-                  <span className="font-mono text-[11px] text-[var(--tyche)] tracking-wider">LAUNCH</span>
+                  <span className="font-mono text-[11px] text-[var(--text-subtle)] line-through">€115</span>
+                  <span className="font-mono text-[11px] text-[var(--tyche)] tracking-wider">LAUNCH · 75% OFF</span>
                 </div>
                 <span className="btn btn-primary justify-center w-full">
-                  {loadingTier === "full" ? "Redirecting…" : "Unlock for €29 →"}
+                  {loadingTier === "full" ? "Redirecting…" : "Unlock all 7 for €29 →"}
                 </span>
               </div>
             </button>

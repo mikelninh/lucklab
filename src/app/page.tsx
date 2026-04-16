@@ -397,43 +397,57 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Full Reading — €29 featured, now bundled */}
+          {/* Full Reading — €29 featured, value-stacked */}
           <div className="card card-tyche flex flex-col relative overflow-hidden">
             <div className="absolute top-0 right-0 w-40 h-40 bg-[var(--tyche)] opacity-10 blur-3xl rounded-full pointer-events-none" />
             <div className="absolute top-3 right-3 font-mono text-[10px] text-[var(--tyche)] tracking-wider">
               MOST CHOSEN
             </div>
-            <span className="kbd kbd-tyche text-[11px] self-start mb-4">the map + the companion</span>
+            <span className="kbd kbd-tyche text-[11px] self-start mb-4">7 items · one price</span>
             <h3 className="font-display text-[24px] font-normal mb-1">Tyche&rsquo;s Reading</h3>
             <p className="text-[13px] text-[var(--text-subtle)] mb-6">
-              <em>What&rsquo;s my plan? And what happens in 90 days?</em>
+              <em>The complete package. Everything Tyche knows about you.</em>
             </p>
-            <div className="mb-6">
+            <div className="mb-2">
               <span className="font-display text-[42px] text-[var(--text)]">€29</span>
-              <span className="font-mono text-[11px] text-[var(--text-subtle)] ml-2 line-through">€49</span>
-              <span className="font-mono text-[11px] text-[var(--tyche)] ml-2 tracking-wider">LAUNCH</span>
+              <span className="font-mono text-[11px] text-[var(--text-subtle)] ml-2 line-through">€115</span>
+              <span className="font-mono text-[11px] text-[var(--tyche)] ml-2 tracking-wider">LAUNCH · 75% OFF</span>
             </div>
+            <p className="font-mono text-[10px] text-[var(--text-subtle)] tracking-wider mb-5">
+              7 ITEMS WORTH €115 · YOURS FOR €29
+            </p>
             <ul className="flex-1 space-y-2.5 text-[13px] text-[var(--text-muted)] mb-6">
-              <li className="flex items-start gap-2"><span className="text-[var(--tyche)] mt-0.5">+</span><span>Everything in the Primer</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--tyche)] mt-0.5">+</span><span>Addressed to you by name</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--tyche)] mt-0.5">+</span><span>Three tradition deep-dives with source quotes</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--tyche)] mt-0.5">+</span><span>30-day protocol, week-by-week</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--tyche)] mt-0.5">+</span><span>Your daily ritual</span></li>
               <li className="flex items-start gap-2">
-                <span className="text-[var(--tyche)] mt-0.5">+</span>
-                <span><strong className="text-[var(--tyche-bright)]">90-day Return</strong> &mdash; a recalibrated Reading, automated</span>
+                <span className="text-[var(--tyche)] mt-0.5">1.</span>
+                <span><strong className="text-[var(--text)]">Your personalised Reading</strong> &mdash; addressed to you by name, responds to your question, finds contradictions in your answers <span className="text-[var(--text-subtle)]">(€29 value)</span></span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[var(--tyche)] mt-0.5">+</span>
-                <span><strong className="text-[var(--tyche-bright)]">Synchronicity Journal</strong> &mdash; free web tool, lifetime access</span>
+                <span className="text-[var(--tyche)] mt-0.5">2.</span>
+                <span><strong className="text-[var(--text)]">30-day protocol</strong> &mdash; week-by-week practices calibrated to your archetype <span className="text-[var(--text-subtle)]">(€15 value)</span></span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[var(--tyche)] mt-0.5">+</span>
-                <span><strong className="text-[var(--tyche-bright)]">One Gift Reading</strong> for someone you love</span>
+                <span className="text-[var(--tyche)] mt-0.5">3.</span>
+                <span><strong className="text-[var(--text)]">3 tradition deep-dives</strong> &mdash; with verified primary-source quotes and practices <span className="text-[var(--text-subtle)]">(€9 value)</span></span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-[var(--tyche)] mt-0.5">4.</span>
+                <span><strong className="text-[var(--text)]">The Convergence Index</strong> &mdash; 40-page research paper, 36 citations <span className="text-[var(--text-subtle)]">(€19 value)</span></span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-[var(--tyche)] mt-0.5">5.</span>
+                <span><strong className="text-[var(--tyche-bright)]">90-day Return</strong> &mdash; Tyche recalibrates your Reading in 90 days, free <span className="text-[var(--text-subtle)]">(€15 value)</span></span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-[var(--tyche)] mt-0.5">6.</span>
+                <span><strong className="text-[var(--tyche-bright)]">Your Archetype Reveal Card</strong> &mdash; 4 design styles, downloadable, shareable <span className="text-[var(--text-subtle)]">(€5 value)</span></span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-[var(--tyche)] mt-0.5">7.</span>
+                <span><strong className="text-[var(--tyche-bright)]">One Gift Reading</strong> &mdash; send the full Reading to someone you love <span className="text-[var(--text-subtle)]">(€29 value)</span></span>
               </li>
             </ul>
             <Link href="/reading" className="btn btn-primary justify-center">
-              Unlock for €29 →
+              Unlock all 7 for €29 →
             </Link>
           </div>
         </div>
