@@ -129,10 +129,12 @@ export default async function PrimerPage({
       .map((a) => {
         const q = QUESTIONS.find((x) => x.id === a.questionId);
         const o = q?.options.find((x) => x.id === a.optionId);
-        return q && o ? `Q${q.id}: ${o.kbd}` : "";
+        return q && o
+          ? `Q${q.id} (${q.axis}): "${q.prompt}" → chose [${o.kbd}] "${o.label}"`
+          : "";
       })
       .filter(Boolean)
-      .join("; "),
+      .join("\n"),
     personal,
   });
 

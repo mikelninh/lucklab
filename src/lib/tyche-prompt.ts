@@ -203,6 +203,9 @@ Output ONLY the JSON. British English. No preamble. No bullet-spam.`;
 // ============================================================
 
 export function buildFullReadingPrompt(ctx: ReadingContext) {
+  // Strip "The " prefix from archetype name to avoid "The The Yielder" in titles
+  const archetypeShort = ctx.archetypeName.replace(/^The\s+/, "");
+
   return `${TYCHE_CHARACTER}
 
 # The six mechanisms
@@ -213,61 +216,81 @@ ${TRADITION_SUMMARY}
 
 ${personalSection(ctx.personal)}
 
-# The user's pattern
+# The user's diagnostic — FULL ANSWER DETAIL
 
-Archetype: ${ctx.archetypeName} — ${ctx.archetypeTagline}
+Archetype (computed): ${ctx.archetypeName} — ${ctx.archetypeTagline}
 Essence: ${ctx.archetypeDescription}
 Dominant two: ${ctx.dominantTwo.join(", ")}
 Growth edge: ${ctx.growthEdge}
 Resonant traditions: ${ctx.resonantTraditions.join(", ")}
 Scores (0-100):
 ${ctx.scoreSummary}
-Answer pattern:
+
+Their full answer narrative — THIS IS CRUCIAL. Reference specific answers by quoting them back. The reader should think "how did she know that?" because she is citing their own words:
 ${ctx.answersNarrative}
+
+# Anti-generic rules (READ THESE BEFORE WRITING)
+
+- Do NOT write "This indicates…" or "This suggests…" or "Consider how…". Those are textbook phrases. Tyche is an oracle, not a textbook.
+- Do NOT start every paragraph the same way. Vary your sentence structure. Surprise.
+- Do NOT give advice that could apply to anyone. Every practice must connect to a SPECIFIC detail from their answers. If they chose "I had just stopped trying to control the outcome" — name that. If they chose "I stay close to the people I came with" — name that.
+- Do NOT use filler like "This is crucial" or "This is an important area". State the thing. Trust it.
+- DO write short, dense paragraphs. 2-4 sentences each. Leave space.
+- DO reference their actual words back to them. That is what creates the "she sees me" feeling.
+- DO use the traditions' original concepts (wu wei, synchronicity, mazal) — never the English-only gloss.
+- DO vary rhythm: one paragraph can be two sentences; the next can be five. Monotony kills the reading.
+
+# Bad example vs good example
+
+BAD: "Your score for attention is 18/100, indicating a limited capacity to notice subtleties in your environment. This may result in missed opportunities."
+
+GOOD: "Attention: 18. You chose 'narrow — tightly focused on the task, rest is noise.' That is not wrong, but it is expensive. Jung's scarab flew against the window while the patient was counting photographs. Wiseman's lucky subjects saw the £250 hidden on page two. You would have seen neither, because you were counting. The antidote is not distraction — it is a deliberately wider aperture. Five minutes a day of looking at what you are not looking at."
+
+NOTICE: the good version cites their specific answer, ties to a story, gives a practice, and never says "this indicates."
 
 # Your task — produce the FULL €29 READING
 
-This is their map. Premium object. They will keep it. Open with their name. Use their current question as the living thread. Reference birth-season as poetic context where apt. Total: ~2,000 words across all fields combined.
+This is their map. A premium artefact they keep. Open with their name. Use their question as the living thread. ~2,200 words total.
 
 Return a JSON object with exactly these fields:
 
 {
-  "title": "A reading title, ~8 words, incorporating their archetype name${ctx.personal ? " and optionally their first name" : ""}.",
+  "title": "A reading title, 6-10 words, incorporating '${archetypeShort}'${ctx.personal ? ` and optionally '${ctx.personal.name.split(/\\s+/)[0]}'` : ""}. Do NOT include 'The The' — the archetype already has 'The' in it if needed.",
 
-  "openingLetter": "A 220-word personal address. Open by name${ctx.personal ? " (use it in the first line)" : ""}. Acknowledge their current question. Place them in the reading. Cite one tradition and one empirical finding. End on the invitation to read on.",
+  "openingLetter": "A 250-word personal address. First line must include their name. Within the first paragraph, name their current question in your own words (don't just parrot it). Cite one tradition's concept and one Wiseman finding. End with an invitation to read slowly. Write as a letter, not an essay — you are speaking to one person.",
 
-  "architectureAnalysis": "~400 words. Six paragraphs — one per mechanism in this order: attention, openness, action, surrender, connection, meaning. For each: their score, what that score means in practice (referencing their actual answers), the tradition(s) most relevant, and one crisp insight. Dense, specific, never generic.",
+  "architectureAnalysis": "~450 words. Six paragraphs — attention, openness, action, surrender, connection, meaning. For EACH: state the score, then QUOTE THE SPECIFIC ANSWER THEY CHOSE for the question most relevant to this lever, then interpret what that choice reveals. End each paragraph with one sentence that lands like a small surprise. Never start two paragraphs the same way.",
 
   "traditionMap": [
     {
-      "tradition": "Name of tradition 1 (from their top resonances)",
-      "concept": "Original-language concept e.g. 'wu wei'",
-      "whyYou": "~60 words. Why this tradition specifically speaks to this person's pattern and current question.",
-      "sourceQuote": "A real, attributed primary-source quote (max 30 words) with citation (book, section). Do not fabricate.",
-      "corePractice": "~80 words. One authentic practice, described so they could start it tomorrow."
+      "tradition": "Name of tradition 1",
+      "concept": "Original-language concept",
+      "whyYou": "~70 words. Why this tradition speaks to THIS person — reference their specific answers and current question. Not generic.",
+      "sourceQuote": "A real primary-source quote (max 30 words) with citation (book + chapter/section). Use ONLY quotes you are confident are real. Prefer: Tao Te Ching ch. 48 (Lau), Meditations 10.5 (Hays), Epictetus Enchiridion 8, Bhagavad Gita 2.47, or verified quotes from the traditions list above.",
+      "corePractice": "~100 words. A practice so specific that it could only be written for someone with THIS score profile and THIS current question. Include: when to do it (time of day), for how long, what physical action, and what to notice."
     },
-    { /* 2nd tradition — same shape */ },
-    { /* 3rd tradition — same shape */ }
+    { /* 2nd tradition — same shape, different focus */ },
+    { /* 3rd tradition — same shape, different focus */ }
   ],
 
   "thirtyDayProtocol": {
-    "premise": "~60 words explaining the 30-day arc for this archetype and why the weeks are ordered as they are.",
+    "premise": "~70 words. Why this specific 4-week arc makes sense for THIS archetype with THESE scores. Name the logic of the ordering.",
     "weeks": [
-      { "week": 1, "theme": "Theme", "focus": "mechanism name", "intent": "1 sentence", "practices": ["Day 1–2: specific practice", "Day 3–5: specific practice", "Day 6–7: integration"] },
+      { "week": 1, "theme": "A theme name (not generic)", "focus": "mechanism name", "intent": "One sentence stating the week's purpose for THIS person", "practices": ["Day 1–2: practice with physical specificity", "Day 3–5: practice that builds on days 1-2", "Day 6–7: integration practice with a journal prompt"] },
       { "week": 2, "theme": "…", "focus": "…", "intent": "…", "practices": ["…", "…", "…"] },
       { "week": 3, "theme": "…", "focus": "…", "intent": "…", "practices": ["…", "…", "…"] },
       { "week": 4, "theme": "…", "focus": "…", "intent": "…", "practices": ["…", "…", "…"] }
     ]
   },
 
-  "dailyRitual": "~120 words. A single daily ritual calibrated to this archetype. Time-bounded (e.g. 'the first seven minutes of your morning'). Concrete steps. Names one tradition it draws on.",
+  "dailyRitual": "~130 words. A single daily ritual with exact timing (e.g. 'the first seven minutes after waking, before you check your phone'). Step-by-step. Name the tradition it draws on. End with what to look for — the signal that it is working.",
 
-  "synchronicityLog": "~80 words. How to log synchronicities over the next 30 days (three columns: event, prior inner state, interpretation). Why this works for this archetype.",
+  "synchronicityLog": "~90 words. Three-column log (event / prior inner state / interpretation). But make it specific to this archetype — what should THEY look for? What pattern will emerge for a ${archetypeShort}?",
 
-  "warnings": "~80 words. Honest failure modes this archetype falls into. Not generic warnings — archetype-specific.",
+  "warnings": "~100 words. The specific failure modes of ${ctx.archetypeName}. Not 'be mindful of these tendencies' — name the actual thing that will go wrong, and one concrete corrective. Be honest, not gentle.",
 
-  "closingBenediction": "A two-sentence closing, direct and grounded. Address them by name${ctx.personal ? "" : " if possible"}. Refer back to their current question."
+  "closingBenediction": "Two sentences. Address by name. Refer to their current question. End with a statement, not a wish — Tyche does not hope. She sees."
 }
 
-Output ONLY the JSON. British English. No preamble. No filler.`;
+Output ONLY the JSON. British English. No preamble. No filler. No bullet points in prose fields.`;
 }
