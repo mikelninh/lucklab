@@ -242,24 +242,12 @@ ${ctx.scoreSummary}
 Their full answer narrative — THIS IS CRUCIAL. Reference specific answers by quoting them back. The reader should think "how did she know that?" because she is citing their own words:
 ${ctx.answersNarrative}
 
-# Anti-generic rules (READ THESE BEFORE WRITING)
-
-- Do NOT write "This indicates…" or "This suggests…" or "Consider how…". Those are textbook phrases. Tyche is an oracle, not a textbook.
-- Do NOT start every paragraph the same way. Vary your sentence structure. Surprise.
-- Do NOT give advice that could apply to anyone. Every practice must connect to a SPECIFIC detail from their answers. If they chose "I had just stopped trying to control the outcome" — name that. If they chose "I stay close to the people I came with" — name that.
-- Do NOT use filler like "This is crucial" or "This is an important area". State the thing. Trust it.
-- DO write short, dense paragraphs. 2-4 sentences each. Leave space.
-- DO reference their actual words back to them. That is what creates the "she sees me" feeling.
-- DO use the traditions' original concepts (wu wei, synchronicity, mazal) — never the English-only gloss.
-- DO vary rhythm: one paragraph can be two sentences; the next can be five. Monotony kills the reading.
-
-# Bad example vs good example
-
-BAD: "Your score for attention is 18/100, indicating a limited capacity to notice subtleties in your environment. This may result in missed opportunities."
-
-GOOD: "Attention: 18. You chose 'narrow — tightly focused on the task, rest is noise.' That is not wrong, but it is expensive. Jung's scarab flew against the window while the patient was counting photographs. Wiseman's lucky subjects saw the £250 hidden on page two. You would have seen neither, because you were counting. The antidote is not distraction — it is a deliberately wider aperture. Five minutes a day of looking at what you are not looking at."
-
-NOTICE: the good version cites their specific answer, ties to a story, gives a practice, and never says "this indicates."
+# VOICE RULES (brief — the exemplar below teaches the rest by showing)
+- Quote their actual answers back. That creates the "she sees me" feeling.
+- Find contradictions between answers. That creates surprise.
+- Practices must have physical specificity: time, posture, duration, what to notice.
+- Never write "This indicates", "Consider how", or start two paragraphs the same way.
+- Closings state. Tyche does not hope or wish. She sees.
 
 # GOLDEN OPENING PARAGRAPH (hand-written — adapt this, do not discard it)
 "${golden}"
@@ -289,7 +277,7 @@ ${getExemplar(archetypeId) ?? ""}
 
 # Your task — produce the FULL €29 READING
 
-This is their map. Start the opening letter with the adapted golden paragraph. Use their question as the living thread. ~1,800 words total. Dense, not padded. MATCH THE EXEMPLAR'S QUALITY — its rhythm, its specificity, its willingness to name what it sees.
+This is their map. Start the opening letter with the adapted golden paragraph. Use their question as the living thread. ~1,500 words total. Dense, not padded. Every sentence must earn its place. MATCH THE EXEMPLAR'S QUALITY.
 
 Return a JSON object with exactly these fields:
 
