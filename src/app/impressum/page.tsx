@@ -22,21 +22,21 @@ export default function ImpressumPage() {
 
         <h2>Verantwortlich</h2>
         <p>
-          Mikel Ninh<br />
+          Michael Ninh<br />
           Kairos Lab<br />
-          {/* Update with your real postal address before going fully public.
-              A German Impressum requires a physical address by law (§ 5 TMG). */}
-          [Straße + Hausnummer]<br />
-          [PLZ + Stadt], Deutschland
+          Boxhagener Str. 94<br />
+          10245 Berlin, Deutschland
         </p>
 
         <h2>Kontakt</h2>
         <p>
           E-Mail:{" "}
-          <a href="mailto:hallo@kairos.lab">hallo@kairos.lab</a>
-          <br />
-          {/* Optional: phone number. Not strictly required for all business types,
-              but recommended for trust. */}
+          <a href="mailto:mikel_ninh@yahoo.de">mikel_ninh@yahoo.de</a>
+        </p>
+        <p className="text-[13px] text-[var(--text-subtle)] italic">
+          Gemäß § 5 Abs. 1 Nr. 2 TMG genügt eine E-Mail-Adresse als
+          elektronischer Kontaktweg, sofern die Anfrage innerhalb einer
+          angemessenen Frist (i.d.R. 48 Stunden) beantwortet wird.
         </p>
 
         <h2>Umsatzsteuer-ID</h2>
@@ -44,7 +44,7 @@ export default function ImpressumPage() {
           Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:
           <br />
           <em className="text-[var(--text-subtle)]">
-            [Wird ergänzt, sobald vergeben / noch nicht vergeben — Kleinunternehmerregelung § 19 UStG]
+            Noch nicht vergeben — Kleinunternehmerregelung gemäß § 19 UStG.
           </em>
         </p>
 

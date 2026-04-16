@@ -73,35 +73,40 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Payload too large" }, { status: 400 });
   }
 
-  const session = await stripe.checkout.sessions.create({
-    mode: "payment",
-    payment_method_types: ["card"],
-    customer_email: undefined, // Stripe will collect it
-    allow_promotion_codes: true, // enables abandoned-cart recovery codes
-    expires_at: Math.floor(Date.now() / 1000) + 30 * 60, // 30 min — triggers expired webhook sooner
-    line_items: [
-      {
-        price_data: {
-          currency: "eur",
-          unit_amount: tierConfig.unitAmount,
-          product_data: {
-            name: tierConfig.name,
-            description: tierConfig.description,
+  try {
+    const session = await stripe.checkout.sessions.create({
+      mode: "payment",
+      payment_method_types: ["card"],
+      allow_promotion_codes: true,
+      expires_at: Math.floor(Date.now() / 1000) + 60 * 60, // 60 min expiry
+      line_items: [
+        {
+          price_data: {
+            currency: "eur",
+            unit_amount: tierConfig.unitAmount,
+            product_data: {
+              name: tierConfig.name,
+              description: tierConfig.description,
+            },
           },
+          quantity: 1,
         },
-        quantity: 1,
+      ],
+      success_url: `${baseUrl}${tierConfig.successPath}?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${baseUrl}/reading/preview?cancelled=1`,
+      metadata: {
+        archetypeId,
+        answers: encodedAnswers,
+        personal: encodedPersonal,
+        tier,
+        product: `kairos_${tier}`,
       },
-    ],
-    success_url: `${baseUrl}${tierConfig.successPath}?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${baseUrl}/reading/preview?cancelled=1`,
-    metadata: {
-      archetypeId,
-      answers: encodedAnswers,
-      personal: encodedPersonal,
-      tier,
-      product: `kairos_${tier}`,
-    },
-  });
+    });
 
-  return NextResponse.json({ url: session.url, id: session.id });
+    return NextResponse.json({ url: session.url, id: session.id });
+  } catch (err) {
+    console.error("[checkout]", err);
+    const msg = err instanceof Error ? err.message : "Stripe session creation failed";
+    return NextResponse.json({ error: msg }, { status: 500 });
+  }
 }

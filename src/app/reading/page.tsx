@@ -60,15 +60,20 @@ export default function ReadingPage() {
       alert("Tyche needs at least your name before she can read.");
       return;
     }
+    if (answers.length < 8) {
+      alert(`Only ${answers.length} of 10 inputs recorded. Please go back and answer any you may have skipped.`);
+      setStep(1); // send them back to question 1
+      return;
+    }
     setSubmitting(true);
     try {
-      // Clean up optional fields — if empty strings, omit
       const cleanPersonal: PersonalContext = {
         name: personal.name!.trim(),
         birthdate: personal.birthdate?.trim() || "",
         currentQuestion: personal.currentQuestion?.trim() || "",
       };
       const payload = { answers, personal: cleanPersonal, tier: "free" };
+      console.log("[kairos] submitting", answers.length, "answers for", cleanPersonal.name);
       const res = await fetch("/api/tyche/read", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

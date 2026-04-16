@@ -81,12 +81,9 @@ export default function ContactPage() {
         <div className="mt-16 pt-8 border-t border-[var(--border)]">
           <div className="eyebrow eyebrow-muted mb-3">legal address</div>
           <p className="text-[14px] text-[var(--text-muted)] leading-relaxed">
-            Mikel Ninh · Kairos Lab<br />
-            <em className="text-[var(--text-subtle)]">
-              [Full address to be published here per § 5 TMG]
-            </em>
-            <br />
-            Deutschland
+            Michael Ninh · Kairos Lab<br />
+            Boxhagener Str. 94<br />
+            10245 Berlin, Deutschland
           </p>
           <Link
             href="/impressum"
