@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import { ORGANIZATION, WEBSITE, jsonLdScript } from "@/lib/jsonld";
+import { LuckLayer } from "@/components/LuckLayer";
 import Script from "next/script";
 
 const geistSans = Geist({
@@ -81,7 +82,10 @@ export default function RootLayout({
           />
         )}
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <LuckLayer />
+        {children}
+      </body>
     </html>
   );
 }

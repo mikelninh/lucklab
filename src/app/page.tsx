@@ -5,6 +5,7 @@ import { TycheSigil } from "@/components/TycheSigil";
 import { TRADITIONS, MECHANISMS } from "@/lib/traditions";
 import { EmailCapture } from "@/components/EmailCapture";
 import { ReviewsRail } from "@/components/Reviews";
+import { DailyMoment } from "@/components/DailyMoment";
 
 export default function Home() {
   return (
@@ -407,6 +408,9 @@ export default function Home() {
           NO SUBSCRIPTION · BUY ONCE · YOURS FOREVER · CANCEL-NOTHING
         </p>
       </section>
+
+      {/* ============================== DAILY MOMENT ============================== */}
+      <DailyMoment />
 
       {/* ============================== REVIEWS ============================== */}
       <ReviewsRail />

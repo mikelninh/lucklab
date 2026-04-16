@@ -198,6 +198,67 @@ body {
 }
 .pulse-slow { animation: ambient-pulse 4s ease-in-out infinite; }
 
+/* ===================== Luck micro-interactions ===================== */
+
+/* Shooting star — gold streak that crosses the viewport */
+.shooting-star {
+  position: absolute;
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-bright) 30%, var(--gold) 70%, transparent);
+  opacity: 0;
+  animation: shoot linear forwards;
+  pointer-events: none;
+  filter: blur(0.3px);
+}
+.shooting-star::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -1px;
+  width: 3px;
+  height: 3px;
+  background: var(--gold-bright);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--gold), 0 0 12px rgba(201, 169, 97, 0.4);
+}
+@keyframes shoot {
+  0% { opacity: 0; transform: translateX(0) rotate(inherit); }
+  10% { opacity: 0.9; }
+  90% { opacity: 0.6; }
+  100% { opacity: 0; transform: translateX(calc(60vw + 200px)) rotate(inherit); }
+}
+
+/* Fade in */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fade-in 0.4s ease-out; }
+
+/* Slide up (for toasts) */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up { animation: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+
+/* Gold spark burst on quiz selection */
+@keyframes spark-burst {
+  0% { transform: scale(0); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.6; }
+  100% { transform: scale(0); opacity: 0; }
+}
+.spark-burst {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--gold-bright) 0%, transparent 70%);
+  pointer-events: none;
+  animation: spark-burst 0.5s ease-out forwards;
+}
+
 /* Starfield background for hero */
 .starfield {
   background-image:
