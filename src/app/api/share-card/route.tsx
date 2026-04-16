@@ -81,6 +81,8 @@ export async function GET(req: NextRequest) {
   const archetype = rawArchetype.replace(/^The\s+/i, "");
   const greek = q.get("greek") || "";
   const tagline = q.get("tagline") || "";
+  const strongest = q.get("strongest") || "";
+  const quietest = q.get("quietest") || "";
   const c = P[q.get("style") || "midnight"] || P.midnight;
 
   try {
@@ -269,6 +271,35 @@ export async function GET(req: NextRequest) {
               >
                 {tagline}
               </span>
+            ) : null}
+
+            {/* Strongest / Quietest — two words that tell the whole story */}
+            {strongest && quietest ? (
+              <div
+                style={{
+                  display: "flex",
+                  gap: "80px",
+                  marginTop: "48px",
+                  position: "relative",
+                }}
+              >
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
+                  <span style={{ fontSize: "9px", fontFamily: "monospace", letterSpacing: "5px", color: c.faint }}>
+                    STRONGEST
+                  </span>
+                  <span style={{ fontSize: "18px", fontFamily: "serif", color: c.accent, letterSpacing: "1px" }}>
+                    {strongest}
+                  </span>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
+                  <span style={{ fontSize: "9px", fontFamily: "monospace", letterSpacing: "5px", color: c.faint }}>
+                    QUIETEST
+                  </span>
+                  <span style={{ fontSize: "18px", fontFamily: "serif", color: c.muted, letterSpacing: "1px" }}>
+                    {quietest}
+                  </span>
+                </div>
+              </div>
             ) : null}
           </div>
 

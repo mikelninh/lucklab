@@ -53,7 +53,14 @@ export function ArchetypeReveal({ name, archetype, greek, tagline, scores }: Rev
     return () => { clearTimeout(t); clearTimeout(t2); };
   }, []);
 
-  const shareCardUrl = `/api/share-card?name=${encodeURIComponent(name)}&archetype=${encodeURIComponent(archetype)}&greek=${encodeURIComponent(greek)}&tagline=${encodeURIComponent(tagline)}&style=${selectedStyle}`;
+  // Find strongest + quietest for the card
+  const sortedScores = SCORE_ORDER
+    .map((k) => ({ key: k, label: SCORE_LABELS[k], val: scores[k] ?? 0 }))
+    .sort((a, b) => b.val - a.val);
+  const strongest = sortedScores[0]?.label || "Attention";
+  const quietest = sortedScores[sortedScores.length - 1]?.label || "Openness";
+
+  const shareCardUrl = `/api/share-card?name=${encodeURIComponent(name)}&archetype=${encodeURIComponent(archetype)}&greek=${encodeURIComponent(greek)}&tagline=${encodeURIComponent(tagline)}&strongest=${encodeURIComponent(strongest)}&quietest=${encodeURIComponent(quietest)}&style=${selectedStyle}`;
 
   async function downloadCard() {
     setDownloading(true);
