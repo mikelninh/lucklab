@@ -32,9 +32,17 @@ const SCORE_LABELS: Record<string, string> = {
   meaning: "Meaning",
 };
 
+const CARD_STYLES = [
+  { id: "midnight", label: "Midnight", preview: "bg-gradient-to-b from-[#0a0a0d] to-[#16161d] text-[#e6c87a]" },
+  { id: "light", label: "Light", preview: "bg-gradient-to-b from-[#faf8f3] to-[#ede6d6] text-[#6b5a30]" },
+  { id: "minimal", label: "Minimal", preview: "bg-black text-white" },
+  { id: "aurora", label: "Aurora", preview: "bg-gradient-to-br from-[#1a0e2e] to-[#0e1a2e] text-[#c4b0ff]" },
+] as const;
+
 export function ArchetypeReveal({ name, archetype, greek, tagline, scores }: RevealProps) {
   const [phase, setPhase] = useState<"idle" | "playing" | "done">("idle");
   const [downloading, setDownloading] = useState(false);
+  const [selectedStyle, setSelectedStyle] = useState("midnight");
   const firstName = name.split(/\s+/)[0];
   const archetypeShort = archetype.replace(/^The\s+/i, "");
 
@@ -46,7 +54,7 @@ export function ArchetypeReveal({ name, archetype, greek, tagline, scores }: Rev
   }, []);
 
   const scoreValues = SCORE_ORDER.map((k) => scores[k] ?? 0);
-  const shareCardUrl = `/api/share-card?name=${encodeURIComponent(name)}&archetype=${encodeURIComponent(archetype)}&greek=${encodeURIComponent(greek)}&tagline=${encodeURIComponent(tagline)}&scores=${scoreValues.join(",")}`;
+  const shareCardUrl = `/api/share-card?name=${encodeURIComponent(name)}&archetype=${encodeURIComponent(archetype)}&greek=${encodeURIComponent(greek)}&tagline=${encodeURIComponent(tagline)}&scores=${scoreValues.join(",")}&style=${selectedStyle}`;
 
   async function downloadCard() {
     setDownloading(true);
@@ -138,8 +146,29 @@ export function ArchetypeReveal({ name, archetype, greek, tagline, scores }: Rev
         </div>
       </div>
 
+      {/* Style picker */}
+      <div className="mt-6 mb-4">
+        <div className="eyebrow eyebrow-muted text-center mb-3 text-[9px]">choose your style</div>
+        <div className="flex gap-3 justify-center">
+          {CARD_STYLES.map((style) => (
+            <button
+              key={style.id}
+              onClick={() => setSelectedStyle(style.id)}
+              className={`w-16 h-24 rounded-lg border-2 transition-all flex flex-col items-center justify-center gap-1 ${
+                selectedStyle === style.id
+                  ? "border-[var(--gold)] scale-105"
+                  : "border-[var(--border)] opacity-60 hover:opacity-100"
+              } ${style.preview}`}
+            >
+              <span className="text-[10px] font-bold">{archetypeShort.charAt(0)}</span>
+              <span className="text-[7px] font-mono opacity-70">{style.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Action buttons */}
-      <div className="flex flex-wrap gap-2 justify-center mt-6">
+      <div className="flex flex-wrap gap-2 justify-center mt-4">
         <button
           onClick={downloadCard}
           disabled={downloading}
