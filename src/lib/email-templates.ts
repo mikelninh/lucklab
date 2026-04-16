@@ -96,10 +96,57 @@ export function nudgeReadingEmail(name?: string): Shell {
 }
 
 // ============================================================
-// T+24h · Content value — "the luck factor" study
+// T+24h · Content value — archetype-specific OR generic Wiseman story
 // ============================================================
-export function contentEmail(name?: string): Shell {
+
+const ARCHETYPE_STORIES: Record<string, { subject: string; story: string }> = {
+  "The Yielder": {
+    subject: "The Tao Te Ching has a chapter about you",
+    story: `Chapter 48 of the Tao Te Ching says: <em>"In the pursuit of Tao, every day something is dropped."</em> As a Yielder, your gift is the ability to release the grip. But there is a difference between dropping what you hold and dropping where you stand. Your Reading explores that difference — and the practice that bridges it.`,
+  },
+  "The Seer": {
+    subject: "Jung's golden scarab — and what it means for you",
+    story: `Jung's patient was describing a dream about a golden scarab when a real beetle flew through the consulting-room window. He caught it and handed it to her. The therapeutic impasse broke. As a Seer, your attention catches what others miss. The question your Reading explores is what you do with what you catch — because noticing without acting is the Seer's specific trap.`,
+  },
+  "The Steerer": {
+    subject: "The Greeks sculpted the moment of luck. It looks like you.",
+    story: `Lysippos sculpted Kairos — the god of the opportune moment — with a long forelock and a bald back. You could seize him as he approached, but once he passed, there was nothing to grip. As a Steerer, you seize. You always have. Your Reading explores the cost: the moments you seized that were not yet ripe.`,
+  },
+  "The Wanderer": {
+    subject: "Wiseman's luckiest subjects had one thing in common",
+    story: `Richard Wiseman found that self-described lucky people had one behaviour others lacked: they varied their routine relentlessly. New routes, new people, new places. As a Wanderer, this is your native mode. Your Reading explores what happens when you go further — not just new places, but staying long enough for them to change you back.`,
+  },
+  "The Weaver": {
+    subject: "The 1973 study that explains how your luck actually works",
+    story: `Sociologist Mark Granovetter proved in 1973 that the connections that change lives are weak ties — acquaintances, not close friends. As a Weaver, your social sonar is always on. Your Reading explores the thread you haven't yet pulled — the one that would pull you somewhere you haven't imagined.`,
+  },
+  "The Reader": {
+    subject: "Jung had a word for what you do naturally",
+    story: `Synchronicity — the perception of meaningful coincidence. As a Reader, you do this fluently. Too fluently, perhaps. Your Reading explores the line between making meaning and manufacturing it — because when everything is a sign, nothing is a signal.`,
+  },
+};
+
+export function contentEmail(name?: string, archetype?: string): Shell {
   const greeting = name ? name + "," : "One note from Tyche,";
+  const specific = archetype ? ARCHETYPE_STORIES[archetype] : null;
+
+  if (specific) {
+    return {
+      subject: specific.subject,
+      html: wrap(
+        `${h1(specific.subject.replace(/\.$/, ""))}
+        ${p(`${greeting}`)}
+        ${p(specific.story)}
+        ${hr()}
+        ${p(`Your full Reading goes deeper — mapping all six levers of your kairotic architecture and giving you a 30-day protocol calibrated to your specific pattern.`)}
+        ${button(`${APP_URL}/reading`, "See your full Reading options", "gold")}
+        ${signature()}`,
+        specific.subject
+      ),
+    };
+  }
+
+  // Fallback: generic Wiseman story (for subscribers without an archetype)
   return {
     subject: "The newspaper experiment that explains luck",
     html: wrap(

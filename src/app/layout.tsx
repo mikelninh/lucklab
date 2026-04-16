@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import { ORGANIZATION, WEBSITE, jsonLdScript } from "@/lib/jsonld";
 import { LuckLayer } from "@/components/LuckLayer";
+import { ExitIntent } from "@/components/ExitIntent";
+import { StickyCTA } from "@/components/StickyCTA";
 import Script from "next/script";
 
 const geistSans = Geist({
@@ -84,7 +86,9 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <LuckLayer />
+        <ExitIntent />
         {children}
+        <StickyCTA />
       </body>
     </html>
   );

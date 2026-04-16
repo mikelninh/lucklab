@@ -80,6 +80,15 @@ export function ShareCard({ name, archetype, greek, tagline, variant = "compact"
           {copied ? "Copied!" : "Share your archetype"}
         </button>
         <a
+          href={`https://wa.me/?text=${encodeURIComponent(shareText)}`}
+          target="_blank"
+          rel="noreferrer"
+          className="btn btn-ghost"
+          onClick={() => track("cta_click", { action: "share_whatsapp" })}
+        >
+          WhatsApp
+        </a>
+        <a
           href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}`}
           target="_blank"
           rel="noreferrer"

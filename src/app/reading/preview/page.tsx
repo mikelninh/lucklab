@@ -156,6 +156,7 @@ export default function ReadingPreviewPage() {
                     email: input.value,
                     name: firstName,
                     source: "post-quiz-preview",
+                    archetype: archetype.name,
                   }),
                 });
                 btn.textContent = "✓ Sent!";

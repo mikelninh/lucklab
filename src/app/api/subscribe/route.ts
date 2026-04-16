@@ -16,6 +16,7 @@ const schema = z.object({
   email: z.string().email(),
   name: z.string().max(60).optional(),
   source: z.string().optional().default("unknown"),
+  archetype: z.string().max(30).optional(), // for archetype-specific drip
 });
 
 const FROM = process.env.EMAIL_FROM || "Tyche · Kairos Lab <tyche@kairos.lab>";
@@ -28,9 +29,9 @@ export async function POST(req: NextRequest) {
   if (!parsed.success) {
     return NextResponse.json({ error: "Invalid email." }, { status: 400 });
   }
-  const { email, name, source } = parsed.data;
+  const { email, name, source, archetype } = parsed.data;
 
-  console.log("[subscribe]", { email, name, source, at: new Date().toISOString() });
+  console.log("[subscribe]", { email, name, source, archetype, at: new Date().toISOString() });
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
@@ -50,7 +51,7 @@ export async function POST(req: NextRequest) {
   const drip: { at: Date | null; template: ReturnType<typeof welcomeEmail> }[] = [
     { at: null, template: welcomeEmail(name) },
     { at: new Date(now + 1 * 60 * 60 * 1000), template: nudgeReadingEmail(name) },
-    { at: new Date(now + 24 * 60 * 60 * 1000), template: contentEmail(name) },
+    { at: new Date(now + 24 * 60 * 60 * 1000), template: contentEmail(name, archetype) },
     { at: new Date(now + 3 * 24 * 60 * 60 * 1000), template: primerEmail(name) },
     { at: new Date(now + 7 * 24 * 60 * 60 * 1000), template: lastTouchEmail(name) },
   ];

@@ -456,10 +456,20 @@ export default function Home() {
           ))}
         </div>
 
-        {/* no-subscription reassurance */}
-        <p className="text-center mt-10 text-[12px] text-[var(--text-subtle)] font-mono tracking-wider">
-          NO SUBSCRIPTION · BUY ONCE · YOURS FOREVER · CANCEL-NOTHING
-        </p>
+        {/* urgency + reassurance */}
+        <div className="mt-14 card card-gold max-w-xl mx-auto text-center">
+          <div className="eyebrow mb-2">launch pricing</div>
+          <p className="font-display text-[20px] text-[var(--text)] mb-2">
+            €29 <span className="text-[var(--text-muted)] line-through text-[16px]">€49</span>{" "}
+            — launch pricing ends <span className="text-[var(--gold-bright)]">May 15, 2026</span>.
+          </p>
+          <p className="text-[13px] text-[var(--text-muted)] mb-1">
+            After that, Tyche&rsquo;s Reading moves to €49. The Primer stays at €9.
+          </p>
+          <p className="font-mono text-[10px] text-[var(--text-subtle)] tracking-wider mt-3">
+            NO SUBSCRIPTION · BUY ONCE · YOURS FOREVER · 100% REFUND GUARANTEE
+          </p>
+        </div>
       </section>
 
       {/* ============================== DAILY MOMENT ============================== */}
