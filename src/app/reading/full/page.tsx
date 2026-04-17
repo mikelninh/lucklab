@@ -388,7 +388,7 @@ async function generateFullReading(context: {
     try {
       const claude = new Anthropic({ apiKey: anthropicKey });
       const msg = await claude.messages.create({
-        model: process.env.CLAUDE_MODEL || "claude-sonnet-4-5-20241022",
+        model: process.env.CLAUDE_MODEL || "claude-sonnet-4-6",
         max_tokens: 4096,
         messages: [{
           role: "user",

@@ -352,103 +352,63 @@ export default function Home() {
           you&rsquo;re ready &mdash; not before.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-3 gap-5 items-start">
           {/* Free */}
           <div className="card flex flex-col">
-            <span className="kbd text-[11px] self-start mb-4">free</span>
-            <h3 className="font-display text-[24px] font-normal mb-1">Your Archetype</h3>
-            <p className="text-[13px] text-[var(--text-subtle)] mb-6">
-              <em>Who am I?</em>
-            </p>
-            <div className="mb-6">
-              <span className="font-display text-[42px] text-[var(--text)]">€0</span>
-            </div>
-            <ul className="flex-1 space-y-2.5 text-[13px] text-[var(--text-muted)] mb-6">
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>The 10-input Reading</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>Your archetype + Greek name</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>One resonant tradition (tease)</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>Free Convergence Index PDF</span></li>
+            <h3 className="font-display text-[28px] font-normal mb-1">Free</h3>
+            <p className="text-[14px] text-[var(--text-subtle)] italic mb-5">Who am I?</p>
+            <ul className="space-y-3 text-[14px] text-[var(--text-muted)] mb-8">
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Your archetype + Greek name</li>
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>One resonant tradition</li>
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>40-page Convergence Index</li>
             </ul>
-            <Link href="/reading" className="btn btn-ghost justify-center">
+            <Link href="/reading" className="btn btn-ghost justify-center mt-auto">
               Begin free →
             </Link>
           </div>
 
-          {/* Primer — €9 tripwire */}
-          <div className="card card-gold flex flex-col relative overflow-hidden">
-            <span className="kbd text-[11px] self-start mb-4">low-risk unlock</span>
-            <h3 className="font-display text-[24px] font-normal mb-1">Archetype Primer</h3>
-            <p className="text-[13px] text-[var(--text-subtle)] mb-6">
-              <em>Show me more.</em>
-            </p>
-            <div className="mb-6">
-              <span className="font-display text-[42px] text-[var(--text)]">€9</span>
-              <span className="font-mono text-[11px] text-[var(--gold-dim)] ml-2">one-off</span>
-            </div>
-            <ul className="flex-1 space-y-2.5 text-[13px] text-[var(--text-muted)] mb-6">
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>Full six-lever scores</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>Dominant + quiet lever deep-read</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>Tradition essay with a real primary source</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>Seven-day practice you start today</span></li>
-              <li className="flex items-start gap-2"><span className="text-[var(--gold)] mt-0.5">+</span><span>Delivered instantly &middot; yours forever</span></li>
+          {/* Primer — €9 */}
+          <div className="card card-gold flex flex-col">
+            <h3 className="font-display text-[28px] font-normal mb-1">Primer <span className="font-display text-[28px] text-[var(--gold)]">€9</span></h3>
+            <p className="text-[14px] text-[var(--text-subtle)] italic mb-5">Show me my pattern.</p>
+            <ul className="space-y-3 text-[14px] text-[var(--text-muted)] mb-8">
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Full six-lever profile</li>
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Dominant + quiet lever analysis</li>
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Tradition essay with source quote</li>
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Seven-day practice</li>
             </ul>
-            <Link href="/reading" className="btn btn-ghost justify-center">
-              Unlock for €9 →
+            <Link href="/reading" className="btn btn-ghost justify-center mt-auto">
+              Unlock Primer →
             </Link>
           </div>
 
-          {/* Full Reading — €29 featured, value-stacked */}
+          {/* Full Reading — €29 */}
           <div className="card card-tyche flex flex-col relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-[var(--tyche)] opacity-10 blur-3xl rounded-full pointer-events-none" />
-            <div className="absolute top-3 right-3 font-mono text-[10px] text-[var(--tyche)] tracking-wider">
-              MOST CHOSEN
+            <div className="absolute top-0 right-0 w-40 h-40 bg-[var(--tyche)] opacity-[0.07] blur-3xl rounded-full pointer-events-none" />
+            <div className="relative">
+              <div className="flex items-baseline justify-between mb-1">
+                <h3 className="font-display text-[28px] font-normal">
+                  Reading <span className="text-[var(--tyche)]">€29</span>
+                </h3>
+                <span className="font-mono text-[10px] text-[var(--tyche)] tracking-wider">LAUNCH</span>
+              </div>
+              <p className="text-[14px] text-[var(--text-subtle)] italic mb-5">What&rsquo;s my plan?</p>
+              <ul className="space-y-3 text-[14px] text-[var(--text-muted)] mb-8">
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>Personalised Reading addressed to you by name</span></li>
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>30-day protocol, week-by-week</span></li>
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>3 tradition deep-dives with source quotes</span></li>
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>Your daily ritual</span></li>
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>90-day Return (free recalibration)</span></li>
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>Shareable Archetype Card (4 styles)</span></li>
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>Gift Reading for someone you love</span></li>
+              </ul>
+              <Link href="/reading" className="btn btn-primary justify-center w-full">
+                Unlock Reading →
+              </Link>
+              <p className="font-mono text-[10px] text-[var(--text-subtle)] text-center mt-3 tracking-wider">
+                100% REFUND GUARANTEE
+              </p>
             </div>
-            <span className="kbd kbd-tyche text-[11px] self-start mb-4">7 items · one price</span>
-            <h3 className="font-display text-[24px] font-normal mb-1">Tyche&rsquo;s Reading</h3>
-            <p className="text-[13px] text-[var(--text-subtle)] mb-6">
-              <em>The complete package. Everything Tyche knows about you.</em>
-            </p>
-            <div className="mb-2">
-              <span className="font-display text-[42px] text-[var(--text)]">€29</span>
-              <span className="font-mono text-[11px] text-[var(--text-subtle)] ml-2 line-through">€115</span>
-              <span className="font-mono text-[11px] text-[var(--tyche)] ml-2 tracking-wider">LAUNCH · 75% OFF</span>
-            </div>
-            <p className="font-mono text-[10px] text-[var(--text-subtle)] tracking-wider mb-5">
-              7 ITEMS WORTH €115 · YOURS FOR €29
-            </p>
-            <ul className="flex-1 space-y-2.5 text-[13px] text-[var(--text-muted)] mb-6">
-              <li className="flex items-start gap-2">
-                <span className="text-[var(--tyche)] mt-0.5">1.</span>
-                <span><strong className="text-[var(--text)]">Your personalised Reading</strong> &mdash; addressed to you by name, responds to your question, finds contradictions in your answers <span className="text-[var(--text-subtle)]">(€29 value)</span></span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[var(--tyche)] mt-0.5">2.</span>
-                <span><strong className="text-[var(--text)]">30-day protocol</strong> &mdash; week-by-week practices calibrated to your archetype <span className="text-[var(--text-subtle)]">(€15 value)</span></span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[var(--tyche)] mt-0.5">3.</span>
-                <span><strong className="text-[var(--text)]">3 tradition deep-dives</strong> &mdash; with verified primary-source quotes and practices <span className="text-[var(--text-subtle)]">(€9 value)</span></span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[var(--tyche)] mt-0.5">4.</span>
-                <span><strong className="text-[var(--text)]">The Convergence Index</strong> &mdash; 40-page research paper, 36 citations <span className="text-[var(--text-subtle)]">(€19 value)</span></span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[var(--tyche)] mt-0.5">5.</span>
-                <span><strong className="text-[var(--tyche-bright)]">90-day Return</strong> &mdash; Tyche recalibrates your Reading in 90 days, free <span className="text-[var(--text-subtle)]">(€15 value)</span></span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[var(--tyche)] mt-0.5">6.</span>
-                <span><strong className="text-[var(--tyche-bright)]">Your Archetype Reveal Card</strong> &mdash; 4 design styles, downloadable, shareable <span className="text-[var(--text-subtle)]">(€5 value)</span></span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-[var(--tyche)] mt-0.5">7.</span>
-                <span><strong className="text-[var(--tyche-bright)]">One Gift Reading</strong> &mdash; send the full Reading to someone you love <span className="text-[var(--text-subtle)]">(€29 value)</span></span>
-              </li>
-            </ul>
-            <Link href="/reading" className="btn btn-primary justify-center">
-              Unlock all 7 for €29 →
-            </Link>
           </div>
         </div>
 
