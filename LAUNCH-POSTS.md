@@ -276,3 +276,23 @@ Has anyone else noticed this cross-cultural convergence? I'm curious if there ar
 | Sa (Apr 26) | X | Screenshot eines Readings teilen |
 | **Woche 2** | Reddit | r/Jung + r/getdisciplined |
 | **Woche 2** | HN | Submit: pillar article |
+
+---
+
+## THESIS + MESSUNG pro Post
+
+Jeder Post ist ein Experiment. Hier ist was wir testen und was wir erwarten:
+
+| Post | Thesis | Warum dieser Post | Messung | Erwartung |
+|---|---|---|---|---|
+| **X Thread** | "Research-backed contrarian take" hooks tech/philosophy-Twitter. Thread-Format baut Spannung über 10 Tweets. Tweet 8 ist der Conversion-Punkt. | X belohnt Threads mit Engagement. "Luck is trainable" ist contrarian genug für Retweets, backed genug für Credibility. | Impressions, Replies ("my archetype is..."), Link-Clicks auf Tweet 8 | 5K-30K impressions, 20-100 replies, 200-1,000 clicks |
+| **r/decidingtobebetter** | Listicle-Format performed best auf diesem Sub. "6 things" ist concret + actionable. Die Quiz-CTA am Ende konvertiert weil sie kostenlos + 3 min ist. | 3.2M members, high intent ("I want to improve"), low cynicism. Listicles mit Research-Backing bekommen 2x Upvotes vs Opinion-Posts. | Upvotes, Comments, Click-through zu /reading | 50-500 upvotes, 20-100 comments, 100-500 clicks |
+| **r/Stoicism** | "Ancient + modern converge" ist die Story die diese Community am meisten schätzt. Amor fati + Wiseman = ihre zwei Welten verbunden. | 730K members, hohe Bildung, kaufkräftig, skeptisch aber offen. Ein Post der Stoizismus mit Empirie verbindet wird als Contribution geschätzt, nicht als Werbung. | Upvotes, "well-researched" Comments, Index-Downloads | 30-200 upvotes, quality comments > quantity |
+| **r/synchronicity** | Cross-cultural Convergence ist NEUES für diese Community. Sie kennen Jung aber nicht die 12-Tradition-Synthese. | 24K members, klein aber hochengagiert. Diese Community WILL eine systematische Perspektive auf Synchronizität. Unser Index ist genau das. | Deep engagement, Saves, Shares des Index-Links | 20-80 upvotes, long comment threads, high Index downloads |
+| **WhatsApp DMs** | Persönliche Empfehlung > alle anderen Kanäle. "Hey, ich hab was gebaut" = 50%+ Click-Rate weil Trust schon existiert. | Dein Netzwerk ist dein erster Markt. Null Algorithmus-Abhängigkeit. Direktes Feedback + erste echte Reviews. | Reply rate, Quiz-Completions, Purchases | 15/20 replies, 10 Readings, 1-3 purchases |
+
+### Was wir nach Tag 1 wissen wollen:
+1. **Welcher Kanal hat die höchste Click-Rate?** → dort verdoppeln in Woche 2
+2. **Wie viele completeten das Quiz?** → Funnel-Friction messen
+3. **Hat jemand gescreenshottet oder geteilt?** → Produktqualität validiert
+4. **Hat jemand bezahlt?** → Product-Market-Fit Signal
