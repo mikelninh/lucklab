@@ -202,7 +202,88 @@ Already live — check for comments and respond.
 
 ---
 
-## Aktion 3: 10 WhatsApp/Signal DMs (15 min)
+## Aktion 3: Hacker News (1 min, Lotterie-Ticket)
+
+**WARUM:** Wenn es die Front Page erreicht: 5,000-15,000 Visitors in einem Tag. Wenn nicht: 0. Kein Risiko, hohes Upside.
+
+**Submission:**
+- **Title:** `A psychologist hid a message in a newspaper. Lucky people saw it. Unlucky people didn't.`
+- **URL:** `https://lucklab.app/research/how-to-be-luckier`
+
+Alternative Titles (falls der erste nicht zündet, in 2 Wochen nochmal mit anderem):
+- `12 wisdom traditions and a 2003 study arrive at the same answer about luck`
+- `Lucky people aren't born — they exhibit 4 trainable behaviours (Wiseman, 2003)`
+
+**Wenn es Front Page erreicht:** Sei in den Comments innerhalb 10 Minuten. Beantworte JEDE Frage. Die sceptischen Comments sind die wichtigsten — engage respektvoll. HN's Audience IST deine Zielgruppe.
+
+---
+
+## Aktion 4: r/SideProject (2 min, Links erlaubt!)
+
+**WARUM:** Das Sub wo Links der PUNKT sind. Maker-Community, ~150K Members. Sie probieren Tools aus und geben Feedback.
+
+**Title:** `A psychologist found lucky people see things unlucky people miss. I built a tool that tests which one you are.`
+
+```
+Richard Wiseman ran a 10-year study with 400 people. He hid a message in a newspaper: "Stop counting. There are 43 photographs." Lucky people noticed it. Unlucky people were counting too hard.
+
+I cross-referenced his findings with 12 wisdom traditions (Jung, Taoism, Stoicism, Kabbalah...) and found they all describe the same 6 trainable mechanisms.
+
+So I built Luck Lab — a free 3-minute Reading where an AI oracle named Tyche maps your profile across the 6 "luck levers" and tells you which of 6 archetypes you are.
+
+Try it: https://lucklab.app/reading
+
+Stack: Next.js 16, Claude Sonnet 4.6, Stripe, Vercel, Tailwind
+
+The research paper behind it (11,000 words, 36 citations, free): https://lucklab.app/convergence-index
+
+Would love honest feedback — especially on the Reading output quality. Is it worth €9? €29?
+```
+
+**Erwartung:** 20-100 Upvotes. Maker probieren das Tool. Geben echtes Produkt-Feedback. Manche teilen es weiter.
+
+---
+
+## Aktion 5: LinkedIn (2 min, höchster Revenue-ROI)
+
+**WARUM:** Links sind erlaubt. Dein professionelles Netzwerk sieht es sofort. 30-45 jährige Professionals sind die Zielgruppe.
+
+```
+I spent 3 months cross-referencing 12 wisdom traditions against 20 years of psychology research.
+
+The question: is luck random?
+
+The answer surprised me.
+
+Richard Wiseman ran a 10-year study at the University of Hertfordshire. 400 subjects. He hid a message in a newspaper: "Stop counting. There are 43 photographs."
+
+Lucky people noticed it. Unlucky people were counting too hard.
+
+His conclusion: lucky people aren't receiving more windfalls. They exhibit 4 measurable, trainable behaviours:
+
+→ Wider attention
+→ Trust intuition
+→ Expect good fortune
+→ Turn bad luck to good
+
+The part that blew my mind: 12 wisdom traditions — Taoism, Stoicism, Buddhism, Kabbalah, and 8 others — had already described the same mechanisms. 2,500 years before Wiseman measured them.
+
+So I built something. A free 3-minute tool that maps your "luck profile" across 6 trainable levers:
+
+lucklab.app/reading
+
+The full research paper (11,000 words, 36 citations, free):
+
+lucklab.app/convergence-index
+
+Curious: do you believe luck is trainable, or am I seeing patterns that aren't there?
+```
+
+**Erwartung:** 500-3,000 Impressions. 20-100 Clicks. 1-5 Purchases.
+
+---
+
+## Aktion 6: 10 WhatsApp/Signal DMs (15 min)
 
 **WARUM:** Persönliche Empfehlung = 50%+ Click-Rate. Dein Netzwerk ist dein erster Markt. Und: die ersten echten Reviews kommen von Freunden.
 
