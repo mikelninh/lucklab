@@ -6,6 +6,12 @@
 
 ## X THREAD (10 Tweets — jetzt posten)
 
+**THESIS:** Research-backed contrarian takes on luck hook philosophy/tech Twitter. Thread-Format baut Spannung über 10 Tweets — jeder Tweet ist eigenständig teilbar, aber zusammen erzählen sie eine Story. Tweet 8 ist der Conversion-Punkt (Link zum Reading). Erwartung: 5K-30K Impressions, 20-100 Replies mit Archetypen, 200-1,000 Clicks.
+
+**WARUM JETZT:** Threads performen am besten Di-Do 9-11 CET. "Luck is trainable" ist contrarian genug für Retweets, research-backed genug für Credibility bei der Zielgruppe (thoughtful professionals, 25-40).
+
+**MESSUNG:** Impressions (Reichweite), Reply-Rate (Engagement), Click-Through auf Tweet 8 (Conversion). Wenn >50 Replies → poste Follow-up Thread in 3 Tagen. Wenn <10 Replies → teste anderen Angle nächste Woche.
+
 ### Tweet 1/10
 ```
 I spent 3 months cross-referencing 12 wisdom traditions against 20 years of psychology research on luck.
@@ -121,6 +127,10 @@ https://kairos-tau-inky.vercel.app/reading
 
 ### r/decidingtobebetter (3.2M members)
 
+**THESIS:** Listicle + personal research ist das Format das hier am besten performed. "I studied X for Y months" signalisiert Effort + Credibility. Die "6 things" Struktur ist scannable + actionable — genau was dieses Sub will. Der Quiz-CTA konvertiert weil er kostenlos + 3 min ist. Erwartung: 50-500 upvotes, 100-500 clicks zum Reading.
+
+**MESSUNG:** Upvotes (Resonanz), Comment-Sentiment (glauben sie es?), Click-Through zum Reading. Wenn >100 upvotes → poste in 2 Wochen erneut mit anderem Angle. Wenn removed → Rules waren strenger als erwartet, adaptiere.
+
 **Title:** `I studied the science of luck for 3 months. Here are the 6 things lucky people actually do differently.`
 
 **Body:**
@@ -150,6 +160,10 @@ What do you think — does this match your experience of "lucky" people?
 
 ### r/Stoicism (730K members)
 
+**THESIS:** "Ancient wisdom + modern science converge" ist die Story die r/Stoicism am meisten schätzt. Amor fati + Wiseman verbindet ihre zwei Welten. Dieses Sub ist hochgebildet + skeptisch — der Post muss als intellectuelle Contribution lesen, nicht als Promo. Erwartung: 30-200 upvotes, "well-researched" Comments, Index-Downloads.
+
+**MESSUNG:** Upvote/Downvote Ratio (>85% = gut), Comment-Qualität (lange thoughtful Replies > kurze), Index-Downloads. Wenn top Comment positiv → engage deeply. Wenn "self-promotion" Vorwurf → zurückziehen, nie wieder dort posten.
+
 **Title:** `Amor fati and the science of luck — Marcus Aurelius and a British psychologist arrive at the same conclusion`
 
 **Body:**
@@ -174,6 +188,10 @@ I'd love to hear from anyone who has consciously practiced amor fati — did it 
 ---
 
 ### r/synchronicity (24K members)
+
+**THESIS:** Cross-cultural Convergence ist NEUES für diese Community. Sie kennen Jung, aber nicht die 12-Tradition-Synthese. Unser Convergence Index ist genau das Dokument das dieses Sub seit Jahren vermisst — systematisch, zitiert, kein Woo. Erwartung: 20-80 upvotes, lange Comment-Threads, hohe Index-Downloads.
+
+**MESSUNG:** Comment-Tiefe (>5 Replies pro Thread = high engagement), Index-Download-Rate, "this is what I've been looking for" Sentiment. Dieses Sub ist klein aber HOCHENGAGIERT — ein Post der hier resoniert wird monatelang referenziert.
 
 **Title:** `I mapped 12 wisdom traditions' take on meaningful coincidence — the convergence surprised me`
 
