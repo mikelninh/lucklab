@@ -24,9 +24,17 @@ export default function ConvergenceIndexPage() {
     "luck-convergence-index.md",
   );
   const raw = fs.readFileSync(filePath, "utf8");
-  // Strip any LaTeX commands that pandoc left behind
-  const cleaned = raw.replace(/\\newpage/g, "").replace(/^\\\s*$/gm, "");
-  const { data, content } = matter(cleaned);
+  const { data, content: rawContent } = matter(raw);
+  // Strip LaTeX artifacts: \newpage, bare backslashes on their own line, \n\n\ patterns
+  const content = rawContent
+    .split("\n")
+    .filter((line) => {
+      const trimmed = line.trim();
+      if (trimmed === "\\") return false;
+      if (trimmed === "\\newpage") return false;
+      return true;
+    })
+    .join("\n");
 
   return (
     <>
