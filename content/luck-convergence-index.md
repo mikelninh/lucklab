@@ -6,13 +6,45 @@ version: "v1.0 · April 2026"
 word_count: "~12,400"
 ---
 
+\
+
+\
+
+\
+
+\
+
+\
+
 # The Luck Convergence Index
 
-### Twelve Wisdom Traditions, One Trainable Disposition
+\
 
-*Luck Lab · v1.0 · April 2026*
+### *Twelve Wisdom Traditions, One Trainable Disposition*
+
+\
+
+\
+
+LUCK LAB
+
+\
+
+v1.0 · April 2026 · ~55 min read · 36 citations
+
+\
+
+lucklab.app
+
+\
+
+\
+
+\
 
 ---
+
+\newpage
 
 ## Preface
 
@@ -347,7 +379,7 @@ The six mechanisms the traditions appear to converge upon are:
 
 The table below maps each tradition's emphasis. A filled circle (●) marks the mechanism the tradition foregrounds most; an open circle (○) marks a secondary emphasis; a dash (—) marks an emphasis that is present but peripheral. Judgements are ours; reasonable scholars could shade them differently.
 
-| Tradition | Attention | Openness | Action | Surrender | Connection | Meaning |
+| | Attn | Open | Act | Surr | Conn | Mean |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|
 | Jung | ● | ● | — | ○ | ○ | ● |
 | Taoism | ● | ● | ○ | ● | ○ | — |
@@ -356,11 +388,13 @@ The table below maps each tradition's emphasis. A filled circle (●) marks the 
 | Stoicism | ● | — | ● | ● | — | ● |
 | Buddhism | ● | ● | ○ | ● | ● | ○ |
 | Sufism | ○ | ● | — | ○ | ● | ● |
-| Hermetic. | ● | ○ | — | — | ○ | ● |
+| Hermeticism | ● | ○ | — | — | ○ | ● |
 | I Ching | ● | ○ | ● | ○ | — | ● |
 | Yorùbá | — | ○ | ● | ○ | ● | ● |
 | Quantum | ○ | ○ | — | — | ○ | — |
-| Wiseman | ● | ● | ● | ● | ● | ● |
+| **Wiseman** | **●** | **●** | **●** | **●** | **●** | **●** |
+
+*● = primary emphasis, ○ = secondary emphasis, — = not addressed*
 
 Two observations.
 
