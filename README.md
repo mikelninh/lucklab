@@ -1,12 +1,14 @@
-# Luck Lab
+# Luck Lab 🪬
 
-> The science of luck. Guided by Tyche.
+> A psychologist found lucky people see things unlucky people miss. We built a tool that tests which one you are.
 
-**Live:** https://lucklab.app
+**Live:** [lucklab.app](https://lucklab.app)
 
-Luck Lab is a research platform for studying luck, synchronicity, and serendipity. It cross-references **12 wisdom traditions** (Jung, Taoism, Kabbalah, Vedanta, Stoicism, Buddhism, Sufism, Hermeticism, Yorùbá / Ifá, I Ching, Positive Psychology, and the Quantum observer debate) with **two decades of empirical research** (notably Richard Wiseman's *Luck Factor*) to argue a single thesis: *luck is a trainable disposition*.
+Luck Lab is a research platform that maps your "luck profile" across six trainable mechanisms — based on Richard Wiseman's 10-year empirical study and 12 wisdom traditions that independently arrived at the same conclusion: **luck is not random. It's a trainable disposition.**
 
-**Tyche** is the AI oracle who narrates the experience — named for the Greek goddess who steers fortune with a rudder and pours abundance from a cornucopia. She reads your diagnostic, matches you to a tradition, and writes your Reading personally.
+An AI oracle named **Tyche** (Greek goddess of fortune) reads your quiz answers, finds contradictions you didn't see, and writes you a personalised Reading that people describe as "surprisingly specific."
+
+**Try it:** [Take the Reading](https://lucklab.app/reading) — 3 minutes, free, no account.
 
 ## The product
 
@@ -230,7 +232,7 @@ See `/about` for the positioning statement — *honest mysticism, built carefull
 
 ## Tags
 
-`luck` `synchronicity` `AI` `oracle` `personality-quiz` `wisdom-traditions` `Jung` `Taoism` `Stoicism` `Wiseman` `digital-product` `SaaS` `Next.js` `Claude` `OpenAI` `Stripe` `Vercel` `Tailwind` `SEO` `email-funnel` `conversion-optimization`
+`luck` `synchronicity` `AI-oracle` `personality-quiz` `wisdom-traditions` `Jung` `Taoism` `Stoicism` `Wiseman` `Kabbalah` `Buddhism` `Sufism` `luck-factor` `trainable-luck` `kairotic-profile` `archetype` `Claude-Sonnet` `Next.js` `Stripe` `Vercel` `Tailwind` `Resend` `Plausible` `digital-product` `SaaS` `email-funnel` `conversion-optimization` `SEO` `share-cards`
 
 ---
 
