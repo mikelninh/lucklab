@@ -288,7 +288,7 @@ export default function ReadingPreviewPage() {
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">4.</span><strong className="text-[var(--text)] font-medium">Convergence Index</strong> — 40-page research paper</li>
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">5.</span><strong className="text-[var(--tyche-bright)] font-medium">90-day Return</strong> — free recalibration</li>
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">6.</span><strong className="text-[var(--tyche-bright)] font-medium">Archetype Reveal Card</strong> — 4 styles, shareable</li>
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">7.</span><strong className="text-[var(--tyche-bright)] font-medium">Gift Reading</strong> — for someone you love</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">7.</span><strong className="text-[var(--tyche-bright)] font-medium">Synchronicity Journal</strong> — 30-day tracking template</li>
                 </ul>
                 <div className="flex items-baseline gap-3 mb-4">
                   <span className="font-display text-[44px] text-[var(--text)]">€29</span>

@@ -400,7 +400,7 @@ export default function Home() {
                 <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>Your daily ritual</span></li>
                 <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>90-day Return (free recalibration)</span></li>
                 <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>Shareable Archetype Card (4 styles)</span></li>
-                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>Gift Reading for someone you love</span></li>
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>Synchronicity Journal log template</span></li>
               </ul>
               <Link href="/reading" className="btn btn-primary justify-center w-full">
                 Unlock Reading →

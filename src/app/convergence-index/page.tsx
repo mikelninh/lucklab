@@ -45,7 +45,7 @@ export default function ConvergenceIndexPage() {
           {String(data.subtitle || "Twelve wisdom traditions, one trainable disposition.")}
         </p>
         <p className="font-mono text-[11px] text-[var(--text-subtle)] mt-10 tracking-wider">
-          LUCK LAB &middot; {String(data.word_count || "~12,000")} WORDS
+          LUCK LAB &middot; ~55 MIN READ
         </p>
 
         <div className="mt-12 flex flex-wrap gap-3 justify-center no-print">

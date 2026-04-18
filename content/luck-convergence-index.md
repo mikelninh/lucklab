@@ -1,7 +1,7 @@
 ---
 title: "The Luck Convergence Index"
 subtitle: "Twelve Wisdom Traditions, One Trainable Disposition"
-author: "Kairos Lab"
+author: "Luck Lab"
 version: "v1.0 · April 2026"
 word_count: "~12,400"
 ---
@@ -10,7 +10,7 @@ word_count: "~12,400"
 
 ### Twelve Wisdom Traditions, One Trainable Disposition
 
-*Kairos Lab · v1.0 · April 2026*
+*Luck Lab · v1.0 · April 2026*
 
 ---
 
@@ -32,7 +32,7 @@ A final note on tone. We have tried to write this the way we would want to read 
 
 Read slowly. Skip what does not serve you. Try the seven-day protocol at the end before deciding whether any of this is true.
 
-— Kairos Lab
+— Luck Lab
 
 ---
 
@@ -380,7 +380,7 @@ We call them *levers* because they are trainable. This is the operational claim 
 
 **Why it works.** Fortune is rarely located where one already stands. Most of the traditions make this point against a default human tendency to wait. The *Gītā* is blunt: "Inaction is not the answer." The I Ching is subtler: act, but at the timely moment. Wiseman's data show the effect at population scale: lucky people simply try more things per unit of time than unlucky people.
 
-**How to train it.** Lower the threshold of what counts as "ready." The working rule many of us have adopted at Kairos Lab: if a proposed action would be worth doing at 80% confidence, do it at 60% with a faster feedback loop. Most of what looks like hesitation is unacknowledged perfectionism.
+**How to train it.** Lower the threshold of what counts as "ready." The working rule many of us have adopted at Luck Lab: if a proposed action would be worth doing at 80% confidence, do it at 60% with a faster feedback loop. Most of what looks like hesitation is unacknowledged perfectionism.
 
 **Empirical status.** Strongly supported. The "bias for action" is one of the most consistent findings across entrepreneurial, creative, and athletic performance research.
 
@@ -428,7 +428,7 @@ A brief note about the name, and about our posture.
 
 Tyche (Τύχη) was the Greek goddess of fortune — older than Fortuna, her Roman inheritor, and less stable. She was depicted blindfolded sometimes, sighted sometimes; with a rudder, with a ball, with a cornucopia. She was not understood, in her earliest cults, as a dispenser of random outcomes. She was understood as the personification of the *moment that matters* — what a situation offers you when you meet it the right way. Her counterpart and frequent companion was Kairos (καιρός), the god of the opportune instant, depicted as a young man with a forelock you had to catch as he passed, bald at the back because once gone he could not be seized.[^36]
 
-This is what we mean by Kairos Lab, and what we think Tyche knows: that the *opportune moment* is the atom of fortune, and the art of life is meeting it with the right disposition.
+This is what we mean by Luck Lab, and what we think Tyche knows: that the *opportune moment* is the atom of fortune, and the art of life is meeting it with the right disposition.
 
 Our position, having spent three years in this material, is simple. The twelve traditions surveyed here are not competing. They are different maps of the same territory, drawn by different cultures for different purposes, using different symbolic vocabularies, in response to different local concerns. When they agree about a mechanism, they are triangulating something real. When they disagree, they are usually disagreeing about metaphysics — about what kind of *thing* the mechanism is — not about whether it works.
 
@@ -638,6 +638,6 @@ A selected bibliography, grouped by tradition. Editions given are the ones we ha
 
 ---
 
-*The Luck Convergence Index is published by Kairos Lab as part of our open research programme on the empirical and contemplative psychology of fortune. Version 1.0, April 2026. Corrections, objections, and additions are welcome at* `research@kairoslab.co`.
+*The Luck Convergence Index is published by Luck Lab as part of our open research programme on the empirical and contemplative psychology of fortune. Version 1.0, April 2026. Corrections, objections, and additions are welcome at* `research@kairoslab.co`.
 
-*Citation: Kairos Lab (2026). The Luck Convergence Index: Twelve Wisdom Traditions, One Trainable Disposition. v1.0.*
+*Citation: Luck Lab (2026). The Luck Convergence Index: Twelve Wisdom Traditions, One Trainable Disposition. v1.0.*
