@@ -203,8 +203,9 @@ export default function ReadingPreviewPage() {
               Save + get Index
             </button>
           </form>
-          <p className="font-mono text-[10px] text-[var(--text-subtle)] mt-3 tracking-wider">
-            NO SPAM · UNSUBSCRIBE ANY TIME
+          <p className="text-[11px] text-[var(--text-subtle)] mt-3 leading-relaxed">
+            You&rsquo;ll receive the Index immediately + 4 short emails over 7 days
+            with practices matched to your archetype. Then we stop. Unsubscribe any time.
           </p>
         </div>
 

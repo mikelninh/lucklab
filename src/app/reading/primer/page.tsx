@@ -173,25 +173,30 @@ export default async function PrimerPage({
 
         {/* scores */}
         <section className="mb-14">
-          <div className="eyebrow mb-5">your six levers</div>
+          <div className="eyebrow mb-3">your six levers</div>
+          <p className="text-[13px] text-[var(--text-muted)] mb-5 leading-relaxed">
+            Six trainable mechanisms that determine how luck reaches you.
+            Higher = this lever is active in your life. Lower = untrained potential.
+          </p>
           <div className="card">
             {(
               [
-                ["attention", "Attention"],
-                ["openness", "Openness"],
-                ["action", "Aligned action"],
-                ["surrender", "Surrender"],
-                ["connection", "Connection"],
-                ["meaning", "Meaning-making"],
-              ] as [keyof typeof norm, string][]
-            ).map(([id, label]) => (
+                ["attention", "Attention", "How widely you notice"],
+                ["openness", "Openness", "How much you deviate from routine"],
+                ["action", "Aligned action", "How well you time your moves"],
+                ["surrender", "Surrender", "How easily you release control"],
+                ["connection", "Connection", "How dense your social web is"],
+                ["meaning", "Meaning-making", "How you interpret what happens"],
+              ] as [keyof typeof norm, string, string][]
+            ).map(([id, label, hint]) => (
               <div key={id} className="mb-4 last:mb-0">
-                <div className="flex justify-between items-baseline mb-1.5">
+                <div className="flex justify-between items-baseline mb-1">
                   <span className="text-[14px] text-[var(--text)]">{label}</span>
                   <span className="font-mono text-[12px] text-[var(--gold)]">
                     {norm[id]} / 100
                   </span>
                 </div>
+                <p className="text-[11px] text-[var(--text-subtle)] mb-1.5">{hint}</p>
                 <div className="h-[4px] bg-[var(--border)] rounded-full overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-[var(--gold-dim)] to-[var(--gold-bright)]"
