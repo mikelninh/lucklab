@@ -360,7 +360,7 @@ export default function Home() {
             <ul className="space-y-3 text-[14px] text-[var(--text-muted)] mb-8">
               <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Your archetype + Greek name</li>
               <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>One resonant tradition</li>
-              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>40-page Convergence Index</li>
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Convergence Index (~50 min read)</li>
             </ul>
             <Link href="/reading" className="btn btn-ghost justify-center mt-auto">
               Begin free →

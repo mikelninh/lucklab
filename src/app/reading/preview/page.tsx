@@ -153,7 +153,7 @@ export default function ReadingPreviewPage() {
 
         {/* SAVE YOUR READING — email capture at highest-intent moment */}
         <div className="mb-12 card card-gold text-center">
-          <div className="eyebrow mb-3">yours free · 40-page research paper</div>
+          <div className="eyebrow mb-3">yours free · 11,000-word research paper</div>
           <h3 className="font-display text-[20px] text-[var(--text)] mb-3">
             The Luck Convergence Index
           </h3>
@@ -163,7 +163,7 @@ export default function ReadingPreviewPage() {
             print and keep on their desk.
           </p>
           <p className="font-mono text-[11px] text-[var(--gold)] tracking-wider mb-4">
-            40 PAGES · FREE · INSTANT DELIVERY
+            50 MIN READ · FREE · INSTANT DELIVERY
           </p>
           <form
             className="flex gap-2 max-w-sm mx-auto"
@@ -283,7 +283,7 @@ export default function ReadingPreviewPage() {
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">1.</span><strong className="text-[var(--text)] font-medium">Personalised Reading</strong> — by name, to your question</li>
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">2.</span><strong className="text-[var(--text)] font-medium">30-day protocol</strong> — week-by-week for your archetype</li>
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">3.</span><strong className="text-[var(--text)] font-medium">3 tradition deep-dives</strong> — with source quotes + practices</li>
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">4.</span><strong className="text-[var(--text)] font-medium">Convergence Index</strong> — 40-page research paper</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">4.</span><strong className="text-[var(--text)] font-medium">Convergence Index</strong> — 11,000-word research paper</li>
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">5.</span><strong className="text-[var(--tyche-bright)] font-medium">90-day Return</strong> — free recalibration</li>
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">6.</span><strong className="text-[var(--tyche-bright)] font-medium">Archetype Reveal Card</strong> — 4 styles, shareable</li>
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">7.</span><strong className="text-[var(--tyche-bright)] font-medium">Synchronicity Journal</strong> — 30-day tracking template</li>

@@ -83,11 +83,11 @@ Free. No account.
 
 **Tweet 7:**
 ```
-I also wrote a 40-page research paper — "The Luck Convergence Index."
+I also wrote an 11,000-word research paper — "The Luck Convergence Index."
 
-12 traditions. 36 citations. A 7-day starter protocol.
+12 traditions. 36 citations. A 7-day starter protocol. ~50 min read.
 
-Free to download:
+Free:
 https://lucklab.app/convergence-index
 ```
 
@@ -146,7 +146,7 @@ After reading Wiseman's Luck Factor study and cross-referencing it with 12 wisdo
 
 6. **Meaning-making** — they reframe setbacks as redirections.
 
-I wrote a 40-page research paper on this (free, 36 citations): https://lucklab.app/convergence-index
+I wrote a 11,000-word research paper on this (free, 36 citations, ~50 min read): https://lucklab.app/convergence-index
 
 I also built a 3-minute tool that maps your profile across the 6 mechanisms: https://lucklab.app/reading
 
@@ -167,7 +167,7 @@ Different centuries. Different methods. Same conclusion.
 I spent 3 months cross-referencing Stoicism with 11 other wisdom traditions and Wiseman's research. The convergence is striking.
 
 The full essay: https://lucklab.app/research/how-to-be-luckier
-The 40-page research paper: https://lucklab.app/convergence-index
+The full research paper (~50 min read): https://lucklab.app/convergence-index
 
 I'd love to hear from anyone who has consciously practiced amor fati — did it change your luck, or just your perception of it?
 ```
