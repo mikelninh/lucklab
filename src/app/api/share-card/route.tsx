@@ -53,37 +53,37 @@ export async function GET(req: NextRequest) {
     ctx.drawImage(bg, 0, 0, WIDTH, HEIGHT);
 
     // ─── TEXT OVERLAY ───
+    // Sizes calibrated to 1080px canvas (≈3x the CSS px in the preview HTML)
 
-    // Name (top center, monospace)
+    // Name (top area, small monospace, letter-spaced)
     ctx.textAlign = "center";
     ctx.fillStyle = c.muted;
-    ctx.font = '500 12px "Courier New", monospace';
+    ctx.font = '500 30px "Courier New", monospace';
     if (name) {
-      ctx.fillText(name, WIDTH / 2, HEIGHT * 0.18);
+      ctx.fillText(name, WIDTH / 2, HEIGHT * 0.17);
     }
 
-    // Archetype name (center, large serif)
+    // Archetype name (center, large serif — THE star of the card)
     ctx.fillStyle = c.fg;
-    const fontSize = archetype.length > 7 ? 72 : 82;
-    ctx.font = `300 ${fontSize}px "Times New Roman", Georgia, serif`;
-    ctx.fillText(archetype, WIDTH / 2, HEIGHT * 0.48);
+    const fontSize = archetype.length > 7 ? 140 : 170;
+    ctx.font = `400 ${fontSize}px "Times New Roman", Georgia, serif`;
+    ctx.fillText(archetype, WIDTH / 2, HEIGHT * 0.485);
 
     // Tagline (below name, italic serif)
     if (tagline) {
       ctx.fillStyle = c.muted;
-      ctx.font = 'italic 22px "Times New Roman", Georgia, serif';
+      ctx.font = 'italic 46px "Times New Roman", Georgia, serif';
 
-      // Word wrap if needed
-      const maxWidth = WIDTH * 0.7;
+      const maxWidth = WIDTH * 0.72;
       const words = tagline.split(" ");
       let line = "";
-      let y = HEIGHT * 0.54;
+      let y = HEIGHT * 0.555;
       for (const word of words) {
         const test = line + word + " ";
         if (ctx.measureText(test).width > maxWidth && line) {
           ctx.fillText(line.trim(), WIDTH / 2, y);
           line = word + " ";
-          y += 32;
+          y += 60;
         } else {
           line = test;
         }
@@ -91,36 +91,30 @@ export async function GET(req: NextRequest) {
       ctx.fillText(line.trim(), WIDTH / 2, y);
     }
 
-    // Strongest / Quietest (lower area, monospace)
+    // Strongest / Quietest
     if (strongest && quietest) {
-      ctx.font = '500 11px "Courier New", monospace';
+      // Labels
+      ctx.font = '500 26px "Courier New", monospace';
       ctx.fillStyle = c.accent;
+      ctx.fillText("STRONGEST", WIDTH * 0.28, HEIGHT * 0.74);
+      ctx.fillText("QUIETEST", WIDTH * 0.72, HEIGHT * 0.74);
 
-      // Left: strongest
-      ctx.textAlign = "center";
-      ctx.fillText("STRONGEST", WIDTH * 0.3, HEIGHT * 0.74);
+      // Values
+      ctx.font = '400 42px "Times New Roman", Georgia, serif';
       ctx.fillStyle = c.fg;
-      ctx.font = '400 20px "Times New Roman", Georgia, serif';
-      ctx.fillText(strongest, WIDTH * 0.3, HEIGHT * 0.77);
-
-      // Right: quietest
-      ctx.fillStyle = c.accent;
-      ctx.font = '500 11px "Courier New", monospace';
-      ctx.fillText("QUIETEST", WIDTH * 0.7, HEIGHT * 0.74);
+      ctx.fillText(strongest, WIDTH * 0.28, HEIGHT * 0.78);
       ctx.fillStyle = c.muted;
-      ctx.font = '400 20px "Times New Roman", Georgia, serif';
-      ctx.fillText(quietest, WIDTH * 0.7, HEIGHT * 0.77);
+      ctx.fillText(quietest, WIDTH * 0.72, HEIGHT * 0.78);
     }
 
-    // CTA (bottom, monospace)
-    ctx.textAlign = "center";
+    // CTA
     ctx.fillStyle = c.muted;
-    ctx.font = '400 16px "Times New Roman", Georgia, serif';
-    ctx.fillText("Which archetype are you?", WIDTH / 2, HEIGHT * 0.89);
+    ctx.font = '400 36px "Times New Roman", Georgia, serif';
+    ctx.fillText("Which archetype are you?", WIDTH / 2, HEIGHT * 0.895);
 
     ctx.fillStyle = c.accent;
-    ctx.font = '500 11px "Courier New", monospace';
-    ctx.fillText("LUCKLAB.APP", WIDTH / 2, HEIGHT * 0.92);
+    ctx.font = '500 26px "Courier New", monospace';
+    ctx.fillText("LUCKLAB.APP", WIDTH / 2, HEIGHT * 0.925);
 
     // Export
     const buffer = canvas.toBuffer("image/png");
