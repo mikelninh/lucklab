@@ -667,3 +667,4 @@ A selected bibliography, grouped by tradition. Editions given are the ones we ha
 *The Luck Convergence Index is published by Luck Lab as part of our open research programme on the empirical and contemplative psychology of fortune. Version 1.0, April 2026. Corrections, objections, and additions are welcome at* `research@lucklab.co`.
 
 *Citation: Luck Lab (2026). The Luck Convergence Index: Twelve Wisdom Traditions, One Trainable Disposition. v1.0.*
+<!-- cache-bust 1776521130 -->
