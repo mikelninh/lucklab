@@ -15,7 +15,7 @@ export const metadata = {
     "Twelve wisdom traditions and two decades of empirical research converge on a single conclusion: luck is a trainable disposition.",
 };
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic"; // no cache — always read fresh markdown
 
 export default function ConvergenceIndexPage() {
   const filePath = path.join(
