@@ -123,9 +123,11 @@ If this resonated — share it with one person who has ever asked "why do good t
 
 ## Aktion 2: 3 Reddit Posts (15 min)
 
-**WARUM:** Reddit-Posts leben MONATE und ranken bei Google. Ein guter Post bringt Traffic für Wochen. Und: jeder Reddit-Post = ein Backlink = besseres SEO.
+**WARUM:** Reddit-Posts leben MONATE und ranken bei Google. Ein guter Post bringt Traffic für Wochen.
 
-**ERWARTUNG:** 50-300 Upvotes total, 30-100 Clicks auf den Reading-Link.
+**⚠️ WICHTIG:** Viele Subreddits verbieten Links/Self-Promotion! Poste den INHALT pur. Wenn Leute in den Comments fragen "where can I learn more?" → DANN antworte mit dem Link. Das wirkt organischer und ist erlaubt.
+
+**ERWARTUNG:** 50-300 Upvotes total. Links nur in Replies wenn gefragt.
 
 ### Post 1: r/decidingtobebetter
 
@@ -146,12 +148,14 @@ After reading Wiseman's Luck Factor study and cross-referencing it with 12 wisdo
 
 6. **Meaning-making** — they reframe setbacks as redirections.
 
-I wrote a 11,000-word research paper on this (free, 36 citations, ~50 min read): https://lucklab.app/convergence-index
+I spent 3 months cross-referencing these across Taoism, Stoicism, Kabbalah, Buddhism, and 8 other traditions. The convergence is striking — they all describe the same 6 mechanisms in different language.
 
-I also built a 3-minute tool that maps your profile across the 6 mechanisms: https://lucklab.app/reading
+Wiseman's research validated 4 of the 6 empirically. The other 2 are where the traditions go further than current psychology has measured.
 
-Does this match your experience of "lucky" people?
+Does this match your experience of "lucky" people? Which of the 6 do you think matters most?
 ```
+
+**Wenn jemand fragt "source?" → antworte:** "I wrote a research paper on this — happy to share the link if you're interested. Also built a free 3-minute tool that maps your profile across the 6."
 
 ### Post 2: r/Stoicism
 
@@ -164,10 +168,9 @@ Richard Wiseman, The Luck Factor (2003): Lucky people "turn bad luck to good" �
 
 Different centuries. Different methods. Same conclusion.
 
-I spent 3 months cross-referencing Stoicism with 11 other wisdom traditions and Wiseman's research. The convergence is striking.
+I spent 3 months cross-referencing Stoicism with 11 other wisdom traditions and Wiseman's empirical research. The convergence is striking — what the Stoics called amor fati, Wiseman measured as a trainable behaviour.
 
-The full essay: https://lucklab.app/research/how-to-be-luckier
-The full research paper (~50 min read): https://lucklab.app/convergence-index
+Epictetus, Enchiridion 8: "Make the best use of what is in your power, and take the rest as it happens." Wiseman's fourth principle, operationalised 2,000 years later.
 
 I'd love to hear from anyone who has consciously practiced amor fati — did it change your luck, or just your perception of it?
 ```
@@ -183,11 +186,9 @@ The surprising finding: they all describe the same mechanism in different langua
 
 And in 2003, Wiseman validated it empirically — lucky people exhibit four measurable, trainable behaviours.
 
-I wrote a 40-page paper on this convergence (36 citations, free): https://lucklab.app/convergence-index
+I ended up writing a ~12,000-word paper on this convergence and building a free tool that maps your profile across the 6 mechanisms. Happy to share if anyone's interested.
 
-I also built a 3-minute reading that maps your profile across the 6 mechanisms: https://lucklab.app/reading
-
-Has anyone else noticed this cross-cultural convergence?
+Has anyone else noticed this cross-cultural convergence? I'm curious if there are traditions I missed.
 ```
 
 ---
