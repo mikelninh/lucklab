@@ -74,15 +74,14 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLdScript(WEBSITE) }}
         />
-        {/* Plausible — privacy-first analytics. Only loads when env var is set. */}
-        {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN && (
-          <Script
-            src="https://plausible.io/js/script.outbound-links.tagged-events.js"
-            data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
-            strategy="afterInteractive"
-            defer
-          />
-        )}
+        {/* Plausible — privacy-first analytics */}
+        <Script
+          src="https://plausible.io/js/pa-nRxphFP3T2EiGHzhYVdsa.js"
+          strategy="afterInteractive"
+        />
+        <Script id="plausible-init" strategy="afterInteractive">
+          {`window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)};plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init();`}
+        </Script>
       </head>
       <body className="min-h-full flex flex-col">
         <LuckLayer />

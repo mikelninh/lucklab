@@ -95,9 +95,6 @@ export default function ReadingPreviewPage() {
           <div className="eyebrow eyebrow-tyche mb-4">
             your reading &middot; free glimpse
           </div>
-          <p className="font-mono text-[11px] text-[var(--text-subtle)] tracking-wider">
-            {archetype.greek}
-          </p>
           <h1 className="font-display text-[56px] md:text-[80px] leading-[0.95] tracking-[-0.02em] font-light mt-3">
             <em className="not-italic text-gold-gradient">{archetype.name}</em>
           </h1>

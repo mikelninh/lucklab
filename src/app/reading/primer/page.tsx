@@ -16,7 +16,9 @@ import {
 import { TRADITIONS, MECHANISMS } from "@/lib/traditions";
 import { buildPrimerPrompt } from "@/lib/tyche-prompt";
 import { UpgradeToFull } from "@/components/UpgradeToFull";
+import { ArchetypeReveal } from "@/components/ArchetypeReveal";
 import OpenAI from "openai";
+import Anthropic from "@anthropic-ai/sdk";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 45;
@@ -152,9 +154,6 @@ export default async function PrimerPage({
               PREPARED FOR {firstName.toUpperCase()}
             </p>
           )}
-          <p className="font-mono text-[11px] text-[var(--text-subtle)] tracking-wider">
-            {archetype.greek}
-          </p>
           <h1 className="font-display text-[clamp(42px,6vw,68px)] leading-[1] tracking-[-0.02em] font-light mt-3 text-balance">
             <em className="not-italic text-gold-gradient">{archetype.name}</em>
           </h1>
@@ -273,6 +272,15 @@ export default async function PrimerPage({
           </p>
         </div>
 
+        {/* Share your archetype */}
+        <ArchetypeReveal
+          name={firstName || "friend"}
+          archetype={archetype.name}
+          greek=""
+          tagline={archetype.tagline}
+          scores={norm}
+        />
+
         {/* upgrade path — one-click, no re-quiz */}
         <UpgradeToFull
           answers={answersRaw}
@@ -296,21 +304,40 @@ async function generatePrimer(context: {
   answersNarrative: string;
   personal?: PersonalContext;
 }): Promise<Primer> {
-  const apiKey = process.env.OPENAI_API_KEY;
+  const prompt = buildPrimerPrompt(context);
 
-  if (apiKey) {
+  // Try Claude Sonnet first (better quality), fall back to OpenAI
+  const anthropicKey = process.env.ANTHROPIC_API_KEY;
+  if (anthropicKey) {
     try {
-      const client = new OpenAI({ apiKey });
+      const claude = new Anthropic({ apiKey: anthropicKey });
+      const msg = await claude.messages.create({
+        model: process.env.CLAUDE_MODEL || "claude-sonnet-4-6",
+        max_tokens: 3000,
+        messages: [{ role: "user", content: prompt + "\n\nReturn ONLY JSON. No markdown fences." }],
+      });
+      const text = msg.content[0].type === "text" ? msg.content[0].text : "";
+      const clean = text.replace(/^```json\s*/i, "").replace(/\s*```$/i, "").trim();
+      if (clean) return JSON.parse(clean) as Primer;
+    } catch (err) {
+      console.error("[primer:claude]", err);
+    }
+  }
+
+  const openaiKey = process.env.OPENAI_API_KEY;
+  if (openaiKey) {
+    try {
+      const client = new OpenAI({ apiKey: openaiKey });
       const completion = await client.chat.completions.create({
         model: "gpt-4o-mini",
-        messages: [{ role: "user", content: buildPrimerPrompt(context) }],
+        messages: [{ role: "user", content: prompt }],
         response_format: { type: "json_object" },
         temperature: 0.75,
       });
       const raw = completion.choices[0]?.message?.content;
       if (raw) return JSON.parse(raw) as Primer;
     } catch (err) {
-      console.error("[primer]", err);
+      console.error("[primer:openai]", err);
     }
   }
 

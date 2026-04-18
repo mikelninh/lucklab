@@ -175,9 +175,6 @@ export default async function FullReadingPage({
               PREPARED FOR {firstName.toUpperCase()}
             </p>
           )}
-          <p className="font-mono text-[11px] text-[var(--text-subtle)] tracking-wider">
-            {archetype.greek}
-          </p>
           <h1 className="font-display text-[clamp(40px,6vw,72px)] leading-[1] tracking-[-0.02em] font-light mt-4 text-balance">
             <em className="not-italic text-gold-gradient">{reading.title}</em>
           </h1>
