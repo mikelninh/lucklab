@@ -1,359 +1,139 @@
-import { ImageResponse } from "next/og";
-import { NextRequest } from "next/server";
-
 /**
- * Share card v2 — "The Altar" design.
+ * Premium share card — composites text over archetype-specific PNG backgrounds.
  *
- * Design philosophy:
- * - The archetype name is a TITLE BESTOWED, not a quiz result
- * - Vertical rhythm: line / brand / space / THE / ARCHETYPE / ornament / tagline / space / CTA
- * - Every element serves the hierarchy; nothing decorative without purpose
- * - Beautiful enough for Instagram Stories, mysterious enough to stop the scroll
- *
- * References: Co-Star cards, Aesop packaging, Nolan title cards, Dieter Rams
+ * The backgrounds are hand-designed (Claude Design / Canva) at 1080×1920.
+ * This endpoint loads the background, overlays personalized text, and returns
+ * a beautiful PNG that users download and share on Instagram/TikTok/WhatsApp.
  */
 
-export const runtime = "edge";
+import { NextRequest, NextResponse } from "next/server";
+import { createCanvas, loadImage, registerFont } from "canvas";
+import path from "node:path";
+import fs from "node:fs";
 
-type Palette = {
-  bg: string;
-  text: string;
-  accent: string;
-  accentHalf: string;
-  glow: string;
-  muted: string;
-  faint: string;
-  line: string;
-  altar: string;
-};
+export const runtime = "nodejs";
+export const maxDuration = 15;
 
-const P: Record<string, Palette> = {
-  midnight: {
-    bg: "#08080b",
-    text: "#f0f0f2",
-    accent: "#d4b164",
-    accentHalf: "rgba(212, 177, 100, 0.45)",
-    glow: "rgba(212, 177, 100, 0.05)",
-    muted: "#78787f",
-    faint: "#2e2e36",
-    line: "rgba(212, 177, 100, 0.18)",
-    altar: "rgba(212, 177, 100, 0.03)",
-  },
-  light: {
-    bg: "#f8f5ef",
-    text: "#1a1810",
-    accent: "#8a7442",
-    accentHalf: "rgba(138, 116, 66, 0.45)",
-    glow: "rgba(138, 116, 66, 0.06)",
-    muted: "#8a8578",
-    faint: "#c8c0b0",
-    line: "rgba(138, 116, 66, 0.18)",
-    altar: "rgba(138, 116, 66, 0.04)",
-  },
-  minimal: {
-    bg: "#000000",
-    text: "#ffffff",
-    accent: "#ffffff",
-    accentHalf: "rgba(255, 255, 255, 0.40)",
-    glow: "rgba(255, 255, 255, 0.03)",
-    muted: "#606060",
-    faint: "#2a2a2a",
-    line: "rgba(255, 255, 255, 0.10)",
-    altar: "rgba(255, 255, 255, 0.02)",
-  },
-  aurora: {
-    bg: "#080610",
-    text: "#e4ddf0",
-    accent: "#b8a0f0",
-    accentHalf: "rgba(184, 160, 240, 0.45)",
-    glow: "rgba(184, 160, 240, 0.05)",
-    muted: "#7a6f96",
-    faint: "#252040",
-    line: "rgba(184, 160, 240, 0.18)",
-    altar: "rgba(184, 160, 240, 0.03)",
-  },
+const WIDTH = 1080;
+const HEIGHT = 1920;
+
+// Text color per archetype (tuned to each background)
+const COLORS: Record<string, { fg: string; muted: string; accent: string }> = {
+  seer:     { fg: "#dfe4ef", muted: "rgba(223,228,239,0.7)", accent: "rgba(223,228,239,0.5)" },
+  wanderer: { fg: "#3b2a18", muted: "rgba(59,42,24,0.7)", accent: "rgba(59,42,24,0.5)" },
+  steerer:  { fg: "#e5c79b", muted: "rgba(229,199,155,0.7)", accent: "rgba(229,199,155,0.5)" },
+  yielder:  { fg: "#6a5328", muted: "rgba(106,83,40,0.7)", accent: "rgba(106,83,40,0.5)" },
+  weaver:   { fg: "#e2c690", muted: "rgba(226,198,144,0.7)", accent: "rgba(226,198,144,0.5)" },
+  reader:   { fg: "#ecdfc6", muted: "rgba(236,223,198,0.7)", accent: "rgba(236,223,198,0.5)" },
 };
 
 export async function GET(req: NextRequest) {
   const q = req.nextUrl.searchParams;
-  const name = (q.get("name") || "").split(" ")[0];
-  const rawArchetype = q.get("archetype") || "The Seer";
-  const archetype = rawArchetype.replace(/^The\s+/i, "");
-  const greek = q.get("greek") || "";
+  const name = (q.get("name") || "").split(" ")[0].toUpperCase();
+  const archetype = (q.get("archetype") || "The Seer").replace(/^The\s+/i, "");
+  const archetypeId = archetype.toLowerCase();
   const tagline = q.get("tagline") || "";
   const strongest = q.get("strongest") || "";
   const quietest = q.get("quietest") || "";
-  const c = P[q.get("style") || "midnight"] || P.midnight;
+
+  const c = COLORS[archetypeId] || COLORS.seer;
+
+  // Load background image
+  const bgPath = path.join(process.cwd(), "public", "archetypes", `${archetypeId}.png`);
+  if (!fs.existsSync(bgPath)) {
+    return NextResponse.json({ error: `No background for ${archetypeId}` }, { status: 404 });
+  }
 
   try {
-    return new ImageResponse(
-      (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "100%",
-            height: "100%",
-            backgroundColor: c.bg,
-            alignItems: "center",
-            justifyContent: "center",
-            position: "relative",
-          }}
-        >
-          {/* Ambient glow — subtle depth behind the altar */}
-          <div
-            style={{
-              position: "absolute",
-              width: "600px",
-              height: "600px",
-              borderRadius: "50%",
-              backgroundColor: c.glow,
-              top: "32%",
-              left: "50%",
-              transform: "translateX(-50%)",
-            }}
-          />
+    const canvas = createCanvas(WIDTH, HEIGHT);
+    const ctx = canvas.getContext("2d");
 
-          {/* ============ TOP ZONE ============ */}
-          <div
-            style={{
-              position: "absolute",
-              top: "90px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "18px",
-            }}
-          >
-            {/* Top decorative line */}
-            <div
-              style={{
-                width: "180px",
-                height: "1px",
-                backgroundColor: c.line,
-              }}
-            />
-            {/* KAIROS wordmark */}
-            <span
-              style={{
-                fontSize: "11px",
-                letterSpacing: "10px",
-                color: c.muted,
-                fontFamily: "monospace",
-                opacity: 0.5,
-              }}
-            >
-              KAIROS
-            </span>
-          </div>
+    // Draw background
+    const bg = await loadImage(bgPath);
+    ctx.drawImage(bg, 0, 0, WIDTH, HEIGHT);
 
-          {/* ============ CENTER — THE ALTAR ============ */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              position: "relative",
-              padding: "80px 60px",
-            }}
-          >
-            {/* Faint altar background */}
-            <div
-              style={{
-                position: "absolute",
-                top: "0",
-                left: "-40px",
-                right: "-40px",
-                bottom: "0",
-                backgroundColor: c.altar,
-                borderTop: `1px solid ${c.line}`,
-                borderBottom: `1px solid ${c.line}`,
-              }}
-            />
+    // ─── TEXT OVERLAY ───
 
-            {/* Name — the person, quietly */}
-            {name ? (
-              <span
-                style={{
-                  fontSize: "13px",
-                  color: c.faint,
-                  fontFamily: "monospace",
-                  letterSpacing: "8px",
-                  marginBottom: "48px",
-                  position: "relative",
-                }}
-              >
-                {name.toUpperCase()}
-              </span>
-            ) : null}
+    // Name (top center, monospace)
+    ctx.textAlign = "center";
+    ctx.fillStyle = c.muted;
+    ctx.font = '500 12px "Courier New", monospace';
+    if (name) {
+      ctx.fillText(name, WIDTH / 2, HEIGHT * 0.18);
+    }
 
-            {/* "THE" — tiny, precious, above the archetype */}
-            <span
-              style={{
-                fontSize: "13px",
-                fontFamily: "monospace",
-                letterSpacing: "14px",
-                color: c.accentHalf,
-                marginBottom: "14px",
-                position: "relative",
-              }}
-            >
-              THE
-            </span>
+    // Archetype name (center, large serif)
+    ctx.fillStyle = c.fg;
+    const fontSize = archetype.length > 7 ? 72 : 82;
+    ctx.font = `300 ${fontSize}px "Times New Roman", Georgia, serif`;
+    ctx.fillText(archetype, WIDTH / 2, HEIGHT * 0.48);
 
-            {/* ARCHETYPE NAME — the star of the entire card */}
-            <span
-              style={{
-                fontSize: archetype.length > 7 ? "88px" : "100px",
-                fontWeight: 200,
-                color: c.accent,
-                letterSpacing: "-2px",
-                lineHeight: 1,
-                textAlign: "center",
-                position: "relative",
-                fontFamily: "serif",
-              }}
-            >
-              {archetype}
-            </span>
+    // Tagline (below name, italic serif)
+    if (tagline) {
+      ctx.fillStyle = c.muted;
+      ctx.font = 'italic 22px "Times New Roman", Georgia, serif';
 
-            {/* Greek — exotic whisper */}
-            {greek ? (
-              <span
-                style={{
-                  fontSize: "15px",
-                  color: c.faint,
-                  fontFamily: "serif",
-                  letterSpacing: "3px",
-                  marginTop: "24px",
-                  position: "relative",
-                }}
-              >
-                {greek}
-              </span>
-            ) : null}
+      // Word wrap if needed
+      const maxWidth = WIDTH * 0.7;
+      const words = tagline.split(" ");
+      let line = "";
+      let y = HEIGHT * 0.54;
+      for (const word of words) {
+        const test = line + word + " ";
+        if (ctx.measureText(test).width > maxWidth && line) {
+          ctx.fillText(line.trim(), WIDTH / 2, y);
+          line = word + " ";
+          y += 32;
+        } else {
+          line = test;
+        }
+      }
+      ctx.fillText(line.trim(), WIDTH / 2, y);
+    }
 
-            {/* Ornamental dot */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginTop: "40px",
-                marginBottom: "40px",
-                position: "relative",
-              }}
-            >
-              <div
-                style={{
-                  width: "4px",
-                  height: "4px",
-                  borderRadius: "50%",
-                  backgroundColor: c.accent,
-                  opacity: 0.4,
-                }}
-              />
-            </div>
+    // Strongest / Quietest (lower area, monospace)
+    if (strongest && quietest) {
+      ctx.font = '500 11px "Courier New", monospace';
+      ctx.fillStyle = c.accent;
 
-            {/* Tagline — the one evocative line */}
-            {tagline ? (
-              <span
-                style={{
-                  fontSize: "20px",
-                  color: c.muted,
-                  fontStyle: "italic",
-                  fontFamily: "serif",
-                  textAlign: "center",
-                  maxWidth: "560px",
-                  lineHeight: 1.6,
-                  position: "relative",
-                }}
-              >
-                {tagline}
-              </span>
-            ) : null}
+      // Left: strongest
+      ctx.textAlign = "center";
+      ctx.fillText("STRONGEST", WIDTH * 0.3, HEIGHT * 0.74);
+      ctx.fillStyle = c.fg;
+      ctx.font = '400 20px "Times New Roman", Georgia, serif';
+      ctx.fillText(strongest, WIDTH * 0.3, HEIGHT * 0.77);
 
-            {/* Strongest / Quietest — two words that tell the whole story */}
-            {strongest && quietest ? (
-              <div
-                style={{
-                  display: "flex",
-                  gap: "80px",
-                  marginTop: "48px",
-                  position: "relative",
-                }}
-              >
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
-                  <span style={{ fontSize: "9px", fontFamily: "monospace", letterSpacing: "5px", color: c.faint }}>
-                    STRONGEST
-                  </span>
-                  <span style={{ fontSize: "18px", fontFamily: "serif", color: c.accent, letterSpacing: "1px" }}>
-                    {strongest}
-                  </span>
-                </div>
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
-                  <span style={{ fontSize: "9px", fontFamily: "monospace", letterSpacing: "5px", color: c.faint }}>
-                    QUIETEST
-                  </span>
-                  <span style={{ fontSize: "18px", fontFamily: "serif", color: c.muted, letterSpacing: "1px" }}>
-                    {quietest}
-                  </span>
-                </div>
-              </div>
-            ) : null}
-          </div>
+      // Right: quietest
+      ctx.fillStyle = c.accent;
+      ctx.font = '500 11px "Courier New", monospace';
+      ctx.fillText("QUIETEST", WIDTH * 0.7, HEIGHT * 0.74);
+      ctx.fillStyle = c.muted;
+      ctx.font = '400 20px "Times New Roman", Georgia, serif';
+      ctx.fillText(quietest, WIDTH * 0.7, HEIGHT * 0.77);
+    }
 
-          {/* ============ BOTTOM ZONE ============ */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: "90px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "16px",
-            }}
-          >
-            <span
-              style={{
-                fontSize: "14px",
-                color: c.muted,
-                letterSpacing: "2px",
-                fontFamily: "serif",
-                fontStyle: "italic",
-                opacity: 0.6,
-              }}
-            >
-              Which archetype are you?
-            </span>
-            {/* Bottom decorative line */}
-            <div
-              style={{
-                width: "40px",
-                height: "1px",
-                backgroundColor: c.line,
-              }}
-            />
-            <span
-              style={{
-                fontSize: "11px",
-                fontFamily: "monospace",
-                color: c.faint,
-                letterSpacing: "8px",
-              }}
-            >
-              LUCKLAB.APP
-            </span>
-          </div>
-        </div>
-      ),
-      { width: 1080, height: 1920 },
-    );
+    // CTA (bottom, monospace)
+    ctx.textAlign = "center";
+    ctx.fillStyle = c.muted;
+    ctx.font = '400 16px "Times New Roman", Georgia, serif';
+    ctx.fillText("Which archetype are you?", WIDTH / 2, HEIGHT * 0.89);
+
+    ctx.fillStyle = c.accent;
+    ctx.font = '500 11px "Courier New", monospace';
+    ctx.fillText("LUCKLAB.APP", WIDTH / 2, HEIGHT * 0.92);
+
+    // Export
+    const buffer = canvas.toBuffer("image/png");
+    const uint8 = new Uint8Array(buffer);
+    return new NextResponse(uint8, {
+      headers: {
+        "Content-Type": "image/png",
+        "Content-Disposition": `inline; filename="lucklab-${archetypeId}-${name.toLowerCase() || "reading"}.png"`,
+        "Cache-Control": "public, max-age=3600",
+      },
+    });
   } catch (err) {
     console.error("[share-card]", err);
-    return new Response(JSON.stringify({ error: String(err) }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return NextResponse.json({ error: String(err) }, { status: 500 });
   }
 }
