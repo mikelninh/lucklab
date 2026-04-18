@@ -19,6 +19,7 @@ type FreeTeaser = {
 type ReadingData = {
   archetype: { id: string; name: string; greek: string; tagline: string };
   tyche: FreeTeaser;
+  locked?: { scores: Record<string, number>; growthEdge: string; resonantTraditions: string[] };
   answers: { questionId: number; optionId: string }[];
   personal: { name: string; birthdate: string; currentQuestion: string };
 };
@@ -129,22 +130,69 @@ export default function ReadingPreviewPage() {
           </p>
         </div>
 
-        {/* WHAT YOU'RE NOT SEEING YET — desire builder */}
+        {/* SCORES — VISIBLE (not locked) — the numbers CREATE curiosity */}
+        <div className="mb-12 card">
+          <div className="eyebrow mb-3">your six levers</div>
+          <p className="text-[12px] text-[var(--text-subtle)] mb-5">Higher = active. Lower = untrained. What do yours mean? That&rsquo;s in the Reading.</p>
+          <div className="space-y-3">
+            {[
+              ["Attention", reading.locked?.scores?.attention],
+              ["Openness", reading.locked?.scores?.openness],
+              ["Action", reading.locked?.scores?.action],
+              ["Surrender", reading.locked?.scores?.surrender],
+              ["Connection", reading.locked?.scores?.connection],
+              ["Meaning", reading.locked?.scores?.meaning],
+            ].map(([name, val]) => {
+              const v = (val as number) ?? 0;
+              return (
+                <div key={name as string}>
+                  <div className="flex justify-between items-baseline mb-1">
+                    <span className="text-[13px] text-[var(--text)]">{name as string}</span>
+                    <span className={`font-mono text-[12px] ${v <= 20 ? "text-[var(--danger)]" : v >= 60 ? "text-[var(--gold)]" : "text-[var(--text-muted)]"}`}>
+                      {v} / 100{v <= 15 ? " ⚠" : ""}
+                    </span>
+                  </div>
+                  <div className="h-[3px] bg-[var(--border)] rounded-full overflow-hidden">
+                    <div className="h-full bg-gradient-to-r from-[var(--gold-dim)] to-[var(--gold-bright)]" style={{ width: `${v}%` }} />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* CONTRADICTION TEASER — the "oh fuck" moment, cut mid-sentence */}
+        <div className="mb-12 card card-gold relative overflow-hidden">
+          <div className="eyebrow eyebrow-tyche mb-3">tyche noticed something</div>
+          <p className="font-display text-[17px] text-[var(--text)] leading-[1.6] italic">
+            {(() => {
+              const scores = reading.locked?.scores;
+              if (!scores) return "Your pattern holds a tension that only the Reading can name.";
+              const entries = Object.entries(scores).sort(([,a],[,b]) => (b as number) - (a as number));
+              const [highKey, highVal] = entries[0];
+              const [lowKey, lowVal] = entries[entries.length - 1];
+              return `Your ${highKey} is ${highVal} — your highest lever. But your ${lowKey} is ${lowVal}. That tension defines your pattern. It is like...`;
+            })()}
+          </p>
+          <div className="h-12 bg-gradient-to-b from-transparent to-[var(--surface)] absolute bottom-0 left-0 right-0 flex items-end justify-center pb-3">
+            <span className="font-mono text-[10px] text-[var(--gold)] tracking-wider">UNLOCK THE FULL INSIGHT →</span>
+          </div>
+        </div>
+
+        {/* WHAT THE READING INCLUDES — concise list */}
         <div className="mb-12">
-          <div className="eyebrow eyebrow-muted mb-4 text-center">what tyche has not yet told you</div>
+          <div className="eyebrow eyebrow-muted mb-4 text-center">what you unlock</div>
           <div className="grid md:grid-cols-2 gap-3">
             {[
-              "Your six-lever scores — where you are strong, where you are silent",
-              "The contradiction between two of your answers that defines your pattern",
-              "A 30-day protocol calibrated week-by-week to your specific profile",
-              "The one practice that would shift the most — written so you could start tomorrow",
-              "Three tradition-specific teachings with verified primary-source quotes",
-              "Your daily ritual — seven minutes, before your phone, drawn from your resonant tradition",
+              "What Tyche's contradiction reveals about you",
+              "Your dominant + quietest lever — deep analysis",
+              "A 7-day practice plan, day by day",
+              "Tradition-matched teaching with source quotes",
+              "Your daily ritual — physically specific",
+              "A shareable Archetype Card in 4 premium designs",
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3 p-3 rounded border border-[var(--border)] bg-[var(--surface)]">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="flex-shrink-0 mt-0.5" aria-hidden="true">
-                  <path d="M2 6V4a5 5 0 1110 0v2M2 6h10v6H2V6z" stroke="var(--gold-dim)" strokeWidth="1" />
-                </svg>
+                <span className="text-[var(--gold)] mt-0.5 text-[13px]">+</span>
                 <span className="text-[13px] text-[var(--text-muted)] leading-relaxed">{item}</span>
               </div>
             ))}
@@ -311,6 +359,15 @@ export default function ReadingPreviewPage() {
               </svg>
               100% REFUND GUARANTEE — IF IT DOESN&rsquo;T LAND, EMAIL US
             </p>
+            {/* Social proof at the purchase moment */}
+            <blockquote className="mt-6 border-l-2 border-[var(--gold-dim)] pl-4 text-left">
+              <p className="font-display text-[13px] text-[var(--text-muted)] italic leading-relaxed">
+                &ldquo;The Reading named something I had been circling for months without language.&rdquo;
+              </p>
+              <p className="font-mono text-[10px] text-[var(--gold)] mt-1 tracking-wider">
+                — ELENA, VIENNA · THE YIELDER
+              </p>
+            </blockquote>
           </div>
         </section>
 
