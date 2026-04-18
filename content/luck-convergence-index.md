@@ -118,7 +118,7 @@ The argument, one more time, so it is clear: luck is not random. Luck is a dispo
 
 **Origin:** The Upanishads (c. 800–500 BCE) and the *Bhagavad Gītā* (c. 200 BCE–200 CE), systematised in the Vedānta schools of Shankara (eighth century CE) and later Rāmānuja and Madhva.
 
-**Original terms:** *कर्म* (*karma*, "action"), *धर्म* (*dharma*, "that which upholds; one's proper function"). Crucially: *निष्काम कर्म* (*nishkāma karma*, "action without desire for the fruit").
+**Original terms:** *karma* ("action"), *dharma* ("that which upholds; one's proper function"). Crucially: *nishkāma karma* ("action without desire for the fruit").
 
 **Core concept.** Every action plants a seed; every seed eventually ripens. This is *karma* in its technical sense — not cosmic punishment but simple consequence, extended across time and (in the tradition's view) lives. *Dharma* is the particular pattern of right action fitted to one's nature, station, and moment. The *Gītā*'s central counsel, delivered by Krishna to a paralysed Arjuna on the edge of battle, is not to act correctly *and* grasp the reward, but to act correctly *while releasing* the reward.
 
@@ -126,7 +126,7 @@ The argument, one more time, so it is clear: luck is not random. Luck is a dispo
 
 **Primary-source quote.**
 > "You have the right to action alone, never to its fruits. Let not the fruits of action be your motive, nor let your attachment be to inaction."[^12]
-> *— Bhagavad Gītā 2.47 (कर्मण्येवाधिकारस्ते मा फलेषु कदाचन)*
+> *— Bhagavad Gītā 2.47 (karmaṇy evādhikāras te mā phaleṣu kadācana)*
 
 **Practice.** The *Gītā* itself is the manual. A distilled modern form: before undertaking any action of consequence, identify what one hopes to gain from it, acknowledge the hope, and then proceed *as if* the hope had already been released. Act, then let go. Measure the action, not the outcome.
 
@@ -162,7 +162,7 @@ And from Marcus, in Hays's translation:
 
 **Origin:** North India, fifth to fourth century BCE; attributed to the historical Buddha (Siddhārtha Gautama); systematised in the Pali Canon and Mahāyāna commentaries through the Common Era.
 
-**Original term:** *प्रतीत्यसमुत्पाद* (*pratītyasamutpāda*, Sanskrit), *paṭicca-samuppāda* (Pali); usually translated "dependent origination" or "interdependent arising."
+**Original term:** *pratītyasamutpāda* (Sanskrit), *paṭicca-samuppāda* (Pali); usually translated "dependent origination" or "interdependent arising."
 
 **Core concept.** Nothing arises in isolation. Every phenomenon — every thought, every event, every self — arises in dependence on a web of prior conditions. There are no independent things, only *events in relation*. The twelve-linked chain of dependent origination (ignorance → formations → consciousness → …) traces, in the tradition's analysis, exactly how suffering assembles itself from conditions and how, link by link, it can be disassembled.
 
@@ -325,18 +325,18 @@ The table below maps each tradition's emphasis. A filled circle (●) marks the 
 
 | Tradition | Attention | Openness | Action | Surrender | Connection | Meaning |
 |---|:---:|:---:|:---:|:---:|:---:|:---:|
-| Jungian Psychology | ● | ● | — | ○ | ○ | ● |
-| Taoism (wu wei) | ● | ● | ○ | ● | ○ | — |
-| Kabbalah (mazal) | ○ | ○ | ○ | — | ● | ● |
-| Vedanta (dharma) | ○ | — | ● | ● | ○ | ● |
-| Stoicism (amor fati) | ● | — | ● | ● | — | ● |
-| Buddhism (pratītyasamutpāda) | ● | ● | ○ | ● | ● | ○ |
-| Sufism (barakah) | ○ | ● | — | ○ | ● | ● |
-| Hermeticism | ● | ○ | — | — | ○ | ● |
-| I Ching (timeliness) | ● | ○ | ● | ○ | — | ● |
-| Yorùbá (orí / àṣẹ) | — | ○ | ● | ○ | ● | ● |
-| Quantum interpretations | ○ | ○ | — | — | ○ | — |
-| Wiseman (empirical) | ● | ● | ● | ● | ● | ● |
+| Jung | ● | ● | — | ○ | ○ | ● |
+| Taoism | ● | ● | ○ | ● | ○ | — |
+| Kabbalah | ○ | ○ | ○ | — | ● | ● |
+| Vedanta | ○ | — | ● | ● | ○ | ● |
+| Stoicism | ● | — | ● | ● | — | ● |
+| Buddhism | ● | ● | ○ | ● | ● | ○ |
+| Sufism | ○ | ● | — | ○ | ● | ● |
+| Hermetic. | ● | ○ | — | — | ○ | ● |
+| I Ching | ● | ○ | ● | ○ | — | ● |
+| Yorùbá | — | ○ | ● | ○ | ● | ● |
+| Quantum | ○ | ○ | — | — | ○ | — |
+| Wiseman | ● | ● | ● | ● | ● | ● |
 
 Two observations.
 
@@ -638,6 +638,6 @@ A selected bibliography, grouped by tradition. Editions given are the ones we ha
 
 ---
 
-*The Luck Convergence Index is published by Luck Lab as part of our open research programme on the empirical and contemplative psychology of fortune. Version 1.0, April 2026. Corrections, objections, and additions are welcome at* `research@kairoslab.co`.
+*The Luck Convergence Index is published by Luck Lab as part of our open research programme on the empirical and contemplative psychology of fortune. Version 1.0, April 2026. Corrections, objections, and additions are welcome at* `research@lucklab.co`.
 
 *Citation: Luck Lab (2026). The Luck Convergence Index: Twelve Wisdom Traditions, One Trainable Disposition. v1.0.*
