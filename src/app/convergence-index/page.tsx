@@ -25,16 +25,12 @@ export default function ConvergenceIndexPage() {
   );
   const raw = fs.readFileSync(filePath, "utf8");
   const { data, content: rawContent } = matter(raw);
-  // Strip LaTeX artifacts: \newpage, bare backslashes on their own line, \n\n\ patterns
+  // Strip ALL lines that are just a backslash or \newpage
+  // Also strip any line that starts with \ and has no other content
   const content = rawContent
-    .split("\n")
-    .filter((line) => {
-      const trimmed = line.trim();
-      if (trimmed === "\\") return false;
-      if (trimmed === "\\newpage") return false;
-      return true;
-    })
-    .join("\n");
+    .replace(/^\\$/gm, "")
+    .replace(/^\\newpage$/gm, "")
+    .replace(/\n{3,}/g, "\n\n");
 
   return (
     <>
