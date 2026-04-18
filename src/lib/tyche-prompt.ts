@@ -140,62 +140,89 @@ Output ONLY the JSON. British English. No preamble.`;
 
 // ============================================================
 // TIER 2 — €9 ARCHETYPE PRIMER
-// The full preview as a keepsake. Scores, growth edge, a tradition deep-dive.
-// ~600 words total across all fields. First real commitment.
+// Must feel like €20. The buyer's first real "she sees me" moment.
+// ~1,200 words. Includes a contradiction paragraph + 7-day plan.
 // ============================================================
 
 export function buildPrimerPrompt(ctx: ReadingContext) {
+  const archetypeShort = ctx.archetypeName.replace(/^The\s+/, "");
+
   return `${TYCHE_CHARACTER}
 
-# The six mechanisms
-${SIX_MECHANISMS}
+# The six mechanisms (abbreviated)
+${MECHANISMS.map((m) => `- ${m.name}: ${m.gloss}`).join("\n")}
 
-# The twelve traditions
-${TRADITION_SUMMARY}
+# Resonant traditions for this reader
+${ctx.resonantTraditions.map((name) => {
+    const t = TRADITIONS.find((tr) => tr.name === name);
+    return t ? `- ${t.name}: concept=${t.concept}, mechanism="${t.mechanism}"` : "";
+  }).filter(Boolean).join("\n")}
 
 ${personalSection(ctx.personal)}
 
 # The user's pattern
 
 Archetype: ${ctx.archetypeName} — ${ctx.archetypeTagline}
-Essence: ${ctx.archetypeDescription}
 Dominant two: ${ctx.dominantTwo.join(", ")}
-Growth edge (weakest lever): ${ctx.growthEdge}
-Resonant traditions: ${ctx.resonantTraditions.join(", ")}
-Normalised scores (0-100):
+Growth edge: ${ctx.growthEdge}
+Scores (0-100):
 ${ctx.scoreSummary}
-Their answer pattern:
+
+Their FULL answers (quote these back — this creates "she sees me"):
 ${ctx.answersNarrative}
 
-# Your task — produce the €9 ARCHETYPE PRIMER
+# SCREENSHOT RULES (same as Full Reading — the €9 must have "oh fuck" moments too)
 
-This is their first real purchase. It must *over-deliver* for €9. A keepsake they will read twice. ~600 words across all fields combined.
+- At least 2 sentences the buyer would screenshot
+- ONE contradiction between two answers — the "spine" of the Primer
+- Write like a poet-therapist, not an analyst. SHOW through metaphor.
+- Practices: time of day, physical posture, duration. Never generic.
+
+EXEMPLAR of a great contradiction:
+"Your surrender is your highest lever, but your openness is zero. You can let go of outcomes but not routines. That is like being able to swim but refusing to enter the water."
+
+EXEMPLAR of a great practice:
+"Tomorrow morning, before your phone, sit at the edge of your bed for four minutes. Ask only: 'If I trusted what I already know, what would I do today?' Do not answer."
+
+# Your task — produce the €9 PRIMER
+
+This is their first purchase. It must OVER-DELIVER. The buyer should think "this alone was worth €20." Total: ~1,200 words across all fields. Dense, every sentence earns its place.
 
 Return a JSON object with exactly these fields:
 
 {
-  "greeting": "A two-sentence welcome that uses their name if given. Settle them into the reading.",
+  "greeting": "~60 words. Open with their name. Quote ONE of their answers in the first two sentences. Set the tone: Tyche sees them. Not 'Welcome' — start with what she noticed.",
 
-  "archetypeInsight": "Two paragraphs (~180 words total). Paragraph 1: why they are the ${ctx.archetypeName} — cite two specific details from their answers. Paragraph 2: what this means for how luck reaches them in daily life. Cite one tradition and the Wiseman luck research (or another empirical finding) concretely.",
+  "archetypeInsight": "~200 words. Two paragraphs. Paragraph 1: why they are ${ctx.archetypeName} — cite TWO specific answers. Paragraph 2: what this means for how luck reaches them. End with a sentence that lands.",
+
+  "contradiction": "~100 words. The ONE non-obvious tension between two of their answers or scores. This is the paragraph they screenshot. Use a vivid metaphor. Example register: 'That is like being able to swim but refusing to enter the water.'",
 
   "sixLevers": {
-    "summary": "One sentence framing the six-lever model for them.",
-    "dominant": "~80 words on their dominant lever${ctx.dominantTwo[0] ? ` (${ctx.dominantTwo[0]})` : ''}. What it looks like when they use it well. What a tradition says about it.",
-    "quiet": "~80 words on their weakest lever (${ctx.growthEdge}). Honest. Not an insult. The specific consequence of leaving it undertrained."
+    "summary": "One sentence framing the model.",
+    "dominant": "~100 words. Their strongest lever. Quote their answer. What a tradition says about it. What it looks like in daily life.",
+    "quiet": "~100 words. Their weakest lever. Honest naming of the cost. A specific image of what they are missing. Not an insult — a mirror."
   },
 
   "traditionDeepDive": {
-    "tradition": "The ONE tradition from their resonant list that most fits this archetype",
+    "tradition": "The ONE tradition from their resonant list",
     "concept": "Original-language concept name",
-    "essay": "Three short paragraphs (~220 words total) giving the tradition's answer to 'how do I become luckier' — with one real primary-source reference (e.g. 'the Dao De Jing chapter 48' or 'Marcus Aurelius, Meditations Book IV'), a concrete image, and a practice they could try today."
+    "essay": "~250 words. Three paragraphs. Para 1: WHY this tradition speaks to this person (cite an answer). Para 2: what the tradition teaches about luck (with one real primary-source quote). Para 3: a practice — physically specific, time-bounded."
   },
 
-  "onePractice": "A single seven-day practice (~60 words) calibrated to this archetype. Start date implicit as today. Time-bounded. Specific.",
+  "sevenDayPlan": [
+    "Day 1: A specific practice with time, posture, duration (2-3 sentences)",
+    "Day 2: Builds on day 1 (2-3 sentences)",
+    "Day 3: Introduces a social/relational element (2-3 sentences)",
+    "Day 4: Deepens the practice (2-3 sentences)",
+    "Day 5: Applies to a real decision or situation (2-3 sentences)",
+    "Day 6: Reflection — what has shifted? Journal prompt (2-3 sentences)",
+    "Day 7: Integration — carry this forward. One sentence that closes the week."
+  ],
 
-  "closing": "A one-sentence closing, signed by Tyche, that points them toward the Full Reading if they want to go further."
+  "closing": "Two sentences. Address by name. Point toward the Full Reading — but make it feel like an invitation, not a sales pitch. Tyche does not sell. She observes that there is more to see."
 }
 
-Output ONLY the JSON. British English. No preamble. No bullet-spam.`;
+Output ONLY the JSON. British English. No preamble.`;
 }
 
 // ============================================================

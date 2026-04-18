@@ -26,6 +26,7 @@ export const maxDuration = 45;
 type Primer = {
   greeting: string;
   archetypeInsight: string;
+  contradiction?: string;
   sixLevers: {
     summary: string;
     dominant: string;
@@ -36,7 +37,8 @@ type Primer = {
     concept: string;
     essay: string;
   };
-  onePractice: string;
+  sevenDayPlan?: string[];
+  onePractice?: string; // fallback if sevenDayPlan not present
   closing: string;
 };
 
@@ -236,6 +238,18 @@ export default async function PrimerPage({
           </div>
         </section>
 
+        {/* contradiction — the screenshot moment */}
+        {primer.contradiction && (
+          <section className="mb-14">
+            <div className="card card-gold">
+              <div className="eyebrow mb-3">what tyche noticed</div>
+              <p className="font-display text-[18px] md:text-[20px] text-[var(--text)] leading-[1.6] italic">
+                {primer.contradiction}
+              </p>
+            </div>
+          </section>
+        )}
+
         <div className="hairline mb-14" />
 
         {/* tradition deep dive */}
@@ -256,14 +270,29 @@ export default async function PrimerPage({
 
         <div className="hairline mb-14" />
 
-        {/* practice */}
+        {/* 7-day plan OR single practice */}
         <section className="mb-14">
           <div className="eyebrow mb-4">your seven-day practice</div>
-          <div className="card card-tyche">
-            <p className="text-[17px] text-[var(--text)] leading-[1.8] font-display font-light">
-              {primer.onePractice}
-            </p>
-          </div>
+          {primer.sevenDayPlan && primer.sevenDayPlan.length > 0 ? (
+            <div className="space-y-3">
+              {primer.sevenDayPlan.map((day, i) => (
+                <div key={i} className="card flex gap-4">
+                  <div className="font-mono text-[12px] text-[var(--gold)] tracking-wider flex-shrink-0 pt-1">
+                    DAY {i + 1}
+                  </div>
+                  <p className="text-[14px] text-[var(--text)] leading-relaxed">
+                    {day.replace(/^Day \d+:\s*/i, "")}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ) : primer.onePractice ? (
+            <div className="card card-tyche">
+              <p className="text-[17px] text-[var(--text)] leading-[1.8] font-display font-light">
+                {primer.onePractice}
+              </p>
+            </div>
+          ) : null}
         </section>
 
         {/* closing */}
