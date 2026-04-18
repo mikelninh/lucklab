@@ -292,8 +292,8 @@ export default function Home() {
                   <path d="M3 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </Link>
-              <Link href="/tyche" className="btn btn-ghost">
-                Tyche&rsquo;s character & sources
+              <Link href="/about" className="btn btn-ghost">
+                About Tyche & the research
               </Link>
             </div>
           </div>
@@ -313,7 +313,7 @@ export default function Home() {
             <p className="text-[15px] text-[var(--text-muted)] mt-5 leading-relaxed">
               Our founding research paper. 40+ pages cross-referencing 12 traditions
               against the modern empirical literature on luck, chance, and serendipity.
-              Free to read. 60+ citations.
+              Free to read. 36 citations.
             </p>
             <ul className="mt-6 space-y-2 text-[14px] text-[var(--text-muted)]">
               <li className="flex items-start gap-3">
