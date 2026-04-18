@@ -64,8 +64,8 @@ export function welcomeEmail(name?: string): Shell {
     subject: "The Luck Convergence Index — your copy, and a note from Tyche",
     html: wrap(
       `${h1(greeting)}
-      ${p(`You asked for the Index. Here it is — forty pages of careful synthesis across twelve traditions and two decades of empirical research on luck. No woo. No shortcuts. Read it slowly.`)}
-      ${p(`The Index will take you about ninety minutes to read if you read it properly. If you are short on time, skim the Convergence Table in section 4 and read the seven-day protocol at the end.`)}
+      ${p(`You asked for the Index. Here it is — 12,000 words of careful synthesis across twelve traditions and two decades of empirical research on luck. No woo. No shortcuts. Read it slowly.`)}
+      ${p(`The Index will take you about fifty minutes to read if you read it properly. If you are short on time, start with the Executive Summary on page 2, then skip to the seven-day protocol at the end.`)}
       ${button(`${APP_URL}/luck-convergence-index.pdf`, "Download the Index (PDF)", "gold")}
       ${pMuted(`Or read it online: <a href="${APP_URL}/convergence-index" style="color:#c9a961;">lucklab.app/convergence-index</a>`)}
       ${hr()}
