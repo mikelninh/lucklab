@@ -1,10 +1,10 @@
-# Kairos Lab
+# Luck Lab
 
-> The science of the opportune moment. Guided by Tyche.
+> The science of luck. Guided by Tyche.
 
-**Live:** https://kairos-tau-inky.vercel.app *(custom domain pending)*
+**Live:** https://lucklab.app
 
-Kairos Lab is a research platform for studying luck, synchronicity, and serendipity. It cross-references **12 wisdom traditions** (Jung, Taoism, Kabbalah, Vedanta, Stoicism, Buddhism, Sufism, Hermeticism, Yorùbá / Ifá, I Ching, Positive Psychology, and the Quantum observer debate) with **two decades of empirical research** (notably Richard Wiseman's *Luck Factor*) to argue a single thesis: *luck is a trainable disposition*.
+Luck Lab is a research platform for studying luck, synchronicity, and serendipity. It cross-references **12 wisdom traditions** (Jung, Taoism, Kabbalah, Vedanta, Stoicism, Buddhism, Sufism, Hermeticism, Yorùbá / Ifá, I Ching, Positive Psychology, and the Quantum observer debate) with **two decades of empirical research** (notably Richard Wiseman's *Luck Factor*) to argue a single thesis: *luck is a trainable disposition*.
 
 **Tyche** is the AI oracle who narrates the experience — named for the Greek goddess who steers fortune with a rudder and pours abundance from a cornucopia. She reads your diagnostic, matches you to a tradition, and writes your Reading personally.
 
@@ -165,7 +165,7 @@ STRIPE_SECRET_KEY=sk_live_…
 STRIPE_WEBHOOK_SECRET=whsec_…
 RESEND_API_KEY=re_…
 RESEND_AUDIENCE_ID=aud_…              # for weekly-digest cron
-EMAIL_FROM="Tyche · Kairos Lab <tyche@kairos.lab>"
+EMAIL_FROM="Tyche · Luck Lab <tyche@kairos.lab>"
 NEXT_PUBLIC_APP_URL=https://kairos.lab
 NEXT_PUBLIC_PLAUSIBLE_DOMAIN=kairos.lab
 CRON_SECRET=<long-random-string>
@@ -186,7 +186,7 @@ In Stripe Dashboard → Developers → Webhooks, add endpoint `https://<your-dom
 
 ## Brand
 
-- **Platform**: Kairos Lab
+- **Platform**: Luck Lab
 - **AI character**: Tyche (Greek goddess of fortune)
 - **Palette**: midnight `#0a0a0d` · antique gold `#c9a961` · scholar purple `#a78bfa`
 - **Fonts**: Fraunces (display serif), Geist (sans), Geist Mono (accents)
@@ -234,5 +234,5 @@ See `/about` for the positioning statement — *honest mysticism, built carefull
 
 ---
 
-© 2026 Kairos Lab. Built by Mikel Ninh, Berlin.
+© 2026 Luck Lab. Built by Mikel Ninh, Berlin.
 Code: MIT license. Content: all rights reserved.

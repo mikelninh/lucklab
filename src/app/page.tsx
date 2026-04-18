@@ -20,7 +20,7 @@ export default function Home() {
         <div className="relative max-w-6xl mx-auto px-6 pt-20 pb-24 md:pt-32 md:pb-36">
           <div className="inline-flex items-center gap-2 px-3 py-1 border border-[var(--border-bright)] rounded-full bg-[var(--surface)] mb-8">
             <span className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full pulse-slow" />
-            <span className="eyebrow text-[10px]">research preview · v0.1</span>
+            <span className="eyebrow text-[10px]">v1.0 · live</span>
           </div>
 
           <h1 className="font-display text-[clamp(44px,7vw,88px)] leading-[1.02] tracking-[-0.02em] font-light text-balance max-w-4xl">

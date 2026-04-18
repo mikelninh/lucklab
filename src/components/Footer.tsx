@@ -41,7 +41,7 @@ export function Footer() {
             © 2026 LUCK LAB · STUDYING WHAT TRADITIONS KNEW BEFORE SCIENCE CAUGHT UP
           </p>
           <p className="font-mono text-[11px] text-[var(--text-subtle)]">
-            v0.1 · research preview
+            v1.0 · live
           </p>
         </div>
       </div>
