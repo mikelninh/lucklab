@@ -22,7 +22,7 @@ Over three years of reading across psychology, philosophy, and the world's conte
 
 The mechanism, roughly, is this: what we call "luck" is not a random variable acting upon passive lives. It is a **disposition** — a particular way of attending to the world, a particular posture of openness, a particular rhythm of action and surrender — and that disposition can be trained.
 
-This is not a mystical claim. Richard Wiseman's decade-long study at the University of Hertfordshire, involving roughly 400 subjects recruited through national newspaper advertisements, found that self-identified "lucky" people differed from "unlucky" people along four measurable behavioural dimensions, and that teaching those behaviours to unlucky people measurably improved their fortunes within a month.[^1] That is an empirical result, replicated in more modest follow-ups, and it corroborates — with only slight translation — what the *Tao Te Ching*, the *Meditations*, the *Bhagavad Gītā*, and the *I Ching* have been saying for two and a half thousand years.
+This is not a mystical claim. Richard Wiseman's decade-long study at the University of Hertfordshire, involving roughly 400 subjects recruited through national newspaper advertisements, found that self-identified "lucky" people differed from "unlucky" people along four measurable behavioural dimensions, and that teaching those behaviours to unlucky people measurably improved their fortunes within a month.[^1] That is an empirical result, replicated in more modest follow-ups, and it echoes — with only slight translation — what the *Tao Te Ching*, the *Meditations*, the *Bhagavad Gītā*, and the *I Ching* have been saying for two and a half thousand years.
 
 We called this document *The Luck Convergence Index* because "index" is what it is: a cross-reference. Twelve traditions, six mechanisms, one practical claim. The claim is that luck is convergent — that when humans from incompatible cosmologies, separated by continents and millennia, arrive at substantively the same answer about what produces a fortunate life, the convergence is itself evidence. Not proof. Evidence.
 
@@ -33,6 +33,28 @@ A final note on tone. We have tried to write this the way we would want to read 
 Read slowly. Skip what does not serve you. Try the seven-day protocol at the end before deciding whether any of this is true.
 
 — Luck Lab
+
+---
+
+## Executive Summary — The Thesis in 60 Seconds
+
+**The claim:** Luck is not random. It is a disposition — a specific quality of attention, openness, and action — and that disposition is trainable.
+
+**The evidence:** Richard Wiseman's decade-long study at the University of Hertfordshire (n=400) identified four behaviours that distinguish self-described lucky people from unlucky ones. All four are learnable. Meanwhile, twelve independent wisdom traditions — from Jungian synchronicity to Taoist wu wei to Kabbalistic mazal — converge on the same six mechanisms.
+
+**The six levers:**
+1. **Attention** — how widely you notice
+2. **Openness** — how much you deviate from routine
+3. **Aligned action** — how well you time your moves
+4. **Surrender** — how easily you release control
+5. **Connection** — how dense your social web is
+6. **Meaning-making** — how you interpret what happens
+
+**The convergence:** Every tradition, independently, emphasises a subset of these six. Wiseman validated four empirically. The traditions add the remaining two.
+
+**Want to start before reading further?** Skip to Section 7 for the seven-day starter protocol. Then come back for the why.
+
+**Want to know YOUR specific profile?** Take the free 3-minute Reading at [lucklab.app/reading](https://lucklab.app/reading).
 
 ---
 
@@ -51,6 +73,8 @@ This is unusual. Most of what we call "wisdom" does not survive cross-cultural c
 What follows is a survey of twelve such traditions. We take them one at a time: where they come from, what they claim, how they claim it works, and — crucially — what they all seem to be pointing at. Then, in Section 4, we tabulate the overlap. In Section 5, we extract the six mechanisms they converge upon and ask which are empirically validated. In Section 7, we offer a seven-day starter protocol drawn from the intersection.
 
 The argument, one more time, so it is clear: luck is not random. Luck is a disposition. Dispositions are trainable. Twelve independent witnesses — eleven contemplative, one experimental — have noticed the same thing. This document is their testimony, collated.
+
+> **Start here if you're short on time:** The seven-day protocol in Section 7 gives you the practices without the theory. Read that first, try it for a week, then come back for the depth. The theory will land differently after you've experienced the practices.
 
 ---
 
@@ -304,7 +328,7 @@ Second, the *interpretive* question — what role, if any, the observer plays in
 
 **Practice.** Wiseman's own "Luck School" protocol is a four-week programme, one principle per week, drawn from cognitive-behavioural and positive-psychology techniques. Our seven-day starter protocol in Section 7 is a shorter distillation.
 
-**Why it converges.** Wiseman's work is the empirical validation the other eleven traditions never had. He did not set out to confirm them — indeed, he is a professional sceptic whose earlier work investigated paranormal claims and generally falsified them. That his independent, controlled study arrived at four principles that map almost exactly onto *wu wei* + *mazal* + *amor fati* + *dharma* is either a remarkable coincidence or a clue that the traditions were tracking something real.
+**Why it converges.** Wiseman's work is the closest empirical parallel the other eleven traditions never had. He did not set out to confirm them — indeed, he is a professional sceptic whose earlier work investigated paranormal claims and generally falsified them. That his independent, controlled study arrived at four principles that map almost exactly onto *wu wei* + *mazal* + *amor fati* + *dharma* is either a remarkable coincidence or a clue that the traditions were tracking something real.
 
 We believe it is a clue.
 
@@ -402,7 +426,7 @@ We call them *levers* because they are trainable. This is the operational claim 
 
 **What it is.** The breadth, depth, and tending of one's relationships — with people, yes, but also with places, practices, and (for those for whom it applies) the sacred. The *mazal* channels, the *barakah* pathways, the *pratītyasamutpāda* web.
 
-**Why it works.** Mark Granovetter's classic 1973 paper, "The Strength of Weak Ties," established that most new information — about jobs, about opportunities, about people — arrives through acquaintances rather than close friends.[^11] Three decades of follow-up research (Christakis and Fowler on social contagion; Putnam on social capital; recent large-scale LinkedIn-data studies) have confirmed and extended the finding.[^34] A well-tended, moderately large, diverse network is among the strongest predictors of what we colloquially call luck.
+**Why it works.** Mark Granovetter's classic 1973 paper, "The Strength of Weak Ties," established that most new information — about jobs, about opportunities, about people — arrives through acquaintances rather than close friends.[^11] Three decades of follow-up research (Christakis and Fowler on social contagion; Putnam on social capital; recent large-scale LinkedIn-data studies) have supported and extended the finding.[^34] A well-tended, moderately large, diverse network is among the strongest predictors of what we colloquially call luck.
 
 **How to train it.** The Sufi practice of *ṣuḥba* again: spend unhurried time with people you admire, without asking them for anything. Make introductions between people who should know each other. Remember birthdays. Send the unsolicited message of appreciation. These behaviours are culturally coded as soft but functionally they are among the most load-bearing things a person can do.
 
