@@ -3,7 +3,7 @@ title: "The Luck Factor: Richard Wiseman's Four Behaviours, Twenty Years Later"
 slug: "luck-factor-wiseman"
 description: "In 2003, a British psychologist published a decade-long study of 400 self-identified lucky and unlucky people. He found four measurable behaviours that separated them. Two decades later, what still holds up?"
 targetKeyword: "luck factor wiseman"
-publishDate: "2026-04-29"
+publishDate: "2026-04-18"
 wordCount: 2760
 author: "Kairos Lab"
 readingTime: "13 min"

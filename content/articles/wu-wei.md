@@ -3,7 +3,7 @@ title: "Wu Wei: The Taoist Practice That Makes You Luckier"
 slug: "wu-wei"
 description: "Wu wei — often mistranslated as 'non-action' — is a 2,500-year-old Taoist concept with a surprisingly modern application: it is how luck reaches those who stop forcing. Here is what it actually means."
 targetKeyword: "wu wei"
-publishDate: "2026-05-06"
+publishDate: "2026-04-18"
 wordCount: 2750
 author: "Kairos Lab"
 readingTime: "13 min"

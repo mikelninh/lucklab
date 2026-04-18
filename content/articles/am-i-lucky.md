@@ -3,7 +3,7 @@ title: "Am I Lucky? A 3-Minute Reading (Free)"
 slug: "am-i-lucky"
 description: "A 3-minute reading that maps your kairotic profile across six trainable mechanisms. Free. Developed by Kairos Lab from 12 wisdom traditions and two decades of empirical luck research."
 targetKeyword: "am i lucky"
-publishDate: "2026-05-13"
+publishDate: "2026-04-18"
 wordCount: 1620
 author: "Kairos Lab"
 readingTime: "7 min"
