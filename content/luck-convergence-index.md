@@ -6,45 +6,13 @@ version: "v1.0 · April 2026"
 word_count: "~12,400"
 ---
 
-\
-
-\
-
-\
-
-\
-
-\
-
 # The Luck Convergence Index
-
-\
 
 ### *Twelve Wisdom Traditions, One Trainable Disposition*
 
-\
-
-\
-
-LUCK LAB
-
-\
-
-v1.0 · April 2026 · ~55 min read · 36 citations
-
-\
-
-lucklab.app
-
-\
-
-\
-
-\
+*Luck Lab · v1.0 · April 2026 · ~55 min read · 36 citations*
 
 ---
-
-\newpage
 
 ## Preface
 
