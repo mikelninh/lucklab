@@ -210,25 +210,37 @@ See `/about` for the positioning statement — *honest mysticism, built carefull
 - [x] Plausible-ready analytics with 9 conversion events
 - [x] Deployed to Vercel production
 
-## Roadmap (post-launch)
+## Roadmap
 
-- [ ] Buy custom domain + configure in Vercel
-- [ ] Supabase integration → Reading persistence + Journal UI + 90-day Return automation + Gift redemption
-- [ ] Server-side PDF rendering (Puppeteer on Vercel) — currently print-to-PDF suffices
-- [ ] Convergence Index as typeset printable PDF (Typst)
+- [x] Custom domain (lucklab.app)
+- [x] Claude Sonnet AI + two-pass pipeline
+- [x] Premium share cards (6 archetype backgrounds)
+- [x] Convergence Index PDF (typeset, 22 pages)
+- [ ] Supabase → Reading persistence + Journal + 90-day Return
+- [ ] Server-side PDF rendering (Puppeteer on Vercel)
 - [ ] Affiliate program (Stripe promo codes)
-- [ ] Tyche Circle annual membership (€99/year) — only if demand signals it
-- [ ] Book deal on the Convergence Index if SEO traffic justifies
+- [ ] Video Reveal cards (Remotion)
 
-## Docs in this repo
+## Docs
 
-- **`LEARN.md`** — pedagogical walkthrough of every pattern used in the codebase
-- **`MARKETING.md`** — full go-to-market plan (launch week → year 1) with templates
-- **`LAUNCH.md`** — 14-day launch script with copy-pasteable templates
-- **`SPRINT-10K.md`** — reverse-engineered $10K month-1 revenue plan
-- **`PLAYBOOK.md`** — reusable blueprint for any AI-powered digital product
-- **`docs/PDF-SERVER.md`** — server-side PDF rendering sketch
-- **`supabase/schema.sql`** — persistence schema for the next phase
+```
+docs/
+├── strategy/
+│   ├── LAUNCH.md              — 14-day launch script
+│   ├── LAUNCH-POSTS.md        — copy-paste ready posts (X, Reddit, LinkedIn, HN)
+│   ├── MARKETING.md           — full go-to-market plan (launch → year 1)
+│   ├── PLAYBOOK.md            — reusable blueprint for AI digital products
+│   ├── SPRINT-10K.md          — $10K month-1 revenue plan
+│   └── TODAY.md               — today's action items
+├── PDF-SERVER.md              — server-side PDF rendering sketch
+├── SHARE-CARDS-ROADMAP.md     — 4-phase share card upgrade plan
+├── exemplar-yielder-full.md   — hand-written 12/10 Reading for prompt calibration
+├── convergence-index.typ      — Typst template for PDF generation
+└── convergence-template.typ   — Typst cover page template
+
+LEARN.md                       — pedagogical walkthrough (737 lines, 14 sections)
+supabase/schema.sql            — DB schema for next phase
+```
 
 ## Tags
 
