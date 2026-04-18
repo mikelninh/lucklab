@@ -129,67 +129,71 @@ If this resonated — share it with one person who has ever asked "why do good t
 
 **ERWARTUNG:** 50-300 Upvotes total. Links nur in Replies wenn gefragt.
 
-### Post 1: r/decidingtobebetter
+### Post 1: r/selfimprovement ⚠️ NO LINKS, NO "I BUILT A TOOL"
 
-**Title:** `I studied the science of luck for 3 months. Here are the 6 things lucky people actually do differently.`
+Rules: No links. No self-promotion. No advertising. Pure content only.
 
-```
-After reading Wiseman's Luck Factor study and cross-referencing it with 12 wisdom traditions, I found that "lucky" people consistently do six things:
-
-1. **Wide attention** — they notice opportunities at the edges. Wiseman's famous experiment: he hid a "you won £250" message in a newspaper. Lucky people saw it. Unlucky people were counting too hard.
-
-2. **Routine deviation** — they vary their routine more. New routes, new people, new situations = more chance encounters.
-
-3. **Aligned action** — they act at the right moment, not just the most urgent one.
-
-4. **Surrender** — they release the grip on outcomes. Every contemplative tradition says this.
-
-5. **Social surface** — they maintain a wider network of weak ties. Granovetter (1973) proved weak ties carry the opportunities strong ties can't.
-
-6. **Meaning-making** — they reframe setbacks as redirections.
-
-I spent 3 months cross-referencing these across Taoism, Stoicism, Kabbalah, Buddhism, and 8 other traditions. The convergence is striking — they all describe the same 6 mechanisms in different language.
-
-Wiseman's research validated 4 of the 6 empirically. The other 2 are where the traditions go further than current psychology has measured.
-
-Does this match your experience of "lucky" people? Which of the 6 do you think matters most?
-```
-
-**Wenn jemand fragt "source?" → antworte:** "I wrote a research paper on this — happy to share the link if you're interested. Also built a free 3-minute tool that maps your profile across the 6."
-
-### Post 2: r/Stoicism
-
-**Title:** `Amor fati and the science of luck — Marcus Aurelius and a British psychologist arrive at the same conclusion`
+**Title:** `I studied the psychology of luck for 3 months. Here are the 6 behaviours that separate lucky from unlucky people.`
 
 ```
-Marcus Aurelius, Meditations 10.5: "Whatever happens to you has been waiting to happen since the beginning of time."
+Richard Wiseman ran a 10-year study at the University of Hertfordshire with 400 self-identified "lucky" and "unlucky" people. He found that lucky people aren't receiving more random windfalls — they behave differently in 4 measurable ways.
 
-Richard Wiseman, The Luck Factor (2003): Lucky people "turn bad luck to good" — the fourth of four measurable behaviours that distinguish self-identified lucky from unlucky people.
+I cross-referenced his findings with 12 wisdom traditions (Taoism, Stoicism, Buddhism, Kabbalah, and 8 others) and found they all converge on the same 6 mechanisms:
 
-Different centuries. Different methods. Same conclusion.
+1. **Attention** — Lucky people have a wider "attentional aperture." In Wiseman's famous experiment, he hid a large-print message in a newspaper: "Stop counting. There are 43 photographs." Lucky subjects saw it. Unlucky subjects were counting too hard.
 
-I spent 3 months cross-referencing Stoicism with 11 other wisdom traditions and Wiseman's empirical research. The convergence is striking — what the Stoics called amor fati, Wiseman measured as a trainable behaviour.
+2. **Openness** — They deviate from routine more. New routes, new people, new situations = more surface area for chance encounters.
 
-Epictetus, Enchiridion 8: "Make the best use of what is in your power, and take the rest as it happens." Wiseman's fourth principle, operationalised 2,000 years later.
+3. **Aligned action** — They act at the right moment, not the most urgent one. The I Ching calls this "timeliness." Wiseman found lucky people try more things per unit of time.
 
-I'd love to hear from anyone who has consciously practiced amor fati — did it change your luck, or just your perception of it?
+4. **Surrender** — They release the grip on outcomes. Every contemplative tradition teaches this. Taoists call it wu wei. Stoics call it amor fati. Wiseman measured it as "turning bad luck into good."
+
+5. **Connection** — They maintain wide networks of weak ties. Granovetter proved in 1973 that weak ties carry the opportunities strong ties can't.
+
+6. **Meaning-making** — They reframe setbacks as redirections. Wiseman's lucky subjects, asked to imagine being shot in the arm during a bank robbery, said "lucky it was only my arm." Unlucky subjects ruminated.
+
+The striking thing: Wiseman validated 4 of these empirically without knowing the traditions existed. The traditions had been teaching all 6 for 2,500 years.
+
+Which of the 6 do you think is most undertrained in YOUR life? Curious to hear real experiences.
 ```
 
-### Post 3: r/synchronicity
+**Wenn jemand fragt "source?" oder "where can I read more?":**
+> "I wrote a research paper covering all 12 traditions + the Wiseman study — happy to DM you the link."
+> Dann per DM: lucklab.app/convergence-index + lucklab.app/reading
 
-**Title:** `I mapped 12 wisdom traditions' take on meaningful coincidence — the convergence surprised me`
+### Post 2: r/Jung ⚠️ NO PRODUCTS, NO AI MENTION, pure discussion
+
+Rules: No offering products/services. No AI-generated content. Posts must be about Carl Jung. Must include Jungian terms.
+
+**Title:** `Jung's synchronicity and Wiseman's Luck Factor — the same conclusion, 50 years apart?`
 
 ```
-I've been researching what different traditions say about synchronicity and luck. Not just Jung — but Taoism, Kabbalah, Stoicism, Buddhism, Sufism, Hermeticism, Yorùbá/Ifá, and more.
+I've been studying the overlap between Jung's concept of synchronicity and Richard Wiseman's empirical luck research (The Luck Factor, 2003, University of Hertfordshire, n=400).
 
-The surprising finding: they all describe the same mechanism in different language. A specific quality of attention + openness + aligned action that raises the probability of meaningful coincidence.
+The parallels are striking:
 
-And in 2003, Wiseman validated it empirically — lucky people exhibit four measurable, trainable behaviours.
+**Jung** described synchronicity as requiring a specific psychological state — relaxed, receptive, meaning-seeking. The patient describing a dream about a golden scarab when a real beetle flew through the consulting-room window. The therapeutic impasse broke. He called this an "acausal connecting principle" — meaningful coincidence as a perceptual competence, not magic.
 
-I ended up writing a ~12,000-word paper on this convergence and building a free tool that maps your profile across the 6 mechanisms. Happy to share if anyone's interested.
+**Wiseman**, 50 years later, found that self-described "lucky" people have a measurably wider attentional aperture. His newspaper experiment: a hidden large-print message said "Stop counting. There are 43 photographs." Lucky people noticed it. Unlucky people were counting too hard — their narrow focus filtered out the unexpected.
 
-Has anyone else noticed this cross-cultural convergence? I'm curious if there are traditions I missed.
+Jung wrote in *Synchronicity* (1952, p. 102): "It is only the ingrained belief in the sovereign power of causality that creates intellectual difficulties and makes it appear unthinkable that causeless events exist."
+
+Wiseman, without citing Jung, found the behavioural equivalent: the people who held their goals loosely enough to notice the unexpected were the ones whose lives contained more fortune.
+
+I've been cross-referencing this with other traditions — the Taoist concept of wu wei (effortless action), the Kabbalistic notion of mazal (fortune as flow), the Stoic amor fati. They all seem to describe variants of the same attentional posture Jung named synchronicity and Wiseman measured as "maximising chance opportunities."
+
+**Two questions for discussion:**
+
+1. Did Jung ever explicitly engage with the idea that synchronicity is *trainable* (not just observable)? His concept of active imagination seems close, but I haven't found him stating it directly.
+
+2. Has anyone explored the connection between individuation and what Wiseman calls "luck"? It seems like the more individuated a person is (in Jung's sense), the more they exhibit the behaviours Wiseman identified as "lucky."
+
+Would love to hear thoughts from anyone deeper in Jung's later work than I am.
 ```
+
+### Post 3: r/Synchronicities ✅ (already posted)
+
+Already live — check for comments and respond.
 
 ---
 
