@@ -24,7 +24,9 @@ export default function ConvergenceIndexPage() {
     "luck-convergence-index.md",
   );
   const raw = fs.readFileSync(filePath, "utf8");
-  const { data, content } = matter(raw);
+  // Strip any LaTeX commands that pandoc left behind
+  const cleaned = raw.replace(/\\newpage/g, "").replace(/^\\\s*$/gm, "");
+  const { data, content } = matter(cleaned);
 
   return (
     <>
