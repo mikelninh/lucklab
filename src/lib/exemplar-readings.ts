@@ -11,23 +11,33 @@
  */
 
 export const EXEMPLAR_YIELDER = `
-EXEMPLAR — match this quality exactly:
+THIS IS 12/10 QUALITY. Match it EXACTLY in rhythm, specificity, answer-quoting, contradiction-finding, physical practices.
 
-OPENING: "Collin, you know something most people spend decades unlearning: that gripping constricts. You chose 'I want to let go but find myself gripping anyway.' That sentence is the entire Reading in miniature. You already know the answer. You do not yet trust it with your full weight. That distrust is not weakness — it is the last contraction before release."
+OPENING LETTER — notice how it quotes the user's answer in the FIRST paragraph, weaves their question, uses birth-season as metaphor:
+"Collin, you know something most people spend decades unlearning: that gripping constricts. Every contemplative tradition — Taoism, Sufism, Stoicism, Buddhism — names the same paradox: the hand that opens receives more than the fist that closes. You chose 'I want to let go but find myself gripping anyway.' That sentence is the entire Reading in miniature. You already know the answer. You do not yet trust it with your full weight. That distrust is not weakness — it is the last contraction before release. You were born in the deepening season — December, when the northern hemisphere turns inward. You are asking how to read a moment of decision in the same season of life that your birth-season describes: a threshold where the obvious move is to wait for more light, and the actual move is to trust what you can see in the dark. What follows is not advice. It is a map of the terrain you are already standing on."
 
-ARCHITECTURE (showing how to handle one lever): "Surrender: 44. You said 'I had just stopped trying to control the outcome' when asked what preceded luck. Yet you chose 'I want to let go but find myself gripping anyway' about uncertainty. That is not a contradiction. It is a portrait. You have tasted release but cannot hold it as a default. The practice is not more surrender. It is noticing you are already surrendering, three times a day, without giving yourself credit."
+ARCHITECTURE — notice: score, then QUOTES the exact answer, then insight with a vivid image:
+"Attention: 18. You chose 'narrow — tightly focused on the task, rest is noise.' That is not wrong, but it is expensive. In Wiseman's newspaper experiment, he hid a message in large print. The lucky subjects saw it. The unlucky ones were counting too hard. You would have been counting."
+"Openness: 0. You answered 'rarely or never.' Zero. Your life has calcified into a track, and the track feels safe, and safety has become the water you swim in without noticing it is water."
 
-ARCHITECTURE (showing how to find a contradiction): "Here is the contradiction that defines your pattern: your surrender is your highest lever, but your openness is zero. You can let go of outcomes but not routines. That is like being able to swim but refusing to enter the water."
+CONTRADICTION — the SPINE of the Reading, placed between levers 3 and 4:
+"Here is the contradiction: your surrender is your highest lever, but your openness is zero. You can let go of outcomes. You cannot let go of routines. That is like being able to swim but refusing to enter the water."
 
-PRACTICE (showing physical specificity): "Tomorrow morning, before your phone, sit at the edge of your bed for four minutes. Ask only: 'If I trusted what I already know, what would I do today?' Do not answer. Let the question sit. Seven mornings. On the eighth, the answer will have arrived — not because you found it, but because you stopped obstructing it."
+TRADITION — answers their question SIDEWAYS, not directly:
+"Your question is about a decision. The Tao Te Ching does not answer questions about decisions. It dissolves them. You have been acquiring reasons. You have not yet dropped the need to be certain before you move."
 
-WARNINGS (showing honest specificity): "The Yielder's trap is passive yielding — releasing the grip then sitting still, calling it surrender. Surrender without movement is not wu wei. It is avoidance wearing a philosophical costume. Your openness of zero is the evidence. The corrective: one genuinely unfamiliar action per week. The Yielder who does not move discovers the river has become a pond."
+PRACTICE — physically specific, time-bounded, a single question repeated:
+"Tomorrow morning, before your phone, sit at the edge of your bed for four minutes. Ask only: 'If I trusted what I already know, what would I do today?' Do not answer. Let the question sit like a guest you have not yet greeted. Seven mornings. By the eighth, the answer will have arrived — not because you found it, but because you stopped obstructing it."
 
-CLOSING: "Collin, you asked how to read this moment. You have been reading it longer than you think. The grip is loosening. Let it."
+WARNINGS — names the SPECIFIC trap, vivid metaphor:
+"The Yielder's trap is passive yielding — releasing the grip then sitting still, calling it surrender. Surrender without movement is not wu wei. It is avoidance wearing a philosophical costume. The Yielder who does not move discovers the river has become a pond."
+
+CLOSING — two sentences, states, never wishes:
+"Collin, you asked how to read the moment. You have been reading it for longer than you think. The grip is loosening. Let it."
 `;
 
 export const EXEMPLAR_SEER = `
-EXEMPLAR — match this quality exactly:
+THIS IS 12/10. Match it:
 
 OPENING: "Kai, you see what others walk past. Your question — why you notice signs but never act — is not about perception. It is about the gap between seeing and moving. In the Gita it is Arjuna frozen on the battlefield, seeing everything, doing nothing. You are Arjuna before the chariot moves."
 
