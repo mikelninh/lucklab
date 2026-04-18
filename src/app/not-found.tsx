@@ -77,7 +77,7 @@ export default function NotFound() {
               </svg>
             </Link>
             <Link href="/" className="btn btn-ghost">
-              Return to Kairos Lab
+              Return to Luck Lab
             </Link>
           </div>
 

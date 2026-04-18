@@ -3,7 +3,7 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 
 export const metadata = {
-  title: "Impressum — Kairos Lab",
+  title: "Impressum — Luck Lab",
   description: "Anbieterkennzeichnung gemäß § 5 TMG.",
 };
 
@@ -23,7 +23,7 @@ export default function ImpressumPage() {
         <h2>Verantwortlich</h2>
         <p>
           Michael Ninh<br />
-          Kairos Lab<br />
+          Luck Lab<br />
           Boxhagener Str. 94<br />
           10245 Berlin, Deutschland
         </p>
@@ -55,7 +55,7 @@ export default function ImpressumPage() {
           Vollständigkeit und Aktualität der bereitgestellten Inhalte.
         </p>
         <p>
-          Kairos Lab bietet Reflexions- und Bildungswerkzeuge an, die auf
+          Luck Lab bietet Reflexions- und Bildungswerkzeuge an, die auf
           Weisheitstraditionen und psychologischer Forschung basieren. Die
           Inhalte stellen keine medizinische, psychologische, finanzielle oder
           rechtliche Beratung dar.

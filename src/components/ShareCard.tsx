@@ -20,16 +20,16 @@ type ShareProps = {
 export function ShareCard({ name, archetype, greek, tagline, variant = "compact" }: ShareProps) {
   const [copied, setCopied] = useState(false);
   const firstName = name.split(/\s+/)[0];
-  const url = typeof window !== "undefined" ? window.location.origin : "https://kairos-tau-inky.vercel.app";
+  const url = typeof window !== "undefined" ? window.location.origin : "https://lucklab.app";
 
-  const shareText = `I just took the Kairos Reading. Tyche called me ${archetype}${tagline ? ` — "${tagline}"` : ""}. What archetype are you?\n\n${url}/reading`;
+  const shareText = `I just took the Luck Lab Reading. Tyche called me ${archetype}${tagline ? ` — "${tagline}"` : ""}. What archetype are you?\n\n${url}/reading`;
 
   async function shareNative() {
     track("cta_click", { action: "share_archetype" });
     if (navigator.share) {
       try {
         await navigator.share({
-          title: `I am ${archetype} — Kairos Lab`,
+          title: `I am ${archetype} — Luck Lab`,
           text: shareText,
           url: `${url}/reading`,
         });

@@ -3,8 +3,8 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 
 export const metadata = {
-  title: "Privacy Policy — Kairos Lab",
-  description: "How Kairos Lab handles your personal data.",
+  title: "Privacy Policy — Luck Lab",
+  description: "How Luck Lab handles your personal data.",
 };
 
 export default function PrivacyPage() {
@@ -22,9 +22,9 @@ export default function PrivacyPage() {
 
         <h2>1. Who we are</h2>
         <p>
-          Kairos Lab (&ldquo;we&rdquo;, &ldquo;us&rdquo;) is a research platform for studying
+          Luck Lab (&ldquo;we&rdquo;, &ldquo;us&rdquo;) is a research platform for studying
           luck, synchronicity, and serendipity. You can reach us at{" "}
-          <a href="mailto:hallo@kairos.lab">hallo@kairos.lab</a>.
+          <a href="mailto:hallo@lucklab.app">hallo@lucklab.app</a>.
         </p>
         <p>
           This policy explains what personal data we collect, how we use it, and
@@ -124,7 +124,7 @@ export default function PrivacyPage() {
         </ul>
         <p>
           Email{" "}
-          <a href="mailto:hallo@kairos.lab">hallo@kairos.lab</a> and we will
+          <a href="mailto:hallo@lucklab.app">hallo@lucklab.app</a> and we will
           respond within 30 days.
         </p>
 

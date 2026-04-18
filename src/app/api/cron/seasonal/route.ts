@@ -12,8 +12,8 @@ import { Resend } from "resend";
 import { verifyCron } from "@/lib/cron-auth";
 
 export const runtime = "nodejs";
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://kairos.lab";
-const FROM = process.env.EMAIL_FROM || "Tyche · Kairos Lab <tyche@kairos.lab>";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://lucklab.app";
+const FROM = process.env.EMAIL_FROM || "Tyche · Luck Lab <tyche@lucklab.app>";
 
 const CAMPAIGNS = [
   { md: "03-20", slug: "vernal-equinox", theme: "the renewing season" },
@@ -54,7 +54,7 @@ export async function GET(req: NextRequest) {
 function seasonalHtml(c: { theme: string }): string {
   return `<!doctype html><html><body style="margin:0;padding:40px 20px;background:#0a0a0d;font-family:Georgia,serif;color:#ededee;">
 <div style="max-width:560px;margin:0 auto;background:#16161d;border:1px solid #25252f;border-radius:6px;padding:40px;">
-  <p style="font-family:monospace;letter-spacing:0.18em;text-transform:uppercase;color:#c9a961;font-size:11px;margin:0 0 24px;">KAIROS LAB · SEASONAL</p>
+  <p style="font-family:monospace;letter-spacing:0.18em;text-transform:uppercase;color:#c9a961;font-size:11px;margin:0 0 24px;">LUCK LAB · SEASONAL</p>
   <h1 style="font-size:28px;font-weight:400;color:#ededee;margin:0 0 20px;line-height:1.2;">${c.theme.charAt(0).toUpperCase()}${c.theme.slice(1)}.</h1>
   <p style="font-size:15px;color:#c9d1d9;line-height:1.75;margin:0 0 16px;">[Insert thematic body per campaign — this is a stub. Edit CAMPAIGNS array or swap in Resend template id.]</p>
   <p style="margin:24px 0;"><a href="${APP_URL}/reading" style="display:inline-block;background:#c9a961;color:#1a1406;padding:14px 26px;text-decoration:none;border-radius:4px;font-weight:600;font-size:14px;">Begin a seasonal Reading →</a></p>

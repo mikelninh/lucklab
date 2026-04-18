@@ -11,7 +11,7 @@ import { getThisWeeksNewsletter } from "@/lib/newsletters";
 
 export const runtime = "nodejs";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://kairos-tau-inky.vercel.app";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://lucklab.app";
 const FROM = process.env.EMAIL_FROM || "Mikel from Kairos <mikel_ninh@yahoo.de>";
 
 export async function GET(req: NextRequest) {
@@ -99,7 +99,7 @@ function renderNewsletter(n: { subject: string; body: string; article?: string; 
   <p style="font-family:monospace;font-size:11px;color:#c9a961;letter-spacing:0.1em;margin:0;">— TYCHE</p>
   <p style="font-family:monospace;font-size:10px;color:#5a5a66;margin:16px 0 0;">
     <a href="${APP_URL}/unsubscribe?email={{email}}" style="color:#5a5a66;text-decoration:underline;">unsubscribe</a>
-    · <a href="${APP_URL}" style="color:#5a5a66;text-decoration:underline;">kairos.lab</a>
+    · <a href="${APP_URL}" style="color:#5a5a66;text-decoration:underline;">lucklab.app</a>
   </p>
 </div></body></html>`;
 }

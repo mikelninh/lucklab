@@ -19,7 +19,7 @@ const schema = z.object({
   archetype: z.string().max(30).optional(), // for archetype-specific drip
 });
 
-const FROM = process.env.EMAIL_FROM || "Tyche · Kairos Lab <tyche@kairos.lab>";
+const FROM = process.env.EMAIL_FROM || "Tyche · Luck Lab <tyche@lucklab.app>";
 
 export async function POST(req: NextRequest) {
   const rl = rateLimit(req, LIMITS.subscribe);

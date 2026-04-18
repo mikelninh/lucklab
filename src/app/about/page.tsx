@@ -4,9 +4,9 @@ import { Footer } from "@/components/Footer";
 import { TycheSigil } from "@/components/TycheSigil";
 
 export const metadata = {
-  title: "About — Kairos Lab",
+  title: "About — Luck Lab",
   description:
-    "Why Kairos Lab exists. What we believe about luck. Why Tyche speaks the way she speaks.",
+    "Why Luck Lab exists. What we believe about luck. Why Tyche speaks the way she speaks.",
 };
 
 export default function AboutPage() {
@@ -27,7 +27,7 @@ export default function AboutPage() {
 
         <div className="space-y-6 text-[16px] md:text-[17px] text-[var(--text)] leading-[1.8] font-display font-light">
           <p>
-            Kairos Lab is a research platform for the oldest, most neglected
+            Luck Lab is a research platform for the oldest, most neglected
             question a person can ask: <em>why do good things happen to some people
             and not others, and can I do anything about it?</em>
           </p>
@@ -102,7 +102,7 @@ export default function AboutPage() {
               never as prediction.
             </p>
             <p>
-              We will not predict futures. No tradition Kairos Lab draws from
+              We will not predict futures. No tradition Luck Lab draws from
               actually does this well, though many pretend to. We map
               dispositions and practices, not outcomes.
             </p>
@@ -130,7 +130,7 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-5 text-[15px] md:text-[16px] text-[var(--text)] leading-[1.85]">
             <p>
-              Kairos Lab&rsquo;s central document is{" "}
+              Luck Lab&rsquo;s central document is{" "}
               <em>The Luck Convergence Index</em> &mdash; a 10,000-word research
               essay cross-referencing twelve traditions against the modern
               empirical literature. Jungian synchronicity. Taoist <em>wu wei</em>.
@@ -186,7 +186,7 @@ export default function AboutPage() {
               kairos. If you cannot tell them apart, you miss the ones that
               mattered.
             </p>
-            <p>Kairos Lab exists to help you tell them apart.</p>
+            <p>Luck Lab exists to help you tell them apart.</p>
           </div>
         </section>
 

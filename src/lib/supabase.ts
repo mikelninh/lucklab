@@ -1,7 +1,7 @@
 /**
  * Supabase client — optional.
  *
- * Kairos Lab MVP does not require Supabase. When we add it (for persistent
+ * Luck Lab MVP does not require Supabase. When we add it (for persistent
  * readings, the Synchronicity Journal, 90-day Return automation, and gift
  * code redemption), this is the single place we instantiate the client.
  *

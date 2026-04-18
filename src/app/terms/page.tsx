@@ -3,8 +3,8 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 
 export const metadata = {
-  title: "Terms of Service — Kairos Lab",
-  description: "The terms under which Kairos Lab provides its services.",
+  title: "Terms of Service — Luck Lab",
+  description: "The terms under which Luck Lab provides its services.",
 };
 
 export default function TermsPage() {
@@ -20,9 +20,9 @@ export default function TermsPage() {
           LAST UPDATED: 15 APRIL 2026
         </p>
 
-        <h2>1. What Kairos Lab is</h2>
+        <h2>1. What Luck Lab is</h2>
         <p>
-          Kairos Lab is a research platform that helps you map your relationship
+          Luck Lab is a research platform that helps you map your relationship
           with luck, chance, and meaningful coincidence. We offer a free Reading,
           a €9 Archetype Primer, and a €29 Full Reading. These are educational
           and reflective tools. They are not medical, psychological, financial, or
@@ -31,7 +31,7 @@ export default function TermsPage() {
 
         <h2>2. Who we are</h2>
         <p>
-          Kairos Lab. Contact: <a href="mailto:hallo@kairos.lab">hallo@kairos.lab</a>.
+          Luck Lab. Contact: <a href="mailto:hallo@lucklab.app">hallo@lucklab.app</a>.
         </p>
 
         <h2>3. What you agree to</h2>
@@ -54,7 +54,7 @@ export default function TermsPage() {
         <p>
           That said: if the service fails to deliver what was promised (e.g. the
           Reading does not generate), write to us at{" "}
-          <a href="mailto:hallo@kairos.lab">hallo@kairos.lab</a> and we will
+          <a href="mailto:hallo@lucklab.app">hallo@lucklab.app</a> and we will
           refund no questions asked. Your integrity is worth more to us than €29.
         </p>
 
@@ -81,10 +81,10 @@ export default function TermsPage() {
 
         <h2>7. Content &amp; intellectual property</h2>
         <p>
-          All text, images, and code on the site are © Kairos Lab unless
+          All text, images, and code on the site are © Luck Lab unless
           otherwise credited. Your Reading (the personalised output) is yours to
           keep, share, and print for personal use. You may not resell or
-          republish Kairos Lab content without permission.
+          republish Luck Lab content without permission.
         </p>
 
         <h2>8. Service availability</h2>

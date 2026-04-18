@@ -13,7 +13,7 @@ import { loadPublishedArticles } from "@/lib/articles";
 
 export const runtime = "nodejs";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://kairos.lab";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://lucklab.app";
 
 export async function GET(req: NextRequest) {
   const deny = verifyCron(req);
@@ -76,7 +76,7 @@ function draftLinkedIn(a: {
   description: string;
   slug: string;
 }): string {
-  return `New long-form essay on Kairos Lab: "${a.title}"
+  return `New long-form essay on Luck Lab: "${a.title}"
 
 ${a.description}
 

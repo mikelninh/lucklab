@@ -4,8 +4,8 @@ import { Footer } from "@/components/Footer";
 import { TycheSigil } from "@/components/TycheSigil";
 
 export const metadata = {
-  title: "Contact — Kairos Lab",
-  description: "Reach Kairos Lab. We read everything.",
+  title: "Contact — Luck Lab",
+  description: "Reach Luck Lab. We read everything.",
 };
 
 export default function ContactPage() {
@@ -20,7 +20,7 @@ export default function ContactPage() {
         </h1>
         <p className="text-[16px] text-[var(--text-muted)] leading-relaxed max-w-lg mb-12">
           We read every email. Tyche may be an oracle, but the humans behind
-          Kairos Lab are reachable and reply within 48 hours.
+          Luck Lab are reachable and reply within 48 hours.
         </p>
 
         <div className="space-y-8">
@@ -34,10 +34,10 @@ export default function ContactPage() {
               or the platform.
             </p>
             <a
-              href="mailto:hallo@kairos.lab"
+              href="mailto:hallo@lucklab.app"
               className="btn btn-ghost"
             >
-              hallo@kairos.lab
+              hallo@lucklab.app
             </a>
           </div>
 
@@ -52,10 +52,10 @@ export default function ContactPage() {
               right, no questions asked.
             </p>
             <a
-              href="mailto:hallo@kairos.lab?subject=Support%20request"
+              href="mailto:hallo@lucklab.app?subject=Support%20request"
               className="btn btn-ghost"
             >
-              hallo@kairos.lab
+              hallo@lucklab.app
             </a>
           </div>
 
@@ -70,10 +70,10 @@ export default function ContactPage() {
               thesis.
             </p>
             <a
-              href="mailto:hallo@kairos.lab?subject=Press%20%2F%20partnership"
+              href="mailto:hallo@lucklab.app?subject=Press%20%2F%20partnership"
               className="btn btn-ghost"
             >
-              hallo@kairos.lab
+              hallo@lucklab.app
             </a>
           </div>
         </div>
@@ -81,7 +81,7 @@ export default function ContactPage() {
         <div className="mt-16 pt-8 border-t border-[var(--border)]">
           <div className="eyebrow eyebrow-muted mb-3">legal address</div>
           <p className="text-[14px] text-[var(--text-muted)] leading-relaxed">
-            Michael Ninh · Kairos Lab<br />
+            Michael Ninh · Luck Lab<br />
             Boxhagener Str. 94<br />
             10245 Berlin, Deutschland
           </p>

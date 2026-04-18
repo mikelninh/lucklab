@@ -109,7 +109,7 @@ export function KairosMark({
         <circle cx="6" cy="12" r="2" fill="url(#km-g)" />
       </svg>
       <span className="font-display text-[17px] font-medium tracking-tight text-[var(--text)]">
-        Kairos <span className="text-[var(--text-muted)] font-normal">Lab</span>
+        Luck <span className="text-[var(--text-muted)] font-normal">Lab</span>
       </span>
     </div>
   );

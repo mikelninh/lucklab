@@ -41,7 +41,7 @@ export async function GET(req: NextRequest) {
 
   const stripe = new Stripe(stripeKey);
   const resend = new Resend(resendKey);
-  const from = process.env.EMAIL_FROM || "Tyche · Kairos Lab <tyche@kairos.lab>";
+  const from = process.env.EMAIL_FROM || "Tyche · Luck Lab <tyche@lucklab.app>";
 
   // Window: sessions created 7 days ago (24h slice)
   const now = Date.now();

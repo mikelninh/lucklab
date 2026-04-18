@@ -43,7 +43,7 @@ export default async function OG() {
               fontFamily: "monospace",
             }}
           >
-            KAIROS LAB
+            LUCK LAB
           </div>
         </div>
 
@@ -90,7 +90,7 @@ export default async function OG() {
             color: "#5a5a66",
           }}
         >
-          <span>KAIROS.LAB</span>
+          <span>LUCKLAB.APP</span>
           <span>THE SCIENCE OF THE OPPORTUNE MOMENT</span>
         </div>
       </div>

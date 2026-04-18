@@ -4,12 +4,12 @@
  * unlocks rich snippets in search results.
  */
 
-const BASE = process.env.NEXT_PUBLIC_APP_URL || "https://kairos.lab";
+const BASE = process.env.NEXT_PUBLIC_APP_URL || "https://lucklab.app";
 
 export const ORGANIZATION = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Kairos Lab",
+  name: "Luck Lab",
   url: BASE,
   logo: `${BASE}/logo.png`,
   sameAs: [] as string[], // fill with social URLs once they exist
@@ -20,7 +20,7 @@ export const ORGANIZATION = {
 export const WEBSITE = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Kairos Lab",
+  name: "Luck Lab",
   url: BASE,
   potentialAction: {
     "@type": "SearchAction",
@@ -46,10 +46,10 @@ export function articleLD(args: {
     url: `${BASE}/research/${args.slug}`,
     image: args.image || `${BASE}/og/${args.slug}.png`,
     datePublished: args.publishDate,
-    author: { "@type": "Organization", name: args.author || "Kairos Lab", url: BASE },
+    author: { "@type": "Organization", name: args.author || "Luck Lab", url: BASE },
     publisher: {
       "@type": "Organization",
-      name: "Kairos Lab",
+      name: "Luck Lab",
       logo: { "@type": "ImageObject", url: `${BASE}/logo.png` },
     },
     wordCount: args.wordCount,
@@ -73,7 +73,7 @@ export function productLD(args: {
     name: args.name,
     description: args.description,
     sku: args.sku,
-    brand: { "@type": "Brand", name: "Kairos Lab" },
+    brand: { "@type": "Brand", name: "Luck Lab" },
     offers: {
       "@type": "Offer",
       priceCurrency: "EUR",

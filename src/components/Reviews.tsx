@@ -82,7 +82,7 @@ function EmptyState({ total }: { total: number }) {
       <TycheSigil size={56} className="mx-auto mb-6 opacity-60" glow={false} />
       <div className="eyebrow eyebrow-tyche mb-3">early days</div>
       <h2 className="font-display text-[32px] md:text-[40px] leading-[1.1] tracking-[-0.015em] font-light text-balance mb-5">
-        Kairos Lab is <em className="not-italic text-[var(--gold)]">new</em>.
+        Luck Lab is <em className="not-italic text-[var(--gold)]">new</em>.
       </h2>
       <p className="text-[15px] text-[var(--text-muted)] max-w-xl mx-auto leading-relaxed mb-3">
         We launched in April 2026. {total > 0 ? (

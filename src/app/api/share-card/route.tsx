@@ -342,7 +342,7 @@ export async function GET(req: NextRequest) {
                 letterSpacing: "8px",
               }}
             >
-              KAIROS.LAB
+              LUCKLAB.APP
             </span>
           </div>
         </div>

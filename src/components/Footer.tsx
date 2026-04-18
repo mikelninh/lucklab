@@ -38,7 +38,7 @@ export function Footer() {
         <div className="hairline mt-12 mb-6" />
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
           <p className="font-mono text-[11px] text-[var(--text-subtle)] tracking-wider">
-            © 2026 KAIROS LAB · STUDYING WHAT TRADITIONS KNEW BEFORE SCIENCE CAUGHT UP
+            © 2026 LUCK LAB · STUDYING WHAT TRADITIONS KNEW BEFORE SCIENCE CAUGHT UP
           </p>
           <p className="font-mono text-[11px] text-[var(--text-subtle)]">
             v0.1 · research preview

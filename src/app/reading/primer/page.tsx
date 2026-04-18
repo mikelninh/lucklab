@@ -98,7 +98,7 @@ export default async function PrimerPage({
           <h1 className="font-display text-3xl mb-4">Session not found</h1>
           <p className="text-[var(--text-muted)]">
             Please email{" "}
-            <a href="mailto:hallo@kairos.lab" className="text-[var(--gold)]">hallo@kairos.lab</a>.
+            <a href="mailto:hallo@lucklab.app" className="text-[var(--gold)]">hallo@lucklab.app</a>.
           </p>
         </div>
         <Footer />

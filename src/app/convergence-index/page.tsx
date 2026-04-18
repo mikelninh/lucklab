@@ -10,7 +10,7 @@ import { TycheSigil } from "@/components/TycheSigil";
 import { DownloadPdfButton } from "@/components/DownloadPdfButton";
 
 export const metadata = {
-  title: "The Luck Convergence Index — Kairos Lab",
+  title: "The Luck Convergence Index — Luck Lab",
   description:
     "Twelve wisdom traditions and two decades of empirical research converge on a single conclusion: luck is a trainable disposition.",
 };
@@ -45,7 +45,7 @@ export default function ConvergenceIndexPage() {
           {String(data.subtitle || "Twelve wisdom traditions, one trainable disposition.")}
         </p>
         <p className="font-mono text-[11px] text-[var(--text-subtle)] mt-10 tracking-wider">
-          KAIROS LAB &middot; {String(data.word_count || "~12,000")} WORDS
+          LUCK LAB &middot; {String(data.word_count || "~12,000")} WORDS
         </p>
 
         <div className="mt-12 flex flex-wrap gap-3 justify-center no-print">

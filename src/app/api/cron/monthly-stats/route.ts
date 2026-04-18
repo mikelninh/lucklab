@@ -47,7 +47,7 @@ export async function GET(req: NextRequest) {
 
   const label = firstOfLastMonth.toLocaleDateString("en-GB", { month: "long", year: "numeric" });
 
-  const html = `<h2>Kairos Lab — ${label}</h2>
+  const html = `<h2>Luck Lab — ${label}</h2>
 <p><strong>Revenue:</strong> €${(totalCents / 100).toFixed(2)}</p>
 <ul>
   <li>Primer (€9): ${primerCount}</li>
@@ -58,9 +58,9 @@ export async function GET(req: NextRequest) {
 
   const resend = new Resend(resendKey);
   await resend.emails.send({
-    from: "Kairos Stats <stats@kairos.lab>",
+    from: "Kairos Stats <stats@lucklab.app>",
     to: adminEmail,
-    subject: `Kairos Lab · ${label} revenue report`,
+    subject: `Luck Lab · ${label} revenue report`,
     html,
   });
 

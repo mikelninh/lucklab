@@ -24,9 +24,9 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Kairos — The Science of the Opportune Moment",
+  title: "Luck Lab — The Science of Luck",
   description:
-    "Kairos Lab studies how luck, synchronicity, and serendipity can be cultivated. 12 wisdom traditions cross-referenced with modern research. Guided by Tyche, our AI oracle.",
+    "Luck Lab studies how luck, synchronicity, and serendipity can be cultivated. 12 wisdom traditions cross-referenced with modern research. Guided by Tyche, our AI oracle.",
   keywords: [
     "luck",
     "synchronicity",
@@ -39,16 +39,16 @@ export const metadata: Metadata = {
     "abundance",
     "fortune",
   ],
-  authors: [{ name: "Kairos Lab" }],
+  authors: [{ name: "Luck Lab" }],
   openGraph: {
-    title: "Kairos — The Science of the Opportune Moment",
+    title: "Luck Lab — The Science of Luck",
     description:
       "A research platform on luck and synchronicity. Take the diagnostic. Consult Tyche, our AI oracle.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kairos — The Science of the Opportune Moment",
+    title: "Luck Lab — The Science of Luck",
     description:
       "12 wisdom traditions + modern research. Train luck as a skill. Consult Tyche.",
   },

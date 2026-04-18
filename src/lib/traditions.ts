@@ -1,5 +1,5 @@
 /**
- * The 12 traditions Kairos Lab cross-references.
+ * The 12 traditions Luck Lab cross-references.
  * Each encodes a specific mechanism for cultivating what we now call "luck".
  */
 

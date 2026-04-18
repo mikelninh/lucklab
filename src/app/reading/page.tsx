@@ -118,7 +118,7 @@ export default function ReadingPage() {
         {/* progress */}
         <div className="mb-10">
           <div className="flex justify-between items-center mb-3">
-            <div className="eyebrow">the kairos reading</div>
+            <div className="eyebrow">the luck lab reading</div>
             <div className="font-mono text-[11px] text-[var(--text-subtle)] tracking-wider">
               {step === 0 ? "ready" : `${progressCounter} / ${progressDenominator}`}
             </div>

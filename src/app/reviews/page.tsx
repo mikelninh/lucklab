@@ -5,7 +5,7 @@ import { TycheSigil } from "@/components/TycheSigil";
 import { loadAllReviews } from "@/lib/reviews";
 
 export const metadata = {
-  title: "Readers — Kairos Lab",
+  title: "Readers — Luck Lab",
   description: "What readers have written back after taking the Reading.",
 };
 
@@ -37,7 +37,7 @@ export default function ReviewsPage() {
           <div className="text-center py-12">
             <div className="eyebrow eyebrow-tyche mb-4">early days</div>
             <p className="font-display text-[24px] md:text-[28px] leading-[1.4] text-[var(--text-muted)] italic max-w-md mx-auto text-balance mb-8">
-              No readers have written back yet. Kairos Lab launched in April 2026.
+              No readers have written back yet. Luck Lab launched in April 2026.
             </p>
             <Link href="/reading" className="btn btn-primary">
               Begin Your Reading · free
@@ -74,7 +74,7 @@ export default function ReviewsPage() {
           <p className="text-[14px] text-[var(--text-muted)] mb-4 italic">
             Took your Reading and want to write back? We read everything.
           </p>
-          <a href="mailto:hallo@kairos.lab" className="btn btn-ghost">
+          <a href="mailto:hallo@lucklab.app" className="btn btn-ghost">
             Write to Tyche
           </a>
         </div>

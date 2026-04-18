@@ -9,7 +9,7 @@ import {
 } from "@/lib/articles";
 
 export const metadata = {
-  title: "Research — Kairos Lab",
+  title: "Research — Luck Lab",
   description:
     "Long-form essays on luck, synchronicity, and the twelve traditions. Published weekly.",
 };

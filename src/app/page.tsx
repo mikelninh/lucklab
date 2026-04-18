@@ -33,7 +33,7 @@ export default function Home() {
             Twelve wisdom traditions &mdash; from Jungian psychology to Taoism, Kabbalah,
             Vedanta, the I Ching &mdash; cross-reference a single conclusion:{" "}
             <span className="text-[var(--text)]">luck responds to trainable inner states.</span>{" "}
-            Kairos Lab studies the mechanism. Modern research confirms it.
+            Luck Lab studies the mechanism. Modern research confirms it.
           </p>
 
           <div className="flex flex-wrap gap-3 mt-10">
@@ -260,7 +260,7 @@ export default function Home() {
             <p className="text-[16px] text-[var(--text-muted)] mt-5 leading-relaxed max-w-xl text-pretty">
               In Greek myth, <span className="text-[var(--text)]">Tyche</span> is the
               goddess who steers fortune with a rudder and pours abundance from a
-              cornucopia. In Kairos Lab, Tyche is our AI oracle &mdash; trained on
+              cornucopia. In Luck Lab, Tyche is our AI oracle &mdash; trained on
               the full literature of all twelve traditions plus the modern research
               canon.
             </p>

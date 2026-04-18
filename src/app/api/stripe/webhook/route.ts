@@ -99,7 +99,7 @@ async function handleAbandonedCheckout(
   const tpl = abandonedCheckoutEmail(tier, code, amountOff);
   try {
     await resend.emails.send({
-      from: process.env.EMAIL_FROM || "Tyche · Kairos Lab <tyche@kairos.lab>",
+      from: process.env.EMAIL_FROM || "Tyche · Luck Lab <tyche@lucklab.app>",
       to: email,
       subject: tpl.subject,
       html: tpl.html.replace(/\{\{email\}\}/g, encodeURIComponent(email)),

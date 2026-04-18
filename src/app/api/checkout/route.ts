@@ -9,14 +9,14 @@ export const runtime = "nodejs";
 const TIERS = {
   primer: {
     unitAmount: 900, // €9.00
-    name: "Archetype Primer — Kairos Lab",
+    name: "Archetype Primer — Luck Lab",
     description:
       "Your personalised archetype profile — six-lever breakdown, tradition essay, and a seven-day practice. Delivered instantly.",
     successPath: "/reading/primer",
   },
   full: {
     unitAmount: 2900, // €29.00
-    name: "Tyche's Reading — Kairos Lab",
+    name: "Tyche's Reading — Luck Lab",
     description:
       "Your full personalised 30-day Reading, addressed to you by name, responding to your current question. Delivered instantly.",
     successPath: "/reading/full",

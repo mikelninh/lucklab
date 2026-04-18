@@ -11,7 +11,7 @@ export default async function ArticleOG({
   params: { slug: string };
 }) {
   const article = loadArticleBySlug(params.slug);
-  const title = article?.title || "Kairos Lab";
+  const title = article?.title || "Luck Lab";
   const description = article?.description || "";
 
   return new ImageResponse(
@@ -47,7 +47,7 @@ export default async function ArticleOG({
               fontFamily: "monospace",
             }}
           >
-            KAIROS LAB · RESEARCH
+            LUCK LAB · RESEARCH
           </div>
         </div>
 
@@ -88,7 +88,7 @@ export default async function ArticleOG({
             justifyContent: "space-between",
           }}
         >
-          <span>KAIROS.LAB/RESEARCH</span>
+          <span>LUCKLAB.APP/RESEARCH</span>
           <span>BEGIN YOUR READING · FREE</span>
         </div>
       </div>

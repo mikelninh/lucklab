@@ -6,7 +6,7 @@ import { loadPublishedArticles } from "@/lib/articles";
  * Regenerates at build time and (via ISR on article routes) weekly.
  */
 
-const BASE = process.env.NEXT_PUBLIC_APP_URL || "https://kairos.lab";
+const BASE = process.env.NEXT_PUBLIC_APP_URL || "https://lucklab.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [

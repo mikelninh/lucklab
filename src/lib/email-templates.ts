@@ -5,8 +5,8 @@
  * Each returns { subject, html } — ready to pass to Resend.
  */
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://kairos.lab";
-const EMAIL_FROM_NAME = "Tyche · Kairos Lab";
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://lucklab.app";
+const EMAIL_FROM_NAME = "Tyche · Luck Lab";
 
 type Shell = { subject: string; html: string };
 
@@ -20,11 +20,11 @@ function wrap(inner: string, preheader: string = ""): string {
     <tr><td align="center" style="padding:40px 20px;">
       <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;background:#16161d;border:1px solid #25252f;border-radius:6px;">
         <tr><td style="padding:40px;">
-          <p style="font-family:'SF Mono',monospace;letter-spacing:0.18em;text-transform:uppercase;color:#c9a961;font-size:11px;margin:0 0 24px;">KAIROS LAB · FROM TYCHE</p>
+          <p style="font-family:'SF Mono',monospace;letter-spacing:0.18em;text-transform:uppercase;color:#c9a961;font-size:11px;margin:0 0 24px;">LUCK LAB · FROM TYCHE</p>
           ${inner}
         </td></tr>
       </table>
-      <p style="font-family:'SF Mono',monospace;font-size:10px;color:#5a5a66;letter-spacing:0.1em;margin:24px 0 0;">KAIROS LAB &middot; STUDYING WHAT TRADITIONS KNEW BEFORE SCIENCE CAUGHT UP</p>
+      <p style="font-family:'SF Mono',monospace;font-size:10px;color:#5a5a66;letter-spacing:0.1em;margin:24px 0 0;">LUCK LAB &middot; STUDYING WHAT TRADITIONS KNEW BEFORE SCIENCE CAUGHT UP</p>
       <p style="font-family:'SF Mono',monospace;font-size:10px;color:#5a5a66;margin:6px 0 0;">
         <a href="${APP_URL}/unsubscribe?email={{email}}" style="color:#5a5a66;text-decoration:underline;">unsubscribe</a>
       </p>

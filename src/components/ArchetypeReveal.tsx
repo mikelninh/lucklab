@@ -86,7 +86,7 @@ export function ArchetypeReveal({ name, archetype, greek, tagline, scores }: Rev
     setDownloading(false);
   }
 
-  const shareText = `Tyche called me ${archetype} — "${tagline}"\n\nWhich archetype are you?\nkairos.lab/reading`;
+  const shareText = `Tyche called me ${archetype} — "${tagline}"\n\nWhich archetype are you?\nlucklab.app/reading`;
 
   return (
     <div className="card text-center no-print overflow-hidden">
@@ -98,7 +98,7 @@ export function ArchetypeReveal({ name, archetype, greek, tagline, scores }: Rev
           {/* Top */}
           <div className="flex items-center gap-2 opacity-60">
             <div className="w-2 h-2 bg-[var(--gold)] rounded-full" />
-            <span className="font-mono text-[8px] text-[var(--gold)] tracking-[0.2em]">KAIROS LAB</span>
+            <span className="font-mono text-[8px] text-[var(--gold)] tracking-[0.2em]">LUCK LAB</span>
           </div>
 
           {/* Middle — the reveal */}
@@ -153,7 +153,7 @@ export function ArchetypeReveal({ name, archetype, greek, tagline, scores }: Rev
           {/* Bottom CTA */}
           <div className={`text-center transition-opacity duration-700 delay-[2800ms] ${phase === "done" ? "opacity-100" : "opacity-0"}`}>
             <p className="text-[10px] text-[var(--text)]">Which archetype are you?</p>
-            <p className="font-mono text-[8px] text-[var(--gold)] tracking-[0.15em] mt-1">KAIROS.LAB/READING · FREE</p>
+            <p className="font-mono text-[8px] text-[var(--gold)] tracking-[0.15em] mt-1">LUCKLAB.APP/READING · FREE</p>
           </div>
         </div>
       </div>

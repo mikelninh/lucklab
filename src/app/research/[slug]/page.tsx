@@ -29,7 +29,7 @@ export async function generateMetadata({
   const article = loadArticleBySlug(slug);
   if (!article) return { title: "Not found" };
   return {
-    title: `${article.title} — Kairos Lab`,
+    title: `${article.title} — Luck Lab`,
     description: article.description,
     openGraph: {
       title: article.title,
@@ -120,7 +120,7 @@ export default async function ArticlePage({
           <p className="font-mono text-[11px] text-[var(--text-subtle)] mt-6 tracking-wider">
             {publishedDate.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }).toUpperCase()}
             {" · "}
-            KAIROS LAB
+            LUCK LAB
           </p>
         </header>
 

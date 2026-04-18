@@ -116,8 +116,8 @@ export default async function FullReadingPage({
           <h1 className="font-display text-3xl mb-4">Session not found</h1>
           <p className="text-[var(--text-muted)]">
             We could not retrieve the inputs that were paid for. Please email{" "}
-            <a href="mailto:hallo@kairos.lab" className="text-[var(--gold)]">
-              hallo@kairos.lab
+            <a href="mailto:hallo@lucklab.app" className="text-[var(--gold)]">
+              hallo@lucklab.app
             </a>
             .
           </p>
