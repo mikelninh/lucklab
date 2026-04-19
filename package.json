@@ -6,10 +6,18 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "video:preview": "npx remotion studio",
+    "video:render": "tsx scripts/render-tiktok.ts",
+    "video:render-week": "tsx scripts/render-tiktok.ts --week",
+    "video:render-all": "tsx scripts/render-tiktok.ts --all",
+    "video:render-no-vo": "tsx scripts/render-tiktok.ts --no-vo"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.89.0",
+    "@remotion/bundler": "^4.0.448",
+    "@remotion/cli": "^4.0.448",
+    "@remotion/renderer": "^4.0.448",
     "@stripe/stripe-js": "^9.2.0",
     "canvas": "^3.2.3",
     "framer-motion": "^12.38.0",
@@ -21,6 +29,7 @@
     "react-markdown": "^10.1.0",
     "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.1",
+    "remotion": "^4.0.448",
     "resend": "^6.11.0",
     "stripe": "^22.0.1",
     "zod": "^4.3.6"
@@ -30,9 +39,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^17.4.2",
     "eslint": "^9",
     "eslint-config-next": "16.2.3",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }

@@ -4,6 +4,7 @@
     { "path": "/api/cron/weekly-digest",  "schedule": "0 10 * * 5" },
     { "path": "/api/cron/seasonal",       "schedule": "0 8 * * *" },
     { "path": "/api/cron/review-request", "schedule": "0 11 * * *" },
-    { "path": "/api/cron/monthly-stats",  "schedule": "0 7 1 * *" }
+    { "path": "/api/cron/monthly-stats",  "schedule": "0 7 1 * *" },
+    { "path": "/api/cron/daily-tiktok",   "schedule": "0 6 * * *" }
   ]
 }
