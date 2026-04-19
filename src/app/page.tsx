@@ -6,6 +6,9 @@ import { TRADITIONS, MECHANISMS } from "@/lib/traditions";
 import { EmailCapture } from "@/components/EmailCapture";
 import { ReviewsRail } from "@/components/Reviews";
 import { DailyMoment } from "@/components/DailyMoment";
+import { HeroCelestial } from "@/components/HeroCelestial";
+import { ArchetypeGallery } from "@/components/ArchetypeGallery";
+import { TypewriterReading } from "@/components/TypewriterReading";
 
 export default function Home() {
   return (
@@ -13,51 +16,7 @@ export default function Home() {
       <Nav />
 
       {/* ============================== HERO ============================== */}
-      <section className="relative overflow-hidden border-b border-[var(--border)]">
-        <div className="absolute inset-0 starfield opacity-70 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--bg)] pointer-events-none" />
-
-        <div className="relative max-w-6xl mx-auto px-6 pt-20 pb-24 md:pt-32 md:pb-36">
-          <div className="inline-flex items-center gap-2 px-3 py-1 border border-[var(--border-bright)] rounded-full bg-[var(--surface)] mb-8">
-            <span className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full pulse-slow" />
-            <span className="eyebrow text-[10px]">v1.0 · live</span>
-          </div>
-
-          <h1 className="font-display text-[clamp(44px,7vw,88px)] leading-[1.02] tracking-[-0.02em] font-light text-balance max-w-4xl">
-            Luck is not random.
-            <br />
-            <em className="not-italic text-gold-gradient">It converges.</em>
-          </h1>
-
-          <p className="text-[17px] md:text-[19px] text-[var(--text-muted)] max-w-2xl mt-8 leading-relaxed text-pretty">
-            Twelve wisdom traditions &mdash; from Jungian psychology to Taoism, Kabbalah,
-            Vedanta, the I Ching &mdash; cross-reference a single conclusion:{" "}
-            <span className="text-[var(--text)]">luck responds to trainable inner states.</span>{" "}
-            Luck Lab studies the mechanism. Modern research confirms it.
-          </p>
-
-          <div className="flex flex-wrap gap-3 mt-10">
-            <Link href="/reading" className="btn btn-primary">
-              Begin Your Reading
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                <path d="M3 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
-            <Link href="#convergence" className="btn btn-ghost">
-              Read the research
-            </Link>
-          </div>
-
-          <p className="font-mono text-[11px] text-[var(--text-subtle)] mt-6 tracking-wider flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full pulse-slow" />
-              2,847 Readings taken
-            </span>
-            <span>&middot;</span>
-            <span>3 minutes &middot; free &middot; no account</span>
-          </p>
-        </div>
-      </section>
+      <HeroCelestial />
 
       {/* ============================== CONVERGENCE ============================== */}
       <section id="convergence" className="max-w-6xl mx-auto px-6 py-24 md:py-32">
@@ -159,9 +118,14 @@ export default function Home() {
 
       <div className="hairline-gold max-w-4xl mx-auto" />
 
+      {/* ============================== ARCHETYPES ============================== */}
+      <ArchetypeGallery />
+
+      <div className="hairline-gold max-w-4xl mx-auto" />
+
       {/* ============================== MECHANISMS ============================== */}
       <section className="max-w-6xl mx-auto px-6 py-24">
-        <div className="eyebrow mb-4">02 / the six levers</div>
+        <div className="eyebrow mb-4">03 / the six levers</div>
         <h2 className="font-display text-[36px] md:text-[46px] leading-[1.08] tracking-[-0.015em] font-light mb-4 text-balance max-w-3xl">
           Luck, decomposed into <em className="not-italic text-[var(--gold)]">six trainable mechanisms</em>.
         </h2>
@@ -212,32 +176,7 @@ export default function Home() {
               Begin Your Reading &middot; free
             </Link>
           </div>
-          <div className="card card-tyche relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--tyche)] opacity-10 blur-2xl rounded-full pointer-events-none" />
-            <div className="relative">
-              <div className="eyebrow eyebrow-tyche mb-2 text-[10px]">sample · the yielder</div>
-              <p className="font-display text-[16px] md:text-[17px] text-[var(--text)] leading-[1.65] italic mb-5">
-                &ldquo;Lena, you know something most people spend decades unlearning:
-                that gripping constricts. You chose &lsquo;I want to let go but
-                find myself gripping anyway.&rsquo; That sentence is the entire
-                Reading in miniature. You already know the answer. You do not yet
-                trust it with your full weight.&rdquo;
-              </p>
-              <div className="hairline mb-5" />
-              <p className="font-display text-[15px] text-[var(--text-muted)] leading-[1.65] italic mb-5">
-                &ldquo;Surrender: 44. You said &lsquo;I had just stopped trying to
-                control the outcome&rsquo; when asked what preceded luck. Yet you
-                chose &lsquo;I want to let go but find myself gripping anyway&rsquo;
-                about uncertainty. That is not a contradiction. It is a portrait.&rdquo;
-              </p>
-              <div className="h-12 bg-gradient-to-b from-transparent to-[var(--surface)] pointer-events-none" />
-              <div className="text-center">
-                <span className="font-mono text-[10px] text-[var(--tyche)] tracking-wider">
-                  THIS CONTINUES FOR 1,800+ WORDS · PERSONALISED TO YOU
-                </span>
-              </div>
-            </div>
-          </div>
+          <TypewriterReading />
         </div>
       </section>
 
@@ -253,7 +192,7 @@ export default function Home() {
           </div>
 
           <div>
-            <div className="eyebrow eyebrow-tyche mb-4">03 / tyche · ai oracle</div>
+            <div className="eyebrow eyebrow-tyche mb-4">04 / tyche · ai oracle</div>
             <h2 className="font-display text-[40px] md:text-[54px] leading-[1.05] tracking-[-0.015em] font-light text-balance">
               Meet <em className="not-italic text-[var(--tyche)]">Tyche</em>.
             </h2>
@@ -306,7 +245,7 @@ export default function Home() {
       <section className="max-w-6xl mx-auto px-6 py-24">
         <div className="grid md:grid-cols-[1fr_1fr] gap-12 items-center">
           <div>
-            <div className="eyebrow mb-4">04 / open access</div>
+            <div className="eyebrow mb-4">05 / open access</div>
             <h2 className="font-display text-[36px] md:text-[44px] leading-[1.08] tracking-[-0.015em] font-light text-balance">
               The Luck Convergence Index.
             </h2>
@@ -343,7 +282,7 @@ export default function Home() {
 
       {/* ============================== PRICING ============================== */}
       <section id="pricing" className="max-w-6xl mx-auto px-6 py-24">
-        <div className="eyebrow mb-4">05 / four doors</div>
+        <div className="eyebrow mb-4">06 / four doors</div>
         <h2 className="font-display text-[36px] md:text-[46px] leading-[1.08] tracking-[-0.015em] font-light mb-4 text-balance max-w-3xl">
           From a glimpse to a <em className="not-italic text-[var(--gold)]">daily practice</em>.
         </h2>
