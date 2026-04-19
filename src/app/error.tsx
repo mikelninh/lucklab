@@ -19,13 +19,15 @@ export default function ErrorPage({
   return (
     <div className="max-w-2xl mx-auto px-6 py-24 md:py-32 text-center min-h-screen flex flex-col justify-center">
       <TycheSigil size={72} className="mx-auto mb-8 opacity-50" glow={false} />
-      <div className="eyebrow eyebrow-muted mb-4">tyche stumbled</div>
+      <div className="eyebrow eyebrow-muted mb-4">tyche is not responding</div>
       <h1 className="font-display text-[40px] md:text-[52px] leading-[1.08] font-light mb-5 text-balance">
-        Something went <em className="not-italic text-[var(--gold)]">sideways</em>.
+        Tyche is <em className="not-italic text-[var(--gold)]">not responding</em>.
       </h1>
       <p className="text-[15px] text-[var(--text-muted)] max-w-md mx-auto leading-relaxed mb-2">
-        The oracle pipeline encountered a rupture. It happens rarely &mdash; the
-        fix is usually retrying.
+        The page threw an exception before it finished rendering. Retry in a
+        moment. If it happens twice, email{" "}
+        <a href="mailto:mikel_ninh@yahoo.de" className="text-[var(--gold)]">mikel_ninh@yahoo.de</a>{" "}
+        with the error ID below.
       </p>
       {error.digest && (
         <p className="font-mono text-[10px] text-[var(--text-subtle)] mt-4 tracking-wider">

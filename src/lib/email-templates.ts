@@ -1,6 +1,7 @@
 /**
  * Email templates for the drip funnel.
- * All share a common shell: dark background, antique gold accent, Fraunces serif.
+ * All share a common shell: dark background, antique gold accent, Fraunces serif
+ * (with Georgia as the fallback for clients that strip webfonts).
  *
  * Each returns { subject, html } — ready to pass to Resend.
  */
@@ -14,7 +15,7 @@ function wrap(inner: string, preheader: string = ""): string {
   return `<!doctype html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background:#0a0a0d;font-family:Georgia,serif;color:#ededee;">
+<body style="margin:0;padding:0;background:#0a0a0d;font-family:'Fraunces',Georgia,serif;color:#ededee;">
   ${preheader ? `<div style="display:none;max-height:0;overflow:hidden;color:#0a0a0d;">${preheader}</div>` : ""}
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#0a0a0d;">
     <tr><td align="center" style="padding:40px 20px;">
@@ -24,7 +25,7 @@ function wrap(inner: string, preheader: string = ""): string {
           ${inner}
         </td></tr>
       </table>
-      <p style="font-family:'SF Mono',monospace;font-size:10px;color:#5a5a66;letter-spacing:0.1em;margin:24px 0 0;">LUCK LAB &middot; STUDYING WHAT TRADITIONS KNEW BEFORE SCIENCE CAUGHT UP</p>
+      <p style="font-family:'SF Mono',monospace;font-size:10px;color:#5a5a66;letter-spacing:0.1em;margin:24px 0 0;">Mikel Ninh, Berlin &middot; <a href="${APP_URL}" style="color:#5a5a66;text-decoration:underline;">lucklab.app</a></p>
       <p style="font-family:'SF Mono',monospace;font-size:10px;color:#5a5a66;margin:6px 0 0;">
         <a href="${APP_URL}/unsubscribe?email={{email}}" style="color:#5a5a66;text-decoration:underline;">unsubscribe</a>
       </p>
@@ -34,7 +35,7 @@ function wrap(inner: string, preheader: string = ""): string {
 }
 
 function h1(text: string) {
-  return `<h1 style="font-family:Georgia,serif;font-size:28px;font-weight:400;line-height:1.2;color:#ededee;margin:0 0 20px;">${text}</h1>`;
+  return `<h1 style="font-family:'Fraunces',Georgia,serif;font-size:28px;font-weight:400;line-height:1.2;color:#ededee;margin:0 0 20px;">${text}</h1>`;
 }
 function p(text: string) {
   return `<p style="font-size:15px;color:#c9d1d9;line-height:1.75;margin:0 0 16px;">${text}</p>`;
@@ -178,10 +179,10 @@ export function primerEmail(name?: string): Shell {
       ${p(`${greeting}`)}
       ${p(`The free Reading shows you which of six archetypes you are &mdash; the Seer, the Wanderer, the Steerer, the Yielder, the Weaver, or the Reader.`)}
       ${p(`That is the beginning. The Primer is the rest: your full six-lever scores, a deep read of your dominant and quietest levers, an essay on the tradition that speaks most to your pattern (with a verified primary source), and a seven-day practice calibrated to your specific profile.`)}
-      ${p(`It is nine euros. Delivered instantly. Yours forever.`)}
-      ${button(`${APP_URL}/reading`, "Unlock the Primer · €9", "gold")}
+      ${p(`€9 · one-time. The page is yours to reopen whenever.`)}
+      ${button(`${APP_URL}/reading`, "Open the Primer · €9", "gold")}
       ${hr()}
-      ${pMuted(`Or go deeper with the full Reading (&euro;29) &mdash; a personal address from Tyche, three tradition deep-dives, a 30-day protocol, your daily ritual, a 90-day recalibration built in, and a Gift Reading to send to someone you love.`)}
+      ${pMuted(`The full Reading (&euro;29 · one-time) adds a personal address from Tyche, three tradition deep-dives, a 30-day protocol, your daily ritual, a 90-day recalibration, and a Gift Reading to send to someone you love.`)}
       ${signature()}`,
       "The Primer is where most readers land."
     ),
@@ -239,27 +240,28 @@ export function reviewRequestEmail(
 }
 
 // ============================================================
-// Abandoned checkout · recovery with discount code
+// Abandoned checkout · return-link, no incentive
+// We do not discount to coerce completion. Prices are structure, not sale.
+// The discountCode and amountOff parameters are kept for API compatibility
+// but intentionally unused.
 // ============================================================
 export function abandonedCheckoutEmail(
   tier: "primer" | "full",
-  discountCode: string,
+  _discountCode: string,
   _amountOff: number,
 ): Shell {
-  const label = tier === "primer" ? "the Primer" : "the Full Reading";
+  const label = tier === "primer" ? "the Primer" : "the Luck Protocol";
+  const price = tier === "primer" ? "€9 · one-time" : "€29 · one-time";
   return {
-    subject: `Tyche is still holding ${label}`,
+    subject: `Your ${label} is still here`,
     html: wrap(
-      `${h1("She waits.")}
-      ${p(`You began checkout for ${label} and did not complete. No judgement &mdash; these are the moments the Reading is actually about. The pause before the yes.`)}
-      ${p(`Tyche has held your reading in its unfinished form. If you want to complete, your discount code takes &euro;5 off:`)}
-      <p style="text-align:center;margin:28px 0;">
-        <code style="font-family:'SF Mono',monospace;font-size:20px;color:#c9a961;background:#1c1c25;padding:12px 24px;border:1px solid #35353f;border-radius:6px;letter-spacing:0.2em;">${discountCode}</code>
-      </p>
-      ${button(`${APP_URL}/reading/preview`, "Complete your Reading", "gold")}
-      ${pMuted(`Code expires in 72 hours. One use per person.`)}
+      `${h1("Your page is still open.")}
+      ${p(`You began checkout for ${label} and did not finish. That is a real answer too &mdash; the Reading is about the pause before the yes as much as the yes.`)}
+      ${p(`If you want to come back, the page is where you left it. ${price}. No subscription. 100% refund if it does not land.`)}
+      ${button(`${APP_URL}/reading/preview`, `Return to ${label}`, "gold")}
+      ${pMuted(`If you would rather not, no follow-up from me.`)}
       ${signature()}`,
-      `Tyche is still holding ${label}, and the code knocks €5 off.`
+      `Your ${label} page is still open, no discount and no pressure.`
     ),
   };
 }

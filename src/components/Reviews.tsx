@@ -62,7 +62,7 @@ function ReviewCard({ review }: { review: Review }) {
           )}
         </div>
         <div className="font-mono text-[10px] text-[var(--gold)] tracking-wider mt-1 uppercase">
-          {review.archetype || "—"} &middot; {review.tier === "full" ? "Full Reading" : review.tier === "primer" ? "Primer" : "Reading"}
+          {review.archetype || "—"} &middot; {review.tier === "full" ? "Luck Protocol" : review.tier === "primer" ? "Archetype Primer" : "Reading"}
         </div>
       </figcaption>
     </figure>
@@ -95,7 +95,7 @@ function EmptyState({ total }: { total: number }) {
         If the Reading lands for you, you may be the first quote on this page.
       </p>
       <Link href="/reading" className="btn btn-ghost">
-        Begin Your Reading &middot; free
+        Take the Reading
       </Link>
     </section>
   );

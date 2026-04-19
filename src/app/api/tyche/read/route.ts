@@ -122,7 +122,7 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     console.error("[tyche/read]", err);
     return NextResponse.json(
-      { error: "Tyche encountered a rupture in the oracle pipeline." },
+      { error: "Tyche is not responding. Retry in a moment." },
       { status: 500 },
     );
   }

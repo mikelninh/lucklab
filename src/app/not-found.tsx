@@ -44,7 +44,7 @@ export default function NotFound() {
 
           <p className="text-[16px] text-[var(--text-muted)] max-w-lg mx-auto leading-relaxed mb-4">
             Richard Wiseman found that lucky people notice opportunities in
-            unexpected places &mdash; even dead ends. You just proved his point
+            unexpected places &mdash; even dead ends. You proved his point
             by being here.
           </p>
 
@@ -71,7 +71,7 @@ export default function NotFound() {
 
           <div className="flex gap-3 justify-center flex-wrap">
             <Link href="/reading" className="btn btn-primary">
-              Begin Your Reading &middot; free
+              Take the Reading
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
                 <path d="M3 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

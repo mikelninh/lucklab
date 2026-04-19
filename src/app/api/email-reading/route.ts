@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
     from: FROM,
     to: email,
     subject: "Your Reading from Tyche — saved",
-    html: `<!doctype html><html><body style="margin:0;padding:40px 20px;background:#0a0a0d;font-family:Georgia,serif;color:#ededee;">
+    html: `<!doctype html><html><body style="margin:0;padding:40px 20px;background:#0a0a0d;font-family:'Fraunces',Georgia,serif;color:#ededee;">
 <div style="max-width:560px;margin:0 auto;background:#16161d;border:1px solid #25252f;border-radius:6px;padding:40px;">
   <p style="font-family:monospace;letter-spacing:0.18em;text-transform:uppercase;color:#c9a961;font-size:11px;margin:0 0 24px;">TYCHE · LUCK LAB</p>
   <h1 style="font-size:28px;font-weight:400;line-height:1.2;color:#ededee;margin:0 0 20px;">Your Reading is saved.</h1>

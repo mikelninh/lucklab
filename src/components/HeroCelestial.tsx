@@ -198,10 +198,10 @@ export function HeroCelestial() {
         >
           <span className="inline-flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full pulse-slow" />
-            2,847 Readings taken
+            Tyche is listening
           </span>
           <span>·</span>
-          <span>3 minutes · free · no account</span>
+          <span>3 minutes · no account · no charge</span>
         </p>
       </div>
 

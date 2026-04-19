@@ -69,7 +69,7 @@ export function EmailReading({ sessionId }: { sessionId: string }) {
       </div>
       {state === "error" && (
         <p className="text-[11px] text-[var(--danger)] mt-2 font-mono">
-          Failed to send. Try again.
+          Email service did not accept the request. Retry in a moment.
         </p>
       )}
     </form>

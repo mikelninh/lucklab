@@ -20,7 +20,7 @@ export function EmailCapture() {
       if (!res.ok) throw new Error((await res.json()).error || "Subscribe failed");
       setState("sent");
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong");
+      setError(err instanceof Error ? err.message : "Subscribe failed. Retry in a moment.");
       setState("error");
     }
   }
@@ -29,7 +29,7 @@ export function EmailCapture() {
     <div className="card card-gold">
       <div className="eyebrow mb-3">the convergence index</div>
       <h3 className="font-display text-[22px] text-[var(--text)] mb-3">
-        Free research paper &middot; PDF
+        Research paper &middot; PDF
       </h3>
       <p className="text-[13px] text-[var(--text-muted)] mb-5 leading-relaxed">
         Enter your email. We send you the Index as a PDF and occasional research
@@ -50,7 +50,7 @@ export function EmailCapture() {
               Read the Index →
             </a>
             <a href="/reading" className="btn btn-primary text-[12px] !py-2 !px-4">
-              Begin Reading →
+              Take the Reading →
             </a>
           </div>
         </div>

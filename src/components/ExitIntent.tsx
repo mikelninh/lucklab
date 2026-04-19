@@ -85,10 +85,10 @@ export function ExitIntent() {
           }}
           className="btn btn-primary"
         >
-          Begin Your Reading · free
+          Take the Reading
         </Link>
         <p className="font-mono text-[10px] text-[var(--text-subtle)] mt-4 tracking-wider">
-          2,847 READERS AND COUNTING
+          BE AMONG THE FIRST · QUIETLY OPEN
         </p>
       </div>
     </div>

@@ -370,7 +370,7 @@ export function ArchetypeGallery() {
                 </svg>
               </Link>
               <span className="font-mono text-[11px] text-[var(--text-subtle)] tracking-wider self-center">
-                3 minutes · 10 inputs · free
+                3 minutes · 10 inputs · no account
               </span>
             </div>
           </div>

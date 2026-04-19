@@ -62,9 +62,9 @@ export default function ReadingPreviewPage() {
       if (!res.ok) throw new Error(data.error || `Checkout failed (${res.status})`);
       if (data.url) window.location.href = data.url;
     } catch (err) {
-      const msg = err instanceof Error ? err.message : "Checkout failed";
+      const msg = err instanceof Error ? err.message : "Stripe did not return a checkout URL.";
       console.error("[kairos:checkout]", msg);
-      alert(msg.slice(0, 150));
+      alert(`Stripe is not responding. Retry in a moment.\n\nDetail: ${msg.slice(0, 140)}`);
       setLoadingTier(null);
     }
   }
@@ -94,7 +94,7 @@ export default function ReadingPreviewPage() {
             <TycheSigil size={88} />
           </div>
           <div className="eyebrow eyebrow-tyche mb-4">
-            your reading &middot; free glimpse
+            your reading &middot; first glimpse
           </div>
           <h1 className="font-display text-[56px] md:text-[80px] leading-[0.95] tracking-[-0.02em] font-light mt-3">
             <em className="not-italic text-gold-gradient">{archetype.name}</em>
@@ -201,7 +201,7 @@ export default function ReadingPreviewPage() {
 
         {/* SAVE YOUR READING — email capture at highest-intent moment */}
         <div className="mb-12 card card-gold text-center">
-          <div className="eyebrow mb-3">yours free · 11,000-word research paper</div>
+          <div className="eyebrow mb-3">open access · 11,000-word research paper</div>
           <h3 className="font-display text-[20px] text-[var(--text)] mb-3">
             The Luck Convergence Index
           </h3>
@@ -211,7 +211,7 @@ export default function ReadingPreviewPage() {
             print and keep on their desk.
           </p>
           <p className="font-mono text-[11px] text-[var(--gold)] tracking-wider mb-4">
-            50 MIN READ · FREE · INSTANT DELIVERY
+            50 MIN READ · PDF · SENT TO YOUR INBOX
           </p>
           <form
             className="flex gap-2 max-w-sm mx-auto"
@@ -280,7 +280,7 @@ export default function ReadingPreviewPage() {
               <div className="flex items-baseline justify-between mb-3">
                 <span className="kbd text-[11px]">tier 1 · primer</span>
                 <span className="font-mono text-[10px] text-[var(--gold)] tracking-wider">
-                  INSTANT
+                  ONE-TIME
                 </span>
               </div>
               <h3 className="font-display text-[26px] font-normal text-[var(--text)] mb-1">
@@ -294,16 +294,16 @@ export default function ReadingPreviewPage() {
                 <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span>A deep read of your dominant & quietest levers</li>
                 <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span>Tradition essay &mdash; with a real primary-source quote</li>
                 <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span>A seven-day practice you start today</li>
-                <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span>Delivered instantly &middot; yours forever</li>
+                <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span>Delivered to your email · yours to keep</li>
               </ul>
               <div className="flex items-baseline gap-3 mb-4">
                 <span className="font-display text-[44px] text-[var(--text)]">€9</span>
                 <span className="font-mono text-[11px] text-[var(--gold)] tracking-wider">
-                  LOW-RISK UNLOCK
+                  ONE-TIME
                 </span>
               </div>
               <span className="btn btn-ghost justify-center w-full">
-                {loadingTier === "primer" ? "Redirecting…" : "Unlock for €9 →"}
+                {loadingTier === "primer" ? "Redirecting…" : "Open the Primer · €9 →"}
               </span>
             </button>
 
@@ -318,31 +318,30 @@ export default function ReadingPreviewPage() {
                 <div className="flex items-baseline justify-between mb-3">
                   <span className="kbd kbd-tyche text-[11px]">7 items · one price</span>
                   <span className="font-mono text-[10px] text-[var(--tyche)] tracking-wider">
-                    MOST CHOSEN
+                    UNTIL MAY 15
                   </span>
                 </div>
                 <h3 className="font-display text-[26px] font-normal text-[var(--text)] mb-1">
-                  Tyche&rsquo;s Complete Reading
+                  The Luck Protocol
                 </h3>
                 <p className="text-[13px] text-[var(--text-subtle)] mb-4">
-                  7 items worth €115. Yours for €29.
+                  €29 · one-time · 30-day plan.
                 </p>
                 <ul className="space-y-2 text-[13px] text-[var(--text-muted)] mb-6 flex-1">
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">1.</span><strong className="text-[var(--text)] font-medium">Personalised Reading</strong> — by name, to your question</li>
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">2.</span><strong className="text-[var(--text)] font-medium">30-day protocol</strong> — week-by-week for your archetype</li>
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">3.</span><strong className="text-[var(--text)] font-medium">3 tradition deep-dives</strong> — with source quotes + practices</li>
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">4.</span><strong className="text-[var(--text)] font-medium">Convergence Index</strong> — 11,000-word research paper</li>
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">5.</span><strong className="text-[var(--tyche-bright)] font-medium">90-day Return</strong> — free recalibration</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">5.</span><strong className="text-[var(--tyche-bright)] font-medium">90-day Return</strong> — recalibration at no charge</li>
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">6.</span><strong className="text-[var(--tyche-bright)] font-medium">Archetype Reveal Card</strong> — 4 styles, shareable</li>
                   <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">7.</span><strong className="text-[var(--tyche-bright)] font-medium">Synchronicity Journal</strong> — 30-day tracking template</li>
                 </ul>
                 <div className="flex items-baseline gap-3 mb-4">
                   <span className="font-display text-[44px] text-[var(--text)]">€29</span>
-                  <span className="font-mono text-[11px] text-[var(--text-subtle)] line-through">€115</span>
-                  <span className="font-mono text-[11px] text-[var(--tyche)] tracking-wider">LAUNCH · 75% OFF</span>
+                  <span className="font-mono text-[11px] text-[var(--tyche)] tracking-wider">€29 · one-time · 30-day plan</span>
                 </div>
                 <span className="btn btn-primary justify-center w-full">
-                  {loadingTier === "full" ? "Redirecting…" : "Unlock all 7 for €29 →"}
+                  {loadingTier === "full" ? "Redirecting…" : "Open the Protocol · €29 →"}
                 </span>
               </div>
             </button>
@@ -350,14 +349,14 @@ export default function ReadingPreviewPage() {
 
           <div className="text-center mt-8 space-y-2">
             <p className="text-[12px] text-[var(--text-subtle)] font-mono tracking-wider">
-              STRIPE SECURE · INSTANT DELIVERY
+              STRIPE SECURE · DELIVERED TO YOUR EMAIL
             </p>
             <p className="text-[13px] text-[var(--gold)] font-mono tracking-wider flex items-center justify-center gap-2">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
                 <path d="M4.5 7l2 2 3.5-3.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
-              100% REFUND GUARANTEE — IF IT DOESN&rsquo;T LAND, EMAIL US
+              100% REFUND — IF IT DOESN&rsquo;T LAND, EMAIL US
             </p>
             {/* Social proof at the purchase moment */}
             <blockquote className="mt-6 border-l-2 border-[var(--gold-dim)] pl-4 text-left">
@@ -380,7 +379,7 @@ export default function ReadingPreviewPage() {
           <p className="text-[13px] text-[var(--text-muted)] italic mb-5">{archetype.tagline}</p>
           <button
             onClick={() => {
-              const text = `I just took the Kairos Reading. Tyche called me ${archetype.name} — "${archetype.tagline}". What archetype are you?\n\n${window.location.origin}/reading`;
+              const text = `I took the Luck Lab Reading. Tyche called me ${archetype.name} — "${archetype.tagline}". What archetype are you?\n\n${window.location.origin}/reading`;
               if (navigator.share) {
                 navigator.share({ title: `I am ${archetype.name}`, text, url: `${window.location.origin}/reading` }).catch(() => {});
               } else {

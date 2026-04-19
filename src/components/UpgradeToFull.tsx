@@ -41,7 +41,8 @@ export function UpgradeToFull({
       if (data.url) window.location.href = data.url;
     } catch (err) {
       console.error("[upgrade]", err);
-      alert(err instanceof Error ? err.message : "Upgrade failed");
+      const msg = err instanceof Error ? err.message : "Stripe did not return a checkout URL.";
+      alert(`Stripe is not responding. Retry in a moment.\n\nDetail: ${msg.slice(0, 140)}`);
       setLoading(false);
     }
   }
@@ -50,11 +51,11 @@ export function UpgradeToFull({
     <div className="mt-16 card card-tyche text-center">
       <div className="eyebrow eyebrow-tyche mb-3">go deeper</div>
       <h3 className="font-display text-[28px] md:text-[32px] font-light mb-4 text-balance">
-        Ready for the Full Reading?
+        Ready for the Luck Protocol?
       </h3>
       <p className="text-[14px] text-[var(--text-muted)] mb-4 max-w-md mx-auto leading-relaxed">
-        The Primer shows you where you stand. The Full Reading gives you a
-        30-day map, three tradition-specific practices, a daily ritual, and a
+        The Primer shows you where you stand. The Luck Protocol gives you a
+        30-day plan, three tradition-specific practices, a daily ritual, and a
         90-day Return — all written to you by name.
       </p>
       <p className="text-[13px] text-[var(--gold)] font-mono tracking-wider mb-6 flex items-center justify-center gap-2">
@@ -62,17 +63,17 @@ export function UpgradeToFull({
           <circle cx="7" cy="7" r="6" stroke="currentColor" strokeWidth="1.2" />
           <path d="M4.5 7l2 2 3.5-3.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-        NO RE-QUIZ NEEDED · YOUR ANSWERS ARE SAVED
+        NO RE-QUIZ · YOUR ANSWERS ARE SAVED
       </p>
       <button
         onClick={upgrade}
         disabled={loading}
         className="btn btn-primary disabled:opacity-50"
       >
-        {loading ? "Redirecting to checkout…" : "Unlock the Full Reading · €29"}
+        {loading ? "Redirecting to checkout…" : "Open the Protocol · €29"}
       </button>
       <p className="font-mono text-[10px] text-[var(--text-subtle)] mt-4 tracking-wider">
-        100% REFUND GUARANTEE · INSTANT DELIVERY
+        €29 · ONE-TIME · 100% REFUND
       </p>
     </div>
   );

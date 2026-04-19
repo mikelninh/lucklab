@@ -77,7 +77,7 @@ export default function ConvergenceIndexPage() {
             You have read the map. Now take three minutes for the specific one.
           </p>
           <Link href="/reading" className="btn btn-primary">
-            Begin Your Reading · free
+            Take the Reading
           </Link>
           <div className="mt-8">
             <DownloadPdfButton label="Save this Index as PDF" />

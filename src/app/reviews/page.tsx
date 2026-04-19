@@ -40,7 +40,7 @@ export default function ReviewsPage() {
               No readers have written back yet. Luck Lab launched in April 2026.
             </p>
             <Link href="/reading" className="btn btn-primary">
-              Begin Your Reading · free
+              Take the Reading
             </Link>
             <p className="text-[12px] text-[var(--text-subtle)] font-mono tracking-wider mt-4">
               YOU MAY BE THE FIRST QUOTE ON THIS PAGE
@@ -61,7 +61,7 @@ export default function ReviewsPage() {
                       {r.location && <span className="text-[var(--text-subtle)]">, {r.location}</span>}
                     </span>
                     <span className="font-mono text-[10px] text-[var(--gold)] tracking-wider uppercase">
-                      {r.archetype || "Reader"} · {r.tier === "full" ? "Full Reading" : r.tier === "primer" ? "Primer" : "Free Reading"}
+                      {r.archetype || "Reader"} · {r.tier === "full" ? "Luck Protocol" : r.tier === "primer" ? "Archetype Primer" : "Reading"}
                     </span>
                   </figcaption>
                 </figure>

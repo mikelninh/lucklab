@@ -114,8 +114,8 @@ export default function AboutPage() {
             <p>
               We will not lock you into a subscription. We found subscriptions
               for things like this leave a sour taste. Buy the Reading once.
-              Keep it forever. Come back in 90 days for a free recalibration,
-              baked in.
+              Keep it forever. Come back in 90 days for a recalibration at
+              no additional charge, baked in.
             </p>
           </div>
         </section>
@@ -192,7 +192,7 @@ export default function AboutPage() {
 
         <div className="mt-16 pt-12 border-t border-[var(--border)] text-center">
           <Link href="/reading" className="btn btn-primary">
-            Begin Your Reading &middot; free
+            Take the Reading
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <path d="M3 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>

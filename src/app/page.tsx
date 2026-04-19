@@ -4,7 +4,6 @@ import { Footer } from "@/components/Footer";
 import { TycheSigil } from "@/components/TycheSigil";
 import { TRADITIONS, MECHANISMS } from "@/lib/traditions";
 import { EmailCapture } from "@/components/EmailCapture";
-import { ReviewsRail } from "@/components/Reviews";
 import { DailyMoment } from "@/components/DailyMoment";
 import { HeroCelestial } from "@/components/HeroCelestial";
 import { ArchetypeGallery } from "@/components/ArchetypeGallery";
@@ -173,7 +172,7 @@ export default function Home() {
               you and finds patterns you hadn&rsquo;t seen.
             </p>
             <Link href="/reading" className="btn btn-primary mt-8">
-              Begin Your Reading &middot; free
+              Take the Reading
             </Link>
           </div>
           <TypewriterReading />
@@ -287,14 +286,15 @@ export default function Home() {
           From a glimpse to a <em className="not-italic text-[var(--gold)]">daily practice</em>.
         </h2>
         <p className="text-[15px] text-[var(--text-muted)] max-w-2xl mb-14 leading-relaxed">
-          Four tiers, each answering a different question. Start free. Step in when
+          Three tiers, each answering a different question. Step in when
           you&rsquo;re ready &mdash; not before.
         </p>
 
         <div className="grid md:grid-cols-3 gap-5 items-start">
-          {/* Free */}
+          {/* Reading */}
           <div className="card flex flex-col">
-            <h3 className="font-display text-[28px] font-normal mb-1">Free</h3>
+            <h3 className="font-display text-[28px] font-normal mb-1">The Reading</h3>
+            <p className="text-[13px] text-[var(--text-subtle)] italic mb-1">no charge · 3 minutes</p>
             <p className="text-[14px] text-[var(--text-subtle)] italic mb-5">Who am I?</p>
             <ul className="space-y-3 text-[14px] text-[var(--text-muted)] mb-8">
               <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Your archetype + Greek name</li>
@@ -302,13 +302,14 @@ export default function Home() {
               <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Convergence Index (~50 min read)</li>
             </ul>
             <Link href="/reading" className="btn btn-ghost justify-center mt-auto">
-              Begin free →
+              Take the Reading →
             </Link>
           </div>
 
           {/* Primer — €9 */}
           <div className="card card-gold flex flex-col">
-            <h3 className="font-display text-[28px] font-normal mb-1">Primer <span className="font-display text-[28px] text-[var(--gold)]">€9</span></h3>
+            <h3 className="font-display text-[28px] font-normal mb-1">Archetype Primer <span className="font-display text-[28px] text-[var(--gold)]">€9</span></h3>
+            <p className="text-[13px] text-[var(--text-subtle)] italic mb-1">€9 · one-time</p>
             <p className="text-[14px] text-[var(--text-subtle)] italic mb-5">Show me my pattern.</p>
             <ul className="space-y-3 text-[14px] text-[var(--text-muted)] mb-8">
               <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Full six-lever profile</li>
@@ -317,7 +318,7 @@ export default function Home() {
               <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Seven-day practice</li>
             </ul>
             <Link href="/reading" className="btn btn-ghost justify-center mt-auto">
-              Unlock Primer →
+              Open the Primer →
             </Link>
           </div>
 
@@ -327,22 +328,23 @@ export default function Home() {
             <div className="relative">
               <div className="flex items-baseline justify-between mb-1">
                 <h3 className="font-display text-[28px] font-normal">
-                  Reading <span className="text-[var(--tyche)]">€29</span>
+                  Luck Protocol <span className="text-[var(--tyche)]">€29</span>
                 </h3>
-                <span className="font-mono text-[10px] text-[var(--tyche)] tracking-wider">LAUNCH</span>
+                <span className="font-mono text-[10px] text-[var(--tyche)] tracking-wider">UNTIL MAY 15</span>
               </div>
+              <p className="text-[13px] text-[var(--text-subtle)] italic mb-1">€29 · one-time · 30-day plan</p>
               <p className="text-[14px] text-[var(--text-subtle)] italic mb-5">What&rsquo;s my plan?</p>
               <ul className="space-y-3 text-[14px] text-[var(--text-muted)] mb-8">
                 <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>Personalised Reading addressed to you by name</span></li>
                 <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>30-day protocol, week-by-week</span></li>
                 <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>3 tradition deep-dives with source quotes</span></li>
                 <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>Your daily ritual</span></li>
-                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>90-day Return (free recalibration)</span></li>
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>90-day Return — recalibration at no charge</span></li>
                 <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>Shareable Archetype Card (4 styles)</span></li>
                 <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span><span>Synchronicity Journal log template</span></li>
               </ul>
               <Link href="/reading" className="btn btn-primary justify-center w-full">
-                Unlock Reading →
+                Open the Reading →
               </Link>
               <p className="font-mono text-[10px] text-[var(--text-subtle)] text-center mt-3 tracking-wider">
                 100% REFUND GUARANTEE
@@ -354,9 +356,9 @@ export default function Home() {
         {/* clarity rail */}
         <div className="mt-14 grid md:grid-cols-3 gap-4 text-center">
           {[
-            { tier: "Free", q: "Who am I?" },
-            { tier: "€9 Primer", q: "Show me more." },
-            { tier: "€29 Reading", q: "What's my plan — and what in 90 days?" },
+            { tier: "The Reading", q: "Who am I?" },
+            { tier: "€9 · Primer", q: "Show me more." },
+            { tier: "€29 · Luck Protocol", q: "What's my plan — and what in 90 days?" },
           ].map((x) => (
             <div key={x.tier} className="border-t border-[var(--border)] pt-3">
               <div className="font-mono text-[10px] text-[var(--gold)] tracking-wider mb-1">
@@ -369,18 +371,17 @@ export default function Home() {
           ))}
         </div>
 
-        {/* urgency + reassurance */}
+        {/* price structure + guarantee */}
         <div className="mt-14 card card-gold max-w-xl mx-auto text-center">
-          <div className="eyebrow mb-2">launch pricing</div>
+          <div className="eyebrow mb-2">pricing</div>
           <p className="font-display text-[20px] text-[var(--text)] mb-2">
-            €29 <span className="text-[var(--text-muted)] line-through text-[16px]">€49</span>{" "}
-            — launch pricing ends <span className="text-[var(--gold-bright)]">May 15, 2026</span>.
+            €29 · Luck Protocol · one-time · 30-day plan
           </p>
           <p className="text-[13px] text-[var(--text-muted)] mb-1">
-            After that, Tyche&rsquo;s Reading moves to €49. The Primer stays at €9.
+            Moves to €49 on May 15, 2026. The Primer stays at €9.
           </p>
           <p className="font-mono text-[10px] text-[var(--text-subtle)] tracking-wider mt-3">
-            NO SUBSCRIPTION · BUY ONCE · YOURS FOREVER · 100% REFUND GUARANTEE
+            NO SUBSCRIPTION · ONE-TIME · 100% REFUND
           </p>
         </div>
       </section>
@@ -388,8 +389,11 @@ export default function Home() {
       {/* ============================== DAILY MOMENT ============================== */}
       <DailyMoment />
 
-      {/* ============================== REVIEWS ============================== */}
-      <ReviewsRail />
+      {/* Reviews section removed from home on 2026-04-18.
+          Stand-in reviews live in /content/reviews/ and violate the identity
+          rule against invented social-proof on a day-2 product. The /reviews
+          route remains live for SEO and will be the home for real quotes once
+          we have three we are proud of. See IDENTITY_SYSTEM.md rule 4. */}
 
       {/* ============================== CLOSING ============================== */}
       <section className="max-w-3xl mx-auto px-6 py-24 text-center">
@@ -402,7 +406,7 @@ export default function Home() {
         </p>
         <div className="mt-10">
           <Link href="/reading" className="btn btn-primary">
-            Begin Your Reading &middot; 3 minutes, free
+            Take the Reading · 3 minutes
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <path d="M3 2l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>

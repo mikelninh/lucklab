@@ -93,7 +93,7 @@ export default function ReadingPage() {
         data = JSON.parse(text);
       } catch {
         console.error("[kairos] Invalid JSON:", text.slice(0, 200));
-        throw new Error("Tyche returned something unexpected.");
+        throw new Error("Tyche returned malformed JSON. Retry in a moment.");
       }
       sessionStorage.setItem(
         "kairos:reading",
@@ -102,9 +102,9 @@ export default function ReadingPage() {
       router.push("/reading/preview");
     } catch (err) {
       setSubmitting(false);
-      const msg = err instanceof Error ? err.message : "Unknown error";
+      const msg = err instanceof Error ? err.message : "Request failed.";
       console.error("[kairos] consult failed:", msg);
-      alert(`Tyche stumbled: ${msg.slice(0, 120)}`);
+      alert(`Tyche is not responding. Retry in a moment.\n\nDetail: ${msg.slice(0, 120)}`);
     }
   }
 
@@ -361,7 +361,7 @@ export default function ReadingPage() {
                   </svg>
                 </button>
                 <p className="font-mono text-[11px] text-[var(--text-subtle)] mt-4 tracking-wider">
-                  FREE · ~10 SECONDS
+                  ~10 SECONDS
                 </p>
               </div>
             ) : (

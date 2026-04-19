@@ -37,11 +37,22 @@ export function Footer() {
         </div>
         <div className="hairline mt-12 mb-6" />
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-          <p className="font-mono text-[11px] text-[var(--text-subtle)] tracking-wider">
-            © 2026 LUCK LAB · STUDYING WHAT TRADITIONS KNEW BEFORE SCIENCE CAUGHT UP
+          <p className="font-mono text-[11px] text-[var(--text-subtle)] tracking-wider leading-relaxed">
+            Built by Mikel Ninh, Berlin.{" "}
+            <Link href="/impressum" className="hover:text-[var(--gold)]">Impressum</Link> ·{" "}
+            <Link href="/privacy" className="hover:text-[var(--gold)]">Privacy</Link> ·{" "}
+            <Link href="/terms" className="hover:text-[var(--gold)]">Terms</Link> ·{" "}
+            <a
+              href="https://github.com/mikelninh/kairos/blob/main/CHANGELOG.md"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-[var(--gold)]"
+            >
+              Changelog
+            </a>
           </p>
-          <p className="font-mono text-[11px] text-[var(--text-subtle)]">
-            v1.0 · live
+          <p className="font-mono text-[11px] text-[var(--text-subtle)] tracking-wider">
+            v1.0 · updated 2026-04-20
           </p>
         </div>
       </div>

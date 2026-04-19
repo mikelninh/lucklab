@@ -36,10 +36,10 @@ export function StickyCTA() {
           </p>
           <div className="flex items-center gap-3 ml-auto">
             <span className="font-mono text-[10px] text-[var(--text-subtle)] tracking-wider hidden md:block">
-              FREE · 3 MIN · NO ACCOUNT
+              3 MIN · NO ACCOUNT
             </span>
             <Link href="/reading" className="btn btn-primary !py-2 !px-5 text-[13px]">
-              Begin Your Reading →
+              Take the Reading →
             </Link>
           </div>
         </div>

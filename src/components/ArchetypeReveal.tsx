@@ -153,7 +153,7 @@ export function ArchetypeReveal({ name, archetype, greek, tagline, scores }: Rev
           {/* Bottom CTA */}
           <div className={`text-center transition-opacity duration-700 delay-[2800ms] ${phase === "done" ? "opacity-100" : "opacity-0"}`}>
             <p className="text-[10px] text-[var(--text)]">Which archetype are you?</p>
-            <p className="font-mono text-[8px] text-[var(--gold)] tracking-[0.15em] mt-1">LUCKLAB.APP/READING · FREE</p>
+            <p className="font-mono text-[8px] text-[var(--gold)] tracking-[0.15em] mt-1">LUCKLAB.APP/READING</p>
           </div>
         </div>
       </div>

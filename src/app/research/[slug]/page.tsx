@@ -140,7 +140,7 @@ export default async function ArticlePage({
             When you are ready &mdash; Tyche has been expecting you.
           </p>
           <Link href="/reading" className="btn btn-primary">
-            Begin Your Reading · free
+            Take the Reading
           </Link>
         </div>
 

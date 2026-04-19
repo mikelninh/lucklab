@@ -3,7 +3,8 @@ import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import { ORGANIZATION, WEBSITE, jsonLdScript } from "@/lib/jsonld";
 import { LuckLayer } from "@/components/LuckLayer";
-import { ExitIntent } from "@/components/ExitIntent";
+// ExitIntent removed 2026-04-20 — identity system forbids modal popups that
+// block the content, exit-intent modals included. See IDENTITY_SYSTEM.md.
 import { StickyCTA } from "@/components/StickyCTA";
 import Script from "next/script";
 
@@ -85,7 +86,6 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <LuckLayer />
-        <ExitIntent />
         {children}
         <StickyCTA />
       </body>

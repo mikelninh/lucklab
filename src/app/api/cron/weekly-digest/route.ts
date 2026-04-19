@@ -88,7 +88,7 @@ function renderNewsletter(n: { subject: string; body: string; article?: string; 
     })
     .join("\n");
 
-  return `<!doctype html><html><body style="margin:0;padding:40px 20px;background:#0a0a0d;font-family:Georgia,serif;color:#ededee;">
+  return `<!doctype html><html><body style="margin:0;padding:40px 20px;background:#0a0a0d;font-family:'Fraunces',Georgia,serif;color:#ededee;">
 <div style="max-width:560px;margin:0 auto;background:#16161d;border:1px solid #25252f;border-radius:6px;padding:40px;">
   <p style="font-family:monospace;letter-spacing:0.18em;text-transform:uppercase;color:#c9a961;font-size:11px;margin:0 0 8px;">KAIROS DISPATCH</p>
   <p style="font-family:monospace;font-size:10px;color:#5a5a66;letter-spacing:0.1em;margin:0 0 28px;">WEEK ${n.week}</p>
