@@ -29,11 +29,11 @@ export function DailyMoment() {
         className="w-full text-left group"
       >
         <div className="flex items-center gap-3 justify-center">
-          <div className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full pulse-slow" />
+          <div className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full" />
           <span className="font-mono text-[11px] text-[var(--gold)] tracking-wider">
             TODAY&rsquo;S KAIROTIC MOMENT
           </span>
-          <div className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full pulse-slow" />
+          <div className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full" />
         </div>
 
         {!expanded && (

@@ -25,7 +25,7 @@ export function Nav() {
             href="/reading"
             className="btn btn-primary text-[13px] !py-2 !px-4"
           >
-            Begin Your Reading
+            Take the Reading
           </Link>
         </div>
       </div>

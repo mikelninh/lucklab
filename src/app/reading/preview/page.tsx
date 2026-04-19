@@ -121,7 +121,7 @@ export default function ReadingPreviewPage() {
 
         {/* TRADITION TEASE */}
         <div className="mb-12 card card-gold">
-          <div className="eyebrow mb-3">your resonant tradition</div>
+          <div className="eyebrow mb-3">resonant tradition</div>
           <h3 className="font-display text-[28px] font-normal mb-3 text-[var(--gold-bright)]">
             {tyche.traditionTease.name}
           </h3>
@@ -132,7 +132,7 @@ export default function ReadingPreviewPage() {
 
         {/* SCORES — VISIBLE (not locked) — the numbers CREATE curiosity */}
         <div className="mb-12 card">
-          <div className="eyebrow mb-3">your six levers</div>
+          <div className="eyebrow mb-3">the six levers</div>
           <p className="text-[12px] text-[var(--text-subtle)] mb-5">Higher = active. Lower = untrained. What do yours mean? That&rsquo;s in the Reading.</p>
           <div className="space-y-3">
             {[
@@ -372,7 +372,7 @@ export default function ReadingPreviewPage() {
 
         {/* Share your archetype — even the FREE tier gets this viral mechanic */}
         <div className="mt-12 mb-8 card card-gold text-center">
-          <div className="eyebrow mb-3">share your result</div>
+          <div className="eyebrow mb-3">share the result</div>
           <p className="font-display text-[20px] text-[var(--text)] mb-2">
             {firstName}, you are <em className="not-italic text-[var(--gold)]">{archetype.name}</em>.
           </p>
@@ -409,7 +409,7 @@ function LockedPreview({ firstName }: { firstName: string }) {
   return (
     <div className="relative my-12">
       <div className="card opacity-60 pointer-events-none select-none">
-        <div className="eyebrow mb-4">your kairotic profile &middot; locked</div>
+        <div className="eyebrow mb-4">kairotic profile &middot; locked</div>
         <div className="space-y-3">
           {["Attention", "Openness", "Aligned action", "Surrender", "Connection", "Meaning-making"].map((name, i) => (
             <div key={name}>

@@ -175,7 +175,7 @@ function LuckyToast() {
     <div className="fixed bottom-6 right-6 z-50 pointer-events-auto animate-slide-up">
       <div className="bg-[var(--surface)] border border-[var(--gold-dim)] rounded-lg px-5 py-3 shadow-xl max-w-[280px]">
         <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full pulse-slow" />
+          <span className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full" />
           <p className="font-display text-[13px] text-[var(--text-muted)] italic">
             {text}
           </p>

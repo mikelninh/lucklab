@@ -63,7 +63,7 @@ export function ShareCard({ name, archetype, greek, tagline, variant = "compact"
 
   return (
     <div className="card card-gold text-center no-print">
-      <div className="eyebrow mb-3">share your result</div>
+      <div className="eyebrow mb-3">share the result</div>
       <p className="font-display text-[22px] text-[var(--text)] mb-2">
         {firstName}, you are <em className="not-italic text-[var(--gold)]">{archetype}</em>.
       </p>

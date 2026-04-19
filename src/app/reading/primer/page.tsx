@@ -175,7 +175,7 @@ export default async function PrimerPage({
 
         {/* scores */}
         <section className="mb-14">
-          <div className="eyebrow mb-3">your six levers</div>
+          <div className="eyebrow mb-3">the six levers</div>
           <p className="text-[13px] text-[var(--text-muted)] mb-5 leading-relaxed">
             Six trainable mechanisms that determine how luck reaches you.
             Higher = this lever is active in your life. Lower = untrained potential.
@@ -225,13 +225,13 @@ export default async function PrimerPage({
         {/* six levers deep */}
         <section className="mb-14 grid md:grid-cols-2 gap-6">
           <div className="card card-gold">
-            <div className="eyebrow mb-3">your dominant lever</div>
+            <div className="eyebrow mb-3">dominant lever</div>
             <p className="text-[15px] text-[var(--text)] leading-relaxed">
               {primer.sixLevers.dominant}
             </p>
           </div>
           <div className="card">
-            <div className="eyebrow mb-3">your quiet lever</div>
+            <div className="eyebrow mb-3">quiet lever</div>
             <p className="text-[15px] text-[var(--text)] leading-relaxed">
               {primer.sixLevers.quiet}
             </p>
@@ -254,7 +254,7 @@ export default async function PrimerPage({
 
         {/* tradition deep dive */}
         <section className="mb-14">
-          <div className="eyebrow mb-4">your tradition</div>
+          <div className="eyebrow mb-4">the tradition</div>
           <h2 className="font-display text-[34px] md:text-[44px] font-light leading-tight mb-2 text-[var(--gold-bright)]">
             {primer.traditionDeepDive.tradition}
           </h2>
@@ -272,7 +272,7 @@ export default async function PrimerPage({
 
         {/* 7-day plan OR single practice */}
         <section className="mb-14">
-          <div className="eyebrow mb-4">your seven-day practice</div>
+          <div className="eyebrow mb-4">seven-day practice</div>
           {primer.sevenDayPlan && primer.sevenDayPlan.length > 0 ? (
             <div className="space-y-3">
               {primer.sevenDayPlan.map((day, i) => (

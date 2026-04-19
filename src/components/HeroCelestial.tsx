@@ -137,7 +137,7 @@ export function HeroCelestial() {
         {/* v1.0 live badge */}
         <div
           className="inline-flex items-center gap-2 px-3 py-1 border border-[var(--border-bright)] rounded-full bg-[var(--surface)] mb-8 hero-fade"
-          style={{ animationDelay: "300ms" }}
+          style={{ animationDelay: "150ms" }}
         >
           <span className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full pulse-slow" />
           <span className="eyebrow text-[10px]">v1.0 · live · tyche awaits</span>
@@ -146,13 +146,13 @@ export function HeroCelestial() {
         {/* Title with mask reveal */}
         <h1 className="font-display font-light tracking-[-0.02em] leading-[1.02] text-balance mx-auto max-w-4xl text-[clamp(44px,7.5vw,96px)]">
           <span className="hero-line-mask">
-            <span className="hero-line-inner" style={{ animationDelay: "500ms" }}>
+            <span className="hero-line-inner" style={{ animationDelay: "250ms" }}>
               Luck is not random.
             </span>
           </span>
           <br />
           <span className="hero-line-mask">
-            <span className="hero-line-inner" style={{ animationDelay: "800ms" }}>
+            <span className="hero-line-inner" style={{ animationDelay: "400ms" }}>
               <em className="not-italic text-gold-gradient">It converges.</em>
             </span>
           </span>
@@ -160,7 +160,7 @@ export function HeroCelestial() {
 
         <p
           className="text-[17px] md:text-[19px] text-[var(--text-muted)] max-w-2xl mx-auto mt-8 leading-relaxed text-pretty hero-fade"
-          style={{ animationDelay: "1400ms" }}
+          style={{ animationDelay: "700ms" }}
         >
           Twelve wisdom traditions — from Jungian psychology to Taoism, Kabbalah,
           Vedanta, the I Ching — cross-reference a single conclusion:{" "}
@@ -170,10 +170,10 @@ export function HeroCelestial() {
 
         <div
           className="flex flex-wrap gap-3 justify-center mt-10 hero-fade"
-          style={{ animationDelay: "1700ms" }}
+          style={{ animationDelay: "850ms" }}
         >
           <Link href="/reading" className="btn btn-primary">
-            Begin Your Reading
+            Take the Reading
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <path
                 d="M3 2l4 4-4 4"
@@ -194,7 +194,7 @@ export function HeroCelestial() {
 
         <p
           className="font-mono text-[11px] text-[var(--text-subtle)] mt-6 tracking-wider inline-flex flex-wrap items-center justify-center gap-3 hero-fade"
-          style={{ animationDelay: "2000ms" }}
+          style={{ animationDelay: "1000ms" }}
         >
           <span className="inline-flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full pulse-slow" />
@@ -208,7 +208,7 @@ export function HeroCelestial() {
       {/* Scroll hint */}
       <div
         className="absolute left-1/2 -translate-x-1/2 bottom-8 text-center pointer-events-none hero-fade"
-        style={{ animationDelay: "2300ms" }}
+        style={{ animationDelay: "1150ms" }}
         aria-hidden="true"
       >
         <div className="font-mono text-[10px] tracking-[0.3em] uppercase text-[var(--text-faint)]">

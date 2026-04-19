@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { KairosMark } from "./TycheSigil";
 
+// NEXT_PUBLIC_BUILD_DATE is set in next.config.ts at build time
+// (new Date().toISOString().slice(0,10)). If the env is missing for any
+// reason, fall back to today's date derived at module-eval — still honest,
+// never stale.
+const BUILD_DATE =
+  process.env.NEXT_PUBLIC_BUILD_DATE || new Date().toISOString().slice(0, 10);
+
 export function Footer() {
   return (
     <footer className="border-t border-[var(--border)] mt-24">
@@ -17,7 +24,7 @@ export function Footer() {
           <div>
             <div className="eyebrow eyebrow-muted mb-4">Explore</div>
             <ul className="space-y-2.5 text-[13px]">
-              <li><Link href="/reading" className="text-[var(--text)] hover:text-[var(--gold)] transition">Begin Your Reading</Link></li>
+              <li><Link href="/reading" className="text-[var(--text)] hover:text-[var(--gold)] transition">Take the Reading</Link></li>
               <li><Link href="/reviews" className="text-[var(--text)] hover:text-[var(--gold)] transition">Readers</Link></li>
               <li><Link href="/tyche" className="text-[var(--text)] hover:text-[var(--gold)] transition">Consult Tyche</Link></li>
               <li><Link href="/research" className="text-[var(--text)] hover:text-[var(--gold)] transition">Research</Link></li>
@@ -43,7 +50,7 @@ export function Footer() {
             <Link href="/privacy" className="hover:text-[var(--gold)]">Privacy</Link> ·{" "}
             <Link href="/terms" className="hover:text-[var(--gold)]">Terms</Link> ·{" "}
             <a
-              href="https://github.com/mikelninh/kairos/blob/main/CHANGELOG.md"
+              href="https://github.com/mikelninh/lucklab/blob/main/CHANGELOG.md"
               target="_blank"
               rel="noreferrer"
               className="hover:text-[var(--gold)]"
@@ -52,7 +59,7 @@ export function Footer() {
             </a>
           </p>
           <p className="font-mono text-[11px] text-[var(--text-subtle)] tracking-wider">
-            v1.0 · updated 2026-04-20
+            v1.0 · updated {BUILD_DATE}
           </p>
         </div>
       </div>

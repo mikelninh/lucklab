@@ -297,7 +297,7 @@ export default function Home() {
             <p className="text-[13px] text-[var(--text-subtle)] italic mb-1">no charge · 3 minutes</p>
             <p className="text-[14px] text-[var(--text-subtle)] italic mb-5">Who am I?</p>
             <ul className="space-y-3 text-[14px] text-[var(--text-muted)] mb-8">
-              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Your archetype + Greek name</li>
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Archetype + Greek name</li>
               <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>One resonant tradition</li>
               <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Convergence Index (~50 min read)</li>
             </ul>
