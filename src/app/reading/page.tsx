@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Nav } from "@/components/Nav";
@@ -13,6 +13,10 @@ import {
   type Answer,
   type PersonalContext,
 } from "@/lib/diagnostic";
+
+/** localStorage key set once a visitor has handed us an email for the Reading.
+ *  Presence of this key = they've passed the gate; we do NOT re-ask. */
+const GATE_LS_KEY = "lucklab:email";
 
 /**
  * Flow (redesigned — low-friction):
@@ -37,6 +41,74 @@ export default function ReadingPage() {
     currentQuestion: "",
   });
   const [submitting, setSubmitting] = useState(false);
+
+  // -------- Email gate (Phase 1) --------
+  // First-time visitors see the gate. Returning visitors (those whose email
+  // we've already captured in this browser) skip straight to the reading.
+  // Hydration-safe: we start in an indeterminate state and resolve on mount.
+  const [gateState, setGateState] = useState<"loading" | "needed" | "passed">("loading");
+  const [gateEmail, setGateEmail] = useState("");
+  const [gateSubmitting, setGateSubmitting] = useState(false);
+  const [gateError, setGateError] = useState<string | null>(null);
+  // Non-blocking notice: shown when the welcome send failed but we're still
+  // letting the user into the reading (CEO-specified honest inline copy).
+  const [gateRetryNotice, setGateRetryNotice] = useState(false);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(GATE_LS_KEY);
+      setGateState(stored ? "passed" : "needed");
+    } catch {
+      // Private-mode or disabled storage — treat as first-time, don't block.
+      setGateState("needed");
+    }
+  }, []);
+
+  async function submitGate(e: React.FormEvent) {
+    e.preventDefault();
+    if (gateSubmitting) return;
+    setGateError(null);
+    const email = gateEmail.trim();
+    // Client-side sanity check — the server is the source of truth.
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) || email.length > 254) {
+      setGateError("That email doesn't look right.");
+      return;
+    }
+    setGateSubmitting(true);
+    try {
+      const res = await fetch("/api/reading-gate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "reading-gate", lang: "en" }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        if (res.status === 429) {
+          setGateError("Too many tries from this network. Wait a minute, then retry.");
+        } else {
+          setGateError(data.error || "Email server not responding — refresh in a moment.");
+        }
+        setGateSubmitting(false);
+        return;
+      }
+      const data = (await res.json()) as { emailSent: boolean; retryQueued: boolean };
+      try {
+        localStorage.setItem(GATE_LS_KEY, email);
+      } catch {
+        /* ignore — fine if storage is blocked */
+      }
+      if (typeof window !== "undefined" && window.plausible) {
+        window.plausible("reading_gate_submit");
+      }
+      if (!data.emailSent && data.retryQueued) {
+        setGateRetryNotice(true);
+      }
+      setGateState("passed");
+    } catch {
+      setGateError("Email server not responding — refresh in a moment.");
+      setGateSubmitting(false);
+    }
+  }
 
   // progress bar: 10 inputs + name = 11 meaningful steps (context is optional, doesn't count)
   const progressDenominator = TOTAL_Q + 1;
@@ -119,6 +191,71 @@ export default function ReadingPage() {
       <Nav />
 
       <div className="max-w-2xl mx-auto px-6 py-12 md:py-20">
+        {/* ===== EMAIL GATE (Phase 1) =====
+            Shown to first-time visitors before the Reading renders. Already-
+            converted visitors (localStorage key present) skip straight past.
+            The gate is the first screen of /reading — no modal, no takeover. */}
+        {gateState === "needed" && (
+          <div>
+            <div className="eyebrow mb-4">the luck lab reading</div>
+            <TycheSigil size={64} className="mb-8" />
+            <h1 className="font-display text-[34px] md:text-[44px] leading-[1.12] tracking-[-0.01em] font-light text-balance">
+              To see the full reading, give me an email I can send it to.
+            </h1>
+            <form onSubmit={submitGate} className="mt-10 flex flex-col gap-3 max-w-md">
+              <input
+                type="email"
+                required
+                autoFocus
+                value={gateEmail}
+                onChange={(e) => setGateEmail(e.target.value)}
+                placeholder="your@email.com"
+                disabled={gateSubmitting}
+                className="w-full px-4 py-3 bg-[var(--surface)] border border-[var(--border-bright)] rounded focus:border-[var(--gold)] outline-none text-[15px] transition-colors"
+                maxLength={254}
+              />
+              <button
+                type="submit"
+                disabled={gateSubmitting}
+                className="btn btn-primary justify-center disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {gateSubmitting ? "One moment…" : "Take the reading"}
+              </button>
+              {gateError && (
+                <p className="text-[12px] text-[var(--danger)] font-mono">
+                  {gateError}
+                </p>
+              )}
+            </form>
+            <div className="mt-12 pt-6 border-t border-[var(--border)]">
+              <p className="text-[12px] text-[var(--text-subtle)] font-mono tracking-wider">
+                ← <Link href="/" className="hover:text-[var(--gold)]">back to kairos lab</Link>
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* While we're reading localStorage (client-only, one tick), render a
+            neutral placeholder so returning visitors don't see a gate flash
+            and first-timers don't see the Reading flash before the gate. */}
+        {gateState === "loading" && (
+          <div aria-hidden="true" style={{ minHeight: "60vh" }} />
+        )}
+
+        {/* Everything below is the actual Reading — rendered only once the gate
+            is passed (or skipped for returning visitors). */}
+        {gateState === "passed" && (
+        <>
+        {/* Non-blocking honest notice when the welcome email couldn't send */}
+        {gateRetryNotice && (
+          <div className="mb-8 border border-[var(--border-bright)] bg-[var(--surface)] rounded p-4">
+            <p className="text-[13px] text-[var(--text-muted)] leading-relaxed">
+              We couldn&rsquo;t send the email copy yet &mdash; you can read it here,
+              and I&rsquo;ll try again in a moment.
+            </p>
+          </div>
+        )}
+
         {/* progress */}
         <div className="mb-10">
           <div className="flex justify-between items-center mb-3">
@@ -390,6 +527,8 @@ export default function ReadingPage() {
               ← <Link href="/" className="hover:text-[var(--gold)]">back to kairos lab</Link>
             </p>
           </div>
+        )}
+        </>
         )}
       </div>
 
