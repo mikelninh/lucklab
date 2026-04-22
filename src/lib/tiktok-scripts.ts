@@ -655,7 +655,22 @@ const DAILY_RITUALS = [
 
 function generateDayStreak(seed: number): TikTokScript {
   const dayIdx = seed % 30;
-  const ritual = DAILY_RITUALS[dayIdx];
+  return _buildDayStreakScript(DAILY_RITUALS[dayIdx], seed);
+}
+
+/** Generate DayStreak for an explicit day (1–30), independent of date seed.
+ *  Used by the 30-day series render so every day exists as its own video. */
+export function generateDayStreakForDay(day: number): TikTokScript {
+  const clamped = Math.max(1, Math.min(30, day));
+  const ritual = DAILY_RITUALS[clamped - 1];
+  // Deterministic id suffix per-day so cached VO and renders don't collide.
+  return _buildDayStreakScript(ritual, 200000 + clamped);
+}
+
+function _buildDayStreakScript(
+  ritual: typeof DAILY_RITUALS[number],
+  idSeed: number
+): TikTokScript {
 
   const slides: Slide[] = [
     {
@@ -701,7 +716,7 @@ function generateDayStreak(seed: number): TikTokScript {
   const totalDurationFrames = slides.reduce((s, sl) => s + sl.durationFrames, 0);
 
   return {
-    id: `day-streak-${seed}`,
+    id: `day-streak-${idSeed}`,
     format: "day-streak",
     title: `Day ${ritual.day}/30 — ${ritual.name}`,
     hashtags: HASHTAGS_BY_FORMAT["day-streak"],
@@ -709,6 +724,11 @@ function generateDayStreak(seed: number): TikTokScript {
     slides,
     totalDurationFrames,
   };
+}
+
+/** All 30 DayStreak variants, in chronological order (Day 1 → Day 30). */
+export function generateAllDayStreakVariants(): TikTokScript[] {
+  return Array.from({ length: 30 }, (_, i) => generateDayStreakForDay(i + 1));
 }
 
 // ─── Public API ──────────────────────────────────────────────

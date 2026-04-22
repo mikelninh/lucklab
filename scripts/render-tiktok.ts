@@ -5,6 +5,7 @@
  *   npm run video:render                    # today's video (rotation)
  *   npm run video:render -- --week          # next 7 days (rotation)
  *   npm run video:render -- --all           # all 4 formats for today
+ *   npm run video:render -- --day-streak-all # all 30 DayStreak days
  *   npm run video:render -- --format luck-test
  *   npm run video:render -- --no-vo         # skip ElevenLabs VO generation
  *   npm run video:render -- --date 2026-04-19
@@ -33,6 +34,7 @@ import {
   generateForDate,
   generateAllFormatsForDate,
   generateWeek,
+  generateAllDayStreakVariants,
   type TikTokFormat,
   type TikTokScript,
 } from "../src/lib/tiktok-scripts";
@@ -52,6 +54,7 @@ const FORMAT_TO_COMP: Record<TikTokFormat, string> = {
 const args = process.argv.slice(2);
 const isWeek = args.includes("--week");
 const isAll = args.includes("--all");
+const isStreakAll = args.includes("--day-streak-all");
 const noVo = args.includes("--no-vo");
 const formatFlag = args.find((_, i) => args[i - 1] === "--format") as TikTokFormat | undefined;
 const dateFlag = args.find((_, i) => args[i - 1] === "--date");
@@ -65,6 +68,14 @@ function dateLabel(d: Date): string {
 type Job = { script: TikTokScript; date: Date; compId: string };
 
 function buildJobs(): Job[] {
+  if (isStreakAll) {
+    // 30 DayStreak videos, one per day, same render date on all.
+    return generateAllDayStreakVariants().map((script) => ({
+      script,
+      date: targetDate,
+      compId: FORMAT_TO_COMP["day-streak"],
+    }));
+  }
   if (isWeek) {
     return generateWeek(targetDate).map((script, i) => {
       const d = new Date(targetDate);
@@ -123,7 +134,13 @@ async function main() {
 
   // 3. Render each video.
   for (const { script, date, compId } of jobs) {
-    const label = `${dateLabel(date)}-${script.format}`;
+    // DayStreak videos in the 30-day series share a date, so disambiguate by
+    // extracting the day number from `title` (format: "Day N/30 — Ritual name").
+    let label = `${dateLabel(date)}-${script.format}`;
+    if (script.format === "day-streak") {
+      const m = script.title.match(/Day (\d+)\/30/);
+      if (m) label = `${dateLabel(date)}-day-streak-${m[1].padStart(2, "0")}`;
+    }
     const outputPath = path.join(OUT_DIR, `${label}.mp4`);
     const captionPath = path.join(captionsDir, `${label}.txt`);
     const hasVo = script.slides.some((s) => s.audioPath);

@@ -27,8 +27,11 @@ const execFileP = promisify(execFile);
 const API_URL = "https://api.elevenlabs.io/v1/text-to-speech";
 const STT_URL = "https://api.elevenlabs.io/v1/speech-to-text";
 
-// Brian — deep, resonant, comforting — fits Luck Lab's oracle tone.
-const DEFAULT_VOICE_ID = "nPczCjzI2devNBz1zQrb";
+// **Tyche · "Matilda"** — ElevenLabs library voice (Knowledgeable, Professional).
+// Locked 20 April 2026 as Luck Lab's permanent oracle voice. Do not change
+// without a CEO taste-call — brand recognition compounds only if she stays.
+// Override via `ELEVENLABS_VOICE_ID` env var for experiments only.
+const DEFAULT_VOICE_ID = "XrExE9yKIg1WjnnlVkGX";
 const DEFAULT_MODEL = "eleven_multilingual_v2";
 
 const FPS = 30;

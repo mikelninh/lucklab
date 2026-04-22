@@ -9,9 +9,9 @@ import {
 } from "@/lib/articles";
 
 export const metadata = {
-  title: "Research — Luck Lab",
+  title: "Library — Luck Lab",
   description:
-    "Long-form essays on luck, synchronicity, and the twelve traditions. Published weekly.",
+    "A reading library on luck, synchronicity, and the twelve traditions. Long-form essays and short field notes. Published weekly.",
 };
 
 export const revalidate = 3600; // regenerate hourly so weekly unlocks happen automatically
@@ -26,13 +26,14 @@ export default function ResearchIndex() {
       <article className="max-w-3xl mx-auto px-6 py-16 md:py-24">
         <div className="mb-14">
           <TycheSigil size={64} className="mb-6" />
-          <div className="eyebrow mb-3">research</div>
+          <div className="eyebrow mb-3">library</div>
           <h1 className="font-display text-[clamp(44px,6vw,68px)] leading-[1.02] tracking-[-0.02em] font-light text-balance">
-            Long essays on <em className="not-italic text-gold-gradient">luck, trained</em>.
+            A reading library on <em className="not-italic text-gold-gradient">luck, trained</em>.
           </h1>
           <p className="text-[16px] text-[var(--text-muted)] mt-6 max-w-xl leading-relaxed">
-            One essay a week. Twelve wisdom traditions and two decades of empirical
-            research, translated into prose you can act on. Cite-worthy. No woo.
+            Long-form essays and short field notes. Twelve wisdom traditions and two
+            decades of empirical research, translated into prose you can act on.
+            Cite-worthy. No woo.
           </p>
         </div>
 

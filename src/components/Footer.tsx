@@ -27,7 +27,7 @@ export function Footer() {
               <li><Link href="/reading" className="text-[var(--text)] hover:text-[var(--gold)] transition">Take the Reading</Link></li>
               <li><Link href="/reviews" className="text-[var(--text)] hover:text-[var(--gold)] transition">Readers</Link></li>
               <li><Link href="/tyche" className="text-[var(--text)] hover:text-[var(--gold)] transition">Consult Tyche</Link></li>
-              <li><Link href="/research" className="text-[var(--text)] hover:text-[var(--gold)] transition">Research</Link></li>
+              <li><Link href="/research" className="text-[var(--text)] hover:text-[var(--gold)] transition">Library</Link></li>
               <li><Link href="/#pricing" className="text-[var(--text)] hover:text-[var(--gold)] transition">Tyche&rsquo;s Reading</Link></li>
             </ul>
           </div>

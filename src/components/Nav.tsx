@@ -13,7 +13,7 @@ export function Nav() {
             href="/research"
             className="hidden sm:inline text-[13px] text-[var(--text-muted)] hover:text-[var(--text)] transition"
           >
-            Research
+            Library
           </Link>
           <Link
             href="/about"

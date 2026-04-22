@@ -8,8 +8,13 @@ import { DailyMoment } from "@/components/DailyMoment";
 import { HeroCelestial } from "@/components/HeroCelestial";
 import { ArchetypeGallery } from "@/components/ArchetypeGallery";
 import { TypewriterReading } from "@/components/TypewriterReading";
+import { loadPublishedArticles } from "@/lib/articles";
+
+export const revalidate = 3600;
 
 export default function Home() {
+  const latestArticles = loadPublishedArticles().slice(0, 3);
+
   return (
     <>
       <Nav />
@@ -274,6 +279,56 @@ export default function Home() {
           </div>
 
           <EmailCapture />
+        </div>
+      </section>
+
+      <div className="hairline-gold max-w-4xl mx-auto" />
+
+      {/* ============================== LIBRARY TEASER ============================== */}
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <div className="flex items-baseline justify-between gap-6 flex-wrap mb-10">
+          <div>
+            <div className="eyebrow mb-3">from the library</div>
+            <h2 className="font-display text-[32px] md:text-[40px] leading-[1.08] tracking-[-0.015em] font-light text-balance max-w-2xl">
+              <em className="not-italic text-[var(--gold)]">New this week.</em> Read one, take the Reading.
+            </h2>
+          </div>
+          <Link
+            href="/research"
+            className="text-[13px] text-[var(--text-muted)] hover:text-[var(--gold)] transition whitespace-nowrap"
+          >
+            See all essays &rarr;
+          </Link>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {latestArticles.map((a) => (
+            <Link
+              key={a.slug}
+              href={`/research/${a.slug}`}
+              className="group block p-6 rounded-2xl border border-[var(--border)] hover:border-[var(--gold)]/40 bg-[var(--surface)] transition"
+            >
+              <div className="flex items-baseline justify-between gap-3 mb-4">
+                <div className="font-mono text-[10px] text-[var(--gold)] tracking-wider">
+                  {new Date(a.publishDate + "T00:00:00Z")
+                    .toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })
+                    .toUpperCase()}
+                </div>
+                <div className="font-mono text-[10px] text-[var(--text-subtle)] tracking-wider">
+                  {a.readingTime || "—"}
+                </div>
+              </div>
+              <h3 className="font-display text-[20px] leading-[1.2] tracking-[-0.01em] font-normal mb-3 text-balance group-hover:text-[var(--gold)] transition">
+                {a.title}
+              </h3>
+              <p className="text-[13.5px] text-[var(--text-muted)] leading-relaxed line-clamp-4">
+                {a.description}
+              </p>
+              <div className="mt-5 text-[12px] text-[var(--gold)] opacity-0 group-hover:opacity-100 transition">
+                Read &rarr;
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 

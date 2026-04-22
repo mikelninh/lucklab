@@ -1,20 +1,17 @@
 /**
- * Fortuna — the Luck Lab oracle mascot.
+ * Tyche sigil — ported from `src/components/HeroCelestial.tsx`.
  *
- * A glowing gold orb with an inner eye, wrapped in luck-particles.
- * Pure SVG + Remotion interpolation, no external assets.
+ * The videos now share the website's visual identity: two concentric rings
+ * counter-rotating, cardinal tick marks on the outer ring, cross + diagonals
+ * on the inner ring, a soft gold breathing halo, and a small white centre
+ * inside a gold dot. Mood still modulates — speed, glow, subtle tilt — but
+ * the silhouette is consistent with the landing page.
  *
- * Moods change behaviour:
- *   curious → head-tilt, particles cluster toward viewer
- *   wise    → slow steady breath, balanced particles in an arc
- *   sharp   → flicker / strobe, particles spike outward
- *   warm    → amber-shifted glow, particles drift gently
- *   hidden  → off-screen (used during full-screen reveals)
- *   flash   → single bright pulse (used on countdown hits)
+ * Props retained for compatibility with existing composition callers.
  */
 
 import React from "react";
-import { useCurrentFrame, interpolate, useVideoConfig, spring } from "remotion";
+import { useCurrentFrame, useVideoConfig, spring } from "remotion";
 import type { MascotMood } from "../../lib/tiktok-scripts";
 import { COLORS } from "../theme";
 
@@ -39,32 +36,54 @@ export const Mascot: React.FC<Props> = ({
 
   if (mood === "hidden") return null;
 
-  // Entry animation
+  // Entry with a spring — same shape as website's fade-in.
   const entryProgress = spring({
     frame: local,
     fps,
     config: { damping: 14, stiffness: 100 },
   });
 
-  // Breathing pulse (mood-specific)
-  const breathSpeed =
-    mood === "sharp" ? 8 : mood === "curious" ? 30 : mood === "warm" ? 45 : mood === "flash" ? 4 : 60;
-  const breath = Math.sin((local / breathSpeed) * Math.PI * 2);
-  const baseScale = mood === "sharp" ? 1 + breath * 0.06 : 1 + breath * 0.03;
+  // Rotation rates (frames per full turn). Website uses 90s + 60s reverse.
+  // At 30fps: 90s = 2700 frames, 60s = 1800 frames.
+  const rotationBaseMultiplier =
+    mood === "sharp" ? 2.6 : mood === "curious" ? 1.4 : mood === "flash" ? 3 : mood === "warm" ? 0.7 : 1;
+  const outerDeg = ((local * 0.133) * rotationBaseMultiplier) % 360;      // ~90s / rev
+  const innerDeg = ((local * -0.2) * rotationBaseMultiplier) % 360;       // ~60s / rev (reverse)
 
-  // Flash mood = strong bright pulse
+  // Breath — drives the glow radius (mirrors the website `breathe` keyframe).
+  const breathPhase = Math.sin((local / 90) * Math.PI * 2);               // 6s period @ 30fps
+  const breathAmt = 0.5 + breathPhase * 0.5;
+
+  // Mood-specific glow intensity
+  const baseGlowOpacity =
+    mood === "sharp"
+      ? 0.55
+      : mood === "warm"
+      ? 0.45
+      : mood === "flash"
+      ? 0.8
+      : mood === "wise"
+      ? 0.3
+      : 0.38;
+  const glowOpacity = baseGlowOpacity * (0.65 + breathAmt * 0.35);
+
+  // Flash mood = instantaneous additive pulse in the first ~20 frames
   const flashPulse = mood === "flash" ? Math.max(0, 1 - local / 20) : 0;
 
+  // Subtle tilt on "curious"
+  const tilt = mood === "curious" ? Math.sin(local / 40) * 4 : 0;
+
   // Colour shift for warm vs sharp
-  const orbCore = mood === "warm" ? "#ffd98a" : mood === "sharp" ? "#fff3b8" : "#ffe8a0";
-  const orbMid = mood === "warm" ? "#e0b972" : COLORS.gold;
-  const orbRim = mood === "warm" ? "#8a6d2f" : COLORS.goldDim;
+  const dotCore = mood === "warm" ? "#ffd98a" : mood === "sharp" ? "#fff3b8" : "#e6c87a";
 
-  // Tilt for curious mood
-  const tilt = mood === "curious" ? Math.sin(local / 40) * 6 : 0;
+  const totalScale = entryProgress;
 
-  const totalScale = entryProgress * baseScale;
-  const glowOpacity = 0.35 + breath * 0.1 + flashPulse * 0.4;
+  // Tick & ring opacities (website uses 0.32 / 0.18 / 0.48 / 0.28 / 0.4).
+  const outerRingOpacity = mood === "sharp" ? 0.48 : 0.32;
+  const innerRingOpacity = 0.18;
+  const tickOpacity = mood === "sharp" ? 0.7 : 0.48;
+  const midRingOpacity = 0.28;
+  const crossOpacity = mood === "sharp" ? 0.6 : 0.4;
 
   return (
     <div
@@ -78,121 +97,107 @@ export const Mascot: React.FC<Props> = ({
         pointerEvents: "none",
       }}
     >
+      {/* Breathing gold glow behind the sigil */}
+      <div
+        style={{
+          position: "absolute",
+          inset: "-12%",
+          background: `radial-gradient(circle, rgba(201,169,97,${(0.32 + flashPulse * 0.5).toFixed(
+            3
+          )}), transparent 55%)`,
+          filter: "blur(18px)",
+          opacity: glowOpacity,
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Outer ring + cardinal ticks (rotates slowly, same direction as website) */}
       <svg
-        viewBox="0 0 400 400"
+        viewBox="0 0 200 200"
         width={size}
         height={size}
-        style={{ overflow: "visible" }}
+        style={{
+          position: "absolute",
+          inset: 0,
+          transform: `rotate(${outerDeg}deg)`,
+          overflow: "visible",
+        }}
+        aria-hidden="true"
       >
-        <defs>
-          <radialGradient id="orbGrad" cx="50%" cy="45%" r="55%">
-            <stop offset="0%" stopColor={orbCore} stopOpacity="1" />
-            <stop offset="55%" stopColor={orbMid} stopOpacity="1" />
-            <stop offset="100%" stopColor={orbRim} stopOpacity="1" />
-          </radialGradient>
-          <radialGradient id="haloGrad" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor={COLORS.gold} stopOpacity={glowOpacity} />
-            <stop offset="100%" stopColor={COLORS.gold} stopOpacity="0" />
-          </radialGradient>
-          <radialGradient id="innerShine" cx="40%" cy="35%" r="25%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-
-        {/* Outer halo */}
-        <circle cx="200" cy="200" r="190" fill="url(#haloGrad)" />
-
-        {/* Orb */}
         <circle
-          cx="200"
-          cy="200"
-          r="120"
-          fill="url(#orbGrad)"
-          stroke={COLORS.goldDim}
-          strokeWidth="1.5"
-          opacity="0.98"
+          cx="100"
+          cy="100"
+          r="98"
+          fill="none"
+          stroke={`rgba(201,169,97,${outerRingOpacity})`}
+          strokeWidth="1"
         />
-
-        {/* Inner almond eye */}
-        <g transform="translate(200,205)">
-          <ellipse cx="0" cy="0" rx="52" ry="28" fill={COLORS.bg} opacity="0.9" />
-          <circle cx="0" cy="0" r="14" fill={COLORS.gold} />
-          <circle cx="0" cy="0" r="6" fill={COLORS.bg} />
-          {/* Mood-specific eye detail */}
-          {mood === "sharp" && (
-            <path d="M -52 0 L 52 0" stroke={COLORS.gold} strokeWidth="1.2" opacity="0.6" />
-          )}
-          {mood === "wise" && (
-            <>
-              <circle cx="0" cy="0" r="20" fill="none" stroke={COLORS.gold} strokeWidth="0.8" opacity="0.5" />
-              <circle cx="0" cy="0" r="28" fill="none" stroke={COLORS.gold} strokeWidth="0.5" opacity="0.3" />
-            </>
-          )}
+        <circle
+          cx="100"
+          cy="100"
+          r="82"
+          fill="none"
+          stroke={`rgba(201,169,97,${innerRingOpacity})`}
+          strokeWidth="1"
+        />
+        <g stroke={`rgba(201,169,97,${tickOpacity})`} strokeWidth="1">
+          <line x1="100" y1="2" x2="100" y2="20" />
+          <line x1="100" y1="180" x2="100" y2="198" />
+          <line x1="2" y1="100" x2="20" y2="100" />
+          <line x1="180" y1="100" x2="198" y2="100" />
         </g>
-
-        {/* Specular highlight */}
-        <circle cx="160" cy="160" r="35" fill="url(#innerShine)" />
-
-        {/* Flash overlay */}
-        {flashPulse > 0 && (
-          <circle cx="200" cy="200" r="200" fill="#fff" opacity={flashPulse * 0.6} />
-        )}
       </svg>
 
-      {/* Orbit particles */}
-      <ParticleRing mood={mood} frame={local} size={size} />
+      {/* Inner cross + diagonals (counter-rotates) */}
+      <svg
+        viewBox="0 0 200 200"
+        width={size}
+        height={size}
+        style={{
+          position: "absolute",
+          inset: 0,
+          transform: `rotate(${innerDeg}deg)`,
+          overflow: "visible",
+        }}
+        aria-hidden="true"
+      >
+        <circle
+          cx="100"
+          cy="100"
+          r="60"
+          fill="none"
+          stroke={`rgba(201,169,97,${midRingOpacity})`}
+          strokeWidth="1"
+        />
+        <g stroke={`rgba(201,169,97,${crossOpacity})`} strokeLinecap="round">
+          <line x1="100" y1="40" x2="100" y2="160" strokeWidth="1.2" />
+          <line x1="40" y1="100" x2="160" y2="100" strokeWidth="1.2" />
+          <line x1="58" y1="58" x2="142" y2="142" strokeWidth="1" />
+          <line x1="142" y1="58" x2="58" y2="142" strokeWidth="1" />
+        </g>
+      </svg>
+
+      {/* Static centre dot — not rotating, the calm axis of the sigil */}
+      <svg
+        viewBox="0 0 200 200"
+        width={size}
+        height={size}
+        style={{ position: "absolute", inset: 0, overflow: "visible" }}
+        aria-hidden="true"
+      >
+        <circle cx="100" cy="100" r="8" fill={dotCore} fillOpacity="0.9" />
+        <circle cx="100" cy="100" r="3" fill="#ffffff" />
+        {/* Flash overlay — briefly washes the sigil white on countdown hits */}
+        {flashPulse > 0 && (
+          <circle
+            cx="100"
+            cy="100"
+            r="100"
+            fill="#ffffff"
+            opacity={flashPulse * 0.5}
+          />
+        )}
+      </svg>
     </div>
-  );
-};
-
-const ParticleRing: React.FC<{ mood: MascotMood; frame: number; size: number }> = ({
-  mood,
-  frame,
-  size,
-}) => {
-  const count = mood === "sharp" ? 18 : mood === "curious" ? 14 : 12;
-  const speed = mood === "sharp" ? 0.06 : mood === "warm" ? 0.015 : 0.025;
-  const radius = size * (mood === "sharp" ? 0.7 : 0.55);
-
-  const particles = Array.from({ length: count }, (_, i) => {
-    const baseAngle = (i / count) * Math.PI * 2;
-    const angle = baseAngle + frame * speed;
-
-    // Curious: cluster toward bottom (viewer)
-    const clusterBias =
-      mood === "curious" ? Math.cos(angle - Math.PI / 2) * 30 : 0;
-
-    // Sharp: explosive outward pulse
-    const sharpKick = mood === "sharp" ? (frame % 30) * 1.5 : 0;
-
-    const r = radius + clusterBias + sharpKick + Math.sin(frame / 30 + i) * 8;
-    const x = Math.cos(angle) * r;
-    const y = Math.sin(angle) * r;
-
-    const opacity = 0.35 + Math.sin(frame / 20 + i * 0.7) * 0.25;
-    const dotSize = mood === "sharp" ? 5 : 3 + (i % 3);
-
-    return (
-      <circle
-        key={i}
-        cx={size / 2 + x}
-        cy={size / 2 + y}
-        r={dotSize}
-        fill={COLORS.gold}
-        opacity={opacity}
-      />
-    );
-  });
-
-  return (
-    <svg
-      viewBox={`0 0 ${size} ${size}`}
-      width={size}
-      height={size}
-      style={{ position: "absolute", top: 0, left: 0, overflow: "visible" }}
-    >
-      {particles}
-    </svg>
   );
 };
