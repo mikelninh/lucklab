@@ -232,23 +232,80 @@ export default function Home() {
 
       <div className="hairline-gold max-w-4xl mx-auto" />
 
-      {/* ============================== PRE-LAUNCH ============================== */}
-      <section id="pre-launch" className="max-w-3xl mx-auto px-6 py-20 md:py-28 text-center">
-        <div className="eyebrow mb-4">pre-launch · early access</div>
-        <h2 className="font-display text-[32px] md:text-[42px] leading-[1.1] tracking-[-0.015em] font-light mb-5 text-balance">
-          A personalised one-to-one <em className="not-italic text-[var(--gold)]">reading with Tyche</em>&nbsp;&mdash; coming soon.
-        </h2>
-        <p className="text-[15px] text-[var(--text-muted)] max-w-xl mx-auto mb-8 leading-relaxed">
-          A 30-day practice tuned to your profile. Built slowly, by hand, in dialogue
-          with early readers. Join the list and you&rsquo;ll be among the first to
-          try it.
-        </p>
-        <div className="max-w-md mx-auto">
+      {/* ============================== PRICING ============================== */}
+      <section id="pricing" className="max-w-5xl mx-auto px-6 py-20 md:py-28">
+        <div className="text-center mb-14">
+          <div className="eyebrow mb-3">how to begin</div>
+          <h2 className="font-display text-[32px] md:text-[42px] leading-[1.1] tracking-[-0.015em] font-light text-balance">
+            Three doors. <em className="not-italic text-[var(--gold)]">Choose what fits.</em>
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-5 items-stretch">
+
+          {/* Free Reading */}
+          <div className="card flex flex-col">
+            <div className="font-mono text-[10px] text-[var(--text-subtle)] tracking-wider mb-3">FREE · 3 MINUTES</div>
+            <h3 className="font-display text-[26px] font-normal mb-1">The Reading</h3>
+            <p className="text-[14px] text-[var(--text-subtle)] italic mb-5">Who am I?</p>
+            <ul className="space-y-2.5 text-[14px] text-[var(--text-muted)] mb-7 flex-1">
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Archetype + Greek name</li>
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>One resonant tradition</li>
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Convergence Index (long read)</li>
+            </ul>
+            <Link href="/reading" className="btn btn-ghost justify-center">
+              Take the Reading &rarr;
+            </Link>
+          </div>
+
+          {/* Primer €9 */}
+          <div className="card card-gold flex flex-col">
+            <div className="font-mono text-[10px] text-[var(--gold)] tracking-wider mb-3">€9 · ONE-TIME · INSTANT</div>
+            <h3 className="font-display text-[26px] font-normal mb-1">Archetype Primer</h3>
+            <p className="text-[14px] text-[var(--text-subtle)] italic mb-5">Show me my pattern.</p>
+            <ul className="space-y-2.5 text-[14px] text-[var(--text-muted)] mb-7 flex-1">
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Full six-lever profile</li>
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Dominant + quiet lever analysis</li>
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Tradition essay with source quote</li>
+              <li className="flex items-start gap-3"><span className="text-[var(--gold)]">+</span>Seven-day practice</li>
+            </ul>
+            <Link href="/reading" className="btn btn-primary justify-center">
+              Open the Primer &rarr;
+            </Link>
+          </div>
+
+          {/* Tyche — pay what you want */}
+          <div className="card card-tyche flex flex-col relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--tyche)] opacity-[0.05] blur-3xl rounded-full pointer-events-none" />
+            <div className="relative flex flex-col flex-1">
+              <div className="font-mono text-[10px] text-[var(--tyche)] tracking-wider mb-3">BETA · PAY WHAT YOU WANT</div>
+              <h3 className="font-display text-[26px] font-normal mb-1">Tyche Reading</h3>
+              <p className="text-[14px] text-[var(--text-subtle)] italic mb-5">What&rsquo;s my plan?</p>
+              <ul className="space-y-2.5 text-[14px] text-[var(--text-muted)] mb-7 flex-1">
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span>Personalised reading addressed by name</li>
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span>30-day practice tuned to your profile</li>
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span>3 tradition deep-dives</li>
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span>Synchronicity Journal template</li>
+              </ul>
+              <Link href="/reading" className="btn btn-tyche justify-center">
+                Beta access &rarr;
+              </Link>
+              <p className="font-mono text-[10px] text-[var(--text-subtle)] text-center mt-3 tracking-wider">
+                €5 MIN &middot; PAY WHAT IT&apos;S WORTH
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Pre-launch list (smaller, secondary) */}
+        <div className="mt-16 max-w-xl mx-auto text-center">
+          <div className="eyebrow mb-3">not ready yet?</div>
+          <p className="text-[14px] text-[var(--text-muted)] mb-5 leading-relaxed">
+            Join the list — one quiet email a week, an essay or a field note. Unsubscribe any time.
+          </p>
           <EmailCapture />
         </div>
-        <p className="font-mono text-[10px] text-[var(--text-subtle)] tracking-wider mt-6">
-          NO SPAM &middot; ONE EMAIL A WEEK &middot; UNSUBSCRIBE ANY TIME
-        </p>
       </section>
 
 
