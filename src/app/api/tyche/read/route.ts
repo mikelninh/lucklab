@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { rateLimit, LIMITS } from "@/lib/rate-limit";
+import { tracedOpenAI } from "@/lib/langfuse-client";
 import {
   QUESTIONS,
   computeScores,
@@ -61,7 +62,20 @@ export async function POST(req: NextRequest) {
     const apiKey = process.env.OPENAI_API_KEY;
     if (apiKey) {
       try {
-        const client = new OpenAI({ apiKey });
+        const client = tracedOpenAI({
+          apiKey,
+          traceName: `tyche-read · ${archetype.id}`,
+          tags: ["tyche-read", "free-teaser", `archetype:${archetype.id}`],
+          metadata: {
+            archetype_id: archetype.id,
+            archetype_name: archetype.name,
+            growth_edge: edgeMechanism.id,
+            dominant: archetype.dominant,
+            scores_normalized: norm,
+            personal_context_present: !!personalCtx,
+            answers_count: answers.length,
+          },
+        });
         const completion = await client.chat.completions.create({
           model: "gpt-4o-mini",
           messages: [

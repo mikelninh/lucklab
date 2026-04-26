@@ -10,6 +10,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
+import { tracedOpenAI } from "@/lib/langfuse-client";
 import Anthropic from "@anthropic-ai/sdk";
 import {
   QUESTIONS,
@@ -99,7 +100,16 @@ export async function POST(req: NextRequest) {
 
   if (!result && openaiKey) {
     try {
-      const client = new OpenAI({ apiKey: openaiKey });
+      const client = tracedOpenAI({
+        apiKey: openaiKey,
+        traceName: `preview-reading · ${archetype.id}`,
+        tags: ["preview-reading", `tier:${tier}`, `archetype:${archetype.id}`],
+        metadata: {
+          tier,
+          archetype_id: archetype.id,
+          archetype_name: archetype.name,
+        },
+      });
       const completion = await client.chat.completions.create({
         model: "gpt-4o-mini",
         messages: [{ role: "user", content: prompt }],
