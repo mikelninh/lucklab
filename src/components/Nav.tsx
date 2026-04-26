@@ -22,6 +22,12 @@ export function Nav() {
             About
           </Link>
           <Link
+            href="/posters"
+            className="text-[13px] text-[var(--text-muted)] hover:text-[var(--text)] transition"
+          >
+            Posters
+          </Link>
+          <Link
             href="/reading"
             className="btn btn-primary text-[13px] !py-2 !px-4"
           >
