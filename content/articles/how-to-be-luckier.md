@@ -18,7 +18,9 @@ internalLinks:
 
 # How to Be Luckier: The Science and the Twelve Traditions Agree
 
-In 1952, a Swiss psychiatrist who had spent his life studying dreams published a small, strange book on coincidence. In 2003, a British psychologist who had spent his life debunking paranormal claims published a book on luck. The two men never met. They worked in different countries, different decades, different disciplines, and — on the face of it — they were asking different questions. Jung wanted to know why meaningful coincidences seemed to cluster around certain people at certain times. Wiseman wanted to know why some people, reliably, had better lives than others with similar circumstances.
+> **TL;DR** — Carl Jung in 1952 and Richard Wiseman in 2003 — a Swiss psychiatrist studying coincidence and a British sceptic debunking paranormal claims — arrived at the same answer from opposite directions. Add the Taoists, Stoics, Vedantists, Sufis, Kabbalists, and Yorùbá diviners, and twelve traditions converge with one empirical study on six trainable mechanisms: attention, openness, action, surrender, connection, meaning. Luck is not a random variable. It is a disposition you can train in roughly forty minutes a day.
+
+In 1952, a Swiss psychiatrist who had spent his life studying dreams published a small, strange book on coincidence; in 2003, a British psychologist who had spent his life debunking paranormal claims published a book on luck. They never met, worked in different decades and disciplines, and were asking different questions — Jung why meaningful coincidences cluster around certain people, Wiseman why some people reliably have better lives than others with similar circumstances.
 
 They arrived at the same answer.
 
@@ -38,7 +40,9 @@ The second camp is the cynical camp. Luck is pure statistics. Successful people 
 
 What you rarely find, in either camp, is the third position: that luck is real, that it is not random, and that the older contemplative traditions and modern psychology have independently converged on what produces it. That position is harder to hold, because it requires you to take both a Taoist sage and a British psychologist seriously at the same time. But it happens to be the one the evidence actually supports.
 
-It is also, if you will permit us a moment of warmth, the more hopeful position. Luck being structural does not mean you are stuck with what you have. It means there is something to work with.
+It is also, if you will permit us a moment of warmth, the more hopeful position.
+
+> *Luck being structural does not mean you are stuck with what you have. It means there is something to work with.*
 
 ## Luck is not random — it is a disposition
 

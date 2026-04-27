@@ -16,6 +16,8 @@ internalLinks:
 
 # Wu Wei: The Taoist Practice That Makes You Luckier
 
+> **TL;DR** — *Wu wei* does not mean "non-action" — it means *acting without forcing*, without the ego's grip on outcome. Cook Ding's knife stays sharp for nineteen years because he reads the grain of the ox rather than hacking through it; Wiseman's lucky subjects find the £250 message because they hold the photograph-counting task loosely enough to see what is not on the list. The two observations, separated by twenty-three centuries, describe the same attentional posture. Surrender is not passivity — it is the precondition for a different and usually higher order of achievement.
+
 The first time you meet the phrase *wu wei* in English translation, it is almost certainly rendered as "non-action" or "doing nothing." This is the translation you will find in older reference works, in most headlines, in half the spiritual self-help market. It is also the reason the concept has been, in English, roughly as useful as a map with the streets rubbed off.
 
 *Wu wei* does not mean doing nothing. The Daoist sages who built their entire philosophy around it were not recommending passivity, and the *Tao Te Ching* — a book full of practical political advice to rulers — would have been a very strange vehicle for the counsel *do nothing*. What *wu wei* actually names is one of the most counter-intuitive and empirically interesting ideas in the world's philosophical literature: the observation that certain kinds of action succeed precisely because the person performing them has stopped trying to force them. And that observation, older than the Roman Republic, turns out to rhyme with what a British psychologist measured in a laboratory in 2003, and with what most people who have produced anything good already half-know but do not know they know.
@@ -76,7 +78,9 @@ The "extra" is what *wu wei* names as absent. It is the surplus striving, the gr
 
 This is where the concept gets genuinely counter-intuitive, because the usual Western assumption is that effort and outcome are positively correlated: if you want more of the result, apply more of the effort. Daoism and Wiseman agree that this assumption is wrong past a certain threshold. Past that threshold, more effort produces worse results — because the effort distorts the perception on which effective action depends. The swimmer who panics drowns. The speaker who grips the audience loses them. The applicant who wants the job too badly interviews worse. The writer who is straining produces sentences that strain.
 
-The remedy is not to care less. It is to care without gripping. The Stoics called a near cousin of this *amor fati*; the Buddhists called it non-attachment; Jung approached it from another side entirely with his concept of synchronicity. The Daoists got there first, and called it *wu wei*. If you are interested in how the same disposition shows up in Jungian psychology, our article on [Jung's synchronicity](/research/jung-synchronicity) is the nearest companion to this one. If you are curious about its Stoic form, see our piece on [amor fati](/research/amor-fati). The convergence across unrelated traditions is part of what makes this disposition worth taking seriously.
+> *The remedy is not to care less. It is to care without gripping.*
+
+The Stoics called a near cousin of this *amor fati*; the Buddhists called it non-attachment; Jung approached it from another side entirely with his concept of synchronicity. The Daoists got there first, and called it *wu wei*. If you are interested in how the same disposition shows up in Jungian psychology, our article on [Jung's synchronicity](/research/jung-synchronicity) is the nearest companion to this one. If you are curious about its Stoic form, see our piece on [amor fati](/research/amor-fati). The convergence across unrelated traditions is part of what makes this disposition worth taking seriously.
 
 ## Three Practices
 

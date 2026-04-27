@@ -18,7 +18,9 @@ internalLinks:
 
 # The Four Lucky Behaviours — Wiseman's Full Protocol
 
-In 1994, Richard Wiseman placed a small advert in a British national newspaper. He was looking for people who considered themselves *exceptionally lucky* or *exceptionally unlucky* in life. About four hundred people answered. He spent the next ten years studying them.
+> **TL;DR** — In a decade-long study at Hertfordshire, Richard Wiseman isolated four behaviours that separated self-described lucky people from unlucky ones: a wide attentional aperture, trust in hunches, expectation of good outcomes, and the habit of turning bad luck into raw material. Each is trainable. Each has held up across replications. The protocol below is the whole thing.
+
+In 1994, Richard Wiseman placed an advert in a British national newspaper for people who considered themselves *exceptionally lucky* or *exceptionally unlucky* in life. About four hundred answered. He spent the next ten years studying them.
 
 The result was the most rigorous empirical work ever done on the question of luck. Not luck as superstition. Not luck as wishful thinking. Luck as a measurable, behavioural pattern that distinguished people who reliably experienced good fortune from people who reliably did not — controlling for circumstance, intelligence, age, education, and income.
 
@@ -102,7 +104,12 @@ The Stoic tradition called this *amor fati* — love what is. The Taoist version
 
 These behaviours are not independent. They reinforce each other.
 
-Wide attention (#1) catches more chance opportunities. Trusted intuition (#2) acts on the right ones. Positive expectation (#3) increases the number of attempts. Reframing capacity (#4) keeps you in motion when the inevitable failures arrive.
+| Behaviour | Function in the system |
+|---|---|
+| **#1 Wide attention** | Catches more chance opportunities |
+| **#2 Trusted intuition** | Acts on the right ones |
+| **#3 Positive expectation** | Increases the number of attempts |
+| **#4 Reframing capacity** | Keeps you in motion when failures arrive |
 
 Drop any one of them and the others lose force. A person with wide attention but no intuition will see opportunities and not act. A person with intuition and expectation but no reframing capacity will burn out at the first setback. The system works as a system.
 

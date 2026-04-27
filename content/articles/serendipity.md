@@ -17,9 +17,11 @@ internalLinks:
 
 # Serendipity — The Anatomy of Useful Accidents
 
-On the 28th of January 1754, Horace Walpole sat down to write a letter to his cousin Horace Mann. He was reporting a small art-historical discovery — he had stumbled across a coat-of-arms in a book that confirmed a relationship between two Italian families he had been studying. The find was incidental. He had not been looking for it. And yet it was useful, and he found himself reaching for a word that did not yet exist.
+> **TL;DR** — Serendipity is not luck. Walpole's 1754 definition required three pieces: an accident, an unsought discovery, and *sagacity* — the recognition that what you stumbled on is valuable. The accidents are everywhere; the variable is whether you see them. Four conditions raise the rate: variety in your inputs, slack in your schedule, the habit of asking "what could this be?", and permission to follow detours.
 
-He invented one. He told Mann that the discovery was *"of that kind which I call serendipity."* He explained that he had taken the word from a Persian fairy tale, *The Three Princes of Serendip*, in which the princes "*were always making discoveries, by accidents and sagacity, of things which they were not in quest of.*"
+In January 1754, Horace Walpole wrote a letter coining a word that did not yet exist. He had stumbled, while reading about something else, across a coat-of-arms that confirmed a connection between two Italian families he was studying — an incidental find, useful, unsought. He needed a name for that.
+
+He invented one. He told his cousin that the discovery was *"of that kind which I call serendipity,"* explaining that he had taken the word from a Persian fairy tale, *The Three Princes of Serendip*, in which the princes "*were always making discoveries, by accidents and sagacity, of things which they were not in quest of.*"
 
 That is the original definition. Three pieces, all required:
 
@@ -46,12 +48,14 @@ In every case the accident did the easy half of the work. The recognition did th
 
 ## The anatomy: van Andel's 1994 paper
 
-In 1994 the Dutch medical researcher **Pek van Andel** published *"Anatomy of the unsought finding. Serendipity: origin, history, domains, traditions, appearances, patterns and programmability"* in *The British Journal for the Philosophy of Science*. It is the most thorough analytic treatment serendipity has received. He distinguished:
+In 1994 the Dutch medical researcher **Pek van Andel** published *"Anatomy of the unsought finding. Serendipity: origin, history, domains, traditions, appearances, patterns and programmability"* in *The British Journal for the Philosophy of Science*. It is the most thorough analytic treatment serendipity has received. His central distinction:
 
-- **Serendipity proper.** You find X while looking for Y. The find was unsought.
-- **Pseudo-serendipity.** You find X while looking for X — but the route was unexpected. The discovery was sought; the path was not.
+| Type | What you were looking for | What you found | Common example |
+|---|---|---|---|
+| **Serendipity proper** | Y | X (unrelated, unsought) | Penicillin while studying staph |
+| **Pseudo-serendipity** | X | X (via unexpected route) | The right job from a chance conversation |
 
-Both are valuable, both involve accident, both require recognition — but only the first is serendipity in Walpole's strict sense. Most popular talk about serendipity is actually about pseudo-serendipity: the right job came from a chance conversation, the right partner came from a delayed train. Real serendipity is rarer and harder to point to, because by definition the finder did not have a target.
+Both are valuable, both involve accident, both require recognition — but only the first is serendipity in Walpole's strict sense. Most popular talk about serendipity is actually about pseudo-serendipity. Real serendipity is rarer and harder to point to, because by definition the finder did not have a target.
 
 Van Andel also made a claim that surprises people: serendipity is *programmable* — not in the sense of forcing it, but in the sense that you can construct conditions under which it becomes more likely. He listed environmental factors (cross-disciplinary contact, varied inputs, slack time), cognitive factors (analogy-making, pattern recognition), and dispositional factors (an *open stance*, a tolerance for the anomalous, a willingness to interrupt your plan).
 

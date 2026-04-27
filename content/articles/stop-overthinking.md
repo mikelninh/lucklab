@@ -18,13 +18,15 @@ internalLinks:
 
 # How to Stop Overthinking — Beyond the Mindfulness Apps
 
-You have read the articles. *Practice mindfulness. Take a deep breath. Notice the thoughts and let them pass. Journal it out. Get it on paper. Try cognitive defusion.* You have downloaded the apps. You have done the breathing.
+> **TL;DR** — Overthinking is not a thinking problem. It is an avoiding problem dressed as a thinking problem: the brain — being honest in spite of you — keeps surfacing an unanswered question because there is a real decision underneath that you have not made. Mindfulness apps and journaling rarely shut the loop because they help you "let the thought pass" rather than answer it. Three interventions, in order of leverage: name the decision as a binary, run the four-weight framework (identity, regret, resentment, relief), and if still tied, flip the coin and notice which side you were secretly hoping for.
+
+You have read the articles — *practice mindfulness, take a deep breath, notice the thoughts and let them pass, journal it out, try cognitive defusion* — downloaded the apps, done the breathing.
 
 You are still overthinking.
 
 That is because most overthinking advice treats the wrong layer of the problem. The thoughts are not the disease. The thoughts are the symptom. **The disease is that there is a decision underneath, and you are avoiding it, and the brain — being honest in spite of you — keeps surfacing the question because the question has not been answered.**
 
-You are not overthinking. You are avoiding. The thinking is the costume.
+> *You are not overthinking. You are avoiding. The thinking is the costume.*
 
 This article is about how to tell the difference, why it matters, and what actually shuts the loop down — drawn from clinical psychology, the contemplative traditions, and the simple ten-second test that often reveals what every other intervention has been talking around.
 

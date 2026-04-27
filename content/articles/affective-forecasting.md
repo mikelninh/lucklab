@@ -18,6 +18,8 @@ internalLinks:
 
 # Affective Forecasting — Why Your Gut Already Knows
 
+> **TL;DR** — Two decades of Wilson and Gilbert's research at Virginia and Harvard found one quiet result: humans are reliably *bad* at predicting how intense a future feeling will be, and reliably *good* at predicting which direction is better. Most personal decisions are direction-questions, not strategy-questions. The gut already knows; the work is uncovering, not constructing.
+
 Imagine winning the lottery. Not a small one — a life-changing amount. How happy will you be in two years? Estimate, in your head, using whatever number feels honest.
 
 Now imagine the opposite. Becoming paraplegic in a car accident next month. How unhappy will you be in two years?
@@ -55,6 +57,8 @@ For decision-making, this is the more important finding. Most real decisions are
 If the gut is reliably right on direction, then the cognitive work that matters in a hard decision is *accessing the directional signal cleanly*. Not weighing it. Not interrogating it. Accessing it.
 
 This is the opposite of how most decision-making advice is structured. The popular framing — *make a list, weigh the criteria, analyse the data* — is treating the conscious mind as the oracle and the gut as a noise source to be filtered out. The research suggests the inverse: **the gut is the oracle, and the conscious mind's analytical work is most useful as an interrogator after the gut has spoken**, not as a substitute for it.
+
+> *The gut is the oracle. The conscious mind is the interrogator — useful only after the oracle has spoken.*
 
 A simple sequence emerges. **One — let the gut answer first.** Two — interrogate the gut answer for any factual mistakes (was there information the gut did not have? are there reasons to suspect bias on this specific question?). **Three — if the interrogation does not produce concrete, fact-based reasons to override the gut, defer to the gut.**
 

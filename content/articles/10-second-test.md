@@ -15,6 +15,8 @@ internalLinks:
 
 # The 10-Second Test That Proves What You're Secretly Hoping For
 
+> **TL;DR** — Flip a coin for the decision you've been carrying for weeks. Don't look. In the half-second the coin is in the air, ask which side you were hoping for. That hope is your answer — the coin was never deciding, it was making you listen. Works because affective forecasting is reliable on direction even when the conscious mind hedges.
+
 You are not undecided. You are **avoiding**.
 
 This is a test that takes ten seconds and ends that avoidance. It's older than the internet and more reliable than any decision matrix. Here's how to run it.

@@ -16,9 +16,15 @@ internalLinks:
 
 # Kairos: The Greek Word for the Moment of Luck
 
+> **TL;DR** — Ancient Greek named two genuinely different experiences of time: *chronos*, the ticking minute, and *kairos*, the opportune moment that rewards noticing and punishes delay. The distinction was load-bearing for Aristotle, Isocrates, and the rhetorical tradition; the mechanical clock and the factory shift quietly absorbed *kairos* into *chronos* over the last seven centuries. Wiseman's 2003 luck study measured what the Greeks had named — an attentional style that sees the photograph in large type while everyone else is counting. The capacity is trainable.
+
 Ancient Greek had two words for time. We have one.
 
-This is not a small linguistic accident. The words the Greeks used were *chronos* (χρόνος) and *kairos* (καιρός), and they named two genuinely different experiences. *Chronos* was the ticking, sequential time of calendars and clepsydras — quantitative, additive, indifferent to what it contained. A minute of *chronos* was the same as any other minute. *Kairos* was something else: the opportune moment, the right instant, the fleeting window in which an action would work if taken and would fail if delayed. *Chronos* was the river. *Kairos* was the particular place in the river where you could cross. To mistake one for the other was, for the Greeks, a category error with practical consequences.
+This is not a small linguistic accident. The words the Greeks used were *chronos* (χρόνος) and *kairos* (καιρός), and they named two genuinely different experiences. *Chronos* was the ticking, sequential time of calendars and clepsydras — quantitative, additive, indifferent to what it contained. A minute of *chronos* was the same as any other minute. *Kairos* was something else: the opportune moment, the right instant, the fleeting window in which an action would work if taken and would fail if delayed.
+
+> *Chronos was the river. Kairos was the particular place in the river where you could cross.*
+
+To mistake one for the other was, for the Greeks, a category error with practical consequences.
 
 The loss of this distinction from modern European languages — including modern Greek itself, in which *kairos* now often just means "weather" — is one of the quieter deletions of the last two thousand years. The word survived. The distinction did not. Recovering it turns out to matter, because the disposition it names — the eye for the opportune moment — is precisely what the empirical psychology of luck has been measuring for the past two decades without a good English word to call it by.
 

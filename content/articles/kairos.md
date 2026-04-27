@@ -19,6 +19,8 @@ internalLinks:
 
 # What Is Kairos? The Greek Concept of the Decisive Moment
 
+> **TL;DR** — *Chronos* is clock-time, the kind we measure. *Kairos* is the opportune moment, the kind we recognise — leverage in time, the gap that opens for two heartbeats and closes. Twelve traditions across four continents and twenty-five centuries name the same phenomenon under different words: *shi*, *eit*, *muhurta*, *waqt*, *orí*. Luck, in measurable terms, is the inverse of missing kairos.
+
 There are two Greek words for time. You only know one.
 
 *Chronos* — clock-time, sequential, measurable, the time we wear on our wrists and divide into hours. The time that flows uniformly whether you are paying attention to it or not. The time you have, the time you spend, the time that runs out.
@@ -37,7 +39,9 @@ In ancient Greek, *kairos* (καιρός) carried at least three overlapping sen
 
 **The opening through which something passes.** Anatomically, *kairos* was used for the soft spot at the temple — the point of vulnerability, the place where a small action has disproportionate effect.
 
-These three senses braid together into one underlying idea: **the moment, place, or opening in which a small action produces an outcome that no amount of force could produce at any other time**. *Kairos* is leverage in time.
+These three senses braid together into one underlying idea: **the moment, place, or opening in which a small action produces an outcome that no amount of force could produce at any other time**.
+
+> *Kairos is leverage in time.*
 
 ## Why the Greeks gave it its own word
 

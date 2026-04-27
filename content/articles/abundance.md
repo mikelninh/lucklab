@@ -18,7 +18,9 @@ internalLinks:
 
 # Abundance Isn't Having More. It's Noticing More.
 
-Most of what is sold as *abundance mindset* is a feeling you pay to simulate. Vision boards. Affirmations printed on matte cardstock. Instagram accounts that want you to "raise your frequency." The implicit promise: feel abundant, and the universe will arrange itself around your feeling.
+> **TL;DR** — Abundance is not a cosmic reward for good vibes. It is a trainable quality of attention — the same widened scan Richard Wiseman measured in self-described lucky people, and the same posture twelve contemplative traditions named centuries earlier. What you scan for, you see; what you see, you act on; what you act on, compounds.
+
+Most of what is sold as *abundance mindset* is a feeling you pay to simulate — vision boards, affirmations on matte cardstock, Instagram accounts that want you to "raise your frequency." The implicit promise: feel abundant, and the universe will arrange itself around your feeling.
 
 It doesn't work. Not because the universe is hostile, but because the mechanism has been mislabeled.
 

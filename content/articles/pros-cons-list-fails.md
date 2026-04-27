@@ -17,7 +17,9 @@ internalLinks:
 
 # Why Your Pros-and-Cons List Fails — and What to Do Instead
 
-You opened the spreadsheet again. You wrote down the option on the left. You wrote down the option on the right. You started listing pros under each, then cons. After twenty minutes the document looked impressive. The columns were even. The font was clean. And you still had no idea what to do.
+> **TL;DR** — Pros-and-cons lists are a perfectly serviceable instrument for low-emotional-weight, comparable-criteria decisions like which laptop to buy. They fail for the decisions that actually matter because identity, regret, resentment, and relief are not commensurable — they cannot be weighed on the same scale, and the list pretends to measure what it cannot see. Replace the spreadsheet with four questions asked honestly out loud; in nine cases out of ten, three or four answers point the same direction and the decision was already made by the part of you that has been carrying it for weeks.
+
+You opened the spreadsheet again, wrote the option on the left and the option on the right, and started stacking pros and cons under each. After twenty minutes the document looked impressive — the columns even, the font clean. And you still had no idea what to do.
 
 The pros-and-cons list is the most common decision-making tool in modern life. It is also wrong for almost every decision worth using a tool for.
 
@@ -27,13 +29,13 @@ This article is about why — and about the cleaner instrument that actually fit
 
 Some decisions are genuinely commensurable. The criteria are the same kind of thing on both sides. They can be weighed against each other on the same scale.
 
-*Buy laptop A or laptop B.* RAM, screen, weight, price. All measurable. All comparable. Stack them in two columns, decide which features matter most, the better choice usually announces itself.
+| Decision | Comparable criteria | Why the list works |
+|---|---|---|
+| Buy laptop A or laptop B | RAM, screen, weight, price | All measurable, all on one scale |
+| Pick this Airbnb or that Airbnb | Location, price, amenities, photos | Same kind of work |
+| Choose seminar A or seminar B | Topic, speaker, time slot | Same deal |
 
-*Pick this Airbnb or that Airbnb.* Location, price, amenities, photos. Same kind of work. The list helps.
-
-*Choose seminar A or seminar B at the conference.* Topic, speaker, time slot. Same deal.
-
-The pros-and-cons list is a perfectly serviceable instrument for low-emotional-weight, comparable-criteria decisions. The mistake is using it for the other kind.
+Stack the criteria in two columns, decide which matter most, and the better choice usually announces itself. The pros-and-cons list is a perfectly serviceable instrument for low-emotional-weight, comparable-criteria decisions. The mistake is using it for the other kind.
 
 ## Where it fails
 

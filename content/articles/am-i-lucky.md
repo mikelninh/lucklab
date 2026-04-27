@@ -16,6 +16,8 @@ internalLinks:
 
 # Am I Lucky? A 3-Minute Reading (Free)
 
+> **TL;DR** — "Am I lucky?" is the wrong question, because luck is not a scalar trait you were issued at birth. It is a six-dimensional, trainable disposition toward chance — attention, openness, action, surrender, connection, meaning. The Kairos Reading takes three minutes and returns your specific profile across the six, plus the one growth edge that would move the most.
+
 The first thing worth saying is that you are asking the wrong question.
 
 "Am I lucky?" invites a yes-or-no answer, as though luck were a fixed property of a person — a trait you happened to be issued, like eye colour or height, over which you have no useful control. This is how most people silently hold the concept, and it is almost entirely wrong. The question worth asking — the one the research and the older traditions both converge upon — is not *am I lucky* but *what disposition do I presently have toward chance?*
@@ -42,17 +44,14 @@ The Kairos Reading was built to give you that six-dimensional picture. It takes 
 
 The Reading maps you across the six mechanisms the twelve contemplative traditions and the empirical luck research have converged upon. A one-line sketch of each:
 
-**Attention** — the breadth of what you notice, particularly when you are not trying to.
-
-**Openness** — your reflexive stance toward the new, the strange, the unplanned.
-
-**Action** — your willingness to move before the picture is complete.
-
-**Surrender** — your capacity to release outcomes while continuing to act skilfully.
-
-**Connection** — the breadth, depth, and tending of your relationships.
-
-**Meaning** — your disposition to read your life as coherent rather than arbitrary.
+| Mechanism | What it measures |
+|---|---|
+| **Attention** | The breadth of what you notice, particularly when you are not trying to. |
+| **Openness** | Your reflexive stance toward the new, the strange, the unplanned. |
+| **Action** | Your willingness to move before the picture is complete. |
+| **Surrender** | Your capacity to release outcomes while continuing to act skilfully. |
+| **Connection** | The breadth, depth, and tending of your relationships. |
+| **Meaning** | Your disposition to read your life as coherent rather than arbitrary. |
 
 The Reading gives you a score on each, honestly. Two of the six will usually be your strengths. Two will usually be closer to neutral. And one or two will be your growth edges — the dimensions where a small amount of deliberate practice would produce the largest change in your actual experience of fortune over the next year. That is what you are really looking for.
 

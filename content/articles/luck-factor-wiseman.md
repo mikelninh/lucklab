@@ -15,7 +15,9 @@ internalLinks:
 
 # The Luck Factor: Richard Wiseman's Four Behaviours, Twenty Years Later
 
-Imagine you have been handed a newspaper. The task, given by a man with a clipboard and a mild Hertfordshire accent, is to count the photographs inside it. There are a lot. You begin at page one and move methodically through. Three minutes later you hand it back with a number. He asks whether you noticed anything unusual. You look at him blankly. He opens the newspaper to page two and shows you, in half-page type, an instruction you had been looking at without seeing: *Stop counting. There are 43 photographs in this newspaper.*
+> **TL;DR** — Across a decade of mixed-methods research, Richard Wiseman found that self-described lucky and unlucky people were not metaphysically different — they were *behaving* differently in four specifiable, trainable ways: maximising chance opportunities, listening to intuition, expecting good fortune, and turning bad luck to good. Two decades on, the attentional and reframing findings have aged well; the "luck school" effect size is suggestive rather than nailed-down. The four behaviours converge, almost word for word, with what eleven contemplative traditions had already named.
+
+Imagine you have been handed a newspaper and asked, by a man with a clipboard and a mild Hertfordshire accent, to count the photographs inside. You begin at page one and move methodically through; three minutes later you hand it back with a number. He opens the newspaper to page two and shows you, in half-page type, an instruction you had been looking at without seeing: *Stop counting. There are 43 photographs in this newspaper.*
 
 And then, a few pages deeper, another: *Tell the experimenter you have seen this and win £250.*
 
@@ -45,7 +47,11 @@ Lucky people behaved in ways that systematically multiplied the number of useful
 
 The newspaper experiment is an attentional miniature of this principle: a wide aperture catches what a narrow one cannot. But Wiseman's subjects displayed the same pattern at population scale. In one study, he asked lucky and unlucky people to describe their weekly routines; the unlucky people's weeks were more tightly scripted, the lucky people's weeks contained more buffer — more openness to the unplanned. In another, subjects were asked to attend a coffee shop and told simply that "something interesting might happen." Wiseman had arranged, in advance, several possible opportunities: a note on a chair, an accessible stranger, a £5 note on the pavement outside. Lucky subjects picked up the money, noticed the note, struck up the conversation. Unlucky subjects tended to walk past, sit down without looking, and report afterwards that nothing interesting had occurred.[^3]
 
-The mechanism, stripped of its self-report wrapping, is this: *opportunities do not arrive labelled*. They arrive as noise, and attention characterises them as signal. A wider aperture catches more signal. A tighter one filters it out.
+The mechanism, stripped of its self-report wrapping, is this:
+
+> *Opportunities do not arrive labelled. They arrive as noise, and attention characterises them as signal.*
+
+A wider aperture catches more signal. A tighter one filters it out.
 
 This is the principle where the evidence is probably strongest. The attentional-breadth effect has been replicated in smaller studies; it connects cleanly to a much larger literature on attention and perception (inattentional blindness, Simons and Chabris's invisible gorilla, the various studies showing that goals shape what the eye registers); and it aligns with what the broader social-network research has been saying for fifty years. Mark Granovetter's 1973 paper on the "strength of weak ties" — still the most-cited paper in sociology — established that most useful new information reaches people through acquaintances rather than close friends.[^4] Wiseman's lucky subjects, who had systematically broader and looser networks, were simply the people Granovetter would have predicted would do well.
 

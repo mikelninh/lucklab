@@ -16,7 +16,9 @@ internalLinks:
 
 # Amor Fati: The Stoic Phrase That Turns Bad Luck Into Good
 
-The phrase is Latin and it fits on a forearm, which is a large part of the problem. *Amor fati* — "love of fate" — has been adopted, over the past decade or so, into the visual vocabulary of online Stoicism, of hustle culture, of a certain kind of self-help optimism that mistakes acquiescence for strength. The tattoos are proliferating. The meaning, in proportion, has been draining out.
+> **TL;DR** — *Amor fati* is not gratitude practice, positive thinking, or denial. It is a two-step Stoic operation — release the quarrel with what has happened, then actively affirm it as the ground you now have to act on. Nietzsche named it in 1882; Marcus and Epictetus had taught it for centuries; Wiseman measured the same behaviour in his lucky subjects two thousand years later and called it the fourth principle of luck.
+
+The phrase is Latin and it fits on a forearm, which is a large part of the problem. *Amor fati* — "love of fate" — has been adopted, over the past decade, into the visual vocabulary of online Stoicism and a self-help optimism that mistakes acquiescence for strength. The tattoos proliferate; the meaning, in proportion, drains out.
 
 This is a shame, because the underlying idea is one of the sharpest mental instruments the ancient world produced, and it survives modern scrutiny better than almost anything else from that era. Done correctly, amor fati is not a posture of passive acceptance. It is not gratitude practice. It is not the power of positive thinking. It is a specific two-step operation for turning events you did not choose — including bad ones, including deeply painful ones — into the raw material from which a serious life can be built. Twenty centuries after Marcus Aurelius scribbled a version of it in his tent on the Danubian frontier, a British psychologist measured the same behaviour in a laboratory and called it the fourth principle of luck. The measurement does not prove the Stoics right. It does suggest they were pointing at something real.
 
@@ -82,7 +84,13 @@ In practice, the Stoic operation has three steps. The first two are found throug
 
 **Step three: what am I now responsible for.** This is where amor fati diverges sharply from any doctrine of passive acceptance. Having released the quarrel with what has happened, and having identified what it has opened, the Stoic asks what action, on their part, is now warranted. The given ground is not yours to choose; the building on that ground is. *Prohairesis* — the faculty of moral choice, the part of a person that Epictetus calls uniquely their own — is engaged, not suspended. Amor fati is not the abdication of agency; it is agency with a clearer substrate.
 
-Two short examples. A manuscript is rejected. Step one: the editor wrote that the argument does not work in its current form. Step two: this frees you to rewrite it rather than to keep defending the version you had. Step three: the rewrite is now yours to do. A friendship ends. Step one: he has said he does not want further contact. Step two: the energy you have been spending on maintenance is now available for other relationships and for the writing you have neglected. Step three: you choose where that energy goes.
+Two short examples, mapped through the three steps:
+
+| Step | Manuscript rejected | Friendship ends |
+|---|---|---|
+| **1. What happened** | The editor wrote that the argument does not work in its current form. | He has said he does not want further contact. |
+| **2. What it opened** | You are freed to rewrite rather than to keep defending the version you had. | The energy you spent on maintenance is now available for other relationships and the writing you have neglected. |
+| **3. What you are responsible for** | The rewrite is now yours to do. | You choose where that energy goes. |
 
 None of this is comfortable in the moment. Amor fati is not a happiness practice; it is a serviceability practice. It keeps your action clean when the circumstances are difficult. Over a life, the difference compounds.
 

@@ -18,7 +18,9 @@ internalLinks:
 
 # How to Make a Hard Decision — A Field Framework
 
-You already know how to make easy decisions. You picked what to have for breakfast. You answered the message that needed answering. You closed the tab on the article you were skim-reading, then opened another. Easy decisions are the silent rhythm of a life.
+> **TL;DR** — Pros-and-cons lists fail at hard decisions because they cannot weight the four variables that actually decide them: identity, regret, resentment, relief. Twenty years of affective forecasting research shows the gut is reliably accurate on *direction* even when wrong on intensity — the decision-relevant information is already in your body. Ask the four diagnostic questions, notice the pattern, and if the answers split, run the ten-second coin test.
+
+You already know how to make easy decisions. You picked what to have for breakfast, answered the message that needed answering, closed one tab and opened another. Easy decisions are the silent rhythm of a life.
 
 Hard decisions are different. They sit in your chest for weeks. You open the spreadsheet. You make the pros-and-cons list. The list has more pros than cons, or more cons than pros, and somehow neither result moves you. You close the spreadsheet. The decision waits.
 

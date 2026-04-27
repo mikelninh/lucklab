@@ -17,6 +17,8 @@ internalLinks:
 
 # Decision Fatigue — The Real Mechanism, the Real Cure
 
+> **TL;DR** — The same-grey-t-shirt advice solves a small problem and gets cargo-culted into the wrong cure. Baumeister's ego-depletion model has not replicated; what people actually feel as decision fatigue is task-switching cost, affective load, and avoidance loops. The real fix is clearer classification, batched mode, surfaced avoidance, and the unsexy three — sleep, food, emotional regulation.
+
 Steve Jobs wore the same clothes every day. Mark Zuckerberg wore (and wears) the same grey t-shirt. Barack Obama, while in office, told Michael Lewis he wore only grey or blue suits because *"I'm trying to pare down decisions. I don't want to make decisions about what I'm eating or wearing. Because I have too many other decisions to make."*
 
 This anecdote got copy-pasted into a thousand productivity articles, became the canonical proof of *decision fatigue*, and now drives an entire genre of advice: simplify your wardrobe, automate your breakfast, eliminate small decisions to preserve cognitive bandwidth for the big ones.

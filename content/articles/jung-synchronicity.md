@@ -15,6 +15,8 @@ internalLinks:
 
 # Jung's Synchronicity, Explained Simply
 
+> **TL;DR** — Synchronicity is not the universe sending signs. Jung defined it as a *meaningful coincidence* of inner state and outer event — acausal, rare, and recognised only in retrospect. Half a century later, Wiseman's luck experiments measured the same underlying capacity behaviourally: an attentional posture that notices what others walk past. Stripped of metaphysics, synchronicity is close to a trainable perceptual competence — what the Taoists called *wu wei*, the Buddhists *sati*, and Wiseman the luck factor.
+
 There is a famous story about a beetle. It is told so often, in so many abridged and sentimental versions, that the original — which is sober, clinical, almost dry — has nearly been buried under its own retellings. We should start with the original.
 
 In the late 1920s, at his consulting rooms on the Seestrasse in Küsnacht, Carl Gustav Jung was treating a young woman whose analysis had stalled. She was, in his description, "psychologically inaccessible" — educated, rational, and defended against the unconscious material her treatment was meant to surface. "A well-educated young woman," Jung wrote later, "possessed of a Cartesian rationalism so defined, so crystal-clear, that no efforts to break through it with a more human understanding had been successful."[^1] On the morning in question, she was recounting a dream. In the dream, someone had given her a piece of expensive jewellery — a golden scarab. As she was describing this to Jung, he heard a gentle tapping at the window behind him. He turned, opened the window, and caught in his hand an insect: a scarabaeid beetle, the *Cetonia aurata*, the European rose-chafer — "the nearest analogy to a golden scarab that one finds in our latitudes," he notes, "contrary to its usual habits" of hiding during daylight.[^1] He handed the beetle to the patient with the words "Here is your scarab." The defence broke. The analysis proceeded.
@@ -69,7 +71,7 @@ Wiseman concluded that self-described lucky people differ from unlucky ones alon
 
 We are not suggesting that Wiseman set out to operationalise Jung. He did not; he barely cites him. But what he measured as *openness to chance opportunity* is, behaviourally, very close to what Jung described as the psychological precondition for synchronicity. Both are names for a particular attentional posture: relaxed, receptive, meaning-seeking, not forcing. Both predict that people in this posture will, over time, notice more of the events that others walk past — and that some of those noticed events will turn out to matter.
 
-Synchronicity, stripped of its metaphysics, is close to a perceptual competence. And perceptual competences can be trained.
+> *Synchronicity, stripped of its metaphysics, is close to a perceptual competence. And perceptual competences can be trained.*
 
 ## Working With Synchronicity Without Becoming Superstitious
 

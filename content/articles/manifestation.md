@@ -18,7 +18,9 @@ internalLinks:
 
 # Manifestation Is Real. Just Not The Way You've Been Sold It.
 
-In 2006, a book called *The Secret* sold thirty million copies by selling a lie. The lie was that the universe is a vending machine, that thoughts are a currency the cosmos recognizes, and that if you want something badly enough — with enough *frequency* or *vibration* — it will be delivered. Disease is your fault. Poverty is your fault. Your mother's cancer was her fault. The book's tone was sunlit; its logic was cruel.
+> **TL;DR** — *The Secret* sold thirty million copies of a lie, but underneath the vending-machine mysticism is a real, peer-reviewed mechanism: the reticular activating system narrows attention toward whatever you have named clearly, implementation intentions roughly double completion rates, and goal clarity was one of the four behaviours that distinguished Wiseman's lucky people. Name the thing specifically, name the obstacle honestly, plan the response in advance — Oettingen's WOOP protocol — and let attention do what attention does. Twelve unrelated traditions, from *sankalpa* to *himma* to *oriki*, were pointing at the same psychological fact long before NYU measured it.
+
+In 2006, *The Secret* sold thirty million copies by selling a lie: that the universe is a vending machine, that thoughts are currency the cosmos recognizes, and that wanting something badly enough — with enough *frequency* or *vibration* — would deliver it. Disease was your fault. Poverty was your fault. Your mother's cancer was her fault. The book's tone was sunlit; its logic was cruel.
 
 And yet, tens of millions of people reported that it *worked* for them. Not because the metaphysics was right. Because underneath the vending-machine mysticism, there was a real mechanism that the book had stumbled on and then dressed in garbage.
 
