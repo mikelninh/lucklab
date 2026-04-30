@@ -229,7 +229,7 @@ export default function ReadingPage() {
             </form>
             <div className="mt-12 pt-6 border-t border-[var(--border)]">
               <p className="text-[12px] text-[var(--text-subtle)] font-mono tracking-wider">
-                ← <Link href="/" className="hover:text-[var(--gold)]">back to kairos lab</Link>
+                ← <Link href="/" className="hover:text-[var(--gold)]">back to luck lab</Link>
               </p>
             </div>
           </div>
@@ -524,7 +524,7 @@ export default function ReadingPage() {
         {step === 0 && (
           <div className="mt-16 pt-8 border-t border-[var(--border)]">
             <p className="text-[12px] text-[var(--text-subtle)] font-mono tracking-wider">
-              ← <Link href="/" className="hover:text-[var(--gold)]">back to kairos lab</Link>
+              ← <Link href="/" className="hover:text-[var(--gold)]">back to luck lab</Link>
             </p>
           </div>
         )}

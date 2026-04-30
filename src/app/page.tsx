@@ -237,7 +237,7 @@ export default function Home() {
         <div className="text-center mb-14">
           <div className="eyebrow mb-3">how to begin</div>
           <h2 className="font-display text-[32px] md:text-[42px] leading-[1.1] tracking-[-0.015em] font-light text-balance">
-            Three doors. <em className="not-italic text-[var(--gold)]">Choose what fits.</em>
+            Start here. <em className="not-italic text-[var(--gold)]">One paid step.</em>
           </h2>
         </div>
 
@@ -274,24 +274,21 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Tyche — pay what you want */}
+          {/* Next step — informational only */}
           <div className="card card-tyche flex flex-col relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--tyche)] opacity-[0.05] blur-3xl rounded-full pointer-events-none" />
             <div className="relative flex flex-col flex-1">
-              <div className="font-mono text-[10px] text-[var(--tyche)] tracking-wider mb-3">BETA · PAY WHAT YOU WANT</div>
-              <h3 className="font-display text-[26px] font-normal mb-1">Tyche Reading</h3>
-              <p className="text-[14px] text-[var(--text-subtle)] italic mb-5">What&rsquo;s my plan?</p>
+              <div className="font-mono text-[10px] text-[var(--tyche)] tracking-wider mb-3">AFTER THE PRIMER</div>
+              <h3 className="font-display text-[26px] font-normal mb-1">The deeper plan</h3>
+              <p className="text-[14px] text-[var(--text-subtle)] italic mb-5">For later, after the first yes.</p>
               <ul className="space-y-2.5 text-[14px] text-[var(--text-muted)] mb-7 flex-1">
-                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span>Personalised reading addressed by name</li>
                 <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span>30-day practice tuned to your profile</li>
-                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span>3 tradition deep-dives</li>
-                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span>Synchronicity Journal template</li>
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span>3 tradition deep-dives with source quotes</li>
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span>90-day recalibration for return readers</li>
+                <li className="flex items-start gap-3"><span className="text-[var(--tyche)]">+</span>Built for the people who want to keep going</li>
               </ul>
-              <Link href="/reading" className="btn btn-tyche justify-center">
-                Beta access &rarr;
-              </Link>
               <p className="font-mono text-[10px] text-[var(--text-subtle)] text-center mt-3 tracking-wider">
-                €5 MIN &middot; PAY WHAT IT&apos;S WORTH
+                FIRST: PROVE THE €9 PRIMER
               </p>
             </div>
           </div>

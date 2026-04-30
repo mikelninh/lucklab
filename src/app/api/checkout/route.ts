@@ -102,7 +102,7 @@ export async function POST(req: NextRequest) {
         answers: encodedAnswers,
         personal: encodedPersonal,
         tier,
-        product: `kairos_${tier}`,
+        product: `lucklab_${tier}`,
       },
     });
 

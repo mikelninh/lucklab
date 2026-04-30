@@ -3,7 +3,7 @@
  *
  * Three levels of depth, matching the three product tiers:
  *   1. buildFreeTeaserPrompt — the free taste. Archetype + one tradition hint only.
- *   2. buildPrimerPrompt     — the €9 Archetype Primer. Full preview as a keepsake.
+ *   2. buildPrimerPrompt     — the €9 Archetype Primer. The first paid step.
  *   3. buildFullReadingPrompt — the €29 Reading. Personalised with name & birthdate,
  *                               a 30-day protocol and daily ritual written to them.
  */
@@ -132,7 +132,7 @@ Return a JSON object with exactly these fields:
     "hook": "A single sentence that names the concept (e.g. wu wei, synchronicity) and hints at what it reveals about them — without fully explaining."
   },
 
-  "unlockPrompt": "One sentence inviting them to unlock the Primer (€9) or the full Reading (€29). No hype, just precision about what they would see next."
+  "unlockPrompt": "One sentence inviting them to unlock the Primer (€9). No hype, just precision about what they would see next."
 }
 
 Output ONLY the JSON. British English. No preamble.`;

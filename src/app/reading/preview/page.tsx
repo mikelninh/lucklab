@@ -266,7 +266,7 @@ export default function ReadingPreviewPage() {
             <div className="eyebrow eyebrow-tyche mb-3">unlock your reading</div>
             <h2 className="font-display text-[32px] md:text-[44px] leading-[1.08] font-light text-balance">
               Your map is <em className="not-italic text-[var(--tyche)]">ready</em>, {firstName}.<br />
-              Choose the door.
+              Start with the Primer.
             </h2>
           </div>
 
@@ -275,10 +275,10 @@ export default function ReadingPreviewPage() {
             <button
               onClick={() => unlock("primer")}
               disabled={loadingTier !== null}
-              className="card card-gold text-left flex flex-col hover:scale-[1.01] transition-transform disabled:opacity-60 disabled:hover:scale-100"
+              className="card card-gold text-left flex flex-col hover:scale-[1.01] transition-transform disabled:opacity-60 disabled:hover:scale-100 md:py-7"
             >
               <div className="flex items-baseline justify-between mb-3">
-                <span className="kbd text-[11px]">tier 1 · primer</span>
+                <span className="kbd text-[11px]">first paid step</span>
                 <span className="font-mono text-[10px] text-[var(--gold)] tracking-wider">
                   ONE-TIME
                 </span>
@@ -287,7 +287,7 @@ export default function ReadingPreviewPage() {
                 Archetype Primer
               </h3>
               <p className="text-[13px] text-[var(--text-subtle)] mb-4">
-                The full six-lever profile + tradition deep-dive + a 7-day practice.
+                The first thing worth paying for: a sharp, useful read of your pattern.
               </p>
               <ul className="space-y-2 text-[13px] text-[var(--text-muted)] mb-6 flex-1">
                 <li className="flex items-start gap-2"><span className="text-[var(--gold)]">+</span>Your six-lever scores (all 100 points)</li>
@@ -299,52 +299,39 @@ export default function ReadingPreviewPage() {
               <div className="flex items-baseline gap-3 mb-4">
                 <span className="font-display text-[44px] text-[var(--text)]">€9</span>
                 <span className="font-mono text-[11px] text-[var(--gold)] tracking-wider">
-                  ONE-TIME
+                  BEST FIRST YES
                 </span>
               </div>
               <span className="btn btn-ghost justify-center w-full">
-                {loadingTier === "primer" ? "Redirecting…" : "Open the Primer · €9 →"}
+                {loadingTier === "primer" ? "Redirecting…" : "Start with the Primer · €9 →"}
               </span>
             </button>
 
-            {/* Full Reading — €29 featured */}
-            <button
-              onClick={() => unlock("full")}
-              disabled={loadingTier !== null}
-              className="card card-tyche text-left flex flex-col relative overflow-hidden hover:scale-[1.01] transition-transform disabled:opacity-60 disabled:hover:scale-100"
-            >
+            <div className="card card-tyche text-left flex flex-col relative overflow-hidden">
               <div className="absolute top-0 right-0 w-48 h-48 bg-[var(--tyche)] opacity-10 blur-3xl rounded-full pointer-events-none" />
               <div className="relative flex flex-col flex-1">
                 <div className="flex items-baseline justify-between mb-3">
-                  <span className="kbd kbd-tyche text-[11px]">7 items · one price</span>
+                  <span className="kbd kbd-tyche text-[11px]">later, if it lands</span>
                   <span className="font-mono text-[10px] text-[var(--tyche)] tracking-wider">
-                    UNTIL MAY 15
+                    NOT THE FIRST YES
                   </span>
                 </div>
                 <h3 className="font-display text-[26px] font-normal text-[var(--text)] mb-1">
-                  The Luck Protocol
+                  The deeper path
                 </h3>
                 <p className="text-[13px] text-[var(--text-subtle)] mb-4">
-                  €29 · one-time · 30-day plan.
+                  There is more after the Primer. But the first sale should be the Primer.
                 </p>
                 <ul className="space-y-2 text-[13px] text-[var(--text-muted)] mb-6 flex-1">
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">1.</span><strong className="text-[var(--text)] font-medium">Personalised Reading</strong> — by name, to your question</li>
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">2.</span><strong className="text-[var(--text)] font-medium">30-day protocol</strong> — week-by-week for your archetype</li>
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">3.</span><strong className="text-[var(--text)] font-medium">3 tradition deep-dives</strong> — with source quotes + practices</li>
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">4.</span><strong className="text-[var(--text)] font-medium">Convergence Index</strong> — 11,000-word research paper</li>
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">5.</span><strong className="text-[var(--tyche-bright)] font-medium">90-day Return</strong> — recalibration at no charge</li>
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">6.</span><strong className="text-[var(--tyche-bright)] font-medium">Archetype Reveal Card</strong> — 4 styles, shareable</li>
-                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">7.</span><strong className="text-[var(--tyche-bright)] font-medium">Synchronicity Journal</strong> — 30-day tracking template</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>Use the Primer first to see if the pattern resonates</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>Only then decide whether you want the deeper plan</li>
+                  <li className="flex items-start gap-2"><span className="text-[var(--tyche)]">+</span>No clutter. No decision fatigue. One clear step</li>
                 </ul>
-                <div className="flex items-baseline gap-3 mb-4">
-                  <span className="font-display text-[44px] text-[var(--text)]">€29</span>
-                  <span className="font-mono text-[11px] text-[var(--tyche)] tracking-wider">€29 · one-time · 30-day plan</span>
-                </div>
-                <span className="btn btn-primary justify-center w-full">
-                  {loadingTier === "full" ? "Redirecting…" : "Open the Protocol · €29 →"}
-                </span>
+                <p className="font-mono text-[10px] text-[var(--text-subtle)] tracking-wider">
+                  IF YOU WANT MORE LATER, IT WILL BE THERE
+                </p>
               </div>
-            </button>
+            </div>
           </div>
 
           <div className="text-center mt-8 space-y-2">
@@ -396,7 +383,7 @@ export default function ReadingPreviewPage() {
         </div>
 
         <p className="text-center text-[13px] text-[var(--text-subtle)] font-mono tracking-wider">
-          <Link href="/" className="hover:text-[var(--gold)]">← back to kairos lab</Link>
+          <Link href="/" className="hover:text-[var(--gold)]">← back to luck lab</Link>
         </p>
       </article>
 

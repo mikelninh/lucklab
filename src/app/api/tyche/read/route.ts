@@ -114,7 +114,7 @@ export async function POST(req: NextRequest) {
           name: resonantTraditions[0] ?? "Taoism",
           hook: `Your resonant tradition is ${resonantTraditions[0] ?? "Taoism"} — a concept there speaks directly to your ${dom1.toLowerCase()}.`,
         },
-        unlockPrompt: `Unlock the Primer (€9) to see your full six-lever profile, or the Reading (€29) for your personalised 30-day protocol.`,
+        unlockPrompt: `Unlock the Primer (€9) to see your full six-lever profile, tradition essay, and seven-day practice.`,
       };
     }
 
