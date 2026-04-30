@@ -57,6 +57,11 @@ export function tracedOpenAI(opts: TracedOpenAIOpts): OpenAI {
   const lfSecret = process.env.LANGFUSE_SECRET_KEY;
   if (!lfPublic || !lfSecret) return plain;
 
+  // SDK reads LANGFUSE_HOST. Some docs use LANGFUSE_BASE_URL — normalise.
+  if (!process.env.LANGFUSE_HOST && process.env.LANGFUSE_BASE_URL) {
+    process.env.LANGFUSE_HOST = process.env.LANGFUSE_BASE_URL;
+  }
+
   // Lazy require so the langfuse package is only loaded when actually needed.
   // Keeps cold start fast in environments that don't use Langfuse.
   let observeOpenAI: undefined | ((c: OpenAI, opts: unknown) => OpenAI);

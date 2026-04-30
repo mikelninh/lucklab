@@ -1,4 +1,4 @@
-# Kairos Lab — Launch Plan
+# Luck Lab — Launch Plan
 
 > **Goal:** maximum visitors in the first 14 days. Measure, learn, iterate.
 > **Mindset:** we are not selling. We are sharing something genuinely interesting and seeing who resonates.
@@ -89,7 +89,7 @@ Wiseman validated 4 of 6 empirically.
 ```
 So I built a tool.
 
-It's called Kairos Lab. You take a 3-minute Reading.
+It's called Luck Lab. You take a 3-minute Reading.
 An AI oracle named Tyche maps your profile across the 6 mechanisms
 and tells you which of 6 archetypes you are.
 
@@ -124,7 +124,7 @@ your tradition match, and your growth edge.
 I built this because I believe luck is the most misunderstood concept
 in human experience. Too mystical for scientists. Too mundane for seekers.
 
-The interesting answer lives in the middle. That's where Kairos Lab sits.
+The interesting answer lives in the middle. That's where Luck Lab sits.
 
 [9/10]
 ```

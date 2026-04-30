@@ -39,7 +39,7 @@ Plus 7 long-form research essays (~29,000 words total) unlocking weekly at `/res
 ## Quickstart
 
 ```bash
-cd /Users/mikel/kairos
+cd /Users/mikel/lucklab
 npm install
 cp .env.example .env.local     # fill in real keys
 npm run dev                     # http://localhost:3000
@@ -157,7 +157,7 @@ Graduation path: the Supabase schema in `/supabase/schema.sql` adds persistence,
 vercel --prod
 ```
 
-Production deploy was made April 15 2026 from the `main` branch — see top of file for URL. Custom domain is the next step: buy `kairos.lab` (or similar), add to Vercel → Project → Settings → Domains.
+Production deploy was made April 15 2026 from the `main` branch — see top of file for URL. Custom domain is the next step: use `lucklab.app` (or similar), add to Vercel → Project → Settings → Domains.
 
 Required env vars for a fully live production:
 
@@ -167,9 +167,9 @@ STRIPE_SECRET_KEY=sk_live_…
 STRIPE_WEBHOOK_SECRET=whsec_…
 RESEND_API_KEY=re_…
 RESEND_AUDIENCE_ID=aud_…              # for weekly-digest cron
-EMAIL_FROM="Tyche · Luck Lab <tyche@kairos.lab>"
-NEXT_PUBLIC_APP_URL=https://kairos.lab
-NEXT_PUBLIC_PLAUSIBLE_DOMAIN=kairos.lab
+EMAIL_FROM="Tyche · Luck Lab <tyche@lucklab.app>"
+NEXT_PUBLIC_APP_URL=https://lucklab.app
+NEXT_PUBLIC_PLAUSIBLE_DOMAIN=lucklab.app
 CRON_SECRET=<long-random-string>
 ADMIN_EMAIL=you@wherever.com
 ```

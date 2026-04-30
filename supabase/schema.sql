@@ -1,5 +1,5 @@
 -- ============================================================
--- Kairos Lab — Supabase schema
+-- Luck Lab — Supabase schema
 -- ============================================================
 -- Run in your Supabase SQL editor once the project exists.
 -- Tables are designed for the full product vision: subscribers,

@@ -1,6 +1,6 @@
-# Kairos Lab — Marketing Plan
+# Luck Lab — Marketing Plan
 
-> A 12-month plan to take Kairos Lab from zero to **Scenario B** (€5-10K MRR by end of year 1). With specific templates, weekly cadence, and automation recipes.
+> A 12-month plan to take Luck Lab from zero to **Scenario B** (€5-10K MRR by end of year 1). With specific templates, weekly cadence, and automation recipes.
 
 ---
 
@@ -37,14 +37,14 @@
 
 ### Domain options (research)
 Pick one. All under €30/yr:
-- **kairos.lab** — most on-brand, premium. Check availability at iwantmyname.com or Namecheap.
+- **lucklab.app** — most on-brand, premium. Check availability at iwantmyname.com or Namecheap.
 - **kairoslab.com** — safest fallback
 - **trykairos.com** — consumer-y alternative
 - **kairos.run** — unusual, memorable
 - **askkairos.com** — SEO-leaning
 - **kairosreading.com** — product-first
 
-**Recommendation:** `kairos.lab` if available, else `kairoslab.com`.
+**Recommendation:** `lucklab.app` if available, else `kairoslab.com`.
 
 ---
 
@@ -90,7 +90,7 @@ Launch day = Tuesday. (Product Hunt peaks Tue/Wed; Monday is a bad day for socia
 
 ### The "first 10 reviews" mini-playbook
 
-Reviews are the single biggest unlock for cold conversion. The site ships with a `/reviews` page and a landing-page rail that **shows an empty state until 3 featured reviews exist** — the empty state itself is honest social proof ("Kairos Lab is new — you may be the first quote"). But you need real ones, fast.
+Reviews are the single biggest unlock for cold conversion. The site ships with a `/reviews` page and a landing-page rail that **shows an empty state until 3 featured reviews exist** — the empty state itself is honest social proof ("Luck Lab is new — you may be the first quote"). But you need real ones, fast.
 
 **Week 1, the warm-list ask:**
 
@@ -279,7 +279,7 @@ surrender, connection, and meaning-making.
 
 Six trainable levers. Wiseman validated four empirically.
 
-7/ So I built a tool. Kairos Lab is a 3-minute Reading that maps your
+7/ So I built a tool. Luck Lab is a 3-minute Reading that maps your
 profile across the 6 levers and tells you which of 6 archetypes you
 are, which tradition fits your pattern, and what to practise.
 
@@ -332,7 +332,7 @@ two more the traditions add (connection and meaning-making).
 Six trainable levers. Wiseman validated four empirically. The others are
 where the traditions stretch further than current psychology has measured.
 
-I built a tool around this thesis — a 3-minute Reading called Kairos Lab
+I built a tool around this thesis — a 3-minute Reading called Luck Lab
 that maps a person's profile across the six levers and matches them to
 the tradition whose practices most fit. It's free. It doesn't horoscope.
 
@@ -348,20 +348,20 @@ I'd love to know what you think — especially if you disagree.
 ### Hacker News submission
 
 Title: `12 wisdom traditions and a 2003 study arrive at the same answer about luck`
-URL: `https://kairos.lab/research/how-to-be-luckier`
+URL: `https://lucklab.app/research/how-to-be-luckier`
 
 If it makes front page, be in the comments within 10 minutes. Disagreement is oxygen there — engage respectfully with the sceptics, they are your audience.
 
 ### Newsletter pitch (cold)
 
-Subject: `Kairos Lab — a research platform on luck, looking for early readers`
+Subject: `Luck Lab — a research platform on luck, looking for early readers`
 
 ```
 Hi [Name],
 
 I noticed you've written about [specific thing that shows you actually read their work]. I think there's an angle here you might find interesting — and if so, I'd love to be included in a future [newsletter name] roundup.
 
-I spent three months cross-referencing 12 wisdom traditions against modern psychology (specifically Richard Wiseman's Luck Factor) and built a tool + 40-page essay at kairos.lab. The thesis is that luck is a trainable disposition along six levers, four of which are empirically validated.
+I spent three months cross-referencing 12 wisdom traditions against modern psychology (specifically Richard Wiseman's Luck Factor) and built a tool + 40-page essay at lucklab.app. The thesis is that luck is a trainable disposition along six levers, four of which are empirically validated.
 
 No pitch beyond: here's the Convergence Index if you want the argument [link], and here's the 3-minute Reading if you want to test it yourself [link].
 
@@ -372,12 +372,12 @@ Happy to answer anything.
 
 ### Product Hunt launch copy
 
-Title: `Kairos Lab — the science of the opportune moment`
+Title: `Luck Lab — the science of the opportune moment`
 Tagline: `A 3-minute Reading that maps your luck across 12 traditions`
 
 Description:
 ```
-Kairos Lab cross-references 12 wisdom traditions (Jung, Taoism, Kabbalah,
+Luck Lab cross-references 12 wisdom traditions (Jung, Taoism, Kabbalah,
 Vedanta, Stoicism...) with 20 years of empirical luck research to argue
 something simple: luck is a trainable disposition.
 

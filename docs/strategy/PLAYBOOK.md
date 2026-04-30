@@ -1,6 +1,6 @@
 # The Kairos Playbook
 
-> Everything we learned building Kairos Lab from zero to launch in one session.
+> Everything we learned building Luck Lab from zero to launch in one session.
 > A reusable blueprint for any AI-powered digital product.
 
 ---

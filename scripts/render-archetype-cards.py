@@ -1,5 +1,5 @@
 """
-Kairos Lab — 6 archetype card backgrounds (1080x1920 PNG, no text).
+Luck Lab — 6 archetype card backgrounds (1080x1920 PNG, no text).
 Text is overlayed by the app.
 
 Shared design language:

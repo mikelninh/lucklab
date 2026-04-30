@@ -388,7 +388,7 @@ Each of these was a separate session of work. Most had "teach a new pattern" val
 
 In priority order:
 
-1. **Custom domain** — buy `kairos.lab` (or similar), add in Vercel. ~30 min.
+1. **Custom domain** — buy `lucklab.app` (or similar), add in Vercel. ~30 min.
 2. **Supabase enable** — so users can revisit their Reading, journal state persists, the 90-day Return becomes real. The biggest remaining product feature.
 3. **Server-side PDF of the Reading** — currently print-to-PDF works everywhere; server-side (Puppeteer) lets us attach PDFs to email. See `docs/PDF-SERVER.md`.
 4. **Convergence Index as typeset PDF** — Typst template. Currently readable web + print-to-PDF; typeset version is a brand-grade artefact.
@@ -643,7 +643,7 @@ export function articleLD(args) {
     "@type": "Article",
     headline: args.title,
     datePublished: args.publishDate,
-    author: { "@type": "Organization", name: "Kairos Lab" },
+    author: { "@type": "Organization", name: "Luck Lab" },
     // …
   };
 }

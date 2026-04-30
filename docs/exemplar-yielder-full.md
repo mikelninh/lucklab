@@ -11,7 +11,7 @@ quality_target: "12/10"
 
 ## A note from Tyche
 
-Collin, you know something most people spend decades unlearning: that gripping constricts. Every contemplative tradition Kairos Lab has cross-referenced — Taoism, Sufism, Stoicism, Buddhism — names a version of the same paradox: the hand that opens receives more than the fist that closes.
+Collin, you know something most people spend decades unlearning: that gripping constricts. Every contemplative tradition Luck Lab has cross-referenced — Taoism, Sufism, Stoicism, Buddhism — names a version of the same paradox: the hand that opens receives more than the fist that closes.
 
 You chose "I want to let go but find myself gripping anyway." That sentence is the entire Reading in miniature. You already know the answer to the decision in front of you. You do not yet trust it with your full weight. That distrust is not weakness — it is the last contraction before release, and every tradition I will cite below has a name for it.
 

@@ -9,7 +9,7 @@
  *   1. Sign up at https://cloud.langfuse.com  (or https://eu.cloud.langfuse.com
  *      for EU-hosted — recommended)
  *   2. Project Settings → API Keys → New API Key
- *   3. Add to /Users/mikel/kairos/.env.local:
+ *   3. Add to /Users/mikel/lucklab/.env.local:
  *        LANGFUSE_PUBLIC_KEY=pk-lf-...
  *        LANGFUSE_SECRET_KEY=sk-lf-...
  *        LANGFUSE_HOST=https://eu.cloud.langfuse.com
@@ -26,6 +26,27 @@
  *     scores, personal-context-present flag, answer count.
  *   - Latency + cost rolled up in the dashboard.
  */
+
+// Load .env.local so the closing message reflects the actually-configured
+// host. (Next.js auto-loads .env.local for the dev server, but a standalone
+// Node script doesn't — without this we'd print a wrong URL hint.)
+import { readFileSync, existsSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const envPath = join(__dirname, "..", ".env.local");
+if (existsSync(envPath)) {
+  for (const line of readFileSync(envPath, "utf8").split("\n")) {
+    const m = line.match(/^([A-Z_][A-Z0-9_]*)=(.*)$/);
+    if (m && !process.env[m[1]]) {
+      process.env[m[1]] = m[2].replace(/^["']|["']$/g, "");
+    }
+  }
+}
+// Some Langfuse docs use LANGFUSE_BASE_URL, SDK reads LANGFUSE_HOST. Normalise.
+if (!process.env.LANGFUSE_HOST && process.env.LANGFUSE_BASE_URL) {
+  process.env.LANGFUSE_HOST = process.env.LANGFUSE_BASE_URL;
+}
 
 const PORT = process.env.LUCKLAB_PORT || "3000";
 const URL = `http://localhost:${PORT}/api/tyche/read`;
@@ -91,7 +112,7 @@ try {
   if (!ping.ok && ping.status >= 500) throw new Error(`status ${ping.status}`);
 } catch (err) {
   console.error(`✗ Dev server not reachable on :${PORT}.`);
-  console.error(`  Start it: cd /Users/mikel/kairos && npm run dev`);
+  console.error(`  Start it: cd /Users/mikel/lucklab && npm run dev`);
   console.error(`  Then re-run this demo.\n`);
   process.exit(1);
 }
@@ -123,9 +144,10 @@ for (const [i, persona] of PERSONAS.entries()) {
   }
 }
 
-const host = process.env.LANGFUSE_HOST || "https://eu.cloud.langfuse.com";
+const host = process.env.LANGFUSE_HOST || "(set LANGFUSE_HOST in .env.local)";
 console.log(`\n✓ Done. ${n_ok}/${PERSONAS.length} successful.\n`);
 console.log(`Open Langfuse: ${host}`);
+console.log(`  → Switch to your lucklab project (top-left)`);
 console.log(`  → Traces tab — filter by tag 'tyche-read' to see today's runs`);
 console.log(`  → Each trace shows full prompt + JSON response + tokens + cost`);
 console.log(`  → Filter by tag 'archetype:<id>' to compare across archetypes`);
