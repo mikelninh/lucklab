@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/reading`,          changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/about`,            changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/research`,         changeFrequency: "weekly",  priority: 0.8 },
+    { url: `${BASE}/posters`,          changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/reviews`,          changeFrequency: "weekly",  priority: 0.5 },
     { url: `${BASE}/convergence-index`,changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/contact`,          changeFrequency: "yearly",  priority: 0.5 },

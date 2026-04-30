@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { TycheSigil } from "@/components/TycheSigil";
@@ -12,6 +13,12 @@ export const revalidate = 3600;
 
 export default function Home() {
   const latestArticles = loadPublishedArticles().slice(0, 3);
+  const featuredPosters = [
+    "01-train-your-luck.svg",
+    "03-fortune-favors-the-curious.svg",
+    "07-kairos-over-chronos.svg",
+    "10-become-a-luck-magnet.svg",
+  ];
 
   return (
     <>
@@ -227,6 +234,49 @@ export default function Home() {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      <div className="hairline-gold max-w-4xl mx-auto" />
+
+      {/* ============================== POSTERS ============================== */}
+      <section className="max-w-6xl mx-auto px-6 py-24">
+        <div className="flex items-end justify-between gap-6 flex-wrap mb-10">
+          <div>
+            <div className="eyebrow mb-3">new / print shop</div>
+            <h2 className="font-display text-[32px] md:text-[40px] leading-[1.08] tracking-[-0.015em] font-light text-balance max-w-2xl">
+              Top 10 bestseller posters,
+              <em className="not-italic text-[var(--gold)]"> now live in the app.</em>
+            </h2>
+            <p className="mt-4 text-[14px] text-[var(--text-muted)] leading-relaxed max-w-2xl">
+              Browse, preview, and open the original print-ready SVG files directly.
+            </p>
+          </div>
+          <Link href="/posters" className="btn btn-primary">
+            View all posters
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {featuredPosters.map((file) => {
+            const href = `/posters/top-10-bestsellers/${file}`;
+            return (
+              <Link
+                key={file}
+                href="/posters"
+                className="panel overflow-hidden hover:border-[var(--gold)]/40 transition"
+              >
+                <Image
+                  src={href}
+                  alt={`Luck Lab featured poster ${file}`}
+                  width={800}
+                  height={1000}
+                  className="w-full h-auto aspect-[4/5] object-cover"
+                  unoptimized
+                />
+              </Link>
+            );
+          })}
         </div>
       </section>
 
