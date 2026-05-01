@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import { ORGANIZATION, WEBSITE, jsonLdScript } from "@/lib/jsonld";
-import { LuckLayer } from "@/components/LuckLayer";
 // ExitIntent removed 2026-04-20 — identity system forbids modal popups that
 // block the content, exit-intent modals included. See IDENTITY_SYSTEM.md.
-import { StickyCTA } from "@/components/StickyCTA";
+import { SiteChrome } from "@/components/SiteChrome";
 import Script from "next/script";
 
 const geistSans = Geist({
@@ -85,9 +84,8 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-full flex flex-col">
-        <LuckLayer />
+        <SiteChrome />
         {children}
-        <StickyCTA />
       </body>
     </html>
   );

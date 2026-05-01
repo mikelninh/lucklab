@@ -1,4 +1,11 @@
 {
+  "experimentalServices": {
+    "web": {
+      "entrypoint": ".",
+      "routePrefix": "/",
+      "framework": "nextjs"
+    }
+  },
   "crons": [
     { "path": "/api/cron/weekly-social",  "schedule": "0 9 * * 3" },
     { "path": "/api/cron/weekly-digest",  "schedule": "0 10 * * 5" },

@@ -71,7 +71,7 @@ function personalSection(p?: PersonalContext): string {
     parts.push("- Birthdate: not provided");
   }
   if (hasQuestion) {
-    parts.push(`- Their current question / what they are asking of Tyche: "${p.currentQuestion}"`);
+    parts.push(`- Their current question / what they are asking of the Reading: "${p.currentQuestion}"`);
   } else {
     parts.push("- Current question: not provided — speak to their archetype in general, no living-thread needed");
   }
@@ -122,7 +122,7 @@ It should read like a verdict, not a preamble. The reader should be able to scre
 Return a JSON object with exactly these fields:
 
 {
-  "greeting": "One sentence. Open with the cleanest verdict you can give about their luck pattern. Name them${ctx.personal ? " (use their actual name)" : ""} the ${ctx.archetypeName}. No hedging.",
+  "greeting": "One sentence. Open with the cleanest verdict you can give about their luck pattern. Name them${ctx.personal ? " (use their actual name)" : ""} the ${ctx.archetypeName}. No hedging. The line should feel like a small shock, not a description.",
 
   "archetypeGlimpse": "Three short, punchy sentences (~60 words). Why they are this archetype. Reference ONE specific thing from their answers. End on a line someone would actually send to a friend. Make it concrete and useful.",
 
@@ -191,11 +191,11 @@ This is their first purchase. It must OVER-DELIVER. The buyer should think "this
 Return a JSON object with exactly these fields:
 
 {
-  "greeting": "~60 words. Open with their name. Quote ONE of their answers in the first two sentences. Set the tone: Tyche sees them. Not 'Welcome' — start with what she noticed. The first sentence should be the one they screenshot. Make it read like a useful note, not a flourish.",
+  "greeting": "~60 words. Open with their name. Quote ONE of their answers in the first two sentences. Set the tone: direct, precise, personal. Not 'Welcome' - start with what the pattern reveals. The first sentence should be the one they screenshot. Make it read like a useful note, not a flourish.",
 
-  "archetypeInsight": "~200 words. Two paragraphs. Paragraph 1: why they are ${ctx.archetypeName} — cite TWO specific answers. Paragraph 2: what this means for how luck reaches them. End with a sentence that lands hard enough to remember. Keep the logic clean and concrete.",
+  "archetypeInsight": "~200 words. Two paragraphs. Paragraph 1: why they are ${ctx.archetypeName} — cite TWO specific answers. Paragraph 2: what this means for how luck reaches them. End with a sentence that lands hard enough to remember. Keep the logic clean and concrete. The first paragraph should name the hidden cost of their pattern.",
 
-  "contradiction": "~100 words. The ONE non-obvious tension between two of their answers or scores. This is the paragraph they screenshot. Use plain language first; only use metaphor if it makes the tension easier to understand. The reader should immediately understand the problem.",
+  "contradiction": "~100 words. The ONE non-obvious tension between two of their answers or scores. This is the paragraph they screenshot. Use plain language first; only use metaphor if it makes the tension easier to understand. The reader should immediately understand the problem. It should feel like the sentence that explains why their luck keeps arriving just after they have slowed it down.",
 
   "sixLevers": {
     "summary": "One sentence framing the model.",
@@ -219,7 +219,7 @@ Return a JSON object with exactly these fields:
     "Day 7: Integration — carry this forward. One sentence that closes the week."
   ],
 
-  "closing": "Two sentences. Address by name. Point toward the Full Reading — but make it feel like an invitation, not a sales pitch. Tyche does not sell. She observes that there is more to see."
+  "closing": "Two sentences. Address by name. Point toward the Full Reading - but make it feel like an invitation, not a sales pitch. Do not oversell. Simply show that there is more to see."
 }
 
 Output ONLY the JSON. British English. No preamble.`;

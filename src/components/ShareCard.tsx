@@ -21,14 +21,14 @@ export function ShareCard({ name, archetype, tagline, variant = "compact" }: Sha
   const firstName = name.split(/\s+/)[0];
   const url = typeof window !== "undefined" ? window.location.origin : "https://lucklab.app";
 
-  const shareText = `I just took the Luck Lab Reading. Tyche called me ${archetype}${tagline ? ` — "${tagline}"` : ""}. What archetype are you?\n\n${url}/reading`;
+  const shareText = `I just took the Luck Lab Reading. My luck pattern is ${archetype}${tagline ? ` - "${tagline}"` : ""}. What pattern do you get?\n\n${url}/reading`;
 
   async function shareNative() {
     track("cta_click", { action: "share_archetype" });
     if (navigator.share) {
       try {
         await navigator.share({
-          title: `I am ${archetype} — Luck Lab`,
+        title: `${archetype} - Luck Lab`,
           text: shareText,
           url: `${url}/reading`,
         });
@@ -52,7 +52,7 @@ export function ShareCard({ name, archetype, tagline, variant = "compact" }: Sha
         onClick={shareNative}
         className="btn btn-ghost text-[12px] !py-2 !px-4 no-print"
       >
-        {copied ? "Copied!" : "Share your archetype"}
+        {copied ? "Copied!" : "Share your result"}
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
           <path d="M4 4.5L8 2M4 7.5L8 10M3 6a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM9 2.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM9 12a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" stroke="currentColor" strokeWidth="1" />
         </svg>
@@ -64,7 +64,7 @@ export function ShareCard({ name, archetype, tagline, variant = "compact" }: Sha
     <div className="card card-gold text-center no-print">
       <div className="eyebrow mb-3">share the result</div>
       <p className="font-display text-[22px] text-[var(--text)] mb-2">
-        {firstName}, you are <em className="not-italic text-[var(--gold)]">{archetype}</em>.
+        {firstName}, your pattern is <em className="not-italic text-[var(--gold)]">{archetype}</em>.
       </p>
       {tagline && (
         <p className="text-[14px] text-[var(--text-muted)] italic mb-6">{tagline}</p>
@@ -93,7 +93,7 @@ export function ShareCard({ name, archetype, tagline, variant = "compact" }: Sha
         </a>
       </div>
       <p className="font-mono text-[10px] text-[var(--text-subtle)] mt-4 tracking-wider">
-        CHALLENGE A FRIEND: WHAT ARCHETYPE ARE THEY?
+        CHALLENGE A FRIEND: WHAT PATTERN DO THEY GET?
       </p>
     </div>
   );

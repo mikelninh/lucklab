@@ -103,7 +103,7 @@ export function ArchetypeReveal({ name, archetype, tagline, scores }: RevealProp
           {/* Middle — the reveal */}
           <div className="flex flex-col items-center gap-2 flex-1 justify-center">
             <div className={`font-mono text-[9px] text-[var(--text-subtle)] tracking-[0.15em] transition-opacity duration-700 ${phase !== "idle" ? "opacity-100" : "opacity-0"}`}>
-              TYCHE READ FOR {firstName.toUpperCase()}
+              LUCK LAB READ FOR {firstName.toUpperCase()}
             </div>
 
             <div className={`h-px w-16 bg-gradient-to-r from-transparent via-[var(--gold)] to-transparent my-2 transition-opacity duration-1000 delay-500 ${phase === "playing" || phase === "done" ? "opacity-100" : "opacity-0"}`} />
@@ -145,7 +145,7 @@ export function ArchetypeReveal({ name, archetype, tagline, scores }: RevealProp
 
           {/* Bottom CTA */}
           <div className={`text-center transition-opacity duration-700 delay-[2800ms] ${phase === "done" ? "opacity-100" : "opacity-0"}`}>
-            <p className="text-[10px] text-[var(--text)]">Which archetype are you?</p>
+              <p className="text-[10px] text-[var(--text)]">What pattern do you get?</p>
             <p className="font-mono text-[8px] text-[var(--gold)] tracking-[0.15em] mt-1">LUCKLAB.APP/READING</p>
           </div>
         </div>

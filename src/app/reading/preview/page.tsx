@@ -28,14 +28,14 @@ type ReadingData = {
 const SAMPLE_READING: ReadingData = {
   archetype: { id: "wanderer", name: "The Wanderer", tagline: "New routes. New people. New weather." },
   tyche: {
-    greeting: "Mikel, you are the kind of person luck finds when you leave the usual path.",
+    greeting: "You do not miss luck. You delay the moment it becomes real.",
     archetypeGlimpse:
-      "You do not wait for luck to knock. You move first, then notice what opened. One answer says you want more structure; another says you get restless when the route repeats. That combination gives you reach, but it also makes you hard to pin down. People like you do best when the next step is concrete.",
+      "You spot openings early, but you keep asking for one more confirmation. That makes you careful, and it also costs momentum. Luck reaches you when the next move is concrete and you stop reopening it.",
     traditionTease: {
       name: "Taoism",
-      hook: "The idea of flowing with what is already moving fits you better than forcing the first answer.",
+      hook: "The practical part of Taoism is not passivity. It is knowing when to stop asking for one more sign.",
     },
-    unlockPrompt: "Unlock the Primer (€9) to see the full six-lever read and a 7-day practice made for your pattern.",
+    unlockPrompt: "Unlock the Primer (€9) to see the full six-lever read and a 7-day practice built for your pattern.",
   },
   locked: {
     scores: { attention: 58, openness: 82, action: 64, surrender: 41, connection: 73, meaning: 55 },
@@ -144,7 +144,7 @@ export default function ReadingPreviewPage() {
 
         {/* ARCHETYPE GLIMPSE */}
         <div className="mb-12">
-          <div className="eyebrow mb-4">what tyche sees</div>
+          <div className="eyebrow mb-4">what the reading sees</div>
           <p className="text-[16px] md:text-[17px] text-[var(--text)] leading-[1.8] text-pretty">
             {tyche.archetypeGlimpse}
           </p>
@@ -194,7 +194,7 @@ export default function ReadingPreviewPage() {
 
         {/* CONTRADICTION TEASER — the "oh fuck" moment, cut mid-sentence */}
         <div className="mb-12 card card-gold relative overflow-hidden">
-          <div className="eyebrow eyebrow-tyche mb-3">tyche noticed something</div>
+          <div className="eyebrow eyebrow-tyche mb-3">the reading noticed something</div>
           <p className="font-display text-[17px] text-[var(--text)] leading-[1.6] italic">
             {(() => {
               const scores = reading.locked?.scores;
@@ -202,7 +202,7 @@ export default function ReadingPreviewPage() {
               const entries = Object.entries(scores).sort(([,a],[,b]) => (b as number) - (a as number));
               const [highKey, highVal] = entries[0];
               const [lowKey, lowVal] = entries[entries.length - 1];
-              return `Your ${highKey} is ${highVal} — your highest lever. But your ${lowKey} is ${lowVal}. That tension defines your pattern. It is like...`;
+              return `Your ${highKey} is ${highVal} - your highest lever. But your ${lowKey} is ${lowVal}. You are not blocked by lack of luck. You are blocked by the habit of asking for one more confirmation. That is why the pattern feels close, then slips.`;
             })()}
           </p>
           <div className="h-12 bg-gradient-to-b from-transparent to-[var(--surface)] absolute bottom-0 left-0 right-0 flex items-end justify-center pb-3">
