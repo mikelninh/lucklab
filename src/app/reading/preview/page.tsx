@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { TycheSigil } from "@/components/TycheSigil";
+import { ArchetypeReveal } from "@/components/ArchetypeReveal";
 // Reviews on preview page would require an /api/reviews endpoint since this is a
 // client component (uses sessionStorage). For now the landing-page rail covers it.
 
@@ -177,6 +178,21 @@ export default function ReadingPreviewPage() {
           <div className="h-12 bg-gradient-to-b from-transparent to-[var(--surface)] absolute bottom-0 left-0 right-0 flex items-end justify-center pb-3">
             <span className="font-mono text-[10px] text-[var(--gold)] tracking-wider">UNLOCK THE FULL INSIGHT →</span>
           </div>
+        </div>
+
+        {/* SHAREABLE REVEAL */}
+        <div className="mb-12">
+          <div className="eyebrow mb-4 text-center">shareable result</div>
+          <p className="text-[14px] text-[var(--text-muted)] text-center max-w-xl mx-auto mb-6 leading-relaxed">
+            This is the part people send to friends: a named archetype, a sharp line, and a visual card that makes the result feel real.
+          </p>
+          <ArchetypeReveal
+            name={firstName || "friend"}
+            archetype={archetype.name}
+            greek={archetype.greek}
+            tagline={archetype.tagline}
+            scores={reading.locked?.scores || {}}
+          />
         </div>
 
         {/* WHAT THE READING INCLUDES — concise list */}
@@ -396,7 +412,7 @@ function LockedPreview({ firstName }: { firstName: string }) {
   return (
     <div className="relative my-12">
       <div className="card opacity-60 pointer-events-none select-none">
-        <div className="eyebrow mb-4">kairotic profile &middot; locked</div>
+        <div className="eyebrow mb-4">luck profile &middot; locked</div>
         <div className="space-y-3">
           {["Attention", "Openness", "Aligned action", "Surrender", "Connection", "Meaning-making"].map((name, i) => (
             <div key={name}>
