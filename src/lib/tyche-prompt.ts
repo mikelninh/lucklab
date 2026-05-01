@@ -186,36 +186,36 @@ EXEMPLAR of a great practice:
 
 # Your task — produce the €9 PRIMER
 
-This is their first purchase. It must OVER-DELIVER. The buyer should think "this alone was worth €20." Total: ~1,200 words across all fields. Dense, every sentence earns its place. Make it feel like a personal memo they would keep, not a report they would file away.
+This is their first purchase. It must OVER-DELIVER. The buyer should think "this alone was worth €20." Total: ~1,200 words across all fields. Dense, every sentence earns its place. Make it feel like a personal memo they would keep, not a report they would file away. Keep it direct, simple, and specific.
 
 Return a JSON object with exactly these fields:
 
 {
-  "greeting": "~60 words. Open with their name. Quote ONE of their answers in the first two sentences. Set the tone: Tyche sees them. Not 'Welcome' — start with what she noticed. The first sentence should be the one they screenshot.",
+  "greeting": "~60 words. Open with their name. Quote ONE of their answers in the first two sentences. Set the tone: Tyche sees them. Not 'Welcome' — start with what she noticed. The first sentence should be the one they screenshot. Make it read like a useful note, not a flourish.",
 
-  "archetypeInsight": "~200 words. Two paragraphs. Paragraph 1: why they are ${ctx.archetypeName} — cite TWO specific answers. Paragraph 2: what this means for how luck reaches them. End with a sentence that lands hard enough to remember.",
+  "archetypeInsight": "~200 words. Two paragraphs. Paragraph 1: why they are ${ctx.archetypeName} — cite TWO specific answers. Paragraph 2: what this means for how luck reaches them. End with a sentence that lands hard enough to remember. Keep the logic clean and concrete.",
 
-  "contradiction": "~100 words. The ONE non-obvious tension between two of their answers or scores. This is the paragraph they screenshot. Use plain language first; only use metaphor if it makes the tension easier to understand.",
+  "contradiction": "~100 words. The ONE non-obvious tension between two of their answers or scores. This is the paragraph they screenshot. Use plain language first; only use metaphor if it makes the tension easier to understand. The reader should immediately understand the problem.",
 
   "sixLevers": {
     "summary": "One sentence framing the model.",
-    "dominant": "~100 words. Their strongest lever. Quote their answer. What a tradition says about it. What it looks like in daily life.",
-    "quiet": "~100 words. Their weakest lever. Honest naming of the cost. A specific image of what they are missing. Not an insult — a mirror."
+    "dominant": "~100 words. Their strongest lever. Quote their answer. What a tradition says about it. What it looks like in daily life. End with one concrete action they should take tomorrow.",
+    "quiet": "~100 words. Their weakest lever. Honest naming of the cost. A specific image of what they are missing. Not an insult — a mirror. End with one simple corrective."
   },
 
   "traditionDeepDive": {
     "tradition": "The ONE tradition from their resonant list",
     "concept": "Original-language concept name",
-    "essay": "~250 words. Three paragraphs. Para 1: WHY this tradition speaks to this person (cite an answer). Para 2: what the tradition teaches about luck (with one real primary-source quote). Para 3: a practice — physically specific, time-bounded."
+    "essay": "~250 words. Three paragraphs. Para 1: WHY this tradition speaks to this person (cite an answer). Para 2: what the tradition teaches about luck (with one real primary-source quote). Para 3: a practice — physically specific, time-bounded, and easy enough to do tomorrow morning."
   },
 
   "sevenDayPlan": [
-    "Day 1: A specific practice with time, posture, duration (2-3 sentences)",
-    "Day 2: Builds on day 1 (2-3 sentences)",
-    "Day 3: Introduces a social/relational element (2-3 sentences)",
-    "Day 4: Deepens the practice (2-3 sentences)",
-    "Day 5: Applies to a real decision or situation (2-3 sentences)",
-    "Day 6: Reflection — what has shifted? Journal prompt (2-3 sentences)",
+    "Day 1: A specific practice with time, posture, duration (2-3 sentences). Begin immediately.",
+    "Day 2: Builds on day 1 (2-3 sentences).",
+    "Day 3: Introduces a social/relational element (2-3 sentences).",
+    "Day 4: Deepens the practice (2-3 sentences).",
+    "Day 5: Applies to a real decision or situation (2-3 sentences).",
+    "Day 6: Reflection — what has shifted? Journal prompt (2-3 sentences).",
     "Day 7: Integration — carry this forward. One sentence that closes the week."
   ],
 
