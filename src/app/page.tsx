@@ -52,12 +52,12 @@ export default function Home() {
           <div>
             <div className="eyebrow eyebrow-tyche mb-4">what you get</div>
             <h2 className="font-display text-[36px] md:text-[44px] leading-[1.08] tracking-[-0.015em] font-light text-balance">
-              See what a Reading <em className="not-italic text-[var(--tyche)]">actually looks like</em>.
+              See what a real Reading <em className="not-italic text-[var(--tyche)]">feels like</em>.
             </h2>
             <p className="text-[15px] text-[var(--text-muted)] mt-5 leading-relaxed">
-              This is a real excerpt from a Reading for a Yielder named Lena.
-              Every Reading is unique — Tyche quotes your actual answers back to
-              you and finds patterns you hadn&rsquo;t seen.
+              This is a real excerpt from a full Reading. It quotes your own
+              answers back to you, then shows the exact tension shaping the
+              rest of the document.
             </p>
             <Link href="/reading" className="btn btn-primary mt-8">
               Take the Reading
