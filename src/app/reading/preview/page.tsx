@@ -25,12 +25,42 @@ type ReadingData = {
   personal: { name: string; birthdate: string; currentQuestion: string };
 };
 
+const SAMPLE_READING: ReadingData = {
+  archetype: { id: "wanderer", name: "The Wanderer", tagline: "New routes. New people. New weather." },
+  tyche: {
+    greeting: "Mikel, you are the kind of person luck finds when you leave the usual path.",
+    archetypeGlimpse:
+      "You do not wait for luck to knock. You move first, then notice what opened. One answer says you want more structure; another says you get restless when the route repeats. That combination gives you reach, but it also makes you hard to pin down. People like you do best when the next step is concrete.",
+    traditionTease: {
+      name: "Taoism",
+      hook: "The idea of flowing with what is already moving fits you better than forcing the first answer.",
+    },
+    unlockPrompt: "Unlock the Primer (€9) to see the full six-lever read and a 7-day practice made for your pattern.",
+  },
+  locked: {
+    scores: { attention: 58, openness: 82, action: 64, surrender: 41, connection: 73, meaning: 55 },
+    growthEdge: "Surrender",
+    resonantTraditions: ["Taoism", "Positive Psychology", "Stoicism"],
+  },
+  answers: [],
+  personal: { name: "Mikel", birthdate: "", currentQuestion: "How do I make luck more usable?" },
+};
+
 export default function ReadingPreviewPage() {
   const router = useRouter();
   const [reading, setReading] = useState<ReadingData | null>(null);
   const [loadingTier, setLoadingTier] = useState<"primer" | "full" | null>(null);
+  const [isSample, setIsSample] = useState(false);
 
   useEffect(() => {
+    setIsSample(new URLSearchParams(window.location.search).get("sample") === "1");
+  }, []);
+
+  useEffect(() => {
+    if (isSample) {
+      setReading(SAMPLE_READING);
+      return;
+    }
     const raw = sessionStorage.getItem("kairos:reading");
     if (!raw) {
       router.push("/reading");
@@ -41,7 +71,7 @@ export default function ReadingPreviewPage() {
     } catch {
       router.push("/reading");
     }
-  }, [router]);
+  }, [router, isSample]);
 
   async function unlock(tier: "primer" | "full") {
     if (!reading) return;
