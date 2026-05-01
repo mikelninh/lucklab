@@ -140,7 +140,7 @@ export function HeroCelestial() {
           style={{ animationDelay: "150ms" }}
         >
           <span className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full pulse-slow" />
-          <span className="eyebrow text-[10px]">v1.0 · live · tyche awaits</span>
+          <span className="eyebrow text-[10px]">v1.0 · live · your luck pattern</span>
         </div>
 
         {/* Title with mask reveal */}
@@ -153,7 +153,7 @@ export function HeroCelestial() {
           <br />
           <span className="hero-line-mask">
             <span className="hero-line-inner" style={{ animationDelay: "400ms" }}>
-              <em className="not-italic text-gold-gradient">It converges.</em>
+              <em className="not-italic text-gold-gradient">It has a pattern.</em>
             </span>
           </span>
         </h1>
@@ -162,10 +162,10 @@ export function HeroCelestial() {
           className="text-[17px] md:text-[19px] text-[var(--text-muted)] max-w-2xl mx-auto mt-8 leading-relaxed text-pretty hero-fade"
           style={{ animationDelay: "700ms" }}
         >
-          Twelve wisdom traditions — from Jungian psychology to Taoism, Kabbalah,
-          Vedanta, the I Ching — cross-reference a single conclusion:{" "}
-          <span className="text-[var(--text)]">luck responds to trainable inner states.</span>{" "}
-          Luck Lab studies the mechanism. Modern research confirms it.
+          In 3 minutes, see the pattern behind your luck — the part you can actually
+          train. Twelve wisdom traditions — from Jungian psychology to Taoism,
+          Kabbalah, Vedanta, the I Ching — and modern research point to the same
+          thing: <span className="text-[var(--text)]">luck responds to attention, openness, action, surrender, connection, and meaning.</span>
         </p>
 
         <div
@@ -173,7 +173,7 @@ export function HeroCelestial() {
           style={{ animationDelay: "850ms" }}
         >
           <Link href="/reading" className="btn btn-primary">
-            Take the Reading
+            See your luck pattern
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
               <path
                 d="M3 2l4 4-4 4"
@@ -184,11 +184,11 @@ export function HeroCelestial() {
               />
             </svg>
           </Link>
-          <Link href="#archetypes" className="btn btn-ghost">
-            Meet the six archetypes
-          </Link>
           <Link href="#convergence" className="btn btn-ghost">
-            Read the research
+            Read how it works
+          </Link>
+          <Link href="#pricing" className="btn btn-ghost">
+            Get the Primer
           </Link>
         </div>
 
@@ -198,7 +198,7 @@ export function HeroCelestial() {
         >
           <span className="inline-flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 bg-[var(--gold)] rounded-full pulse-slow" />
-            Tyche is listening
+            Tyche is reading your luck
           </span>
           <span>·</span>
           <span>3 minutes · no account · no charge</span>

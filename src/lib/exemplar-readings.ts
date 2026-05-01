@@ -61,7 +61,7 @@ CLOSING: "You asked what to do next. You already know: go somewhere you have not
 export const EXEMPLAR_STEERER = `
 EXEMPLAR — match this quality exactly:
 
-OPENING: "You act. Where others deliberate, you have already moved. The Greeks sculpted Kairos with a forelock and a bald back: you could seize him approaching but not after he passed. You seize him. You always have. What you may not yet see is the cost: the moments you seized that were not yet ripe, the doors you forced that would have opened on their own."
+OPENING: "You act. Where others deliberate, you have already moved. One old sculpture captured the opportune moment with a forelock and a bald back: you could seize it approaching but not after it passed. You seize it. You always have. What you may not yet see is the cost: the moments you seized that were not yet ripe, the doors you forced that would have opened on their own."
 
 ARCHITECTURE (one lever): "Surrender: 11. You chose 'push harder against it' when facing setbacks. Read that beside your action score of 82. You are a person who moves — but you cannot stop moving. Stillness feels like failure to you. It is not. It is the pause between the inhale and the exhale, and without it, the breathing becomes gasping."
 

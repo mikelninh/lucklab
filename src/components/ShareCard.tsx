@@ -12,12 +12,11 @@ import { track } from "@/lib/analytics";
 type ShareProps = {
   name: string;
   archetype: string;
-  greek?: string;
   tagline?: string;
   variant?: "compact" | "full";
 };
 
-export function ShareCard({ name, archetype, greek, tagline, variant = "compact" }: ShareProps) {
+export function ShareCard({ name, archetype, tagline, variant = "compact" }: ShareProps) {
   const [copied, setCopied] = useState(false);
   const firstName = name.split(/\s+/)[0];
   const url = typeof window !== "undefined" ? window.location.origin : "https://lucklab.app";
@@ -67,11 +66,6 @@ export function ShareCard({ name, archetype, greek, tagline, variant = "compact"
       <p className="font-display text-[22px] text-[var(--text)] mb-2">
         {firstName}, you are <em className="not-italic text-[var(--gold)]">{archetype}</em>.
       </p>
-      {greek && (
-        <p className="font-mono text-[11px] text-[var(--text-subtle)] tracking-wider mb-1">
-          {greek}
-        </p>
-      )}
       {tagline && (
         <p className="text-[14px] text-[var(--text-muted)] italic mb-6">{tagline}</p>
       )}

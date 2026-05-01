@@ -18,7 +18,7 @@ type FreeTeaser = {
 };
 
 type ReadingData = {
-  archetype: { id: string; name: string; greek: string; tagline: string };
+  archetype: { id: string; name: string; tagline: string };
   tyche: FreeTeaser;
   locked?: { scores: Record<string, number>; growthEdge: string; resonantTraditions: string[] };
   answers: { questionId: number; optionId: string }[];
@@ -189,10 +189,8 @@ export default function ReadingPreviewPage() {
           <ArchetypeReveal
             name={firstName || "friend"}
             archetype={archetype.name}
-            greek={archetype.greek}
             tagline={archetype.tagline}
             scores={reading.locked?.scores || {}}
-            showGreek={false}
           />
         </div>
 

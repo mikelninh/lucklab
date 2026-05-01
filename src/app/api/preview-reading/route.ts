@@ -126,7 +126,7 @@ export async function POST(req: NextRequest) {
   return NextResponse.json({
     tier,
     model,
-    archetype: { name: archetype.name, greek: archetype.greek, tagline: archetype.tagline },
+    archetype: { name: archetype.name, tagline: archetype.tagline },
     scores: norm,
     growthEdge: edgeMech.name,
     resonantTraditions: resonant,

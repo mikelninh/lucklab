@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "luck",
     "synchronicity",
     "serendipity",
-    "kairos",
+    "opportune moment",
     "how to be lucky",
     "meaningful coincidences",
     "Jung synchronicity",

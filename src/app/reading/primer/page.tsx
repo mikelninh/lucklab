@@ -310,7 +310,6 @@ export default async function PrimerPage({
         <ArchetypeReveal
           name={firstName || "friend"}
           archetype={archetype.name}
-          greek=""
           tagline={archetype.tagline}
           scores={norm}
         />

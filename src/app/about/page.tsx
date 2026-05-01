@@ -98,8 +98,7 @@ export default function AboutPage() {
             <p>
               We will not cast horoscopes. Your birthdate is used, when you
               provide it, for <em>metaphor</em> &mdash; Tyche may reference your
-              season of birth or Greek calendar month when it earns its place,
-              never as prediction.
+              season of birth when it earns its place, never as prediction.
             </p>
             <p>
               We will not predict futures. No tradition Luck Lab draws from
@@ -175,16 +174,15 @@ export default function AboutPage() {
           <div className="eyebrow mb-4">one final note</div>
           <div className="space-y-5 text-[15px] md:text-[16px] text-[var(--text)] leading-[1.85]">
             <p>
-              The Greek word <em>kairos</em> means the opportune moment &mdash;
-              the right time, the ripe instant, the pivot that rewards the
-              person who is awake enough to notice it. It contrasts with{" "}
-              <em>chronos</em>, which is clock time, linear time, time that just
-              passes.
+              The opportune moment means the right time, the ripe instant, the
+              pivot that rewards the person who is awake enough to notice it.
+              It contrasts with <em>chronos</em>, which is clock time, linear
+              time, time that just passes.
             </p>
             <p>
-              Most of life is chronos. Every so often, something arrives that is
-              kairos. If you cannot tell them apart, you miss the ones that
-              mattered.
+              Most of life is chronos. Every so often, something arrives that
+              is the opportune moment. If you cannot tell them apart, you miss
+              the ones that mattered.
             </p>
             <p>Luck Lab exists to help you tell them apart.</p>
           </div>

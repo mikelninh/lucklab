@@ -281,7 +281,7 @@ export default function ReadingPage() {
             </h1>
             <p className="text-[16px] text-[var(--text-muted)] mt-6 leading-relaxed max-w-lg">
               Ten calibrated inputs on how you meet the world. Tyche will map your
-              kairotic profile across six trainable mechanisms and return your
+              luck pattern across six trainable mechanisms and return your
               archetype, tradition match, and the doorway into your Reading.
             </p>
             <p className="text-[14px] text-[var(--text-subtle)] mt-4 leading-relaxed max-w-lg">
@@ -395,9 +395,8 @@ export default function ReadingPage() {
             </h2>
             <p className="text-[13px] text-[var(--text-subtle)] italic mb-8 max-w-lg leading-relaxed">
               Both fields are optional &mdash; skip and Tyche reads from your ten
-              inputs alone. But birthdate gives her poetic context (season, Greek
-              calendar month) and a current question becomes the living thread of
-              your Reading.
+              inputs alone. But birthdate gives her seasonal context and a current
+              question becomes the living thread of your Reading.
             </p>
 
             {/* birthdate */}

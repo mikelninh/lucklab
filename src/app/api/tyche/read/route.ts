@@ -122,7 +122,6 @@ export async function POST(req: NextRequest) {
       archetype: {
         id: archetype.id,
         name: archetype.name,
-        greek: archetype.greek,
         tagline: archetype.tagline,
       },
       tyche,

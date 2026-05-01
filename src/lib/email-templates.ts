@@ -110,8 +110,8 @@ const ARCHETYPE_STORIES: Record<string, { subject: string; story: string }> = {
     story: `Jung's patient was describing a dream about a golden scarab when a real beetle flew through the consulting-room window. He caught it and handed it to her. The therapeutic impasse broke. As a Seer, your attention catches what others miss. The question your Reading explores is what you do with what you catch — because noticing without acting is the Seer's specific trap.`,
   },
   "The Steerer": {
-    subject: "The Greeks sculpted the moment of luck. It looks like you.",
-    story: `Lysippos sculpted Kairos — the god of the opportune moment — with a long forelock and a bald back. You could seize him as he approached, but once he passed, there was nothing to grip. As a Steerer, you seize. You always have. Your Reading explores the cost: the moments you seized that were not yet ripe.`,
+    subject: "The moment of luck looks like you.",
+    story: `One old sculpture showed the opportune moment with a long forelock and a bald back. You could seize it as it approached, but once it passed, there was nothing to grip. As a Steerer, you seize. You always have. Your Reading explores the cost: the moments you seized that were not yet ripe.`,
   },
   "The Wanderer": {
     subject: "Wiseman's luckiest subjects had one thing in common",

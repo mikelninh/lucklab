@@ -9,7 +9,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
  *
  * Left stage: stacked archetype cards (9:16), pointer-parallax tilt on the
  *   active one, siblings fan behind with depth.
- * Right panel: Greek name, strongest/quietest levers, narrated story
+ * Right panel: strongest/quietest levers, narrated story
  *   (reused verbatim from email-templates.ts ARCHETYPE_STORIES), CTA.
  *
  * Interaction: ←/→ keyboard, click the chip rail, click the card itself.
@@ -19,7 +19,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 type Archetype = {
   id: string;
   name: string;
-  greek: string;           // Greek letters (display)
   transliteration: string; // latinised, italic sub
   image: string;           // /archetypes/*.png
   strongest: string;
@@ -33,7 +32,6 @@ const ARCHETYPES: Archetype[] = [
   {
     id: "seer",
     name: "The Seer",
-    greek: "ΠΡΟΦΉΤΗΣ",
     transliteration: "prophētēs · the one who sees",
     image: "/archetypes/seer.png",
     strongest: "Noticing",
@@ -46,7 +44,6 @@ const ARCHETYPES: Archetype[] = [
   {
     id: "wanderer",
     name: "The Wanderer",
-    greek: "ΟΔΟΙΠΌΡΟΣ",
     transliteration: "hodoiporos · the one who walks",
     image: "/archetypes/wanderer.png",
     strongest: "Variance",
@@ -59,20 +56,18 @@ const ARCHETYPES: Archetype[] = [
   {
     id: "steerer",
     name: "The Steerer",
-    greek: "ΚΥΒΕΡΝΉΤΗΣ",
     transliteration: "kybernētēs · the helmsman",
     image: "/archetypes/steerer.png",
     strongest: "Acting",
     quietest: "Surrender",
-    tagline: "Kairos had a forelock. You grip.",
+    tagline: "The opportune moment had a forelock. You grip.",
     story:
-      "Lysippos sculpted Kairos — the god of the opportune moment — with a long forelock and a bald back. You could seize him as he approached, but once he passed, there was nothing to grip. As a Steerer, you seize. You always have. Your Reading explores the cost: the moments you seized that were not yet ripe.",
+      "One old sculpture showed the opportune moment with a long forelock and a bald back. You could seize it as it approached, but once it passed, there was nothing to grip. As a Steerer, you seize. You always have. Your Reading explores the cost: the moments you seized that were not yet ripe.",
     color: "#c47e55",
   },
   {
     id: "yielder",
     name: "The Yielder",
-    greek: "ΕΥΉΝΙΟΣ",
     transliteration: "euēnios · the one who flows",
     image: "/archetypes/yielder.png",
     strongest: "Surrender",
@@ -85,7 +80,6 @@ const ARCHETYPES: Archetype[] = [
   {
     id: "weaver",
     name: "The Weaver",
-    greek: "ΥΦΑΝΤΉΣ",
     transliteration: "hyphantēs · the one who weaves",
     image: "/archetypes/weaver.png",
     strongest: "Weak Ties",
@@ -98,7 +92,6 @@ const ARCHETYPES: Archetype[] = [
   {
     id: "reader",
     name: "The Reader",
-    greek: "ΑΝΑΓΝΏΣΤΗΣ",
     transliteration: "anagnōstēs · the one who reads",
     image: "/archetypes/reader.png",
     strongest: "Meaning-making",
@@ -177,8 +170,8 @@ export function ArchetypeGallery() {
         <em className="not-italic text-[var(--gold)]">One of them is yours.</em>
       </h2>
       <p className="text-[15px] text-[var(--text-muted)] max-w-2xl mb-14 leading-relaxed">
-        Every Reading returns one of six kairotic archetypes &mdash; each named
-        in Greek, each rooted in a verified research finding or a primary text.
+        Every Reading returns one of six luck archetypes &mdash; each named
+        each rooted in a verified research finding or a primary text.
         Move through the deck. One of these is already you.
       </p>
 
@@ -322,9 +315,6 @@ export function ArchetypeGallery() {
           {/* Narration body — keyed to remount on change for fade */}
           <div key={current.id} className="archetype-panel">
             <div className="flex items-baseline flex-wrap gap-x-4 gap-y-1 mb-2">
-              <div className="eyebrow eyebrow-tyche">
-                {current.greek}
-              </div>
               <span className="font-display italic text-[13px] text-[var(--text-subtle)]">
                 {current.transliteration}
               </span>

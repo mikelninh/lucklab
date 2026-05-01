@@ -17,10 +17,8 @@ import { track } from "@/lib/analytics";
 type RevealProps = {
   name: string;
   archetype: string;
-  greek: string;
   tagline: string;
   scores: Record<string, number>;
-  showGreek?: boolean;
 };
 
 const SCORE_ORDER = ["attention", "openness", "action", "surrender", "connection", "meaning"];
@@ -40,7 +38,7 @@ const CARD_STYLES = [
   { id: "aurora", label: "Aurora", preview: "bg-gradient-to-br from-[#1a0e2e] to-[#0e1a2e] text-[#c4b0ff]" },
 ] as const;
 
-export function ArchetypeReveal({ name, archetype, greek, tagline, scores, showGreek = true }: RevealProps) {
+export function ArchetypeReveal({ name, archetype, tagline, scores }: RevealProps) {
   const [phase, setPhase] = useState<"idle" | "playing" | "done">("idle");
   const [downloading, setDownloading] = useState(false);
   const [selectedStyle, setSelectedStyle] = useState("midnight");
@@ -61,7 +59,7 @@ export function ArchetypeReveal({ name, archetype, greek, tagline, scores, showG
   const strongest = sortedScores[0]?.label || "Attention";
   const quietest = sortedScores[sortedScores.length - 1]?.label || "Openness";
 
-  const shareCardUrl = `/api/share-card?name=${encodeURIComponent(name)}&archetype=${encodeURIComponent(archetype)}&greek=${encodeURIComponent(greek)}&tagline=${encodeURIComponent(tagline)}&strongest=${encodeURIComponent(strongest)}&quietest=${encodeURIComponent(quietest)}&style=${selectedStyle}`;
+  const shareCardUrl = `/api/share-card?name=${encodeURIComponent(name)}&archetype=${encodeURIComponent(archetype)}&tagline=${encodeURIComponent(tagline)}&strongest=${encodeURIComponent(strongest)}&quietest=${encodeURIComponent(quietest)}&style=${selectedStyle}`;
 
   async function downloadCard() {
     setDownloading(true);
@@ -74,7 +72,7 @@ export function ArchetypeReveal({ name, archetype, greek, tagline, scores, showG
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `kairos-${archetypeShort.toLowerCase()}-${firstName.toLowerCase()}-${selectedStyle}.png`;
+      a.download = `lucklab-${archetypeShort.toLowerCase()}-${firstName.toLowerCase()}-${selectedStyle}.png`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -113,12 +111,6 @@ export function ArchetypeReveal({ name, archetype, greek, tagline, scores, showG
             <div className={`font-display text-[32px] md:text-[36px] leading-[1] tracking-tight text-gold-gradient transition-all duration-1000 delay-700 ${phase === "playing" || phase === "done" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
               {archetypeShort}
             </div>
-
-            {showGreek && greek && (
-              <div className={`font-mono text-[9px] text-[var(--text-subtle)] tracking-wider mt-1 transition-opacity duration-700 delay-1000 ${phase === "done" ? "opacity-100" : "opacity-0"}`}>
-                {greek}
-              </div>
-            )}
 
             {tagline && (
               <div className={`font-display text-[11px] text-[var(--text-muted)] italic text-center max-w-[240px] mt-2 transition-opacity duration-700 delay-1200 ${phase === "done" ? "opacity-100" : "opacity-0"}`}>

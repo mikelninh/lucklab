@@ -201,7 +201,7 @@ export default async function FullReadingPage({
 
         {/* architecture */}
         <section className="mb-20">
-          <div className="eyebrow mb-4">i &middot; your kairotic architecture</div>
+          <div className="eyebrow mb-4">i &middot; your luck architecture</div>
           <h2 className="font-display text-[36px] md:text-[42px] font-light leading-tight mb-6 text-balance">
             How luck reaches <em className="text-[var(--gold)] not-italic">you</em>.
           </h2>
@@ -344,7 +344,6 @@ export default async function FullReadingPage({
         <ArchetypeReveal
           name={firstName || "friend"}
           archetype={archetype.name}
-          greek={archetype.greek}
           tagline={archetype.tagline}
           scores={norm}
         />
@@ -479,7 +478,7 @@ async function generateFullReading(context: {
         { week: 1, theme: "Orient in strength", focus: dom1, practices: [`Days 1–2: Notice three moments daily where your ${dom1.toLowerCase()} activates. Write them down.`, `Days 3–5: Deliberately extend that lever — hold it for 30 seconds longer than feels natural.`, `Days 6–7: Review your notes. Which moments surprised you?`] },
         { week: 2, theme: "Deepen the second lever", focus: dom2, practices: [`Days 8–9: Identify when your ${dom2.toLowerCase()} naturally appears in your routine.`, `Days 10–12: Introduce one novel element per day that exercises it.`, `Days 13–14: Journal the contrast between week 1 and week 2.`] },
         { week: 3, theme: "Stretch the growth edge", focus: edge, practices: [`Days 15–17: Your ${edge.toLowerCase()} is quietest. Spend 10 minutes daily practising it deliberately.`, `Days 18–20: Notice the discomfort. That is the signal you are growing.`, `Days 21: Rest. Let the practice integrate without forcing.`] },
-        { week: 4, theme: "Integrate all six", focus: "all six", practices: [`Days 22–24: Each day, rotate through two mechanisms. Notice how they interact.`, `Days 25–27: Live a normal day and count the kairotic moments that appear without forcing.`, `Days 28–30: Write a one-page letter to yourself about what changed.`] },
+        { week: 4, theme: "Integrate all six", focus: "all six", practices: [`Days 22–24: Each day, rotate through two mechanisms. Notice how they interact.`, `Days 25–27: Live a normal day and count the luck moments that appear without forcing.`, `Days 28–30: Write a one-page letter to yourself about what changed.`] },
       ],
     },
     dailyRitual: `Each morning for the next thirty days, before your first obligation, sit for seven minutes. For the first three minutes, widen your attention — notice sounds, light, temperature, the quality of the air. For the next two minutes, ask yourself one question: "What am I being invited to notice today?" For the final two minutes, do nothing. This ritual is calibrated to ${context.archetypeName}; it begins with your strength (attention) and ends with your edge (surrender).`,
