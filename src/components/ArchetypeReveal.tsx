@@ -20,6 +20,7 @@ type RevealProps = {
   greek: string;
   tagline: string;
   scores: Record<string, number>;
+  showGreek?: boolean;
 };
 
 const SCORE_ORDER = ["attention", "openness", "action", "surrender", "connection", "meaning"];
@@ -39,7 +40,7 @@ const CARD_STYLES = [
   { id: "aurora", label: "Aurora", preview: "bg-gradient-to-br from-[#1a0e2e] to-[#0e1a2e] text-[#c4b0ff]" },
 ] as const;
 
-export function ArchetypeReveal({ name, archetype, greek, tagline, scores }: RevealProps) {
+export function ArchetypeReveal({ name, archetype, greek, tagline, scores, showGreek = true }: RevealProps) {
   const [phase, setPhase] = useState<"idle" | "playing" | "done">("idle");
   const [downloading, setDownloading] = useState(false);
   const [selectedStyle, setSelectedStyle] = useState("midnight");
@@ -113,7 +114,7 @@ export function ArchetypeReveal({ name, archetype, greek, tagline, scores }: Rev
               {archetypeShort}
             </div>
 
-            {greek && (
+            {showGreek && greek && (
               <div className={`font-mono text-[9px] text-[var(--text-subtle)] tracking-wider mt-1 transition-opacity duration-700 delay-1000 ${phase === "done" ? "opacity-100" : "opacity-0"}`}>
                 {greek}
               </div>

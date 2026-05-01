@@ -119,20 +119,21 @@ Their answer pattern: ${ctx.answersNarrative}
 # Your task — produce the FREE TEASER
 
 This is a free preview. It must feel revelatory but incomplete — the reader should finish it hungry for more. Do NOT reveal scores, growth edge, full protocol, or daily ritual. Those belong to the paid tiers.
+It should read like a verdict, not a preamble. The reader should be able to screenshot the first paragraph and send it.
 
 Return a JSON object with exactly these fields:
 
 {
-  "greeting": "One sentence. Name them${ctx.personal ? " (use their actual name)" : ""} the ${ctx.archetypeName}. Calm certainty.",
+  "greeting": "One sentence. Open with the cleanest verdict you can give about their luck pattern. Name them${ctx.personal ? " (use their actual name)" : ""} the ${ctx.archetypeName}. No hedging.",
 
-  "archetypeGlimpse": "Three sentences (~60 words). Why they are this archetype. Reference ONE specific thing from their answers. End on a beat that implies there is more to see.",
+  "archetypeGlimpse": "Three short, punchy sentences (~60 words). Why they are this archetype. Reference ONE specific thing from their answers. End on a line someone would actually send to a friend.",
 
   "traditionTease": {
     "name": "ONE tradition from their resonant list that fits best",
     "hook": "A single sentence that names the concept (e.g. wu wei, synchronicity) and hints at what it reveals about them — without fully explaining."
   },
 
-  "unlockPrompt": "One sentence inviting them to unlock the Primer (€9). No hype, just precision about what they would see next."
+  "unlockPrompt": "One sentence inviting them to unlock the Primer (€9). Be concrete: tell them what useful thing they will get immediately."
 }
 
 Output ONLY the JSON. British English. No preamble.`;
@@ -177,6 +178,7 @@ ${ctx.answersNarrative}
 - ONE contradiction between two answers — the "spine" of the Primer
 - Write like a poet-therapist, not an analyst. SHOW through metaphor.
 - Practices: time of day, physical posture, duration. Never generic.
+- The buyer should feel "I finally understand what this means" within the first 20% of the output.
 
 EXEMPLAR of a great contradiction:
 "Your surrender is your highest lever, but your openness is zero. You can let go of outcomes but not routines. That is like being able to swim but refusing to enter the water."
@@ -186,16 +188,16 @@ EXEMPLAR of a great practice:
 
 # Your task — produce the €9 PRIMER
 
-This is their first purchase. It must OVER-DELIVER. The buyer should think "this alone was worth €20." Total: ~1,200 words across all fields. Dense, every sentence earns its place.
+This is their first purchase. It must OVER-DELIVER. The buyer should think "this alone was worth €20." Total: ~1,200 words across all fields. Dense, every sentence earns its place. Make it feel like a personal memo they would keep, not a report they would file away.
 
 Return a JSON object with exactly these fields:
 
 {
-  "greeting": "~60 words. Open with their name. Quote ONE of their answers in the first two sentences. Set the tone: Tyche sees them. Not 'Welcome' — start with what she noticed.",
+  "greeting": "~60 words. Open with their name. Quote ONE of their answers in the first two sentences. Set the tone: Tyche sees them. Not 'Welcome' — start with what she noticed. The first sentence should be the one they screenshot.",
 
-  "archetypeInsight": "~200 words. Two paragraphs. Paragraph 1: why they are ${ctx.archetypeName} — cite TWO specific answers. Paragraph 2: what this means for how luck reaches them. End with a sentence that lands.",
+  "archetypeInsight": "~200 words. Two paragraphs. Paragraph 1: why they are ${ctx.archetypeName} — cite TWO specific answers. Paragraph 2: what this means for how luck reaches them. End with a sentence that lands hard enough to remember.",
 
-  "contradiction": "~100 words. The ONE non-obvious tension between two of their answers or scores. This is the paragraph they screenshot. Use a vivid metaphor. Example register: 'That is like being able to swim but refusing to enter the water.'",
+  "contradiction": "~100 words. The ONE non-obvious tension between two of their answers or scores. This is the paragraph they screenshot. Use a vivid metaphor. Example register: 'That is like being able to swim but refusing to enter the water.' Make it slightly surprising.",
 
   "sixLevers": {
     "summary": "One sentence framing the model.",

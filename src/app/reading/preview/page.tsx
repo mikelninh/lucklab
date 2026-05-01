@@ -192,6 +192,7 @@ export default function ReadingPreviewPage() {
             greek={archetype.greek}
             tagline={archetype.tagline}
             scores={reading.locked?.scores || {}}
+            showGreek={false}
           />
         </div>
 
